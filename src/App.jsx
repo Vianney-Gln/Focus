@@ -10,7 +10,6 @@ import SignUp from "./Containers/SignUp";
 import SignIn from "./Containers/SignIn";
 import ItemModal from "./Containers/ItemModal";
 import Player from "./Containers/Player";
-// test
 
 function App() {
   return (
