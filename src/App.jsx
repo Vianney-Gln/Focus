@@ -1,15 +1,15 @@
 import React from "react";
 import "./styles/App.css";
-import Home from "./Component/Home";
-import Suggestion from "./Component/Suggestion";
-import PopupMenu from "./Component/PopupMenu";
-import Category from "./Component/Category";
-import AboutUs from "./Component/AboutUs";
-import MyList from "./Component/MyList";
-import SignUp from "./Component/SignUp";
-import SignIn from "./Component/SignIn";
-import ItemModal from "./Component/ItemModal";
-import Player from "./Component/Player";
+import Home from "./Containers/Home";
+import Suggestion from "./Containers/Suggestion";
+import PopupMenu from "./Containers/PopupMenu";
+import Category from "./Containers/Category";
+import AboutUs from "./Containers/AboutUs";
+import MyList from "./Containers/MyList";
+import SignUp from "./Containers/SignUp";
+import SignIn from "./Containers/SignIn";
+import ItemModal from "./Containers/ItemModal";
+import Player from "./Containers/Player";
 
 function App() {
   return (
