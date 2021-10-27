@@ -2,23 +2,23 @@ import React from "react";
 import "../styles/popupMenu.css";
 
 const PopupMenu = () => (
-  <div className="popup-menu-button">
+  <div className="popup-menu-elements">
     <div className="cross-close">
       <button type="button">X</button>
     </div>
-    <div className="popup-menu-button-top">
-      <button type="button">UPCOMING</button>
-      <button type="button">TOP RATED</button>
-      <button type="button">LATES</button>
-    </div>
-    <div className="popup-menu-button-bottom">
-      <button className="my-list" type="button">
+    <ul className="popup-menu-elements-top">
+      <li>UPCOMING</li>
+      <li>TOP RATED</li>
+      <li>LATEST</li>
+    </ul>
+    <ul className="popup-menu-elements-bottom">
+      <li className="my-list" type="button">
         MYLIST
-      </button>
-      <button className="about-us" type="button">
+      </li>
+      <li className="about-us" type="button">
         ABOUT US
-      </button>
-    </div>
+      </li>
+    </ul>
   </div>
 );
 

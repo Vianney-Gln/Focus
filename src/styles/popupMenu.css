@@ -1,4 +1,4 @@
-.popup-menu-button-top {
+.popup-menu-elements-top {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -7,13 +7,13 @@
   height: 50vh;
 }
 
-.popup-menu-button-top button {
+.popup-menu-elements-top li {
   font-size: 72px;
   cursor: pointer;
   font-family: "Grotesk";
 }
 
-.popup-menu-button-bottom {
+.popup-menu-elements-bottom {
   height: 35vh;
   display: flex;
   align-items: flex-end;
@@ -22,7 +22,7 @@
   margin-right: 40px;
 }
 
-.popup-menu-button button {
+.popup-menu-elements button {
   color: white;
   background-color: black;
   border: none;
@@ -37,10 +37,10 @@
 .my-list {
   font-size: 72px;
 }
-.popup-menu-button-bottom button:hover {
+.popup-menu-elements-bottom li:hover {
   text-decoration: underline;
 }
-.popup-menu-button-top button:hover {
+.popup-menu-elements-top li:hover {
   text-decoration: underline;
 }
 .cross-close {
@@ -58,16 +58,16 @@
 }
 
 @media screen and (max-width: 700px) {
-  .popup-menu-button-top {
+  .popup-menu-elements-top {
     align-items: center;
     margin: 0;
   }
-  .popup-menu-button-bottom {
+  .popup-menu-elements-bottom {
     align-items: center;
     margin: 0;
   }
 
-  .popup-menu-button-top button {
+  .popup-menu-elements-top li {
     font-size: 32px;
   }
 
