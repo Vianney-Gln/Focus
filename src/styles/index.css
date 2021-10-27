@@ -137,3 +137,19 @@ a {
   padding: 0 10px 0 0;
   font-size: 18px;
 }
+
+/********** font ************/
+
+@font-face {
+  font-family: "Grotesk";
+  src: url("./font/Grotesk.eot");
+  src: local("Grotesk"),
+    url("./font/Grotesk.eot?#iefix") format("embedded-opentype"),
+    url("./font/Grotesk.woff2") format("woff2"),
+    url("./font/Grotesk.woff") format("woff"),
+    url("./font/Grotesk.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+/********** font ************/
