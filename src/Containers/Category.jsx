@@ -19,10 +19,12 @@ const Category = () => {
       <div className="container-category">
         {/** Ici composant NavBar */}
 
-        <div className="title-category">
-          <h1>LATEST</h1>
+        <div className="container-previous-items-center">
+          <div className="title-category">
+            <h1>LATEST</h1>
+          </div>
+          <div className="container-previous-items">{items}</div>
         </div>
-        <div className="container-previous-items">{items}</div>
       </div>
     </>
   );

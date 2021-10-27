@@ -1,15 +1,12 @@
 .title-category {
-  width: 70%;
-  margin: 20px;
+  width: 100%;
   text-align: right;
   margin-top: 40px;
-}
-
-.title-category h1 {
-  padding-right: 30px;
+  margin-bottom: 10px;
 }
 
 .container-category {
+  width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -19,10 +16,11 @@
 }
 
 .container-previous-items {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 20px;
+  row-gap: 1em;
+  width: 100%;
   margin-bottom: 20px;
 }
 
@@ -30,10 +28,10 @@
   .title-category h1 {
     font-size: 28px;
   }
-  .container-previous-items {
-    justify-content: space-around;
+  .title-category {
+    width: 98%;
   }
-  .title-category h1 {
-    padding: 0;
+  .container-previous-items {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

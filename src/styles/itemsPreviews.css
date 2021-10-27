@@ -1,9 +1,9 @@
 .preview-items {
-  height: 200px;
+  height: 180px;
+  width: 236px;
   display: flex;
+  align-items: center;
   flex-direction: column;
-  margin-right: 10px;
-  margin-left: 10px;
 }
 
 .preview-items img {
@@ -14,8 +14,11 @@
   transition: 0.8s;
 }
 
-.preview-items span {
+.preview-items .title {
   margin-top: 10px;
+  display: block;
+  width: 100%;
+  text-align: left;
   font-family: "Lato";
 }
 
@@ -24,12 +27,24 @@
   filter: blur(2px);
 }
 
+.title-for-mobile {
+  margin-top: 10px;
+  width: 100%;
+  text-align: left;
+  font-family: "Lato";
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .preview-items {
     height: 106px;
+    width: 120px;
   }
   .preview-items img {
     width: 120px;
     height: 80px;
+  }
+  .title-for-mobile {
+    display: block;
   }
 }

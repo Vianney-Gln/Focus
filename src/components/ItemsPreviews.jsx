@@ -17,7 +17,8 @@ function ItemsPreviews() {
         src="http://image.tmdb.org/t/p/w300/s3TBrRGB1iav7gFOCNx3H31MoES.jpg"
         alt="films"
       />
-      {display && <span>title</span>}
+      {display && <span className="title">title</span>}
+      <span className="title-for-mobile">title</span>
     </div>
   );
 }
