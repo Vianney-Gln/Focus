@@ -5,10 +5,12 @@
   margin-top: 40px;
 }
 
+.title-category h1 {
+  padding-right: 30px;
+}
+
 .container-category {
   height: 100vh;
-  background-repeat: no-repeat;
-  background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,4 +24,16 @@
   flex-wrap: wrap;
   width: 80%;
   margin-bottom: 20px;
+}
+
+@media screen and (max-width: 700px) {
+  .title-category h1 {
+    font-size: 28px;
+  }
+  .container-previous-items {
+    justify-content: space-around;
+  }
+  .title-category h1 {
+    padding: 0;
+  }
 }
