@@ -1,10 +1,22 @@
+.preview-items {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
 .preview-items img {
   height: 158px;
   width: 236px;
-  margin: 20px;
   cursor: pointer;
   object-fit: cover;
   transition: 0.8s;
+}
+
+.preview-items span {
+  margin-top: 10px;
+  font-family: "Lato";
 }
 
 .preview-items img:hover {
