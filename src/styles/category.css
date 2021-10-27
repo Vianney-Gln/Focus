@@ -1,12 +1,4 @@
-.background-image {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 40%;
-}
-
-.title-latest {
+.title-category {
   width: 70%;
   margin: 20px;
   text-align: right;
@@ -30,12 +22,4 @@
   flex-wrap: wrap;
   width: 80%;
   margin-bottom: 20px;
-}
-
-.preview-items {
-  height: 158px;
-  width: 236px;
-  border: 1px solid black;
-  background-color: white;
-  margin: 20px;
 }

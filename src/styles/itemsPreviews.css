@@ -1,0 +1,13 @@
+.preview-items img {
+  height: 158px;
+  width: 236px;
+  margin: 20px;
+  cursor: pointer;
+  object-fit: cover;
+  transition: 0.8s;
+}
+
+.preview-items img:hover {
+  border: 1px solid white;
+  filter: blur(2px);
+}
