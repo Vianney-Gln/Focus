@@ -44,7 +44,11 @@
     width: 120px;
     height: 80px;
   }
-  .title-for-mobile {
-    display: block;
+
+  .preview-items img {
+    border: 1px solid white;
+  }
+  .preview-items img:hover {
+    filter: none;
   }
 }
