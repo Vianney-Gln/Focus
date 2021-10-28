@@ -31,10 +31,11 @@
 }
 .container-image {
   height: 159px;
+  border: 1px solid transparent;
 }
 
 .container-image:hover {
-  border: 1px solid white;
+  border-color: white;
 }
 
 @media screen and (max-width: 768px) {
