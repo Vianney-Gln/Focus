@@ -86,7 +86,7 @@ const SignUp = () => {
 
         <form>
           <label htmlFor="signUpEmail">
-            <p>Register your email address:</p>
+            <p>Type your email address:</p>
             <input
               type="email"
               name="email"
@@ -97,7 +97,7 @@ const SignUp = () => {
             />
           </label>
           <label htmlFor="signUpPasswordStep1">
-            <p>Type your password</p>
+            <p>Type your password:</p>
             <input
               type="password"
               name="password"
