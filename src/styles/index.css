@@ -138,22 +138,6 @@ a {
   padding: 0 10px 0 0;
   font-size: 18px;
 }
-/********** font ************/
-
-@font-face {
-  font-family: "Grotesk";
-  src: url("./font/Grotesk.eot");
-  src: local("Grotesk"),
-    url("./font/Grotesk.eot?#iefix") format("embedded-opentype"),
-    url("./font/Grotesk.woff2") format("woff2"),
-    url("./font/Grotesk.woff") format("woff"),
-    url("./font/Grotesk.ttf") format("truetype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-/********** font ************/
-
 
 /********** Home ************/
 @media screen and (min-width: 700px) {
@@ -281,13 +265,13 @@ background-position: center;
 @media screen and (max-width: 700px) {
   .Logo {
     position: relative;
-    height: 3vh;
-    max-height: 3vh;
+    height: 5vh;
+    max-height: 5vh;
     margin: 2%;
   }
   .fakeBurger{
     width: 50px;
-    height: 50px;
+    height: 30px;
     background-color: grey;
   }
   .contbuttonmylist {
@@ -309,11 +293,11 @@ background-position: center;
     justify-content: space-around;
     align-items: center;
     margin: 2%;
-    gap: 10px;
+    gap: 20px;
   }
   
   .mainHome {
-    height: 80vh;
+    height: 75vh;
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
@@ -321,7 +305,7 @@ background-position: center;
     background-image: url(http://image.tmdb.org/t/p/w780/s3TBrRGB1iav7gFOCNx3H31MoES.jpg) ;
     background-size: contain;
   background-repeat: no-repeat;
-  background-size: 60%;
+  background-size: 70%;
   background-position: center;
   
     
@@ -376,6 +360,37 @@ background-position: center;
     width: 15vw;
   
   }
+  .search {
+    width: 100%;
+    display: flex;
+  }
+  
+  .searchTerm {
+    width: 70px;
+    border: none;
+    border-bottom: 1px solid white;
+    border-right: none;
+    padding: 0 0 0 0;
+    outline: none;
+    color: white;
+    background-color: #000;
+  }
+  
+  .searchTerm:focus{
+    color: white;
+  }
+  
+  .searchButton {
+    border: none;
+    border-bottom: 1px solid white;
+    background: #000;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    padding: 0 10px 0 0;
+    font-size: 18px;
+  }
+  
 }
 
 
