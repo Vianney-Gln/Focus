@@ -7,7 +7,7 @@ import Category from "./containers/Category";
 import AboutUs from "./containers/AboutUs";
 import MyList from "./containers/MyList";
 import SignUp from "./containers/SignUp";
-import SignIn from "./containers/SignIn";
+// import SignIn from "./containers/SignIn";
 import ItemModal from "./containers/ItemModal";
 import Player from "./containers/Player";
 
@@ -21,7 +21,7 @@ function App() {
       <AboutUs />
       <MyList />
       <SignUp />
-      <SignIn />
+      {/* <SignIn /> */}
       <ItemModal />
       <Player />
     </div>
