@@ -16,23 +16,25 @@
 
 .preview-items .title {
   margin-top: 10px;
-  display: block;
+  display: none;
   width: 100%;
   text-align: left;
   font-family: "Lato";
 }
 
-.preview-items img:hover {
-  border: 1px solid white;
+.preview-items:hover .title {
+  display: block;
+}
+
+.preview-items:hover img {
   filter: blur(2px);
 }
+.container-image {
+  height: 159px;
+}
 
-.title-for-mobile {
-  margin-top: 10px;
-  width: 100%;
-  text-align: left;
-  font-family: "Lato";
-  display: none;
+.container-image:hover {
+  border: 1px solid white;
 }
 
 @media screen and (max-width: 768px) {
@@ -43,6 +45,18 @@
   .preview-items img {
     width: 120px;
     height: 80px;
+  }
+
+  .preview-items .title {
+    display: block;
+  }
+
+  .container-image {
+    height: 80px;
+  }
+
+  .container-image:hover {
+    border: none;
   }
 
   .preview-items img {
