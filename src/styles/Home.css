@@ -1,0 +1,256 @@
+/********** Home ************/
+@media screen and (min-width: 700px) {
+  
+
+  .Logo {
+    height: 4vh;
+    max-height: 4vh;
+    margin: 2%;
+  }
+  .contbuttonmylist {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 10vw;
+  }
+  .buttonmylist {
+    font-weight: 200;
+    font-size: 13px;
+  }
+  .itemnavhome{
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 300;
+    rotate: 50%;
+    writing-mode: vertical-rl;
+    text-orientation: sideways-right;
+    transform: scale(-1);
+  
+  }
+  .itemnavhome:hover{
+   
+    font-weight: 600;
+  
+  }
+  .navhome{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap:50px;
+    margin: 20px;
+  }
+  
+  .navBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 2%;
+    gap: 50px;
+  }
+  
+  .mainHome {
+    height: 80vh;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url(http://image.tmdb.org/t/p/w780/s3TBrRGB1iav7gFOCNx3H31MoES.jpg) ;
+    background-size: contain;
+  background-repeat: no-repeat;
+  background-size: 30%;
+  background-position: center;
+  
+    
+  }
+  .contButtonSignIn{
+    width: 15vw;
+  }
+  
+  .switchHome{
+    margin-top: 70vh;
+    margin-left: 50px;
+    gap: 10px;
+    
+  }
+  
+  .switch{
+   display: flex;
+  
+  
+  }
+  
+  
+  .switch.movie {
+    position: absolute;
+    color: black;
+    z-index: 4;
+  
+  }
+  
+  
+  .switch.movie .serie {
+    position: absolute;
+    color: white;
+    z-index: 4;
+    width: 15vw;
+  
+  }
+  
+  
+  .switch.serie {
+    position: absolute;
+    color: black;
+    z-index: 5;
+    width: 15vw;
+  
+  }
+  
+  .switch.serie .movie{
+    position: absolute;
+    color:white;
+    z-index: 5;
+    width: 15vw;
+  
+  }
+  .fakeBurger{
+    display: none;
+  }
+  }
+  
+  /********** Home ************/
+  
+  /********** Home Mobile ************/
+  @media screen and (max-width: 700px) {
+    .Logo {
+      position: relative;
+      height: 5vh;
+      max-height: 5vh;
+      margin: 2%;
+    }
+    .fakeBurger{
+      width: 50px;
+      height: 30px;
+      background-color: grey;
+    }
+    .contbuttonmylist {
+      display: none;
+    }
+    
+    .itemnavhome{
+      display: none;
+    
+    }
+    
+    .navhome{
+      display: none;
+    }
+    
+    .navBar{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      margin: 2%;
+      gap: 20px;
+    }
+    
+    .mainHome {
+      height: 75vh;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: center;
+      background-image: url(http://image.tmdb.org/t/p/w780/s3TBrRGB1iav7gFOCNx3H31MoES.jpg) ;
+      background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center;
+    
+      
+    }
+    .contButtonSignIn{
+      display: none;
+    }
+    
+    .switchHome{
+      margin-top: 80vh;
+      margin-left: 20px;
+      gap: 10px;
+      
+    }
+    
+    .switch{
+     display: flex;
+    
+    
+    }
+    
+    
+    .switch.movie {
+      position: absolute;
+      color: black;
+      z-index: 4;
+    
+    }
+    
+    
+    .switch.movie .serie {
+      position: absolute;
+      color: white;
+      z-index: 4;
+      width: 15vw;
+    
+    }
+    
+    
+    .switch.serie {
+      position: absolute;
+      color: black;
+      z-index: 5;
+      width: 15vw;
+    
+    }
+    
+    .switch.serie .movie{
+      position: absolute;
+      color:white;
+      z-index: 5;
+      width: 15vw;
+    
+    }
+    .search {
+      width: 100%;
+      display: flex;
+    }
+    
+    .searchTerm {
+      width: 70px;
+      border: none;
+      border-bottom: 1px solid white;
+      border-right: none;
+      padding: 0 0 0 0;
+      outline: none;
+      color: white;
+      background-color: #000;
+    }
+    
+    .searchTerm:focus{
+      color: white;
+    }
+    
+    .searchButton {
+      border: none;
+      border-bottom: 1px solid white;
+      background: #000;
+      text-align: center;
+      color: white;
+      cursor: pointer;
+      padding: 0 10px 0 0;
+      font-size: 18px;
+    }
+    
+  }
+  
+  
+  /********** Home Mobile ************/
