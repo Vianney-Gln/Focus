@@ -1,8 +1,8 @@
 import React from "react";
-import avatarK from "../img/avatarK.png";
-import avatarG from "../img/avatarG.png";
-import avatarL from "../img/avatarL.png";
-import avatarV from "../img/avatarV.png";
+import avatarK from "../assets/images/avatarK.png";
+import avatarG from "../assets/images/avatarG.png";
+import avatarL from "../assets/images/avatarL.png";
+import avatarV from "../assets/images/avatarV.png";
 
 const TeamMembers = () => (
   <div className="teamMembers">
