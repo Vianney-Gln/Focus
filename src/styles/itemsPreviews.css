@@ -1,0 +1,69 @@
+.preview-items {
+  height: 180px;
+  width: 236px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.preview-items img {
+  height: 158px;
+  width: 236px;
+  cursor: pointer;
+  object-fit: cover;
+  transition: 0.8s;
+}
+
+.preview-items .title {
+  margin-top: 10px;
+  display: none;
+  width: 100%;
+  text-align: left;
+  font-family: "Lato";
+}
+
+.preview-items:hover .title {
+  display: block;
+}
+
+.preview-items:hover img {
+  filter: blur(2px);
+}
+.container-image {
+  height: 159px;
+  border: 1px solid transparent;
+}
+
+.container-image:hover {
+  border-color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .preview-items {
+    height: 106px;
+    width: 120px;
+  }
+  .preview-items img {
+    width: 120px;
+    height: 80px;
+  }
+
+  .preview-items .title {
+    display: block;
+  }
+
+  .container-image {
+    height: 80px;
+  }
+
+  .container-image:hover {
+    border: none;
+  }
+
+  .preview-items img {
+    border: 1px solid white;
+  }
+  .preview-items img:hover {
+    filter: none;
+  }
+}

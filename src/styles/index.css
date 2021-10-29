@@ -1,52 +1,52 @@
 *,
 *:before,
 *:after {
-	outline: none;
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 html,
 body {
-	width: 100%;
-	min-height: 100vh;
-	font-family: 'Lato', sans-serif;
-	background-color: #000;
-	color: #fff;
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Lato", sans-serif;
+  background-color: #000;
+  color: #fff;
 }
 html {
-	scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 a {
-	color: inherit;
+  color: inherit;
 }
 li,
 ul,
 ol {
-	list-style: none;
-	display: inline-block;
+  list-style: none;
+  display: inline-block;
 }
 ul,
 h1,
 h2,
 h3 {
-	line-height: 1;
+  line-height: 1;
 }
 h1 {
-	font-family: "Grotesk";
-	letter-spacing: -0.2em;
-	font-size: 120px;
-	text-shadow: 0px 2px 5px #000;
+  font-family: "Grotesk";
+  letter-spacing: -0.2em;
+  font-size: 120px;
+  text-shadow: 0px 2px 5px #000;
 }
 h2 {
-	font-size: 36px;
+  font-size: 36px;
 }
 h3 {
-	font-size: 24px;
+  font-size: 24px;
 }
 p {
-	font-size: 16px;
-	color: #ddd;
+  font-size: 16px;
+  color: #ddd;
 }
 a {
 	text-decoration: underline;
@@ -123,7 +123,6 @@ a {
   color: white;
   background-color: #000;
 }
-
 .searchTerm:focus{
   color: white;
 }
@@ -138,11 +137,9 @@ a {
   padding: 0 10px 0 0;
   font-size: 18px;
 }
-
 /********** Home ************/
 @media screen and (min-width: 700px) {
   
-
 .Logo {
   height: 4vh;
   max-height: 4vh;
@@ -168,9 +165,7 @@ a {
 
 }
 .itemnavhome:hover{
- 
   font-weight: 600;
-
 }
 .navhome{
   display: flex;
