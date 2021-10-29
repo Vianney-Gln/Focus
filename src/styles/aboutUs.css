@@ -1,0 +1,57 @@
+/******* aboutUS CSS begins *******/
+
+.aboutUs {
+  margin: 0 auto;
+  width: 1200px;
+}
+.concept p {
+  text-align: justify;
+}
+.teamMembers {
+  padding-top: 2em;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+.teamMembers-step1 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  width: 192px;
+  margin: 0 auto;
+}
+.teamMembers-step2 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  width: 192px;
+  margin: 0 auto;
+}
+.teamMembers-step3 {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  width: 192px;
+  margin: 0 auto;
+}
+.teamMembers-step4 {
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  width: 192px;
+  margin: 0 auto;
+}
+.teamMembers img {
+  border-radius: 50%;
+  width: 192px;
+  height: 192px;
+}
+.teamMembers p {
+  padding-top: 1em;
+}
+
+/******* aboutUS CSS ends  *******/
+
