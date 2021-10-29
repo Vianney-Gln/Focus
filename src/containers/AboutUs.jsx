@@ -1,6 +1,5 @@
 import React from "react";
-import Concept from "../Components/Concept";
-import TeamMembers from "../Components/TeamMembers";
+import TeamMembers from "../components/TeamMembers";
 import "../styles/index.css";
 import "../styles/aboutUs.css";
 
@@ -9,7 +8,7 @@ const AboutUs = () => (
     {/* <Logo /> */}
     {/* <Burger /> */}
     {/* <Title /> */}
-    <Concept />
+    {/* pas de composant concept */}
     <TeamMembers />
   </div>
 );

@@ -1,10 +1,10 @@
 import React from "react";
-import Logo from "../Components/Logo";
-import NavHome from "../Components/NavHome";
-import MyList from "../Components/MyList";
-import SearchBar from "../Components/SearchBar";
-import ButtonSignIn from "../Components/ButtonSignIn";
-import SwitchMtoS from "../Components/SwitchMtoS";
+import Logo from "../components/Logo";
+import NavHome from "../components/NavHome";
+import MyList from "../components/MyList";
+import SearchBar from "../components/SearchBar";
+import ButtonSignIn from "../components/ButtonSignIn";
+import SwitchMtoS from "../components/SwitchMtoS";
 import "../styles/index.css";
 
 const Home = () => (
