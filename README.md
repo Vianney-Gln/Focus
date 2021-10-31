@@ -1,13 +1,16 @@
-# Focus
+![Focus](https://i.imgur.com/RkOF8m2.png)
 
-## What is Focus
+## ![What is Focus](https://i.imgur.com/XqLrPTo.png)
+<br>
+Focus was born from 4 members, the 18 october of 2021, at Wild Code School as a second project of formation.<br>
+Why `Focus` ? A direct reference of "Cinema"<br>
+This app will provide you a system of favorite, research and more...
 
-> Focus was born from 4 members, the 18 october of 2021, at Wild Code School as a second project of formation.<br>
-> Why `Focus` ? A direct reference of "Cinema"<br>
-> This app will provide you a system of favorite, research and more...
+<br>
+<br>
 
-## Tables of Contents
-
+## ![Tables of Contents](https://i.imgur.com/onvvWvF.png)
+<br>
 ⋆ General Information<br>
 ⋆ Technologie Used<br>
 ⋆ Features<br>
@@ -19,19 +22,30 @@
 ⋆ Acknowledgements<br>
 ⋆ Contact
 
-## General Information
+<br>
+<br>
 
+## ![General Information](https://i.imgur.com/OQaEFdc.png)
+<br>
 Eliminate the principe of gigantic streaming platforms (Netflix, Amazon...), which offer a wide choice of contents, witch can crush the user.<br>
 **Remove the cinema of masse**, return the principe of "neighborhood cinema" which offers few films to discover.
 
-## Technologies Used
+<br>
+<br>
+
+## ![Technologies Used](https://i.imgur.com/5FJjbNQ.png)
+<br>
 
 Within this project we use:<br>
 ⇒ Html, Css (Scss), Javascript and ReactJs for the code<br>
 ⇒ NPM for compementary package<br>
 ⇒ Webpack for compiling the final project.
 
-## Features
+<br>
+<br>
+
+## ![Features](https://i.imgur.com/Z21S0ND.png)
+<br>
 
 Currently provide you:<br>
 ⇒ An advanced Search bar<br>
@@ -42,37 +56,65 @@ Currently provide you:<br>
 ⇒ Saving, rate your favories movie / tv show<br>
 ⇒ an idea of where you can see the movie / tv show
 
-## Screenshots
+<br>
+<br>
 
-## Setup
+## ![Screenshots](https://i.imgur.com/ZQfZDn2.png)
+<br>
+
+<br>
+<br>
+
+## ![Setup](https://i.imgur.com/viJ8RPS.png)
+<br>
 
 This project use 2 API, TheMovieDb and Firebase.<br>
 Clone this repository.<br>
 You can launch this project by populating a `.env` file. There a sample available (`.env-sample`).<br>
 Launch a `npm install` to install all packages.
 
-## Usage
+<br>
+<br>
+
+## ![Usage](https://i.imgur.com/Hf1U6Ux.png)
+<br>
 
 You can launch the project with `npm start` after you have installed all packages.<br>
 This project has the same command as a basic `create-react-app`.
 
-## Project Status
+<br>
+<br>
+
+## ![Project Status](https://i.imgur.com/leIJxes.png)
+<br>
 
 Actually in developpment.
 
-## Room of Improvement
+<br>
+<br>
+
+## ![Room of Improvement](https://i.imgur.com/xLKSIqd.png)
+<br>
 
 Todo:
 
-## Acknowledgements
+<br>
+<br>
+
+## ![Acknowledgements](https://i.imgur.com/Tqkkjy2.png)
+<br>
 
 My thanks to :<br>
-⇒ Meta for this incredible tool of ReactJs
-⇒ The formator who share his experiences and habilities
-⇒ This equip for all the work in
+⇒ Meta for this incredible tool of ReactJs<br>
+⇒ The formator who share his experiences and habilities<br>
+⇒ This equip for all the work in<br>
 "Drop the mic"
 
-## Contact
+<br>
+<br>
+
+## ![Contact](https://i.imgur.com/dfLq9ZE.png)
+<br>
 
 You can find us:<br>
 Github: [@Vianney](https://github.com/Vianney-Gln)<br>
