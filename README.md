@@ -8,7 +8,6 @@ Why `Focus` ? A direct reference of "Cinema"<br>
 This app will provide you a system of favorite, research and more...
 
 <br>
-<br>
 
 ## ![Tables of Contents](https://i.imgur.com/onvvWvF.png)
 <br>
@@ -25,7 +24,6 @@ This app will provide you a system of favorite, research and more...
 ⋆ [Contact](https://github.com/Vianney-Gln/Focus/tree/readme.rewrite#-11)
 
 <br>
-<br>
 
 ## ![General Information](https://i.imgur.com/OQaEFdc.png)
 <br>
@@ -33,7 +31,6 @@ This app will provide you a system of favorite, research and more...
 Eliminate the principe of gigantic streaming platforms (Netflix, Amazon...), which offer a wide choice of contents, witch can crush the user.
 **Remove the cinema of masse**, return the principe of "neighborhood cinema" which offers few films to discover.
 
-<br>
 <br>
 
 ## ![Technologies Used](https://i.imgur.com/5FJjbNQ.png)
@@ -44,7 +41,6 @@ Within this project we use:<br>
 ⇒ NPM for compementary package<br>
 ⇒ Webpack for compiling the final project.
 
-<br>
 <br>
 
 ## ![Features](https://i.imgur.com/Z21S0ND.png)
@@ -60,7 +56,6 @@ Currently provide you:<br>
 ⇒ an idea of where you can see the movie / tv show
 
 <br>
-<br>
 
 ## ![Screenshots](https://i.imgur.com/ZQfZDn2.png)
 <br>
@@ -68,7 +63,6 @@ Currently provide you:<br>
 WIP
 ![Suggestion](https://i.imgur.com/yrgFplq.png)
 
-<br>
 <br>
 
 ## ![Setup](https://i.imgur.com/viJ8RPS.png)
@@ -80,7 +74,6 @@ You can launch this project by populating a `.env` file. There a sample availabl
 Launch a `npm install` to install all packages.
 
 <br>
-<br>
 
 ## ![Usage](https://i.imgur.com/Hf1U6Ux.png)
 <br>
@@ -89,7 +82,6 @@ You can launch the project with `npm start` after you have installed all package
 This project has the same command as a basic `create-react-app`.
 
 <br>
-<br>
 
 ## ![Project Status](https://i.imgur.com/leIJxes.png)
 <br>
@@ -97,14 +89,12 @@ This project has the same command as a basic `create-react-app`.
 Actually in developpment.
 
 <br>
-<br>
 
 ## ![Room of Improvement](https://i.imgur.com/xLKSIqd.png)
 <br>
 
 WIP
 
-<br>
 <br>
 
 ## ![Acknowledgements](https://i.imgur.com/Tqkkjy2.png)
@@ -116,7 +106,6 @@ My thanks to :<br>
 ⇒ This equip for all the work in<br>
 "Drop the mic"
 
-<br>
 <br>
 
 ## ![Contact](https://i.imgur.com/dfLq9ZE.png)
