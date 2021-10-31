@@ -26,7 +26,7 @@ This app provides functionalities such as: browsing libraries, bookmarking movie
 
 <br>
 
-## ![Concept](https://i.imgur.com/OQaEFdc.png)
+## ![Concept](https://i.imgur.com/VAtnKbo.png)
 <br>
 
 How to get away from the principle of giant streaming platforms like
