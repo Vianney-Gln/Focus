@@ -3,17 +3,18 @@
 ## ![What is Focus](https://i.imgur.com/XqLrPTo.png)
 <br>
 
-Focus was born from 4 members, the 18 october of 2021, at Wild Code School as a second project of formation.<br>
-Why `Focus` ? A direct reference of "Cinema"<br>
-This app will provide you a system of favorite, research and more...
+Proudly presents: Focus, this app.
+It was born from 4 individuals, the 18th of October, 2021. It came as the second project for our training at Wild Code School (Nantes, Fr).<br>
+Why `Focus` ? Simply a direct reference to camera's lenses<br>
+This app provides functionalities such as: browsing libraries, bookmarking movies/series, advanced search and more...
 
 <br>
 
 ## ![Tables of Contents](https://i.imgur.com/onvvWvF.png)
 <br>
 
-⋆ [General Information](https://github.com/Vianney-Gln/Focus/tree/readme.rewrite#-2)<br>
-⋆ [Technologie Used](https://github.com/Vianney-Gln/Focus/tree/readme.rewrite#-3)<br>
+⋆ [Concept](https://github.com/Vianney-Gln/Focus/tree/readme.rewrite#-2)<br>
+⋆ [Technologies Used](https://github.com/Vianney-Gln/Focus/tree/readme.rewrite#-3)<br>
 ⋆ [Features](https://github.com/Vianney-Gln/Focus/tree/readme.rewrite#-4)<br>
 ⋆ [Screenshots](https://github.com/Vianney-Gln/Focus/tree/readme.rewrite#-5)<br>
 ⋆ [Setup](https://github.com/Vianney-Gln/Focus/tree/readme.rewrite#-6)<br>
@@ -25,35 +26,39 @@ This app will provide you a system of favorite, research and more...
 
 <br>
 
-## ![General Information](https://i.imgur.com/OQaEFdc.png)
+## ![Concept](https://i.imgur.com/OQaEFdc.png)
 <br>
 
-Eliminate the principe of gigantic streaming platforms (Netflix, Amazon...), which offer a wide choice of contents, witch can crush the user.
-**Remove the cinema of masse**, return the principe of "neighborhood cinema" which offers few films to discover.
+How to get away from the principle of giant streaming platforms like
+Netflix or Youtube? How would it be, as viewers, to NOT be overwhelmed
+by tons of suggestions all around. How would it be to **no longer consume**
+cinema as the mass product it became ? What would be a local movie
+theater, in a digital shape, with only a few cinematographic works to
+discover ?
 
 <br>
 
 ## ![Technologies Used](https://i.imgur.com/5FJjbNQ.png)
 <br>
 
-Within this project we use:<br>
-⇒ Html, Css (Scss), Javascript and ReactJs for the code<br>
-⇒ NPM for compementary package<br>
-⇒ Webpack for compiling the final project.
+For this project we used:<br>
+⇒ Html, Css (Scss), Javascript and ReactJs<br>
+⇒ NPM for additional packages<br>
+⇒ Webpack to compile the final project.
 
 <br>
 
 ## ![Features](https://i.imgur.com/Z21S0ND.png)
 <br>
 
-Currently provide you:<br>
-⇒ An advanced Search bar<br>
-⇒ Few suggestion<br>
-⇒ Movie or TV Show<br>
-⇒ Preview of the movie / tv show<br>
+Currently provided:<br>
+⇒ Advanced Search bar<br>
+⇒ Minimal suggestions<br>
+⇒ Movies or tv Shows<br>
+⇒ Previewing<br>
 ⇒ Trailers<br>
-⇒ Saving, rate your favories movie / tv show<br>
-⇒ an idea of where you can see the movie / tv show
+⇒ Saving, rating your favorite movies/tv shows<br>
+⇒ Platforms from which you can stream movies/tv shows
 
 <br>
 
@@ -68,10 +73,10 @@ WIP
 ## ![Setup](https://i.imgur.com/viJ8RPS.png)
 <br>
 
-This project use 2 API, TheMovieDb and Firebase.<br>
+This project uses 2 API, TheMovieDb and Firebase.<br>
 Clone this repository.<br>
 You can launch this project by populating a `.env` file. There a sample available (`.env-sample`).<br>
-Launch a `npm install` to install all packages.
+Launch `npm install` to install all packages.
 
 <br>
 
@@ -79,14 +84,14 @@ Launch a `npm install` to install all packages.
 <br>
 
 You can launch the project with `npm start` after you have installed all packages.<br>
-This project has the same command as a basic `create-react-app`.
+This project uses same commands like the basics `create-react-app`.
 
 <br>
 
 ## ![Project Status](https://i.imgur.com/leIJxes.png)
 <br>
 
-Actually in developpment.
+Currently in progress.
 
 <br>
 
@@ -100,18 +105,18 @@ WIP
 ## ![Acknowledgements](https://i.imgur.com/Tqkkjy2.png)
 <br>
 
-My thanks to :<br>
-⇒ Meta for this incredible tool of ReactJs<br>
-⇒ The formator who share his experiences and habilities<br>
-⇒ This equip for all the work in<br>
-"Drop the mic"
+Our thanks to :<br>
+⇒ Meta, for this incredible tool of ReactJs<br>
+⇒ Our trainer, Julien, who shared his experiences and abilities<br>
+⇒ Ourselves, (yes) for all the hard work we put in<br>
+"Drop the mic."
 
 <br>
 
 ## ![Contact](https://i.imgur.com/dfLq9ZE.png)
 <br>
 
-Github: [@Vianney](https://github.com/Vianney-Gln)<br>
-Github: [@Léonie](https://github.com/LeonieNollevalle)<br>
-Github: [@Gregory](https://github.com/anarkhya)<br>
-Github: [@Kévin](https://github.com/KevinDurand974)
+Github: [@Vianney G.](https://github.com/Vianney-Gln)<br>
+Github: [@Léonie N.](https://github.com/LeonieNollevalle)<br>
+Github: [@Greg N.](https://github.com/anarkhya)<br>
+Github: [@Kévin D.](https://github.com/KevinDurand974)
