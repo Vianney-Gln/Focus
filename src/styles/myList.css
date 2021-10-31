@@ -1,0 +1,49 @@
+.myList {
+  display: flex;
+  flex-direction: column;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 100%;
+}
+.barre-logo-burger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+.barre-logo-burger i {
+  font-size: 36px;
+  cursor: pointer;
+}
+.myList h1 {
+  text-align: right;
+  font-size: 36px;
+}
+
+.container-element-list {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.container-views-titles {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: -40px;
+}
+
+.views-titles {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.views-titles h1 {
+  width: 50%;
+}
+
+.views-titles .viewed-asc {
+  width: 50%;
+}

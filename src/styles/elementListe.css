@@ -1,0 +1,42 @@
+.element-list {
+  display: flex;
+  width: 90%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+}
+.infos-movie {
+  width: 75%;
+  margin-left: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.image-movie {
+  width: 200px;
+  height: 120px;
+}
+.image-movie img {
+  width: 200px;
+  height: 120px;
+}
+
+.title-movie {
+  width: 100%;
+}
+
+.checkbox {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkbox p {
+  border: 1px solid white;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+}
