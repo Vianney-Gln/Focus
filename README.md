@@ -2,6 +2,7 @@
 
 ## ![What is Focus](https://i.imgur.com/XqLrPTo.png)
 <br>
+
 Focus was born from 4 members, the 18 october of 2021, at Wild Code School as a second project of formation.<br>
 Why `Focus` ? A direct reference of "Cinema"<br>
 This app will provide you a system of favorite, research and more...
@@ -11,23 +12,25 @@ This app will provide you a system of favorite, research and more...
 
 ## ![Tables of Contents](https://i.imgur.com/onvvWvF.png)
 <br>
-⋆ General Information<br>
-⋆ Technologie Used<br>
-⋆ Features<br>
-⋆ Screenshots<br>
-⋆ Setup<br>
-⋆ Usage<br>
-⋆ Project Status<br>
-⋆ Room for Improvement<br>
-⋆ Acknowledgements<br>
-⋆ Contact
+
+⋆ [General Information](https://github.com/Vianney-Gln/Focus/tree/readme.rewrite#-2)<br>
+⋆ [Technologie Used](https://github.com/Vianney-Gln/Focus/tree/readme.rewrite#-3)<br>
+⋆ [Features](https://github.com/Vianney-Gln/Focus/tree/readme.rewrite#-4)<br>
+⋆ [Screenshots](https://github.com/Vianney-Gln/Focus/tree/readme.rewrite#-5)<br>
+⋆ [Setup](https://github.com/Vianney-Gln/Focus/tree/readme.rewrite#-6)<br>
+⋆ [Usage](https://github.com/Vianney-Gln/Focus/tree/readme.rewrite#-7)<br>
+⋆ [Project Status](https://github.com/Vianney-Gln/Focus/tree/readme.rewrite#-8)<br>
+⋆ [Room for Improvement](https://github.com/Vianney-Gln/Focus/tree/readme.rewrite#-9)<br>
+⋆ [Acknowledgements](https://github.com/Vianney-Gln/Focus/tree/readme.rewrite#-10)<br>
+⋆ [Contact](https://github.com/Vianney-Gln/Focus/tree/readme.rewrite#-11)
 
 <br>
 <br>
 
 ## ![General Information](https://i.imgur.com/OQaEFdc.png)
 <br>
-Eliminate the principe of gigantic streaming platforms (Netflix, Amazon...), which offer a wide choice of contents, witch can crush the user.<br>
+
+Eliminate the principe of gigantic streaming platforms (Netflix, Amazon...), which offer a wide choice of contents, witch can crush the user.
 **Remove the cinema of masse**, return the principe of "neighborhood cinema" which offers few films to discover.
 
 <br>
@@ -61,6 +64,9 @@ Currently provide you:<br>
 
 ## ![Screenshots](https://i.imgur.com/ZQfZDn2.png)
 <br>
+
+WIP
+![Suggestion](https://i.imgur.com/yrgFplq.png)
 
 <br>
 <br>
@@ -96,7 +102,7 @@ Actually in developpment.
 ## ![Room of Improvement](https://i.imgur.com/xLKSIqd.png)
 <br>
 
-Todo:
+WIP
 
 <br>
 <br>
@@ -116,7 +122,6 @@ My thanks to :<br>
 ## ![Contact](https://i.imgur.com/dfLq9ZE.png)
 <br>
 
-You can find us:<br>
 Github: [@Vianney](https://github.com/Vianney-Gln)<br>
 Github: [@Léonie](https://github.com/LeonieNollevalle)<br>
 Github: [@Gregory](https://github.com/anarkhya)<br>
