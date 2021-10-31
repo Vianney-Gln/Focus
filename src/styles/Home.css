@@ -1,6 +1,10 @@
 /********** Home ************/
 @media screen and (min-width: 700px) {
-  
+  body {
+    background-color: black;
+    position: absolute;
+    z-index: 0;
+  }
 
   .Logo {
     height: 4vh;
@@ -59,9 +63,10 @@
     background-size: contain;
   background-repeat: no-repeat;
   background-size: 30%;
+
   background-position: center;
   
-    
+  
   }
   .contButtonSignIn{
     width: 15vw;

@@ -111,6 +111,7 @@ a {
 .search {
   width: 100%;
   display: flex;
+  
 }
 
 .searchTerm {
@@ -121,7 +122,7 @@ a {
   padding: 0 0 0 0;
   outline: none;
   color: white;
-  background-color: #000;
+  background-color: transparent;
 }
 
 .searchTerm:focus{
@@ -131,7 +132,7 @@ a {
 .searchButton {
   border: none;
   border-bottom: 1px solid white;
-  background: #000;
+  background: transparent;
   text-align: center;
   color: white;
   cursor: pointer;
