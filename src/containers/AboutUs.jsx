@@ -4,6 +4,7 @@ import avatarK from "../assets/images/avatarK.png";
 import avatarG from "../assets/images/avatarG.png";
 import avatarL from "../assets/images/avatarL.png";
 import avatarV from "../assets/images/avatarV.png";
+import reactIconHeart from "../assets/images/reactIconHeart.png";
 
 // import "../styles/logo.css";
 // import "../styles/burger.css";
@@ -52,7 +53,10 @@ const AboutUs = () => (
         <p>ESLint premium member </p>
         <p className="quote-text">« Failed to compile tagline. »</p>
       </div>
-      <p className="minitext">...and a little bit of ReactJS</p>
+      <p className="minitext">
+        ...and lots of{" "}
+        <img className="icon-react-cute" src={reactIconHeart} alt="" />
+      </p>
     </div>
   </div>
 );

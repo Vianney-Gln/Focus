@@ -77,12 +77,131 @@
 }
 .teamMembers .minitext {
   color: #7e7e7e;
-  font-size: 12px;
+  font-size: 14px;
   font-variant: normal;
   padding-top: 2em;
+  padding-bottom: 10px;
   width: 800px;
   margin:0 auto;
+  text-align: center;
 }
+.teamMembers .icon-react-cute {
+  opacity: 0.5;
+  display: block;
+  margin:0 auto;
+  width: 48px;
+  height: 48px;
+  -webkit-animation:spin 2s linear infinite;
+  -moz-animation:spin 2s linear infinite;
+  animation:spin 2s linear infinite;
+}
+@-moz-keyframes spin { 
+  100% { -moz-transform: rotate(360deg); } 
+}
+@-webkit-keyframes spin { 
+  100% { -webkit-transform: rotate(360deg); } 
+}
+@keyframes spin { 
+  100% { 
+      -webkit-transform: rotate(360deg); 
+      transform:rotate(360deg); 
+  } 
+}
+.teamMembers .icon-react-cute:hover {
+  opacity: 0.75;
+  -webkit-animation:spin 0.5s linear infinite;
+  -moz-animation:spin 0.5s linear infinite;
+  animation:spin 0.5s linear infinite;
+}
+.teamMembers .icon-react-cute:active {
+  opacity: 1;
+  -webkit-animation:spin 0.25s linear infinite;
+  -moz-animation:spin 0.25s linear infinite;
+  animation:spin 0.25s linear infinite;
+}
+/******* Mobile *******/
+@media screen and (max-width: 768px) {
+  .aboutUs {
+    width: auto;
+  }
+  .aboutUs h1 {
+    font-size:48px;
+    padding-top:0.5em;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+  .concept p {
+    width: auto;
+    font-size:16px;
+    text-align: left;
+    padding: 0 15px 0 15px;
+  }
+  .concept .tagline {
+    padding-top:16px;
+    font-size:16px;
+    padding: 1em 10px 0 0px;
+  }
+  .teamMembers {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 50% 50% 50% 50%;
+    width: auto;
+    align-items: center;
+    justify-items: center;
+    padding: 0px;
+  }
+  .teamMembers-step1 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+  .teamMembers-step2 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
+  }
+  .teamMembers-step3 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 3;
+  }
+  .teamMembers-step4 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 4;
+  }
+  .teamMembers .member-name {
+    font-size: 22px;
+    padding-bottom: 3px;
+    transform: rotate(-0.4rad) translateX(-37px) translateY(20px);
+    max-width: 210px;
+  }
+  .teamMembers img {
+    width: 210px;
+    height: 160px;
+    object-fit: cover;
+  }
+  .teamMembers p {
+    font-size: 18px;
+    padding-bottom: 2px;
+  }
+  .teamMembers .quote-text {
+    font-size: 16px;
+  }
+  .teamMembers .minitext {
+    font-size: 12px;
+    padding-top: 3em;
+    padding-bottom: 1em;
+    width: auto;
+    margin:0 auto;
+  }
+}
+
+
 
 /******* aboutUS CSS ends  *******/
 
