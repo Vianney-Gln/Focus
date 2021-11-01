@@ -1,26 +1,41 @@
 import React from "react";
 import "../styles/elementListe.css";
+import Rate from "rc-rate";
+import movie from "../Data";
+import "../../node_modules/rc-rate/assets/index.css";
 
 function ElementList() {
+  /* fonction qui convertie le nombre de minutes en heures + minutes */
+
+  const hours = (nbrMinutes) => {
+    const nbrHours = (nbrMinutes / 60).toFixed(0);
+    const minutes = (nbrMinutes % 60).toFixed(0);
+    return `${nbrHours}h${minutes}`;
+  };
   return (
-    <div className="element-list">
-      <div className="image-movie">
-        <img
-          src="http://image.tmdb.org/t/p/w300/s3TBrRGB1iav7gFOCNx3H31MoES.jpg"
-          alt="film"
-        />
-      </div>
-      <div className="infos-movie">
-        <div className="title-movie">
-          <h2>Tilte</h2>
+    <div className="container-element-list">
+      <div className="element-list">
+        <div className="image-movie">
+          <img
+            src={`${"http://image.tmdb.org/t/p/w300"}${movie.backdrop_path}`}
+            alt="film"
+          />
         </div>
-        <p>Creator/cast</p>
-        <p>date</p>
-        <p>length</p>
-        <p>stars ****</p>
-      </div>
-      <div className="checkbox">
-        <p />
+        <div className="infos-movie">
+          <div className="title-movie">
+            {/* retourne les différentes infos depuis le fichier Data.jsx en dynamique */}
+            <h2>{movie.title.toUpperCase()}</h2>
+          </div>
+          <p>Creator/cast</p>
+          <p>{movie.release_date}</p>
+          <p>{`${hours(movie.runtime)}`}</p>
+          <p>
+            <Rate />
+          </p>
+        </div>
+        <div className="checkbox">
+          <p />
+        </div>
       </div>
     </div>
   );

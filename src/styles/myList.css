@@ -47,3 +47,19 @@
 .views-titles .viewed-asc {
   width: 50%;
 }
+
+.viewed-asc button {
+  color: white;
+  background-color: rgb(68, 67, 67);
+  border-color: white;
+  padding: 4px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.viewed-asc button:hover {
+  background-color: black;
+}
+
+.button-margin-left {
+  margin-left: 5px;
+}
