@@ -1,6 +1,6 @@
 import React from "react";
+import Hamburger from "hamburger-react";
 import Logo from "../components/Logo";
-import Burger from "../components/Burger";
 import "../styles/myList.css";
 import ElementList from "../components/ElementList";
 
@@ -18,7 +18,7 @@ const MyList = () => {
     <div className="myList">
       <div className="barre-logo-burger">
         <Logo />
-        <Burger />
+        <Hamburger />
       </div>
 
       <div className="container-views-titles">

@@ -16,10 +16,10 @@ function App() {
     <div>
       {/* <Home /> */}
       {/* <Suggestion /> */}
-      {/* <PopupMenu /> */}
+      {/* PopupMenu /> */}
       {/* <Category /> */}
       {/* <AboutUs /> */}
-      <MyList />
+      {<MyList />}
       {/* <SignUp /> */}
       {/* <SignIn /> */}
       {/* <ItemModal /> */}
