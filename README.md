@@ -3,8 +3,9 @@
 ## ![What is Focus](https://i.imgur.com/XqLrPTo.png)
 <br>
 
-Proudly presents: Focus, this app.
-It was born from 4 individuals, the 18th of October, 2021. It came as the second project for our training at Wild Code School (Nantes, Fr).<br>
+Proudly presents: Focus, this app.<br>
+It was born from 4 individuals, the 18th of October, 2021.<br>
+It came as the second project for our training at Wild Code School (Nantes, Fr).<br>
 Why `Focus` ? Simply a direct reference to camera's lenses<br>
 This app provides functionalities such as: browsing libraries, bookmarking movies/series, advanced search and more...
 
@@ -106,9 +107,10 @@ WIP
 <br>
 
 Our thanks to :<br>
-⇒ Meta, for this incredible tool of ReactJs<br>
-⇒ Our trainer, Julien, who shared his experiences and abilities<br>
+⇒ Meta, for this incredible tool, ReactJs<br>
+⇒ Our trainer, [Jujuck](https://github.com/jujuck), who's continuously sharing his experiences and abilities<br>
 ⇒ Ourselves, (yes) for all the hard work we put in<br>
+⇒ [ritaly](https://github.com/ritaly), for their magical readme.md template<br>
 "Drop the mic."
 
 <br>
