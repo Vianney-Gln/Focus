@@ -36,7 +36,9 @@ const ItemModal = () => (
 
           {/* <StarRater /> */}
         </div>
-        <div className="bottom-infos-grid-availableOn">available on</div>
+        <div className="bottom-infos-grid-availableOn">
+          available on <i className="fa fa-play-circle-o" />
+        </div>
         <div className="bottom-infos-grid-addToMyList">
           <button className="btn-common" type="button">
             <i className="fa fa-plus-square" />
@@ -44,6 +46,10 @@ const ItemModal = () => (
           </button>
         </div>
         <div className="bottom-infos-grid-platforms">
+          WetFix
+          <br /> AmaClone
+          <br /> ThePirateBay
+          <br />
           WetFix
           <br /> AmaClone
           <br /> ThePirateBay
