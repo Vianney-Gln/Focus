@@ -38,7 +38,7 @@ discover ?
 
 <br>
 
-## ![Technologies Used](https://i.imgur.com/5FJjbNQ.png)
+## ![Technologies Used](https://i.imgur.com/Kxz5fpB.png)
 <br>
 
 For this project we used:<br>
