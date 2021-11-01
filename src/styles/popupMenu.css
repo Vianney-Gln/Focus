@@ -31,10 +31,12 @@
 
 .about-us {
   font-size: 72px;
+  font-family: "Grotesk";
 }
 
 .my-list {
   font-size: 72px;
+  font-family: "Grotesk";
 }
 .popup-menu-elements-bottom li:hover {
   text-decoration: underline;

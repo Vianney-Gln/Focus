@@ -14,7 +14,21 @@
   position: fixed;
   overflow-y: auto;
 }
+.barre-header {
+  width: 100%;
+  padding-left: 30px;
+  padding-right: 30px;
+  display: flex;
+  justify-content: space-between;
+}
 
+.barre-header input {
+  background-color: transparent;
+}
+
+.barre-header button {
+  background-color: transparent;
+}
 .container-previous-items {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
