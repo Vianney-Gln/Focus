@@ -27,16 +27,27 @@ const ItemModal = () => (
         </div>
         <div className="bottom-infos-grid-date">2016</div>
         <div className="bottom-infos-grid-length">3 Seasons</div>
-        <div className="bottom-infos-grid-starRater">{/* <StarRater /> */}</div>
+        <div className="bottom-infos-grid-starRater">
+          <i className="fa fa-star-o" aria-hidden="true" />
+          <i className="fa fa-star" aria-hidden="true" />
+          <i className="fa fa-star" aria-hidden="true" />
+          <i className="fa fa-star" aria-hidden="true" />
+          <i className="fa fa-star" aria-hidden="true" />
+
+          {/* <StarRater /> */}
+        </div>
         <div className="bottom-infos-grid-availableOn">available on</div>
         <div className="bottom-infos-grid-addToMyList">
           <button className="btn-common" type="button">
-            <i className="far fa-plus-square" />
-            add to My List
+            <i className="fa fa-plus-square" />
+            My List
           </button>
         </div>
         <div className="bottom-infos-grid-platforms">
-          WetFix AmaClone ThePirateBay
+          WetFix
+          <br /> AmaClone
+          <br /> ThePirateBay
+          <br />
         </div>
         <div className="bottom-infos-grid-synopsis">
           In the 2050s, Delos Inc. operates several theme parks, including the
