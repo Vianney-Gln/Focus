@@ -40,4 +40,11 @@
   width: 25px;
   height: 25px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkbox p span {
+  display: inline-block;
 }
