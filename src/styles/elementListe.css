@@ -4,7 +4,6 @@
   padding-top: 20px;
   padding-bottom: 20px;
   border-top: 1px solid white;
-  border-bottom: 1px solid white;
 }
 .infos-movie {
   width: 75%;
@@ -33,8 +32,8 @@
 .checkbox p {
   border: 1px solid white;
   border-radius: 50%;
-  width: 25px;
-  height: 25px;
+  width: 50px;
+  height: 50px;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -43,6 +42,7 @@
 
 .checkbox p span {
   display: inline-block;
+  font-size: 30px;
 }
 
 @media screen and (max-width: 768px) {
@@ -62,5 +62,13 @@
   }
   .title-movie h2 {
     font-size: 26px;
+  }
+  .checkbox p {
+    width: 25px;
+    height: 25px;
+  }
+
+  .checkbox p span {
+    font-size: 14px;
   }
 }
