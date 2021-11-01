@@ -5,11 +5,13 @@
   padding-right: 30px;
   width: 100%;
 }
+
 .barre-logo-burger {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 30px;
+  width: 100%;
 }
 .barre-logo-burger i {
   font-size: 36px;
@@ -62,4 +64,15 @@
 
 .button-margin-left {
   margin-left: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .myList {
+    padding: 0;
+    margin: 0;
+  }
+  .barre-logo-burger {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }

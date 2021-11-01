@@ -20,6 +20,7 @@ const MyList = () => {
         <Logo />
         <Burger />
       </div>
+
       <div className="container-views-titles">
         <div className="views-titles">
           <div className="viewed-asc">

@@ -33,9 +33,9 @@ function ElementList() {
             {/* retourne les différentes infos depuis le fichier Data.jsx en dynamique */}
             <h2>{movie.title.toUpperCase()}</h2>
           </div>
-          <p>Creator/cast</p>
-          <p>{movie.release_date}</p>
-          <p>{`${hours(movie.runtime)}`}</p>
+          <p className="creator">Creator/cast</p>
+          <p className="date-release">{movie.release_date}</p>
+          <p className="runtime">{`${hours(movie.runtime)}`}</p>
           <p>
             <Rate />
           </p>
