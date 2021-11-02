@@ -1,9 +1,4 @@
-.container-category .container-previous-items-center .title-category {
-  width: 100%;
-  text-align: right;
-  margin-top: 40px;
-  margin-bottom: 10px;
-}
+/* style qui agit sur l'ensemble de la page */
 
 .container-category {
   width: 100%;
@@ -14,6 +9,8 @@
   position: fixed;
   overflow-y: auto;
 }
+
+/* style qui agit sur l'ensemble des composants du header ----------------------------------------------------------------*/
 .container-category .barre-header {
   width: 100%;
   padding-left: 30px;
@@ -23,6 +20,7 @@
 }
 
 .container-category .barre-header .search {
+  /*composant commun dont le style avait besoin d'une modif */
   width: auto;
 }
 
@@ -56,7 +54,18 @@
 .container-category .barre-header button {
   background-color: transparent;
 }
+
+/*-----------------------------------------------------------------------------------------------------*/
+
+.container-category .container-previous-items-center .title-category {
+  /* style du nom de categorie */
+  width: 100%;
+  text-align: right;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
 .container-category .container-previous-items {
+  /* style qui agit sur la grille de vignettes de films */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 20px;
@@ -65,6 +74,7 @@
   margin-bottom: 20px;
 }
 
+/* adaptation style pour mobile */
 @media screen and (max-width: 768px) {
   .container-category .container-previous-items-center .title-category h1 {
     font-size: 28px;
@@ -73,6 +83,7 @@
     width: 98%;
   }
   .container-category .container-previous-items {
+    /* la grille de vignettes de films ne prend plus que de colonnes */
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -81,6 +92,7 @@
   }
 
   .container-category .barre-header .logo-search .logonav img {
+    /* le logo desktop disparait */
     display: none;
   }
 
@@ -88,6 +100,7 @@
     margin-top: 5px;
   }
   .container-category .barre-header .logo-search .logonav-mobile img {
+    /* le logo mobile apparait */
     display: block;
     height: 5vh;
   }
