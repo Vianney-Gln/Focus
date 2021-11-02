@@ -15,7 +15,7 @@ const ItemModal = () => (
     <div className="top-thumbnail">
       {/* <ItemsPreviews /> */}
       <img src={westworlded} alt="" />
-      <h1>eternal sunshine of the spotless mind</h1>
+      <h1>westworld</h1>
       <button className="button-close" type="button">
         X
       </button>
@@ -45,16 +45,7 @@ const ItemModal = () => (
             My List
           </button>
         </div>
-        <div className="bottom-infos-grid-platforms">
-          WetFix
-          <br /> AmaClone
-          <br /> ThePirateBay
-          <br />
-          WetFix
-          <br /> AmaClone
-          <br /> ThePirateBay
-          <br />
-        </div>
+        <div className="bottom-infos-grid-platforms" />
         <div className="bottom-infos-grid-synopsis">
           In the 2050s, Delos Inc. operates several theme parks, including the
           American-Old-West-themed Westworld. Each environment is populated by
