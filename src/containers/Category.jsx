@@ -6,6 +6,7 @@ import ItemsPreviews from "../components/ItemsPreviews";
 import "../styles/backgroundImage.css";
 import Logo from "../components/Logo";
 import SearchBar from "../components/SearchBar";
+import LogoMobile from "../components/LogoMobile";
 
 const Category = () => {
   // définition de 28 items
@@ -22,8 +23,11 @@ const Category = () => {
 
       <div className="container-category">
         <div className="barre-header">
-          <Logo />
-          <SearchBar />
+          <div className="logo-search">
+            <Logo />
+            <LogoMobile />
+            <SearchBar />
+          </div>
           <Hamburger />
         </div>
 

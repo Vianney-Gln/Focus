@@ -1,4 +1,4 @@
-.title-category {
+.container-category .container-previous-items-center .title-category {
   width: 100%;
   text-align: right;
   margin-top: 40px;
@@ -14,7 +14,7 @@
   position: fixed;
   overflow-y: auto;
 }
-.barre-header {
+.container-category .barre-header {
   width: 100%;
   padding-left: 30px;
   padding-right: 30px;
@@ -22,14 +22,41 @@
   justify-content: space-between;
 }
 
-.barre-header input {
-  background-color: transparent;
+.container-category .barre-header .search {
+  width: auto;
 }
 
-.barre-header button {
+.container-category .barre-header input {
+  background-color: transparent;
+  margin-left: 20px;
+  height: 30px;
+  margin-top: 5px;
+}
+
+.container-category .barre-header .logo-search {
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-category .barre-header button {
+  height: 30px;
+  margin-top: 5px;
+}
+
+.container-category .barre-header .logonav-mobile img {
+  height: 5vh;
+  display: none;
+}
+.container-category .barre-header .logonav {
+  display: flex;
+  align-items: center;
+}
+
+.container-category .barre-header button {
   background-color: transparent;
 }
-.container-previous-items {
+.container-category .container-previous-items {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 20px;
@@ -39,13 +66,29 @@
 }
 
 @media screen and (max-width: 768px) {
-  .title-category h1 {
+  .container-category .container-previous-items-center .title-category h1 {
     font-size: 28px;
   }
-  .title-category {
+  .container-category .container-previous-items-center .title-category {
     width: 98%;
   }
-  .container-previous-items {
+  .container-category .container-previous-items {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .container-category .barre-header {
+    padding: 10px;
+  }
+
+  .container-category .barre-header .logo-search .logonav img {
+    display: none;
+  }
+
+  .container-category .barre-header .logo-search .logonav-mobile {
+    margin-top: 5px;
+  }
+  .container-category .barre-header .logo-search .logonav-mobile img {
+    display: block;
+    height: 5vh;
   }
 }
