@@ -1,7 +1,7 @@
 /******* itemModal CSS begins *******/
 
 /* Close Button */
-.button-close {
+.itemModal .button-close {
   color: #fff;
   background:none;
   border: none;
@@ -16,10 +16,10 @@
   cursor: pointer;
   transition: 0.5s;
 }
-.button-close:hover {
+.itemModal .button-close:hover {
   color: #000;
 }
-.button-close:active {
+.itemModal .button-close:active {
   transform: translateY(3px);
   transition: transform 0.15s;
 }
@@ -34,15 +34,15 @@
   width: 600px;
   height: 600px;
 }
-.top-thumbnail {
+.itemModal .top-thumbnail {
   height: 70%;
 }
-.top-thumbnail img {
+.itemModal .top-thumbnail img {
   object-fit: cover;
   width: 100%;
   height: 100%;
 }
-.top-thumbnail h1 {
+.itemModal .top-thumbnail h1 {
   font-size: 60px;
   letter-spacing: 0;
   z-index: 1;
@@ -54,43 +54,43 @@
   width: 96%;
 }
 
-.bottom-infos {
+.itemModal .bottom-infos {
   font-size: 14px;
   height: 30%;
   background-color: #313131;
 }
-.bottom-infos-grid {
+.itemModal .bottom-infos-grid {
   display: grid;
   grid-gap: 5px;
   padding: 5px;
   grid-template-columns: 20% 10% 15% 50%;
   grid-template-rows: 42px 28px 90px;
 }
-.bottom-infos-grid-creators {
+.itemModal .bottom-infos-grid-creators {
   grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 1;
   grid-row-end: 1;
 }
-.bottom-infos-grid-date {
+.itemModal .bottom-infos-grid-date {
   grid-column-start: 2;
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 1;
 }
-.bottom-infos-grid-length {
+.itemModal .bottom-infos-grid-length {
   grid-column-start: 3;
   grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 1;
 }
-.bottom-infos-grid-starRater {
+.itemModal .bottom-infos-grid-starRater {
   grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 2;
   grid-row-end: 2;
 }
-.bottom-infos-grid-availableOn {
+.itemModal .bottom-infos-grid-availableOn {
   grid-column-start: 2;
   grid-column-end: 4;
   grid-row-start: 2;
@@ -98,71 +98,71 @@
   padding-left: 20px;
   font-size: 14px;
 }
-.bottom-infos-grid-availableOn i {
+.itemModal .bottom-infos-grid-availableOn i {
   font-size: 18px;
   -webkit-text-stroke: 1px #313131;
 }
-.bottom-infos-grid-addToMyList {
+.itemModal .bottom-infos-grid-addToMyList {
   grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 3;
   grid-row-end: 3;
   margin-left: -12px;
 }
-.bottom-infos-grid-addToMyList .btn-common {
+.itemModal .bottom-infos-grid-addToMyList .btn-common {
   font-size: 16px;
   padding: 8px 10px 8px 10px;
   transition: 0.5s;
   border-top-left-radius: 0%;
   border-bottom-left-radius: 0%;
 }
-.bottom-infos-grid-addToMyList .btn-common i {
+.itemModal .bottom-infos-grid-addToMyList .btn-common i {
   font-size: 16px;
   padding: 0px 8px 0px 0px;
 }
-.bottom-infos-grid-addToMyList .btn-common:hover {
+.itemModal .bottom-infos-grid-addToMyList .btn-common:hover {
   border: 2px solid #000;
   border-left: 2px solid #fff;
 }
-.bottom-infos-grid-addToMyList .btn-common:active {
+.itemModal .bottom-infos-grid-addToMyList .btn-common:active {
   transform: translateY(3px);
   transition: transform 0.15s;
 }
-.bottom-infos-grid-platforms {
+.itemModal .bottom-infos-grid-platforms {
   grid-column-start: 2;
   grid-column-end: 4;
   grid-row-start: 3;
   grid-row-end: 3;
   overflow: hidden;
 }
-.bottom-infos-grid-synopsis {
+.itemModal .bottom-infos-grid-synopsis {
   grid-column-start: 4;
   grid-column-end: 4;
   grid-row-start: 1;
   grid-row-end: 4;
-  overflow-block:scroll
+  overflow-y: scroll;
 }
   /******* Mobile *******/
 @media screen and (max-width: 768px) {
-  .button-close {
+  .itemModal .button-close {
     font-size: 35px;
     left: 90%;
     top: -490px;
     width: 8%;
   }
-  .itemModal {
+  .itemModal .itemModal {
     width: 90%;
     height: auto;
   }
-  .top-thumbnail {
+  .itemModal .top-thumbnail {
     height: 300px;
   }
-  .top-thumbnail img {
+  .itemModal .top-thumbnail img {
     object-fit: cover;
     width: 100%;
     height: 100%;
   }
-  .top-thumbnail h1 {
+  .itemModal .top-thumbnail h1 {
     font-size: 60px;
     letter-spacing: 0;
     z-index: 1;
@@ -173,7 +173,7 @@
     top: -100%;
     width: 96%;
   }
-  .bottom-infos {
+  .itemModal .bottom-infos {
     font-size: 14px;
     height: auto;
     background-color: #313131;
