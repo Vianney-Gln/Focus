@@ -14,16 +14,16 @@ This app provides functionalities such as: browsing libraries, bookmarking movie
 ## ![Tables of Contents](https://i.imgur.com/onvvWvF.png)
 <br>
 
-⋆ [Concept](https://github.com/Vianney-Gln/Focus/tree/readme.rewrite#-2)<br>
-⋆ [Technologies Used](https://github.com/Vianney-Gln/Focus/tree/readme.rewrite#-3)<br>
-⋆ [Features](https://github.com/Vianney-Gln/Focus/tree/readme.rewrite#-4)<br>
-⋆ [Screenshots](https://github.com/Vianney-Gln/Focus/tree/readme.rewrite#-5)<br>
-⋆ [Setup](https://github.com/Vianney-Gln/Focus/tree/readme.rewrite#-6)<br>
-⋆ [Usage](https://github.com/Vianney-Gln/Focus/tree/readme.rewrite#-7)<br>
-⋆ [Project Status](https://github.com/Vianney-Gln/Focus/tree/readme.rewrite#-8)<br>
-⋆ [Room for Improvement](https://github.com/Vianney-Gln/Focus/tree/readme.rewrite#-9)<br>
-⋆ [Acknowledgements](https://github.com/Vianney-Gln/Focus/tree/readme.rewrite#-10)<br>
-⋆ [Contact](https://github.com/Vianney-Gln/Focus/tree/readme.rewrite#-11)
+⋆ [Concept](https://github.com/Vianney-Gln/Focus/tree/dev#-2)<br>
+⋆ [Technologies Used](https://github.com/Vianney-Gln/Focus/tree/dev#-3)<br>
+⋆ [Features](https://github.com/Vianney-Gln/Focus/tree/dev#-4)<br>
+⋆ [Screenshots](https://github.com/Vianney-Gln/Focus/tree/dev#-5)<br>
+⋆ [Setup](https://github.com/Vianney-Gln/Focus/tree/dev#-6)<br>
+⋆ [Usage](https://github.com/Vianney-Gln/Focus/tree/dev#-7)<br>
+⋆ [Project Status](https://github.com/Vianney-Gln/Focus/tree/dev#-8)<br>
+⋆ [Room for Improvement](https://github.com/Vianney-Gln/Focus/tree/dev#-9)<br>
+⋆ [Acknowledgements](https://github.com/Vianney-Gln/Focus/tree/dev#-10)<br>
+⋆ [Contact](https://github.com/Vianney-Gln/Focus/tree/dev#-11)
 
 <br>
 
