@@ -1,10 +1,11 @@
+import Hamburger from "hamburger-react";
 import React from "react";
 import "../styles/popupMenu.css";
 
 const PopupMenu = () => (
   <div className="popup-menu-elements">
     <div className="cross-close">
-      <button type="button">X</button>
+      <Hamburger />
     </div>
     <ul className="popup-menu-elements-top">
       <li>UPCOMING</li>
