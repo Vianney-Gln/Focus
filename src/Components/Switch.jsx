@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/switch.css";
 
 const SwitchMtoS = () => {
   const [type, setType] = React.useState("movie");
@@ -26,7 +27,7 @@ const SwitchMtoS = () => {
       tabIndex="0"
     >
       <h2 className="movie">MOVIES</h2>
-      <h2 className="serie">TV SERIES</h2>
+      <h2 className="serie">TV SHOWS</h2>
     </div>
   );
 };

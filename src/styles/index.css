@@ -108,35 +108,4 @@ a {
   transition: transform 0.15s;
 }
 /********** search bar animated ************/
-.search {
-  width: 100%;
-  display: flex;
-  
-}
-
-.searchTerm {
-  width: 200px;
-  border: none;
-  border-bottom: 1px solid white;
-  border-right: none;
-  padding: 0 0 0 0;
-  outline: none;
-  color: white;
-  background-color: transparent;
-}
-
-.searchTerm:focus{
-  color: white;
-}
-
-.searchButton {
-  border: none;
-  border-bottom: 1px solid white;
-  background: transparent;
-  text-align: center;
-  color: white;
-  cursor: pointer;
-  padding: 0 10px 0 0;
-  font-size: 18px;
-}
 

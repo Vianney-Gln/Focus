@@ -1,0 +1,79 @@
+/*/////////////////////////////////////////SearchBar*Desktop*début///////////////////////////////////////////////*/
+
+@media screen and (min-width: 800px) {
+
+  .search {
+    padding-left: 10vw;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    
+  }
+  
+  .searchTerm {
+    width: 200px;
+    border: none;
+    border-bottom: 1px solid white;
+    border-right: none;
+    padding: 0 0 0 0;
+    outline: none;
+    color: white;
+    background-color: transparent;
+  }
+  
+  .searchTerm:focus{
+    color: white;
+  }
+  
+  .searchButton {
+    border: none;
+    border-bottom: 1px solid white;
+    background: transparent;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    padding: 0 10px 0 0;
+    font-size: 18px;
+  }
+  
+}
+/*/////////////////////////////////////////SearchBar*Desktop*Fin///////////////////////////////////////////////*/
+
+/*/////////////////////////////////////////SearchBar*Mobile*Début///////////////////////////////////////////////*/
+
+
+@media screen and (max-width: 800px) {
+  .search {
+    width: 100%;
+    display: flex;
+    position: fixed;
+    justify-content: center;
+  }
+  
+  .searchTerm {
+    width: 70px;
+    border: none;
+    border-bottom: 1px solid white;
+    border-right: none;
+    padding: 0 0 0 0;
+    outline: none;
+    color: white;
+    background-color: transparent;
+  }
+  
+  .searchTerm:focus{
+    color: white;
+  }
+  
+  .searchButton {
+    border: none;
+    border-bottom: 1px solid white;
+    background: transparent;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    padding: 0 10px 0 0;
+    font-size: 18px;
+  }
+}
+/*/////////////////////////////////////////SearchBar*Mobile*Fin///////////////////////////////////////////////*/

@@ -1,16 +1,33 @@
-/********** Home ************/
-@media screen and (min-width: 700px) {
+/*/////////////////////////////////////////Home*Desktop*Début///////////////////////////////////////////////*/
+@media screen and (min-width: 800px) {
+  *{
+    margin: 0;
+    padding:0;
+  }
   body {
     background-color: black;
     position: absolute;
     z-index: 0;
+    margin: 0;
+    padding:0;
   }
 
-  .Logo {
-    height: 4vh;
-    max-height: 4vh;
-    margin: 2%;
+  .home{
+    margin: 0;
+    padding:0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
   }
+  .navFixe{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 3%;
+    z-index: 10;
+  }
+
   .contbuttonmylist {
     display: flex;
     flex-wrap: nowrap;
@@ -19,7 +36,10 @@
   .buttonmylist {
     font-weight: 200;
     font-size: 13px;
+    
+    
   }
+    
   .itemnavhome{
     text-decoration: none;
     font-size: 14px;
@@ -28,7 +48,7 @@
     writing-mode: vertical-rl;
     text-orientation: sideways-right;
     transform: scale(-1);
-  
+    
   }
   .itemnavhome:hover{
    
@@ -42,15 +62,24 @@
     align-items: flex-end;
     gap:50px;
     margin: 20px;
+    padding-right: 2vw;
   }
   
   .navBar{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items:center;
+    
+    
+  }
+
+  .navunfixe{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
     align-items: center;
-    margin: 2%;
-    gap: 50px;
+    margin-right: 0;
   }
   
   .mainHome {
@@ -69,74 +98,70 @@
   
   }
   .contButtonSignIn{
-    width: 15vw;
+    width: 12vw;
   }
   
-  .switchHome{
-    margin-top: 70vh;
-    margin-left: 50px;
-    gap: 10px;
-    
-  }
-  
-  .switch{
-   display: flex;
-  
-  
-  }
-  
-  
-  .switch.movie {
-    position: absolute;
-    color: black;
-    z-index: 4;
-  
-  }
-  
-  
-  .switch.movie .serie {
-    position: absolute;
-    color: white;
-    z-index: 4;
-    width: 15vw;
-  
-  }
-  
-  
-  .switch.serie {
-    position: absolute;
-    color: black;
-    z-index: 5;
-    width: 15vw;
-  
-  }
-  
-  .switch.serie .movie{
-    position: absolute;
-    color:white;
-    z-index: 5;
-    width: 15vw;
-  
-  }
+
   .fakeBurger{
     display: none;
   }
+  .footer{
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+  }
+  .footercategory{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+  }
+  .footeritem{
+    font-size: 80px;
+    font-weight: 600;
+  }
+  .footeritem:hover{
+    font-size: 80px;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  }
+  /*/////////////////////////////////////////Home*Desktop*Fin///////////////////////////////////////////////*/
+
+  
+  /*/////////////////////////////////////////Home*Mobile*Début///////////////////////////////////////////////*/
+  @media screen and (max-width: 800px) {
+  
+    .home{
+    margin: 0;
+    padding:0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
   }
   
-  /********** Home ************/
-  
-  /********** Home Mobile ************/
-  @media screen and (max-width: 700px) {
-    .Logo {
-      position: relative;
-      height: 5vh;
-      max-height: 5vh;
+    .navFixe{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
       margin: 2%;
+      padding: 2%;
+      z-index: 10;
     }
     .fakeBurger{
       width: 50px;
       height: 30px;
-      background-color: grey;
+      position: fixed;
+      margin-left: 80vw;
     }
     .contbuttonmylist {
       display: none;
@@ -154,13 +179,14 @@
     .navBar{
       display: flex;
       flex-direction: row;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
-      margin: 2%;
+      padding: 5%;
       gap: 20px;
     }
     
     .mainHome {
+
       height: 75vh;
       display: flex;
       flex-direction: row-reverse;
@@ -178,84 +204,32 @@
       display: none;
     }
     
-    .switchHome{
-      margin-top: 80vh;
-      margin-left: 20px;
-      gap: 10px;
-      
-    }
-    
-    .switch{
-     display: flex;
     
     
-    }
-    
-    
-    .switch.movie {
-      position: absolute;
-      color: black;
-      z-index: 4;
-    
-    }
-    
-    
-    .switch.movie .serie {
-      position: absolute;
-      color: white;
-      z-index: 4;
-      width: 15vw;
-    
-    }
-    
-    
-    .switch.serie {
-      position: absolute;
-      color: black;
-      z-index: 5;
-      width: 15vw;
-    
-    }
-    
-    .switch.serie .movie{
-      position: absolute;
-      color:white;
-      z-index: 5;
-      width: 15vw;
-    
-    }
-    .search {
-      width: 100%;
+    .footer{
+      width: 100vw;
+      height: 100vh;
+      background-color: black;
       display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+    .footercategory{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+    .footeritem{
+      font-size: 40px;
+      font-weight: 600;
     }
     
-    .searchTerm {
-      width: 70px;
-      border: none;
-      border-bottom: 1px solid white;
-      border-right: none;
-      padding: 0 0 0 0;
-      outline: none;
-      color: white;
-      background-color: #000;
-    }
-    
-    .searchTerm:focus{
-      color: white;
-    }
-    
-    .searchButton {
-      border: none;
-      border-bottom: 1px solid white;
-      background: #000;
-      text-align: center;
-      color: white;
-      cursor: pointer;
-      padding: 0 10px 0 0;
-      font-size: 18px;
-    }
     
   }
   
   
-  /********** Home Mobile ************/
+  /*/////////////////////////////////////////Home*Mobile*Fin///////////////////////////////////////////////*/

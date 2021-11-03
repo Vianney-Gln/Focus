@@ -1,7 +1,6 @@
 import React from "react";
 import "./styles/App.css";
-/* import Home from "./containers/Home"; */
-import Suggestion from "./containers/Suggestion";
+import Home from "./containers/Home";
 import PopupMenu from "./containers/PopupMenu";
 import Category from "./containers/Category";
 import AboutUs from "./containers/AboutUs";
@@ -10,11 +9,11 @@ import SignUp from "./containers/SignUp";
 import SignIn from "./containers/SignIn";
 import ItemModal from "./containers/ItemModal";
 import Player from "./containers/Player";
-/* <Home /> */
+
 function App() {
   return (
     <div>
-      <Suggestion />
+      <Home />
       <PopupMenu />
       <Category />
       <AboutUs />

@@ -1,0 +1,31 @@
+/*/////////////////////////////////////////Backgroundilage*Desktop*Début///////////////////////////////////////////////*/
+
+@media screen and (min-width: 800px) {
+  .background-image {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    opacity: 30%; 
+    top:0;
+    left:0;
+    z-index: -1;  
+  }
+}
+/*/////////////////////////////////////////Backgroundilage*Desktop*Fin///////////////////////////////////////////////*/
+
+/*/////////////////////////////////////////Backgroundilage*Mobile*Début///////////////////////////////////////////////*/
+
+@media screen and (max-width: 800px) {
+  .background-image {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    opacity: 30%; 
+    top:0;
+    left:0;
+    z-index: -1;  
+  }
+}
+/*/////////////////////////////////////////Backgroundilage*Mobile*Fin///////////////////////////////////////////////*/
