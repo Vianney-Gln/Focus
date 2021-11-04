@@ -56,6 +56,7 @@
 
 .itemModal .bottom-infos {
   font-size: 16px;
+  font-weight: 200;
   height: 30%;
   background-color: #313131;
 }
@@ -98,11 +99,21 @@
   grid-column-end: 4;
   grid-row-start: 2;
   grid-row-end: 2;
+  font-size: 18px;
 }
 .itemModal .bottom-infos-grid-availableOn i {
   font-size: 28px;
   -webkit-text-stroke: 2px #313131;
   vertical-align: middle;
+}
+.itemModal .bottom-infos-grid-addToMyList .btn-plus {
+  font-size: 38px;
+}
+.itemModal .bottom-infos-grid-addToMyList span {
+
+  position: relative;
+  top:-6px;
+  left:8px;
 }
 .itemModal .bottom-infos-grid-addToMyList {
   grid-column-start: 1;
@@ -110,7 +121,8 @@
   grid-row-start: 3;
   grid-row-end: 3;
   padding-top: 40px;
-  margin-left: -15px;
+  font-size: 18px;
+
 }
 .itemModal .bottom-infos-grid-addToMyList .btn-common {
   font-size: 16px;
@@ -167,9 +179,12 @@
     height: 100%;
   }
   .itemModal .top-thumbnail h1 {
+    position: relative;
+    left: -45px;
+    right: 0;
+    top: -99%;
+    width: 100%;
     font-size: 28px;
-    margin: 0;
-    padding-left: 8px;
   }
   .itemModal .bottom-infos {
     font-size: 16px;
@@ -221,7 +236,7 @@
     grid-row-end: 6;
     padding-top: 10px;
     padding-left: 0px;
-    font-size: 16px;
+    font-size: 18px;
   }
   .itemModal .bottom-infos-grid-availableOn i {
     font-size: 28px;
@@ -234,26 +249,7 @@
     grid-row-start: 1;
     grid-row-end: 1;
     margin-left: 0px;
-    padding-top:4px
-  }
-  .itemModal .bottom-infos-grid-addToMyList .btn-common {
-    font-size: 16px;
-    padding: 8px 10px 8px 10px;
-    transition: 0.5s;
-    border-top-left-radius: 0%;
-    border-bottom-left-radius: 0%;
-  }
-  .itemModal .bottom-infos-grid-addToMyList .btn-common i {
-    font-size: 16px;
-    padding: 0px 8px 0px 0px;
-  }
-  .itemModal .bottom-infos-grid-addToMyList .btn-common:hover {
-    border: 2px solid #000;
-    border-left: 2px solid #fff;
-  }
-  .itemModal .bottom-infos-grid-addToMyList .btn-common:active {
-    transform: translateY(3px);
-    transition: transform 0.15s;
+    padding-top:0px;
   }
   .itemModal .bottom-infos-grid-platforms {
     grid-column-start: 1;
