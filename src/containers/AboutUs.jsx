@@ -6,7 +6,6 @@ import avatarG from "../assets/images/avatarG.png";
 import avatarL from "../assets/images/avatarL.png";
 import avatarV from "../assets/images/avatarV.png";
 import reactIconHeart from "../assets/images/reactIconHeart.png";
-import Logo from "../components/Logo";
 
 // import "../styles/logo.css";
 // import "../styles/burger.css";
