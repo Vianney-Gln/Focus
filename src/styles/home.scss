@@ -2,47 +2,8 @@
   width: 100%;
   height: 100vh;
 
-  .navBar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
-    .navFixe {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: flex-start;
-      margin: 3%;
-      z-index: 10;
-    }
-    .navunfixe {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-end;
-      align-items: center;
-      margin-right: 0;
-
-      .contbuttonmylist {
-        display: flex;
-        flex-wrap: nowrap;
-        width: 10vw;
-
-        .buttonmylist {
-          font-weight: 200;
-          font-size: 13px;
-        }
-      }
-      .contButtonSignIn {
-        width: 12vw;
-      }
-    }
-    .fakeBurger {
-      display: none;
-    }
-  }
   .mainHome {
-    height: 80vh;
+    height: 100%;
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
@@ -68,13 +29,63 @@
         font-weight: 300;
         rotate: 50%;
         writing-mode: vertical-rl;
-        text-orientation: sideways-right;
-        transform: scale(-1);
+        transform: rotate(180deg);
         &:hover {
           font-weight: 600;
         }
       }
     }
+  }
+}
+.navBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+
+  .navFixe {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    // margin: 3%;
+    z-index: 10;
+
+    .logonav-mobile {
+      display: none;
+    }
+    .logonav {
+      display: inherit;
+    }
+  }
+  .navunfixe {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 0;
+
+    .contbuttonmylist {
+      display: flex;
+      flex-wrap: nowrap;
+      width: 10vw;
+
+      .buttonmylist {
+        font-weight: 200;
+        font-size: 24px;
+        padding-bottom: 1px;
+        text-decoration: none;
+        border-bottom: 1px solid #fff;
+      }
+    }
+    .contButtonSignIn {
+      width: 12vw;
+    }
+  }
+  .fakeBurger {
+    display: none;
   }
 }
 .footer {
@@ -110,29 +121,6 @@
 
 @media screen and (max-width: 800px) {
   .home {
-    .navBar {
-      padding: 5%;
-      gap: 20px;
-
-      .navFixe {
-        padding: 4%;
-      }
-      .navunfixe {
-        .contbuttonmylist {
-          display: none;
-        }
-        .contButtonSignIn {
-          display: none;
-        }
-      }
-      .fakeBurger {
-        width: 50px;
-        height: 30px;
-        position: fixed;
-        margin-left: 80vw;
-        display: inherit;
-      }
-    }
     .mainHome {
       height: 75vh;
       background-size: 70%;
@@ -144,6 +132,36 @@
           display: none;
         }
       }
+    }
+  }
+  .navBar {
+    padding: 5%;
+    gap: 20px;
+
+    .navFixe {
+      padding: 4%;
+
+      .logonav-mobile {
+        display: inherit;
+      }
+      .logonav {
+        display: none;
+      }
+    }
+    .navunfixe {
+      .contbuttonmylist {
+        display: none;
+      }
+      .contButtonSignIn {
+        display: none;
+      }
+    }
+    .fakeBurger {
+      width: 50px;
+      height: 30px;
+      position: fixed;
+      margin-left: 80vw;
+      display: inherit;
     }
   }
   .footer {

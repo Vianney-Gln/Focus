@@ -3,10 +3,11 @@
 @media screen and (min-width: 800px) {
 
   .search {
-    padding-left: 10vw;
+    /* padding-left: 10vw; */
     width: 100%;
     display: flex;
-    position: fixed;
+    /* position: fixed; */
+    margin-left: 50px;
     
   }
   
