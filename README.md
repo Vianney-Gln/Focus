@@ -1,70 +1,124 @@
-# Getting Started with Create React App
+![Focus](https://i.imgur.com/RkOF8m2.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## ![What is Focus](https://i.imgur.com/XqLrPTo.png)
+<br>
 
-## Available Scripts
+Proudly presents: Focus, this app.<br>
+It was born from 4 individuals, the 18th of October, 2021.<br>
+It came as the second project for our training at Wild Code School (Nantes, Fr).<br>
+Why `Focus` ? Simply a direct reference to camera's lenses<br>
+This app provides functionalities such as: browsing libraries, bookmarking movies/series, advanced search and more...
 
-In the project directory, you can run:
+<br>
 
-### `npm start`
+## ![Tables of Contents](https://i.imgur.com/onvvWvF.png)
+<br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+⋆ [Concept](https://github.com/Vianney-Gln/Focus/tree/dev#-2)<br>
+⋆ [Technologies Used](https://github.com/Vianney-Gln/Focus/tree/dev#-3)<br>
+⋆ [Features](https://github.com/Vianney-Gln/Focus/tree/dev#-4)<br>
+⋆ [Screenshots](https://github.com/Vianney-Gln/Focus/tree/dev#-5)<br>
+⋆ [Setup](https://github.com/Vianney-Gln/Focus/tree/dev#-6)<br>
+⋆ [Usage](https://github.com/Vianney-Gln/Focus/tree/dev#-7)<br>
+⋆ [Project Status](https://github.com/Vianney-Gln/Focus/tree/dev#-8)<br>
+⋆ [Room for Improvement](https://github.com/Vianney-Gln/Focus/tree/dev#-9)<br>
+⋆ [Acknowledgements](https://github.com/Vianney-Gln/Focus/tree/dev#-10)<br>
+⋆ [Contact](https://github.com/Vianney-Gln/Focus/tree/dev#-11)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<br>
 
-### `npm test`
+## ![Concept](https://i.imgur.com/VAtnKbo.png)
+<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+How to get away from the principle of giant streaming platforms like
+Netflix or Youtube? How would it be, as viewers, to NOT be overwhelmed
+by tons of suggestions all around. How would it be to **no longer consume**
+cinema as the mass product it became ? What would be a local movie
+theater, in a digital shape, with only a few cinematographic works to
+discover ?
 
-### `npm run build`
+<br>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ![Technologies Used](https://i.imgur.com/Kxz5fpB.png)
+<br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+For this project we used:<br>
+⇒ Html, Css (Scss), Javascript and ReactJs<br>
+⇒ NPM for additional packages<br>
+⇒ Webpack to compile the final project.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br>
 
-### `npm run eject`
+## ![Features](https://i.imgur.com/Z21S0ND.png)
+<br>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Currently provided:<br>
+⇒ Advanced Search bar<br>
+⇒ Minimal suggestions<br>
+⇒ Movies or tv Shows<br>
+⇒ Previewing<br>
+⇒ Trailers<br>
+⇒ Saving, rating your favorite movies/tv shows<br>
+⇒ Platforms from which you can stream movies/tv shows
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## ![Screenshots](https://i.imgur.com/ZQfZDn2.png)
+<br>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+WIP
+![Suggestion](https://i.imgur.com/yrgFplq.png)
 
-## Learn More
+<br>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## ![Setup](https://i.imgur.com/viJ8RPS.png)
+<br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project uses 2 API, TheMovieDb and Firebase.<br>
+Clone this repository.<br>
+You can launch this project by populating a `.env` file. There a sample available (`.env-sample`).<br>
+Launch `npm install` to install all packages.
 
-### Code Splitting
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## ![Usage](https://i.imgur.com/Hf1U6Ux.png)
+<br>
 
-### Analyzing the Bundle Size
+You can launch the project with `npm start` after you have installed all packages.<br>
+This project uses same commands like the basics `create-react-app`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<br>
 
-### Making a Progressive Web App
+## ![Project Status](https://i.imgur.com/leIJxes.png)
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Currently in progress.
 
-### Advanced Configuration
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## ![Room of Improvement](https://i.imgur.com/xLKSIqd.png)
+<br>
 
-### Deployment
+WIP
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+<br>
 
-### `npm run build` fails to minify
+## ![Acknowledgements](https://i.imgur.com/Tqkkjy2.png)
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Our thanks to :<br>
+⇒ Meta, for this incredible tool, ReactJs<br>
+⇒ Our trainer, [Jujuck](https://github.com/jujuck), who's continuously sharing his experiences and abilities<br>
+⇒ Ourselves, (yes) for all the hard work we put in<br>
+⇒ [ritaly](https://github.com/ritaly), for their magical readme.md template<br>
+"Drop the mic."
+
+<br>
+
+## ![Contact](https://i.imgur.com/dfLq9ZE.png)
+<br>
+
+Github: [@Vianney G.](https://github.com/Vianney-Gln)<br>
+Github: [@Léonie N.](https://github.com/LeonieNollevalle)<br>
+Github: [@Greg N.](https://github.com/anarkhya)<br>
+Github: [@Kévin D.](https://github.com/KevinDurand974)

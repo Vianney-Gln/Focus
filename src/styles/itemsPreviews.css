@@ -1,4 +1,5 @@
 .preview-items {
+  /* style de chaques vignettes de films */
   height: 180px;
   width: 236px;
   display: flex;
@@ -6,7 +7,7 @@
   flex-direction: column;
 }
 
-.preview-items img {
+.preview-items .container-image img {
   height: 158px;
   width: 236px;
   cursor: pointer;
@@ -15,6 +16,7 @@
 }
 
 .preview-items .title {
+  /* les titres de films n'apparaissent pas */
   margin-top: 10px;
   display: none;
   width: 100%;
@@ -23,36 +25,40 @@
 }
 
 .preview-items:hover .title {
+  /* les titres de films apparaissent au passage de la souris */
   display: block;
 }
 
 .preview-items:hover img {
+  /* effet de floutage au passage de la souris */
   filter: blur(2px);
 }
-.container-image {
+.preview-items .container-image {
   height: 159px;
   border: 1px solid transparent;
 }
 
-.container-image:hover {
+.preview-items .container-image:hover {
   border-color: white;
 }
 
+/* adaptation du style pour mobile */
 @media screen and (max-width: 768px) {
   .preview-items {
     height: 106px;
     width: 120px;
   }
-  .preview-items img {
+  .preview-items .container-image img {
     width: 120px;
     height: 80px;
   }
 
   .preview-items .title {
+    /* les titres apparaissent en fixe */
     display: block;
   }
 
-  .container-image {
+  .preview-items .container-image {
     height: 80px;
   }
 
@@ -60,7 +66,7 @@
     border: none;
   }
 
-  .preview-items img {
+  .preview-items .container-image img {
     border: 1px solid white;
   }
   .preview-items img:hover {
