@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Logo from "../components/Logo";
 import LogoMobile from "../components/LogoMobile";
 import SearchBar from "../components/SearchBar";
-import SwitchMtoS from "../components/Switch";
+import Switch from "../components/Switch";
 import Suggestion from "./Suggestion";
 import "../styles/index.css";
 import "../styles/home.scss";
@@ -33,6 +33,9 @@ const Home = () => (
         <Hamburger />
       </div>
     </header>
+    <div className="switchHome">
+      <Switch />
+    </div>
     <div className="home">
       <div className="mainHome">
         <ul className="navhome">
@@ -53,18 +56,21 @@ const Home = () => (
           </li>
         </ul>
       </div>
-      <div className="switchHome">
-        <SwitchMtoS />
-      </div>
     </div>
     <Suggestion />
     <Suggestion />
     <Suggestion />
     <div className="footer">
       <ul className="footercategory">
-        <li className="footeritem">UPCOMING</li>
-        <li className="footeritem">TOP RATED</li>
-        <li className="footeritem">LATEST</li>
+        <Link to="/category">
+          <li className="footeritem">UPCOMING</li>
+        </Link>
+        <Link to="/category">
+          <li className="footeritem">TOP RATED</li>
+        </Link>
+        <Link to="/category">
+          <li className="footeritem">LATEST</li>
+        </Link>
         <Link to="/mylist">
           <li className="footeritem">MY LIST</li>
         </Link>

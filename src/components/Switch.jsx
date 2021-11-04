@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/switch.css";
+import "../styles/switch.scss";
 
 const SwitchMtoS = () => {
   const [type, setType] = React.useState("movie");
@@ -7,7 +7,6 @@ const SwitchMtoS = () => {
   const handleSwitch = () => {
     setType((t) => {
       let tp = t;
-      console.log(tp);
       if (tp === "movie") {
         tp = "serie";
       } else {
@@ -15,20 +14,18 @@ const SwitchMtoS = () => {
       }
       return tp;
     });
-    console.log(type);
   };
 
   return (
-    <div
-      className={`switch ${type}`}
+    <button
+      type="button"
+      className={`btn-switch ${type}`}
       onClick={handleSwitch}
       onKeyPress={handleSwitch}
-      role="button"
-      tabIndex="0"
     >
-      <h2 className="movie">MOVIES</h2>
-      <h2 className="serie">TV SHOWS</h2>
-    </div>
+      {type === "movie" && <h2>MOVIES</h2>}
+      {type === "serie" && <h2>TV SHOWS</h2>}
+    </button>
   );
 };
 export default SwitchMtoS;

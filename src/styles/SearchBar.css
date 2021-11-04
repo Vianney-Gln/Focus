@@ -44,13 +44,7 @@
 
 
 @media screen and (max-width: 800px) {
-  .search {
-    width: 100%;
-    display: flex;
-    position: fixed;
-    justify-content: center;
-  }
-  
+
   .searchTerm {
     width: 70px;
     border: none;
@@ -62,9 +56,6 @@
     background-color: transparent;
   }
   
-  .searchTerm:focus{
-    color: white;
-  }
   
   .searchButton {
     border: none;

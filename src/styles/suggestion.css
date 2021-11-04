@@ -1,10 +1,6 @@
 /*/////////////////////////////////////////Suggestion*Desktop*Début///////////////////////////////////////////////*/
 
 @media screen and (min-width: 800px) {
-* {
-  margin: 0;
-  padding: 0;
-}
 body{
   position: relative;
   z-index: -2;
@@ -79,13 +75,13 @@ body{
 
 }
 
- button{
+ .button{
   font-family: lato;
   font-size: 40px;
   font-weight: 100;
 	background: none;
 	color: inherit;
-	border: none;
+	/* border: none; */
 	padding: 0;
 	cursor: pointer;
 	outline: inherit;
@@ -214,10 +210,6 @@ display: none;
 
 @media screen and (max-width: 800px) {
 
-  * {
-    margin: 0;
-    padding: 0;
-  }
   body{
     position: relative;
     z-index: -2;
