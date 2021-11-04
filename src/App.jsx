@@ -5,14 +5,16 @@ import "./styles/App.css";
 // import Category from "./containers/Category";
 // import AboutUs from "./containers/AboutUs";
 // import MyList from "./containers/MyList";
-import Routes from "./components/Routes";
+// import Routes from "./components/Routes";
 // import SignUp from "./containers/SignUp";
 // import SignIn from "./containers/SignIn";
 // import ItemModal from "./containers/ItemModal";
 // import Player from "./containers/Player";
+import Error404 from "./containers/Error404";
 
+/* <Routes /> */
 function App() {
-  return <Routes />;
+  return <Error404 />;
 }
 
 export default App;
