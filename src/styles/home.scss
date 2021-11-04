@@ -1,0 +1,160 @@
+.home {
+  width: 100%;
+  height: 100vh;
+
+  .navBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .navFixe {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      margin: 3%;
+      z-index: 10;
+    }
+    .navunfixe {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      margin-right: 0;
+
+      .contbuttonmylist {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 10vw;
+
+        .buttonmylist {
+          font-weight: 200;
+          font-size: 13px;
+        }
+      }
+      .contButtonSignIn {
+        width: 12vw;
+      }
+    }
+    .fakeBurger {
+      display: none;
+    }
+  }
+  .mainHome {
+    height: 80vh;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url(http://image.tmdb.org/t/p/w780/s3TBrRGB1iav7gFOCNx3H31MoES.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 30%;
+    background-position: center;
+
+    .navhome {
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 50px;
+      margin: 20px;
+      padding-right: 2vw;
+
+      .itemnavhome {
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 300;
+        rotate: 50%;
+        writing-mode: vertical-rl;
+        text-orientation: sideways-right;
+        transform: scale(-1);
+        &:hover {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+.footer {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+
+  .footercategory {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+
+    .footeritem {
+      font-size: 80px;
+      font-weight: 600;
+
+      &:hover {
+        font-size: 80px;
+        font-weight: 600;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .home {
+    .navBar {
+      padding: 5%;
+      gap: 20px;
+
+      .navFixe {
+        padding: 4%;
+      }
+      .navunfixe {
+        .contbuttonmylist {
+          display: none;
+        }
+        .contButtonSignIn {
+          display: none;
+        }
+      }
+      .fakeBurger {
+        width: 50px;
+        height: 30px;
+        position: fixed;
+        margin-left: 80vw;
+        display: inherit;
+      }
+    }
+    .mainHome {
+      height: 75vh;
+      background-size: 70%;
+
+      .navhome {
+        display: none;
+
+        .itemnavhome {
+          display: none;
+        }
+      }
+    }
+  }
+  .footer {
+    gap: 20px;
+
+    .footercategory {
+      gap: 20px;
+
+      .footeritem {
+        font-style: 40px;
+      }
+    }
+  }
+}

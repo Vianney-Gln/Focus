@@ -6,7 +6,7 @@ import SearchBar from "../components/SearchBar";
 import SwitchMtoS from "../components/Switch";
 import Suggestion from "./Suggestion";
 import "../styles/index.css";
-import "../styles/home.css";
+import "../styles/home.scss";
 
 const Home = () => (
   <div className="Containerhome">
