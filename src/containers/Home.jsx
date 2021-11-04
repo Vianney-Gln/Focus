@@ -1,5 +1,6 @@
 import React from "react";
 import Hamburger from "hamburger-react";
+import { Link } from "react-router-dom";
 import Logo from "../components/Logo";
 import SearchBar from "../components/SearchBar";
 import SwitchMtoS from "../components/Switch";
@@ -17,9 +18,9 @@ const Home = () => (
         </div>
         <div className="navunfixe">
           <div className="contbuttonmylist">
-            <a href="@" className="buttonmylist">
+            <Link to="/mylist" className="buttonmylist">
               MY LIST
-            </a>
+            </Link>
           </div>
           <div className="contButtonSignIn">
             <button type="button" className="btn-common btn-aperture">
@@ -61,8 +62,12 @@ const Home = () => (
         <li className="footeritem">UPCOMING</li>
         <li className="footeritem">TOP RATED</li>
         <li className="footeritem">LATEST</li>
-        <li className="footeritem">MY LIST</li>
-        <li className="footeritem">ABOUT US</li>
+        <Link to="/mylist">
+          <li className="footeritem">MY LIST</li>
+        </Link>
+        <Link to="/aboutus">
+          <li className="footeritem">ABOUT US</li>
+        </Link>
       </ul>
     </div>
   </div>

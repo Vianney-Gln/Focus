@@ -1,9 +1,11 @@
 import React from "react";
+import Hamburger from "hamburger-react";
 import avatarK from "../assets/images/avatarK.png";
 import avatarG from "../assets/images/avatarG.png";
 import avatarL from "../assets/images/avatarL.png";
 import avatarV from "../assets/images/avatarV.png";
 import reactIconHeart from "../assets/images/reactIconHeart.png";
+import Logo from "../components/Logo";
 
 // import "../styles/logo.css";
 // import "../styles/burger.css";
@@ -12,8 +14,8 @@ import "../styles/aboutUs.css";
 
 const AboutUs = () => (
   <div className="aboutUs">
-    {/* <Logo /> */}
-    {/* <Burger /> */}
+    <Logo />
+    <Hamburger />
     <h1>Concept</h1>
     <div className="concept">
       <p>
