@@ -1,7 +1,6 @@
 import React from "react";
 import "./styles/App.css";
-// import Home from "./containers/Home";
-// import Suggestion from "./containers/Suggestion";
+import Home from "./containers/Home";
 import PopupMenu from "./containers/PopupMenu";
 // import Category from "./containers/Category";
 // import AboutUs from "./containers/AboutUs";
@@ -14,12 +13,11 @@ import PopupMenu from "./containers/PopupMenu";
 function App() {
   return (
     <div>
-      {/* <Home /> */}
-      {/* <Suggestion /> */}
-      {<PopupMenu />}
-      {/* <Category /> */}
-      {/* <AboutUs /> */}
-      {/* <MyList /> */}
+      <Home />
+      <PopupMenu />
+      <Category />
+      <AboutUs />
+      <MyList />
       {/* <SignUp /> */}
       {/* <SignIn /> */}
       {/* <ItemModal /> */}

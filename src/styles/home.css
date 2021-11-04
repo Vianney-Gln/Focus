@@ -1,0 +1,235 @@
+/*/////////////////////////////////////////Home*Desktop*Début///////////////////////////////////////////////*/
+@media screen and (min-width: 800px) {
+  *{
+    margin: 0;
+    padding:0;
+  }
+  body {
+    background-color: black;
+    position: absolute;
+    z-index: 0;
+    margin: 0;
+    padding:0;
+  }
+
+  .home{
+    margin: 0;
+    padding:0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+  }
+  .navFixe{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 3%;
+    z-index: 10;
+  }
+
+  .contbuttonmylist {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 10vw;
+  }
+  .buttonmylist {
+    font-weight: 200;
+    font-size: 13px;
+    
+    
+  }
+    
+  .itemnavhome{
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 300;
+    rotate: 50%;
+    writing-mode: vertical-rl;
+    text-orientation: sideways-right;
+    transform: scale(-1);
+    
+  }
+  .itemnavhome:hover{
+   
+    font-weight: 600;
+  
+  }
+  .navhome{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap:50px;
+    margin: 20px;
+    padding-right: 2vw;
+  }
+  
+  .navBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center;
+    
+    
+  }
+
+  .navunfixe{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 0;
+  }
+  
+  .mainHome {
+    height: 80vh;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url(http://image.tmdb.org/t/p/w780/s3TBrRGB1iav7gFOCNx3H31MoES.jpg) ;
+    background-size: contain;
+  background-repeat: no-repeat;
+  background-size: 30%;
+
+  background-position: center;
+  
+  
+  }
+  .contButtonSignIn{
+    width: 12vw;
+  }
+  
+
+  .fakeBurger{
+    display: none;
+  }
+  .footer{
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+  }
+  .footercategory{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+  }
+  .footeritem{
+    font-size: 80px;
+    font-weight: 600;
+  }
+  .footeritem:hover{
+    font-size: 80px;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  }
+  /*/////////////////////////////////////////Home*Desktop*Fin///////////////////////////////////////////////*/
+
+  
+  /*/////////////////////////////////////////Home*Mobile*Début///////////////////////////////////////////////*/
+  @media screen and (max-width: 800px) {
+  
+    .home{
+    margin: 0;
+    padding:0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+  }
+  
+    .navFixe{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin: 2%;
+      padding: 2%;
+      z-index: 10;
+    }
+    .fakeBurger{
+      width: 50px;
+      height: 30px;
+      position: fixed;
+      margin-left: 80vw;
+    }
+    .contbuttonmylist {
+      display: none;
+    }
+    
+    .itemnavhome{
+      display: none;
+    
+    }
+    
+    .navhome{
+      display: none;
+    }
+    
+    .navBar{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5%;
+      gap: 20px;
+    }
+    
+    .mainHome {
+
+      height: 75vh;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: center;
+      background-image: url(http://image.tmdb.org/t/p/w780/s3TBrRGB1iav7gFOCNx3H31MoES.jpg) ;
+      background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center;
+    
+      
+    }
+    .contButtonSignIn{
+      display: none;
+    }
+    
+    
+    
+    .footer{
+      width: 100vw;
+      height: 100vh;
+      background-color: black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+    .footercategory{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+    .footeritem{
+      font-size: 40px;
+      font-weight: 600;
+    }
+    
+    
+  }
+  
+  
+  /*/////////////////////////////////////////Home*Mobile*Fin///////////////////////////////////////////////*/

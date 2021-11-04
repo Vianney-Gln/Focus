@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../assets/images/focus_big.png";
-import "../styles/index.css";
+import "../styles/logo.css";
 
 const Logo = () => (
   <div className="logonav">
