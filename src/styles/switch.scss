@@ -1,0 +1,23 @@
+.switchHome {
+  position: fixed;
+  bottom: 50px;
+  left: 50px;
+
+  .btn-switch {
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    h2 {
+      color: #fff;
+      letter-spacing: 2px;
+      font-family: inherit;
+      font-size: 32px;
+      transition: 0.2s;
+    }
+
+    &:hover h2 {
+      letter-spacing: 3px;
+    }
+  }
+}
