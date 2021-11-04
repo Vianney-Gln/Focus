@@ -1,16 +1,12 @@
 /******* aboutUS CSS begins *******/
 
-.aboutUs {
-  margin: 0 auto;
-  width: 800px;
-}
 .aboutUs h1 {
   padding-top:0.5em;
   letter-spacing: 0em;
   text-align: center;
 }
 .concept p {
-  width: 800px;
+  width: 1200px;
   margin: 0 auto;
   font-size: 28px;
   text-align: justify;
@@ -22,11 +18,13 @@
   text-align: right;
 }
 .teamMembers {
+  width: 1200px;
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
-  width: 800px;
-  align-items: center;
-  justify-items: center;
+  margin: 0 auto;
+  grid-template-columns: 180px 180px 180px 180px;
+  grid-gap: 20px;
+  justify-content: center;
+  align-content: center;
 }
 .teamMembers-step1 {
   grid-column-start: 1;
@@ -58,6 +56,7 @@
   padding-bottom: 5px;
   transform: rotate(-0.5rad) translateX(-35px) translateY(20px);
   background-color:#000;
+  width: 125px;
 }
 .teamMembers img {
   border-radius: 4px;
@@ -76,14 +75,13 @@
   font-size: 14px;
 }
 .teamMembers .minitext {
+  width:760px;
+  margin:0 auto;
   color: #7e7e7e;
   font-size: 14px;
   font-variant: normal;
   padding-top: 2em;
-  padding-bottom: 10px;
-  width: 800px;
-  margin:0 auto;
-  text-align: center;
+  padding-bottom: 30px;
 }
 .teamMembers .icon-react-cute {
   opacity: 0.5;
@@ -123,6 +121,7 @@
 @media screen and (max-width: 768px) {
   .aboutUs {
     width: auto;
+    padding: 20px;
   }
   .aboutUs h1 {
     font-size:48px;
@@ -132,14 +131,14 @@
   }
   .concept p {
     width: auto;
-    font-size:16px;
+    font-size:18px;
     text-align: left;
-    padding: 0 15px 0 15px;
   }
   .concept .tagline {
     padding-top:16px;
-    font-size:16px;
+    font-size:18px;
     padding: 1em 10px 0 0px;
+    text-align: center;
   }
   .teamMembers {
     display: grid;
