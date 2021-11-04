@@ -1,0 +1,34 @@
+/*/////////////////////////////////////////StarRate*Desktop*Début///////////////////////////////////////////////*/
+
+@media screen and (min-width: 800px) {
+  
+  .star{
+    width: 20vw;
+    height: auto;
+    padding-top: 4vh;
+    padding-left: 20px;
+    
+  }
+  .rc-rate{
+    font-size: 12px;
+  }
+}
+/*/////////////////////////////////////////StarRate*Desktop*Fin///////////////////////////////////////////////*/
+
+/*/////////////////////////////////////////StarRate*Mobile*Début///////////////////////////////////////////////*/
+
+
+@media screen and (max-width: 800px) {
+  .star{
+    width: 40vw;
+    height: auto;
+    padding-top: 1vh;
+    padding-left: 20px;
+    
+  }
+  .rc-rate{
+    font-size: 12px;
+  }
+}
+
+/*/////////////////////////////////////////StarRate*Mobile*Fin///////////////////////////////////////////////*/
