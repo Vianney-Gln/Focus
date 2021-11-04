@@ -1,5 +1,6 @@
 import Hamburger from "hamburger-react";
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/popupMenu.css";
 
 const PopupMenu = () => (
@@ -8,17 +9,27 @@ const PopupMenu = () => (
       <Hamburger />
     </div>
     <ul className="popup-menu-elements-top">
-      <li>UPCOMING</li>
-      <li>TOP RATED</li>
-      <li>LATEST</li>
+      <Link to="/category">
+        <li>UPCOMING</li>
+      </Link>
+      <Link to="/category">
+        <li>TOP RATED</li>
+      </Link>
+      <Link to="/category">
+        <li>LATEST</li>
+      </Link>
     </ul>
     <ul className="popup-menu-elements-bottom">
-      <li className="my-list" type="button">
-        MYLIST
-      </li>
-      <li className="about-us" type="button">
-        ABOUT US
-      </li>
+      <Link to="/mylist">
+        <li className="my-list" type="button">
+          MYLIST
+        </li>
+      </Link>
+      <Link to="/aboutus">
+        <li className="about-us" type="button">
+          ABOUT US
+        </li>
+      </Link>
     </ul>
   </div>
 );
