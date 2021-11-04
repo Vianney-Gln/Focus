@@ -11,8 +11,8 @@ import "./styles/App.css";
 // import ItemModal from "./containers/ItemModal";
 // import Player from "./containers/Player";
 import Error404 from "./containers/Error404";
+// <Routes />
 
-/* <Routes /> */
 function App() {
   return <Error404 />;
 }
