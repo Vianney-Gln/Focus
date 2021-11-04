@@ -1,0 +1,256 @@
+@import "react-slideshow-image/dist/styles.css";
+.suggestion {
+  height: 100vh;
+  width: 100%;
+
+  .redirectcat {
+    font-size: 18px;
+    font-weight: 200;
+    text-decoration: underline;
+    font-style: italic;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 50px;
+    margin-top: 15vh;
+  }
+
+  .suggestionInfocarou {
+    & > div {
+      width: 50%;
+
+      .carroumobile {
+        .fleche {
+          display: none;
+        }
+        .infoFilm {
+          margin-top: 5vh;
+          display: flex;
+          flex-direction: column;
+
+          .inforea {
+            font-weight: 100;
+            font-style: italic;
+            width: 40vw;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding-left: 20px;
+            padding-right: 20px;
+
+            h3 {
+              font-size: 20px;
+              font-weight: 200;
+            }
+          }
+          .synopsis {
+            padding-left: 20px;
+            padding-top: 5vh;
+            width: 35vw;
+            font-size: 16px;
+            font-weight: 200;
+            color: #ddd;
+          }
+        }
+      }
+      .infobas {
+        height: auto;
+        width: 40vw;
+        display: flex;
+        align-items: center;
+        gap: 50px;
+
+        .Addmylist {
+          width: 30vw;
+          height: auto;
+          padding-top: 4vh;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          button {
+            font-size: 40px;
+            font-weight: 100;
+            background: none;
+            color: inherit;
+            padding: 0;
+            cursor: pointer;
+            outline: inherit;
+          }
+        }
+        .availableon {
+          padding-top: 7vh;
+          width: 30vw;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+
+          .availableonpic {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            h4 {
+              font-size: 16px;
+              font-weight: 200;
+
+              &.pictostream {
+                font-size: 13px;
+                width: 30px;
+                height: 30px;
+                border: 1px solid white;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 2px;
+              }
+            }
+          }
+
+          .iconestream {
+            max-height: 15px;
+            gap: 10px;
+          }
+        }
+      }
+    }
+    .caroussel {
+      width: 50%;
+
+      .lecarou {
+        margin-top: 5vh;
+        width: 50vw;
+
+        .containerSlide {
+          height: 100px;
+          width: 500px;
+          margin-left: 15vh;
+
+          .react-slideshow-container {
+            .default-nav {
+              border-radius: 0;
+              background-color: transparent;
+              width: 7vh;
+              height: 7vh;
+
+              svg {
+                fill: white;
+                width: 7vh;
+                height: 7vh;
+              }
+
+              &:hover,
+              &:focus {
+                background-color: transparent;
+                width: 7vh;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .suggestion {
+    .suggestionInfocarou {
+      & > div {
+        width: auto;
+        .carroumobile {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center;
+          padding-left: 3vw;
+          padding-right: 3vw;
+
+          .fleche {
+            display: inherit;
+          }
+
+          .infoFilm {
+            width: 100vw;
+            height: 80vh;
+            justify-content: center;
+            align-items: center;
+
+            h1.letitle {
+              font-size: 60px;
+              padding-top: 0;
+              margin-top: 0;
+              display: flex;
+              justify-content: center;
+            }
+            .inforea {
+              margin-top: 1vh;
+              width: 80vw;
+              padding-left: 10px;
+              padding-right: 10px;
+
+              h3 {
+                font-size: 14px;
+                font-weight: 100;
+              }
+            }
+            .synopsis {
+              width: 75vw;
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+        }
+        .infobas {
+          margin-left: 4vh;
+          width: 80vw;
+          flex-direction: row;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          margin-top: 3vh;
+          gap: auto;
+
+          .Addmylist {
+            width: 34vw;
+            padding-top: 2vh;
+          }
+          .availableon {
+            height: auto;
+            flex-direction: row;
+            padding-left: 3vh;
+            padding-top: 0;
+            margin-top: 1vh;
+            margin-bottom: 2vh;
+            gap: 8vw;
+
+            .availableonpic {
+              justify-content: flex-start;
+              gap: auto;
+
+              h4 {
+                width: 30vw;
+
+                &.pictostream {
+                  display: none;
+                }
+              }
+            }
+
+            .iconestream {
+              margin-left: 10px;
+            }
+          }
+        }
+      }
+
+      .caroussel {
+        display: none;
+      }
+    }
+  }
+}
