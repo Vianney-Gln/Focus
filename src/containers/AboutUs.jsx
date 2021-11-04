@@ -14,17 +14,18 @@ import "../styles/aboutUs.css";
 
 const AboutUs = () => (
   <div className="aboutUs">
-    <Logo />
-    <Hamburger />
+    <div className="top-navbar">
+      <Logo />
+      <Hamburger />
+    </div>
     <h1>Concept</h1>
     <div className="concept">
       <p>
         How to get away from the principle of giant streaming platforms like
         Netflix or Youtube? How would it be, as viewers, to NOT be overwhelmed
-        by tons of suggestions all around. How would it be to no longer consume
-        cinema as the mass product it became ? What would be a local movie
-        theater, in a digital shape, with only a few cinematographic works to
-        discover ?
+        by tons of suggestions all around. To no longer consume cinema as the
+        mass product it became ? What would be a local movie theater, in a
+        digital shape, with only a few cinematographic works to discover ?
       </p>
       <p className="tagline">Dear reader & viewer, answer is ours & yours.</p>
     </div>

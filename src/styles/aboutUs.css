@@ -1,14 +1,22 @@
 /******* aboutUS CSS begins *******/
 
+.aboutUs .top-navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  }
+.aboutUs .hamburger-react {
+  display: block;
+}
 .aboutUs h1 {
-  padding-top:0.5em;
+  padding-top:0em;
   letter-spacing: 0em;
   text-align: center;
 }
 .aboutUs .concept p {
-  width: 1200px;
+  width: 1000px;
   margin: 0 auto;
-  font-size: 28px;
+  font-size: 30px;
   text-align: justify;
 }
 .aboutUs .concept .tagline {
@@ -54,7 +62,7 @@
   font-size: 22px;
   text-align: left;
   padding-bottom: 5px;
-  transform: rotate(-0.5rad) translateX(-35px) translateY(20px);
+  transform: rotate(-0.5rad) translateX(-30px) translateY(20px);
   background-color:#000;
   width: 125px;
 }
@@ -176,7 +184,7 @@
   .aboutUs .teamMembers .member-name {
     font-size: 22px;
     padding-bottom: 3px;
-    transform: rotate(-0.4rad) translateX(-37px) translateY(20px);
+    transform: rotate(-0.4rad) translateX(-20px) translateY(20px);
     max-width: 210px;
   }
   .aboutUs .teamMembers img {
