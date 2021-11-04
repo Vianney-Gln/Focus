@@ -62,8 +62,12 @@ const Home = () => (
         <li className="footeritem">UPCOMING</li>
         <li className="footeritem">TOP RATED</li>
         <li className="footeritem">LATEST</li>
-        <li className="footeritem">MY LIST</li>
-        <li className="footeritem">ABOUT US</li>
+        <Link to="/mylist">
+          <li className="footeritem">MY LIST</li>
+        </Link>
+        <Link to="/aboutus">
+          <li className="footeritem">ABOUT US</li>
+        </Link>
       </ul>
     </div>
   </div>

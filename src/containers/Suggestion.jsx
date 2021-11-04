@@ -4,6 +4,7 @@ import Rate from "rc-rate";
 import "rc-rate/assets/index.css";
 import "../styles/index.css";
 import "../styles/suggestion.css";
+import { Link } from "react-router-dom";
 import Slideshow from "../components/Slidshow";
 import BackgroundImage from "../components/BackgroundImage";
 import imgNet from "../assets/images/netflix.png";
@@ -15,7 +16,9 @@ const Suggestion = () => (
     <BackgroundImage />
 
     <div className="redirectcat">
-      <h3>Go to Latest →</h3>
+      <Link to="/category">
+        <h3>Go to Latest →</h3>
+      </Link>
     </div>
 
     <div className="suggestionInfocarou">
