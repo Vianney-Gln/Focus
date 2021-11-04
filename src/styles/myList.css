@@ -65,13 +65,26 @@
   margin-left: 5px;
 }
 
-@media screen and (max-width: 768px) {
-  .myList {
-    padding: 0;
-    margin: 0;
-  }
-  .barre-logo-burger {
-    padding-left: 15px;
-    padding-right: 15px;
+.myList .container-items-list {
+  height: 100vh;
+  overflow-y: auto;
+}
+.myList .container-items-list::-webkit-scrollbar {
+  display: none;
+}
+
+.myList .container-items-list .inner {
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+
+  @media screen and (max-width: 768px) {
+    .myList {
+      padding: 0;
+      margin: 0;
+    }
+    .barre-logo-burger {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
   }
 }

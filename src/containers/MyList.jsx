@@ -33,7 +33,7 @@ const MyList = () => {
         </div>
       </div>
 
-      {itemLists}
+      <div className="container-items-list">{itemLists}</div>
     </div>
   );
 };
