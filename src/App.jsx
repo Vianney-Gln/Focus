@@ -3,7 +3,7 @@ import "./styles/App.css";
 // import Home from "./containers/Home";
 // import PopupMenu from "./containers/PopupMenu";
 // import Category from "./containers/Category";
-import AboutUs from "./containers/AboutUs";
+// import AboutUs from "./containers/AboutUs";
 // import MyList from "./containers/MyList";
 import Routes from "./components/Routes";
 // import SignUp from "./containers/SignUp";
