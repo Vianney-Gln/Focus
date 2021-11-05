@@ -24,8 +24,10 @@ const MyList = () => {
       <div className="container-views-titles">
         <div className="views-titles">
           <div className="viewed-asc">
-            <button type="button">Viewed</button>
-            <button type="button" className="button-margin-left">
+            <button className="viewed btn-aperture" type="button">
+              Viewed
+            </button>
+            <button type="button" className="button-margin-left btn-aperture">
               Asc
             </button>
           </div>
@@ -33,7 +35,7 @@ const MyList = () => {
         </div>
       </div>
 
-      {itemLists}
+      <div className="container-items-list">{itemLists}</div>
     </div>
   );
 };
