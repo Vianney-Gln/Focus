@@ -1,91 +1,98 @@
 /******* aboutUS CSS begins *******/
 
-.aboutUs {
-  margin: 0 auto;
-  width: 800px;
-}
+.aboutUs .top-navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  width: 100%;
+  }
+.aboutUs .top-navbar .logonav {
+position: relative;
+  }
 .aboutUs h1 {
-  padding-top:0.5em;
+  padding-top:0em;
   letter-spacing: 0em;
   text-align: center;
 }
-.concept p {
-  width: 800px;
+.aboutUs .concept p {
+  width: 1000px;
   margin: 0 auto;
-  font-size: 28px;
+  font-size: 30px;
   text-align: justify;
 }
-.concept .tagline {
+.aboutUs .concept .tagline {
   padding-top:1em;
   font-style: italic;
   font-size: 28px;
   text-align: right;
 }
-.teamMembers {
+.aboutUs .teamMembers {
+  width: 1200px;
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
-  width: 800px;
-  align-items: center;
-  justify-items: center;
+  margin: 0 auto;
+  grid-template-columns: 180px 180px 180px 180px;
+  grid-gap: 20px;
+  justify-content: center;
+  align-content: center;
 }
-.teamMembers-step1 {
+.aboutUs .teamMembers-step1 {
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 1;
 }
-.teamMembers-step2 {
+.aboutUs .teamMembers-step2 {
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 1;
 }
-.teamMembers-step3 {
+.aboutUs .teamMembers-step3 {
   grid-column-start: 3;
   grid-column-end: 4;
   grid-row-start: 1;
   grid-row-end: 1;
 }
-.teamMembers-step4 {
+.aboutUs .teamMembers-step4 {
   grid-column-start: 4;
   grid-column-end: 5;
   grid-row-start: 1;
   grid-row-end: 1;
 }
-.teamMembers .member-name {
+.aboutUs .teamMembers .member-name {
   font-size: 22px;
   text-align: left;
   padding-bottom: 5px;
-  transform: rotate(-0.5rad) translateX(-35px) translateY(20px);
+  transform: rotate(-0.5rad) translateX(-30px) translateY(20px);
   background-color:#000;
+  width: 125px;
 }
-.teamMembers img {
+.aboutUs .teamMembers img {
   border-radius: 4px;
   object-fit: cover;
   width: 180px;
   height: 180px;
 }
-.teamMembers p {
+.aboutUs .teamMembers p {
   font-size: 16px;
   text-align: center;
   padding-bottom: 5px;
 }
-.teamMembers .quote-text {
+.aboutUs .teamMembers .quote-text {
   font-variant: normal;
   color: #7e7e7e;
   font-size: 14px;
 }
-.teamMembers .minitext {
+.aboutUs .teamMembers .minitext {
+  width:760px;
+  margin:0 auto;
   color: #7e7e7e;
   font-size: 14px;
   font-variant: normal;
   padding-top: 2em;
-  padding-bottom: 10px;
-  width: 800px;
-  margin:0 auto;
-  text-align: center;
+  padding-bottom: 30px;
 }
-.teamMembers .icon-react-cute {
+.aboutUs .teamMembers .icon-react-cute {
   opacity: 0.5;
   display: block;
   margin:0 auto;
@@ -107,13 +114,13 @@
       transform:rotate(360deg); 
   } 
 }
-.teamMembers .icon-react-cute:hover {
+.aboutUs .teamMembers .icon-react-cute:hover {
   opacity: 0.75;
   -webkit-animation:spin 0.5s linear infinite;
   -moz-animation:spin 0.5s linear infinite;
   animation:spin 0.5s linear infinite;
 }
-.teamMembers .icon-react-cute:active {
+.aboutUs .teamMembers .icon-react-cute:active {
   opacity: 1;
   -webkit-animation:spin 0.25s linear infinite;
   -moz-animation:spin 0.25s linear infinite;
@@ -123,6 +130,7 @@
 @media screen and (max-width: 768px) {
   .aboutUs {
     width: auto;
+    padding: 20px;
   }
   .aboutUs h1 {
     font-size:48px;
@@ -130,18 +138,18 @@
     letter-spacing: 0em;
     text-align: center;
   }
-  .concept p {
+  .aboutUs .concept p {
     width: auto;
-    font-size:16px;
+    font-size:18px;
     text-align: left;
-    padding: 0 15px 0 15px;
   }
-  .concept .tagline {
+  .aboutUs .concept .tagline {
     padding-top:16px;
-    font-size:16px;
+    font-size:18px;
     padding: 1em 10px 0 0px;
+    text-align: center;
   }
-  .teamMembers {
+  .aboutUs .teamMembers {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 50% 50% 50% 50%;
@@ -150,49 +158,49 @@
     justify-items: center;
     padding: 0px;
   }
-  .teamMembers-step1 {
+  .aboutUs .teamMembers-step1 {
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 1;
   }
-  .teamMembers-step2 {
+  .aboutUs .teamMembers-step2 {
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 2;
   }
-  .teamMembers-step3 {
+  .aboutUs .teamMembers-step3 {
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 3;
     grid-row-end: 3;
   }
-  .teamMembers-step4 {
+  .aboutUs .teamMembers-step4 {
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 4;
     grid-row-end: 4;
   }
-  .teamMembers .member-name {
+  .aboutUs .teamMembers .member-name {
     font-size: 22px;
     padding-bottom: 3px;
-    transform: rotate(-0.4rad) translateX(-37px) translateY(20px);
+    transform: rotate(-0.4rad) translateX(-20px) translateY(20px);
     max-width: 210px;
   }
-  .teamMembers img {
+  .aboutUs .teamMembers img {
     width: 210px;
     height: 160px;
     object-fit: cover;
   }
-  .teamMembers p {
+  .aboutUs .teamMembers p {
     font-size: 18px;
     padding-bottom: 2px;
   }
-  .teamMembers .quote-text {
+  .aboutUs .teamMembers .quote-text {
     font-size: 16px;
   }
-  .teamMembers .minitext {
+  .aboutUs .teamMembers .minitext {
     font-size: 12px;
     padding-top: 3em;
     padding-bottom: 1em;

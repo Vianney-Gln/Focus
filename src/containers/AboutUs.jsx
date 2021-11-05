@@ -1,11 +1,11 @@
 import React from "react";
 import Hamburger from "hamburger-react";
+import Logo from "../components/Logo";
 import avatarK from "../assets/images/avatarK.png";
 import avatarG from "../assets/images/avatarG.png";
 import avatarL from "../assets/images/avatarL.png";
 import avatarV from "../assets/images/avatarV.png";
 import reactIconHeart from "../assets/images/reactIconHeart.png";
-import Logo from "../components/Logo";
 
 // import "../styles/logo.css";
 // import "../styles/burger.css";
@@ -14,17 +14,18 @@ import "../styles/aboutUs.css";
 
 const AboutUs = () => (
   <div className="aboutUs">
-    <Logo />
-    <Hamburger />
+    <div className="top-navbar">
+      <Logo />
+      <Hamburger />
+    </div>
     <h1>Concept</h1>
     <div className="concept">
       <p>
         How to get away from the principle of giant streaming platforms like
         Netflix or Youtube? How would it be, as viewers, to NOT be overwhelmed
-        by tons of suggestions all around. How would it be to no longer consume
-        cinema as the mass product it became ? What would be a local movie
-        theater, in a digital shape, with only a few cinematographic works to
-        discover ?
+        by tons of suggestions all around. To no longer consume cinema as the
+        mass product it became ? What would be a local movie theater, in a
+        digital shape, with only a few cinematographic works to discover ?
       </p>
       <p className="tagline">Dear reader & viewer, answer is ours & yours.</p>
     </div>
