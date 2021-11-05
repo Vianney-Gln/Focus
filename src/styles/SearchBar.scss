@@ -1,0 +1,39 @@
+/**
+ * Search Bar - Deskstop
+ */
+.search {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  margin-left: 50px;
+
+  .searchTerm {
+    width: 200px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.95);
+    padding: 10px;
+    font-family: inherit;
+  }
+  .searchButton {
+    border: none;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.95);
+    padding: 0 10px;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline-offset: 5px;
+      z-index: 1;
+    }
+
+    i {
+      transition: transform 0.2s;
+    }
+    &:hover i {
+      transform: scale(1.3);
+    }
+  }
+}

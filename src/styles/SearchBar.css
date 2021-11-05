@@ -3,10 +3,11 @@
 @media screen and (min-width: 800px) {
 
   .search {
-    padding-left: 10vw;
+    /* padding-left: 10vw; */
     width: 100%;
     display: flex;
-    position: fixed;
+    /* position: fixed; */
+    margin-left: 50px;
     
   }
   
@@ -43,13 +44,7 @@
 
 
 @media screen and (max-width: 800px) {
-  .search {
-    width: 100%;
-    display: flex;
-    position: fixed;
-    justify-content: center;
-  }
-  
+
   .searchTerm {
     width: 70px;
     border: none;
@@ -61,9 +56,6 @@
     background-color: transparent;
   }
   
-  .searchTerm:focus{
-    color: white;
-  }
   
   .searchButton {
     border: none;

@@ -1,0 +1,174 @@
+.home {
+  width: 100%;
+  height: 100vh;
+
+  .mainHome {
+    height: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url(http://image.tmdb.org/t/p/w780/s3TBrRGB1iav7gFOCNx3H31MoES.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 30%;
+    background-position: center;
+
+    .navhome {
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 50px;
+      margin: 20px;
+      padding-right: 2vw;
+
+      .itemnavhome {
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 300;
+        rotate: 50%;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        &:hover {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+.navBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  padding: 50px;
+
+  .navFixe {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 10;
+
+    .logonav-mobile {
+      display: none;
+    }
+    .logonav {
+      display: inherit;
+    }
+  }
+  .navunfixe {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+
+    .contbuttonmylist {
+      display: flex;
+      flex-wrap: nowrap;
+
+      .buttonmylist {
+        font-weight: 200;
+        font-size: 24px;
+        padding-bottom: 1px;
+        text-decoration: none;
+        border-bottom: 1px solid #fff;
+        margin-right: 50px;
+      }
+    }
+  }
+  .fakeBurger {
+    display: none;
+  }
+}
+.footer {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+
+  .footercategory {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+
+    .footeritem {
+      font-size: 80px;
+      font-weight: 600;
+
+      &:hover {
+        font-size: 80px;
+        font-weight: 600;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .home {
+    .mainHome {
+      height: 75vh;
+      background-size: 70%;
+
+      .navhome {
+        display: none;
+
+        .itemnavhome {
+          display: none;
+        }
+      }
+    }
+  }
+  .navBar {
+    padding: 5%;
+    gap: 20px;
+
+    .navFixe {
+      padding: 4%;
+
+      .logonav-mobile {
+        display: inherit;
+      }
+      .logonav {
+        display: none;
+      }
+    }
+    .navunfixe {
+      .contbuttonmylist {
+        display: none;
+      }
+      .contButtonSignIn {
+        display: none;
+      }
+    }
+    .fakeBurger {
+      width: 50px;
+      height: 30px;
+      position: fixed;
+      margin-left: 80vw;
+      display: inherit;
+    }
+  }
+  .footer {
+    gap: 20px;
+
+    .footercategory {
+      gap: 20px;
+
+      .footeritem {
+        font-style: 40px;
+      }
+    }
+  }
+}
