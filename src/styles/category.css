@@ -17,10 +17,15 @@
   margin-bottom: 10px;
 }
 
+.container-category .container-previous-items-center .title-category h1 {
+  font-size: 64px;
+}
+
 .container-category .barre-header {
   width: 100%;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-top: 50px;
   display: flex;
   justify-content: space-between;
 }
@@ -39,8 +44,9 @@
 
 .container-category .barre-header .logo-search {
   /* container qui contient le logo et la search barre */
-  width: 30%;
+  width: auto;
   display: flex;
+  flex-wrap: nowrap;
   justify-content: space-between;
 }
 
@@ -68,7 +74,19 @@
   column-gap: 20px;
   row-gap: 1em;
   width: 100%;
+  height: 75vh;
+  overflow-y: auto;
+  overflow-x: hidden;
   margin-bottom: 20px;
+}
+.container-category
+  .container-previous-items-center
+  .container-previous-items::-webkit-scrollbar {
+  display: none;
+}
+.container-category .container-previous-items-center .container-previous-items {
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
 }
 
 @media screen and (max-width: 768px) {
