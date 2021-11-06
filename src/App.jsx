@@ -2,6 +2,7 @@ import React from "react";
 import "./styles/App.css";
 import { Switch, Route } from "react-router-dom";
 // import PopupMenu from "./containers/PopupMenu";
+import Hamburger from "hamburger-react";
 import Home from "./containers/Home";
 import Category from "./containers/Category";
 import AboutUs from "./containers/AboutUs";
@@ -11,6 +12,9 @@ function App() {
   return (
     <>
       {/* <PopupMenu /> */}
+      <div className="hamburger">
+        <Hamburger />
+      </div>
 
       <Switch>
         <Route exact path="/" component={Home} />

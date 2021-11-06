@@ -1,5 +1,4 @@
 import React from "react";
-import Hamburger from "hamburger-react";
 import "../styles/category.css";
 import BackgroundImage from "../components/BackgroundImage";
 import ItemsPreviews from "../components/ItemsPreviews";
@@ -28,7 +27,6 @@ const Category = () => {
             <LogoMobile />
             <SearchBar />
           </div>
-          <Hamburger />
         </div>
 
         <div className="container-previous-items-center">

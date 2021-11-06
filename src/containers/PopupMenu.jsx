@@ -1,13 +1,9 @@
-import Hamburger from "hamburger-react";
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/popupMenu.css";
 
 const PopupMenu = () => (
   <div className="popup-menu-elements">
-    <div className="cross-close">
-      <Hamburger />
-    </div>
     <ul className="popup-menu-elements-top">
       <Link to="/category">
         <li>UPCOMING</li>
