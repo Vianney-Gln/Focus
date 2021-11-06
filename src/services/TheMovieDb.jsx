@@ -1,5 +1,11 @@
 import axios from "axios";
 
+/**
+ * Create a full path for the semi-url passed by the API
+ * @param {string} url Url from API
+ * @param {number} width Number of your choice
+ * @returns full formated url
+ */
 export const imageBaseUrl = (url, width) => {
   if (url == null) return null;
   let w = "original";
@@ -7,6 +13,9 @@ export const imageBaseUrl = (url, width) => {
   return `https://image.tmdb.org/t/p/${w}${url}`;
 };
 
+/**
+ * Axios Base for the API, Request all URL from this
+ */
 export const apiBaseUrl = axios.create({
   baseURL: "https://api.themoviedb.org/3",
   params: {
@@ -15,6 +24,11 @@ export const apiBaseUrl = axios.create({
   },
 });
 
+/**
+ * Transform the Genre ID in Genre text
+ * @param {number} id API genre ID
+ * @returns Representation in Text of the ID
+ */
 export const idToGenre = (id) => {
   const genre = [
     {

@@ -1,5 +1,10 @@
 import { apiBaseUrl, imageBaseUrl } from "./TheMovieDb";
 
+/**
+ * Give you the trailer of the movie by its ID
+ * @param {number} id ID of the movie
+ * @returns Link of the trailer
+ */
 export const tmdbMovieVideos = async (id) => {
   const { data } = await apiBaseUrl.get(`/movie/${id}/videos`);
   let trailer = null;
@@ -15,6 +20,11 @@ export const tmdbMovieVideos = async (id) => {
   return trailer;
 };
 
+/**
+ * Give you the director of the movie by its ID
+ * @param {number} id ID of the movie
+ * @returns Director of the movie
+ */
 export const tmdbMovieCredits = async (id) => {
   const { data } = await apiBaseUrl.get(`/movie/${id}/credits`);
   let director = "";
@@ -24,6 +34,11 @@ export const tmdbMovieCredits = async (id) => {
   return director;
 };
 
+/**
+ * Give you the list of providers of the movie by its ID
+ * @param {number} id ID of the movie
+ * @returns Providers list of the movie
+ */
 export const tmdbMovieProviders = async (id) => {
   const { data } = await apiBaseUrl.get(`/movie/${id}/watch/providers`);
   if (Object.keys(data.results).length === 0) return null;
@@ -55,6 +70,10 @@ export const tmdbMovieProviders = async (id) => {
   return pros;
 };
 
+/**
+ * Fetch API and give you the 20 upcoming movies
+ * @returns Array of 20 upcoming movies
+ */
 export const tmdbMovieUpcomming = async () => {
   const { data } = await apiBaseUrl.get("/movie/upcoming", {
     params: {
@@ -78,6 +97,10 @@ export const tmdbMovieUpcomming = async () => {
   return formatedArray;
 };
 
+/**
+ * Fetch API and give you the 20 popular movies
+ * @returns Array of 20 popular movies
+ */
 export const tmdbMoviePopular = async () => {
   const { data } = await apiBaseUrl.get("/movie/popular", {
     params: {
@@ -101,6 +124,10 @@ export const tmdbMoviePopular = async () => {
   return formatedArray;
 };
 
+/**
+ * Fetch API and give you the 20 now playing movies (Release in cinema)
+ * @returns Array of 20 now playing movies (Release in cinema)
+ */
 export const tmdbMovieNowPlaying = async () => {
   const { data } = await apiBaseUrl.get("/movie/now_playing", {
     params: {
@@ -124,6 +151,11 @@ export const tmdbMovieNowPlaying = async () => {
   return formatedArray;
 };
 
+/**
+ * Send multiple request to get all informations that we want
+ * @param {number} id The ID of the movie
+ * @returns full data of the movie
+ */
 export const tmdbMovieInfos = async (id) => {
   try {
     const { data } = await apiBaseUrl.get(`/movie/${id}`);
@@ -160,5 +192,37 @@ export const tmdbMovieInfos = async (id) => {
     return resFiltered;
   } catch (error) {
     return error;
+  }
+};
+
+/**
+ * Perform a Search within API with the query
+ * @param {string} query Search query
+ * @returns Array of Movies Object
+ */
+export const tmdbSearchMovies = async (query) => {
+  try {
+    const { data } = await apiBaseUrl.get(`/search/movie`, {
+      params: {
+        region: "US",
+        query: encodeURI(query),
+      },
+    });
+    const { results } = data;
+    const datas = [];
+    for (let i = 0; i < results.length; i += 1) {
+      datas.push({
+        id: results[i].id,
+        title: results[i].title,
+        image: imageBaseUrl(
+          results[i].poster_path
+            ? results[i].poster_path
+            : results[i].backdrop_path
+        ),
+      });
+    }
+    return datas;
+  } catch (err) {
+    return err;
   }
 };
