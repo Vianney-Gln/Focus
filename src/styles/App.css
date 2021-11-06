@@ -2,6 +2,7 @@
   width: 100%;
 }
 
+/* hamburger positionné en absolute pour toute l'app */
 .hamburger {
   position: absolute;
   z-index: 10;
