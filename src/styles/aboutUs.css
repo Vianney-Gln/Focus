@@ -1,5 +1,4 @@
 /*/////////////////////////////////////////   aboutUS CSS begins   ///////////////////////////////////////////////*/
-
 .aboutUs .top-navbar {
   display: flex;
   justify-content: space-between;
@@ -27,6 +26,7 @@ position: relative;
   font-size: 28px;
   text-align: right;
 }
+/*////////// display group members, using Grid for responsiveness ///////*/
 .aboutUs .teamMembers {
   width: 1200px;
   display: grid;
@@ -92,6 +92,7 @@ position: relative;
   color: #7e7e7e;
   font-size: 14px;
 }
+/*////////// pseudofooter ///////*/
 .aboutUs .teamMembers .minitext {
   width:760px;
   margin:0 auto;
@@ -101,6 +102,7 @@ position: relative;
   padding-top: 2em;
   padding-bottom: 30px;
 }
+/*////////// pseudofooter easter egg & its cosmetics ///////*/
 .aboutUs .teamMembers .icon-react-cute {
   opacity: 0.25;
   display: block;
@@ -214,9 +216,6 @@ position: relative;
     margin:0 auto;
   }
 }
-
-
-
 /*/////////////////////////////////////////   aboutUS CSS end   ///////////////////////////////////////////////*/
 
 
