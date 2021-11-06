@@ -6,14 +6,14 @@ import "../styles/index.css";
 import "../styles/suggestion.css";
 import { Link } from "react-router-dom";
 import Slideshow from "../components/Slidshow";
-import BackgroundImage from "../components/BackgroundImage";
+// import BackgroundImage from "../components/BackgroundImage";
 import imgNet from "../assets/images/netflix.png";
 import imgCanal from "../assets/images/canal.png";
 import "../styles/starRate.css";
 
-const Suggestion = () => (
-  <div className="suggestion">
-    <BackgroundImage />
+const Suggestion = ({ refValue }) => (
+  <div className="suggestion" ref={refValue}>
+    {/* <BackgroundImage /> */}
 
     <div className="redirectcat">
       <Link to="/category">
