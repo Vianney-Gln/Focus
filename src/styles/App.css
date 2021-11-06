@@ -3,8 +3,16 @@
 }
 
 /* hamburger positionné en absolute pour toute l'app */
-.hamburger {
+.hamburger-displayed {
   position: absolute;
+  z-index: 10;
+  top: 50px;
+  right: 50px;
+}
+
+.hamburger-not-displayed {
+  position: absolute;
+  display: none;
   z-index: 10;
   top: 50px;
   right: 50px;
