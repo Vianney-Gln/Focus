@@ -2,8 +2,9 @@ import React from "react";
 /* import StarRate from "../components/StarRate"; */
 import Rate from "rc-rate";
 import "rc-rate/assets/index.css";
-import "../styles/index.css";
+// import "../styles/index.css";
 import "../styles/suggestion.css";
+// import "../styles/suggestion.scss";
 import { Link } from "react-router-dom";
 import Slideshow from "../components/Slidshow";
 // import BackgroundImage from "../components/BackgroundImage";
