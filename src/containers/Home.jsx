@@ -98,7 +98,7 @@ const Home = () => {
           type="button"
           onClick={() => executeScroll(suggestion1ref)}
         >
-          <p>Upcomming</p>
+          <p>Upcoming</p>
         </button>
         <button
           className="btn-navigation"
