@@ -33,35 +33,27 @@
       display: flex;
       flex-flow: row wrap;
       align-content: center;
-      min-width: 50%;
-      max-width: 80%;
 
       h1 {
         width: 100%;
-        font-size: 80px;
+        font-size: 100px;
       }
       .movie-informations {
         display: flex;
         flex-flow: row wrap;
         justify-content: space-between;
-        font-size: 24px;
-
-        & > div {
-          margin-right: 20px;
-        }
+        min-width: 50%;
+        max-width: 90%;
       }
       .movie-synopsis {
         padding: 50px 0;
-        min-height: 70%;
-        line-height: 150%;
-        font-size: 20px;
+        min-height: 50%;
       }
       .movie-mores {
         display: grid;
         width: 100%;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: 1fr;
-        align-items: center;
 
         .movie-rating {
           .rc-rate {
@@ -70,22 +62,10 @@
         }
         .movie-addtomylist {
           font-size: 24px;
-          font-weight: 300;
-
-          i::before {
-            transform: scale(1.7);
-            margin-right: 0.5em;
-          }
         }
         .movie-platforms {
           display: flex;
           flex-flow: column wrap;
-
-          .text {
-            font-size: 24px;
-            margin-bottom: 10px;
-            font-weight: 300;
-          }
 
           .platform-list {
             display: flex;
@@ -99,10 +79,6 @@
           }
         }
       }
-    }
-    .slideshow {
-      height: 50%;
-      width: 100%;
     }
   }
 
