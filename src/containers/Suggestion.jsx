@@ -2,18 +2,19 @@ import React from "react";
 /* import StarRate from "../components/StarRate"; */
 import Rate from "rc-rate";
 import "rc-rate/assets/index.css";
-import "../styles/index.css";
+// import "../styles/index.css";
 import "../styles/suggestion.css";
+// import "../styles/suggestion.scss";
 import { Link } from "react-router-dom";
 import Slideshow from "../components/Slidshow";
-import BackgroundImage from "../components/BackgroundImage";
+// import BackgroundImage from "../components/BackgroundImage";
 import imgNet from "../assets/images/netflix.png";
 import imgCanal from "../assets/images/canal.png";
 import "../styles/starRate.css";
 
-const Suggestion = () => (
-  <div className="suggestion">
-    <BackgroundImage />
+const Suggestion = ({ refValue }) => (
+  <section className="suggestion" ref={refValue}>
+    {/* <BackgroundImage /> */}
 
     <div className="redirectcat">
       <Link to="/category">
@@ -22,13 +23,13 @@ const Suggestion = () => (
     </div>
 
     <div className="suggestionInfocarou">
-      <section className="caroussel">
+      <div className="caroussel">
         <Slideshow />
-      </section>
+      </div>
       <div>
         <div className="carroumobile">
           <span className="fleche"> ◀︎ </span>
-          <section className="infoFilm">
+          <div className="infoFilm">
             <h1 className="letitle">Inception</h1>
             <div className="inforea">
               <h3>Christopher Nolan</h3>
@@ -52,7 +53,7 @@ const Suggestion = () => (
               be consistently one step ahead of them. An enemy that only Cobb
               could have suspected existed.
             </p>
-          </section>
+          </div>
           <span className="fleche"> ▶︎ </span>
         </div>
         <div className="infobas">
@@ -76,7 +77,7 @@ const Suggestion = () => (
         </div>
       </div>
     </div>
-  </div>
+  </section>
 );
 
 export default Suggestion;
