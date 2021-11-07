@@ -4,22 +4,6 @@
   width: 100%;
   position: relative;
 
-  /* Link to Category */
-  .goto-category {
-    position: absolute;
-    top: 108px;
-    right: 50px;
-    color: #fff;
-    font-size: 24px;
-    font-weight: 200;
-    font-style: italic;
-    z-index: 4;
-
-    & > a {
-      text-decoration: none;
-    }
-  }
-
   /* Suggestion Body */
   .suggestion-body {
     width: 100%;
@@ -33,6 +17,8 @@
       display: flex;
       flex-flow: row wrap;
       align-content: center;
+      min-width: 50%;
+      max-width: 90%;
 
       h1 {
         width: 100%;
@@ -42,11 +28,13 @@
         display: flex;
         flex-flow: row wrap;
         justify-content: space-between;
-        min-width: 50%;
-        max-width: 90%;
+        & > div {
+          margin-right: 20px;
+        }
       }
       .movie-synopsis {
         padding: 50px 0;
+        line-height: 150%;
         min-height: 50%;
       }
       .movie-mores {
@@ -54,6 +42,11 @@
         width: 100%;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: 1fr;
+        align-items: center;
+
+        & > div {
+          text-align: center;
+        }
 
         .movie-rating {
           .rc-rate {
@@ -62,19 +55,31 @@
         }
         .movie-addtomylist {
           font-size: 24px;
+          font-weight: 300;
+          i::before {
+            transform: scale(1.7);
+            margin-right: 0.5em;
+          }
         }
         .movie-platforms {
           display: flex;
           flex-flow: column wrap;
 
+          .text {
+            margin-bottom: 5px;
+            font-weight: 300;
+          }
+
           .platform-list {
             display: flex;
             flex-flow: row wrap;
+            justify-content: center;
 
             img {
               height: 32px;
               width: auto;
               object-fit: contain;
+              margin: 5px;
             }
           }
         }

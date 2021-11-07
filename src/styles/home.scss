@@ -14,7 +14,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    z-index: 10;
 
     .logonav-mobile {
       display: none;
@@ -39,7 +38,19 @@
         padding-bottom: 1px;
         text-decoration: none;
         border-bottom: 1px solid #fff;
-        margin-right: 50px;
+        margin-right: 20px;
+      }
+    }
+    /* Link to Category */
+    .goto-category {
+      margin-left: 20px;
+      color: #fff;
+      font-size: 24px;
+      font-weight: 200;
+      font-style: italic;
+
+      & > a {
+        text-decoration: none;
       }
     }
   }

@@ -11,6 +11,7 @@ import "../styles/home.scss";
 import BurgerContext from "../contexts/BurgerContext";
 
 import tempImage from "../assets/images/westworlded.jpg";
+import useOnScreen from "../hooks/useOnScreen";
 
 const Home = () => {
   // récupération du contexte
@@ -50,13 +51,27 @@ const Home = () => {
     prehomeImg.style.width = `${Math.min(25 + calcWidth, 100)}%`;
     prehomeImg.style.opacity = Math.max(1 - calcOpacity, 0.4);
   }, [scroll]);
-
   useEffect(() => {
     window.addEventListener("scroll", () => setScroll(window.scrollY));
 
     return () =>
       window.removeEventListener("scroll", () => setScroll(window.scrollY));
   }, []);
+
+  /**
+   * Test visibility of element
+   */
+  const suggestion1IsVisible = useOnScreen(suggestion1ref);
+  const suggestion2IsVisible = useOnScreen(suggestion2ref);
+  const suggestion3IsVisible = useOnScreen(suggestion3ref);
+
+  /**
+   * custom link to category changed by the 3rd section
+   */
+  let categoryLink = `/category`;
+  if (suggestion1IsVisible) categoryLink = `/category/upcoming`;
+  if (suggestion2IsVisible) categoryLink = `/category/popular`;
+  if (suggestion3IsVisible) categoryLink = `/category/now-playing`;
 
   return (
     <main className="Containerhome">
@@ -82,6 +97,19 @@ const Home = () => {
               SIGN IN
             </button>
           </div>
+          {(suggestion1IsVisible ||
+            suggestion2IsVisible ||
+            suggestion3IsVisible) && (
+            <div className="goto-category">
+              <Link onClick={burgerContext.displayBurger} to={categoryLink}>
+                <span>
+                  {suggestion1IsVisible && `More Upcoming →`}
+                  {suggestion2IsVisible && `More Popular →`}
+                  {suggestion3IsVisible && `More Now PLaying →`}
+                </span>
+              </Link>
+            </div>
+          )}
         </div>
         <div className="fakeBurger">
           <Hamburger />
