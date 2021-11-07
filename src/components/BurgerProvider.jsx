@@ -6,6 +6,7 @@ import BurgerContext from "../contexts/BurgerContext";
 function BurgerProvider({ children }) {
   // state
   const [classBurger, setClassBurger] = useState("hamburger-not-displayed");
+  const [displayPopupMenu, setDisplayPopupMenu] = useState(false);
   // fonctions qui définissent la classe utilisée sur le burger
   function displayBurger() {
     setClassBurger("hamburger-displayed");
@@ -16,7 +17,13 @@ function BurgerProvider({ children }) {
 
   return (
     <BurgerContext.Provider
-      value={{ classBurger, displayBurger, hiddenBurger }}
+      value={{
+        classBurger,
+        displayBurger,
+        hiddenBurger,
+        displayPopupMenu,
+        setDisplayPopupMenu,
+      }}
     >
       {/* children représente tous les composants qui seront enfants de BurgerProvider */}
       {children}
