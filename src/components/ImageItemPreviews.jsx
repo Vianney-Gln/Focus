@@ -1,9 +1,10 @@
 import React from "react";
 
-function ImageItemPreviews() {
+function ImageItemPreviews({ source }) {
   return (
     <img
-      src="http://image.tmdb.org/t/p/w300/s3TBrRGB1iav7gFOCNx3H31MoES.jpg"
+      // src="http://image.tmdb.org/t/p/w300/s3TBrRGB1iav7gFOCNx3H31MoES.jpg"
+      src={source}
       alt="films"
     />
   );

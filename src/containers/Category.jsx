@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Hamburger from "hamburger-react";
 import "../styles/category.css";
 import BackgroundImage from "../components/BackgroundImage";
@@ -8,14 +8,22 @@ import Logo from "../components/Logo";
 import SearchBar from "../components/SearchBar";
 import LogoMobile from "../components/LogoMobile";
 
-const Category = () => {
-  // définition de 28 items
-  const nbrItems = 28;
-  const items = [];
+import { tmdbMovieUpcomming } from "../services/TheMovieDbFunctions";
 
-  for (let i = 0; i < nbrItems; i += 1) {
-    items.push(<ItemsPreviews />);
-  }
+const Category = () => {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    const run = async () => {
+      const data = await tmdbMovieUpcomming();
+      console.log(data);
+      const map = data.map((datamovie) => (
+        <ItemsPreviews key={datamovie.id} data={datamovie} />
+      ));
+      setMovies(map);
+    };
+    run();
+  }, []);
 
   return (
     <>
@@ -33,9 +41,9 @@ const Category = () => {
 
         <div className="container-previous-items-center">
           <div className="title-category">
-            <h1>LATEST</h1>
+            <h1>Category</h1>
           </div>
-          <div className="container-previous-items">{items}</div>
+          <div className="container-previous-items">{movies}</div>
         </div>
       </div>
     </>
