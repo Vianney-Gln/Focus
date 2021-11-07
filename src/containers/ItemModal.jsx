@@ -37,13 +37,13 @@ const ItemModal = () => (
           {/* <StarRater /> */}
         </div>
         <div className="bottom-infos-grid-availableOn">
-          available on <i className="fa fa-play-circle-o" />
+          Available On <i className="fa fa-play-circle-o" />
         </div>
         <div className="bottom-infos-grid-addToMyList">
-          <button className="btn-common" type="button">
-            <i className="fa fa-plus-square" />
-            My List
+          <button className="button-plus" type="button">
+            +
           </button>
+          <span>Add to my list</span>
         </div>
         <div className="bottom-infos-grid-platforms" />
         <div className="bottom-infos-grid-synopsis">

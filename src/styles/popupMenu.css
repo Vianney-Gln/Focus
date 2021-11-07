@@ -4,6 +4,7 @@
   height: 100%;
   background-color: black;
   z-index: 10;
+  transition: all 0.5s ease;
 }
 
 .popup-menu-elements .popup-menu-elements-top {
@@ -14,6 +15,7 @@
   justify-content: space-around;
   margin-right: 40px;
   height: 50vh;
+  margin-top: 100px;
 }
 
 .popup-menu-elements .popup-menu-elements-top li {

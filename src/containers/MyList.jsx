@@ -1,5 +1,4 @@
-import React from "react";
-import Hamburger from "hamburger-react";
+import { React } from "react";
 import Logo from "../components/Logo";
 import "../styles/myList.css";
 import ElementList from "../components/ElementList";
@@ -15,28 +14,29 @@ const MyList = () => {
   }
 
   return (
-    <div className="myList">
-      <div className="barre-logo-burger">
-        <Logo />
-        <Hamburger />
-      </div>
-
-      <div className="container-views-titles">
-        <div className="views-titles">
-          <div className="viewed-asc">
-            <button className="viewed btn-aperture" type="button">
-              Viewed
-            </button>
-            <button type="button" className="button-margin-left btn-aperture">
-              Asc
-            </button>
-          </div>
-          <h1>MY LIST</h1>
+    <>
+      <div className="myList">
+        <div className="barre-logo-burger">
+          <Logo />
         </div>
-      </div>
 
-      <div className="container-items-list">{itemLists}</div>
-    </div>
+        <div className="container-views-titles">
+          <div className="views-titles">
+            <div className="viewed-asc">
+              <button className="viewed btn-aperture" type="button">
+                Viewed
+              </button>
+              <button type="button" className="button-margin-left btn-aperture">
+                Asc
+              </button>
+            </div>
+            <h1>MY LIST</h1>
+          </div>
+        </div>
+
+        <div className="container-items-list">{itemLists}</div>
+      </div>
+    </>
   );
 };
 export default MyList;

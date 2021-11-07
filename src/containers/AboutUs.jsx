@@ -1,6 +1,6 @@
 import React from "react";
-import Hamburger from "hamburger-react";
 import Logo from "../components/Logo";
+import LogoMobile from "../components/LogoMobile";
 import avatarK from "../assets/images/avatarK.png";
 import avatarG from "../assets/images/avatarG.png";
 import avatarL from "../assets/images/avatarL.png";
@@ -16,7 +16,7 @@ const AboutUs = () => (
   <div className="aboutUs">
     <div className="top-navbar">
       <Logo />
-      <Hamburger />
+      <LogoMobile />
     </div>
     <h1>Concept</h1>
     <div className="concept">
@@ -25,33 +25,49 @@ const AboutUs = () => (
         Netflix or Youtube? How would it be, as viewers, to NOT be overwhelmed
         by tons of suggestions all around. To no longer consume cinema as the
         mass product it became ? What would be a local movie theater, in a
-        digital shape, with only a few cinematographic works to discover ?
+        digital shape, suggesting a few cinematographic works to discover ?
       </p>
       <p className="tagline">Dear reader & viewer, answer is ours & yours.</p>
     </div>
     <h1>by</h1>
     <div className="teamMembers">
       <div className="teamMembers-step1">
-        <p className="member-name">Kévin D.</p>
-        <img src={avatarK} alt="" />
+        <a href="https://github.com/KevinDurand974">
+          <p className="member-name">Kévin D.</p>
+        </a>
+        <a href="https://github.com/KevinDurand974">
+          <img src={avatarK} alt="avatar" />
+        </a>
         <p>Fix them all medkit </p>
         <p className="quote-text">« Unity in numbers »</p>
       </div>
       <div className="teamMembers-step2">
-        <p className="member-name">Greg N.</p>
-        <img src={avatarG} alt="" />
+        <a href="https://github.com/anarkhya">
+          <p className="member-name">Greg N.</p>
+        </a>
+        <a href="https://github.com/anarkhya">
+          <img src={avatarG} alt="avatar" />
+        </a>
         <p>console.log(philosophy) </p>
         <p className="quote-text">« !maybe && maybe !not. »</p>
       </div>
       <div className="teamMembers-step3">
-        <p className="member-name">Léonie N.</p>
-        <img src={avatarL} alt="" />
+        <a href="https://github.com/LeonieNollevalle">
+          <p className="member-name">Léonie N.</p>{" "}
+        </a>
+        <a href="https://github.com/LeonieNollevalle">
+          <img src={avatarL} alt="avatar" />
+        </a>
         <p>Typographically anxious </p>
         <p className="quote-text">« This is good bail, for now. »</p>
       </div>
       <div className="teamMembers-step4">
-        <p className="member-name">Vianney G.</p>
-        <img src={avatarV} alt="" />
+        <a href="https://github.com/Vianney-Gln">
+          <p className="member-name">Vianney G.</p>{" "}
+        </a>
+        <a href="https://github.com/Vianney-Gln">
+          <img src={avatarV} alt="avatar" />
+        </a>
         <p>ESLint premium member </p>
         <p className="quote-text">« Failed to compile tagline. »</p>
       </div>

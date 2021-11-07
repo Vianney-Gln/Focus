@@ -86,7 +86,7 @@
   display: grid;
   gap: 20px;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(5, 1fr);
 
   .btn-navigation {
     border: none;
@@ -126,8 +126,11 @@
   width: 100%;
 
   img {
+    position: fixed;
+    z-index: -3;
     width: 25%;
     height: auto;
+    max-height: 100vh;
     object-fit: cover;
     opacity: 1;
   }
