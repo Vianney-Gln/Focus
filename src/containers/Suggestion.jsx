@@ -4,22 +4,22 @@ import Rate from "rc-rate";
 import { Link } from "react-router-dom";
 import BurgerContext from "../contexts/BurgerContext";
 import "rc-rate/assets/index.css";
-import "../styles/index.css";
+// import "../styles/index.css";
 import "../styles/suggestion.css";
-
+// import "../styles/suggestion.scss";
 import Slideshow from "../components/Slidshow";
-import BackgroundImage from "../components/BackgroundImage";
+// import BackgroundImage from "../components/BackgroundImage";
 import imgNet from "../assets/images/netflix.png";
 import imgCanal from "../assets/images/canal.png";
 import "../styles/starRate.css";
 
-const Suggestion = () => {
+const Suggestion = ({ refValue }) => {
   // recuperation du contexte
   const burgerContext = useContext(BurgerContext);
 
   return (
-    <div className="suggestion">
-      <BackgroundImage />
+    <section className="suggestion" ref={refValue}>
+      {/* <BackgroundImage /> */}
 
       <div className="redirectcat">
         {/* Au clique sur go to latest le burger apparait  */}
@@ -83,7 +83,7 @@ const Suggestion = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
