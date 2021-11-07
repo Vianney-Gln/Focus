@@ -45,7 +45,8 @@ discover ?
 For this project we used:<br>
 ⇒ Html, Css (Scss), Javascript and ReactJs<br>
 ⇒ NPM for additional packages<br>
-⇒ Webpack to compile the final project.
+⇒ Webpack to compile the final project.<br>
+⇒ Firebase.
 
 <br>
 

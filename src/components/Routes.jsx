@@ -4,12 +4,13 @@ import Home from "../containers/Home";
 import Category from "../containers/Category";
 import AboutUs from "../containers/AboutUs";
 import MyList from "../containers/MyList";
-import PopupMenu from "../containers/PopupMenu";
+// import PopupMenu from "../containers/PopupMenu";
 
 function Routes() {
   return (
     <>
-      <PopupMenu />
+      {/* <PopupMenu /> */}
+
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/category" component={Category} />
