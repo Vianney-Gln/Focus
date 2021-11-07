@@ -19,13 +19,15 @@ function App() {
 
       <div className={burgerContext.classBurger}>
         <Hamburger
+          /* toggle et toggled récupèrent l'état du burger voir readme de hamburger-react  */
+          toggled={burgerContext.isOpen}
+          toggle={burgerContext.setOpen}
           onToggle={() => {
             burgerContext.setDisplayPopupMenu(!burgerContext.displayPopupMenu);
-            return true;
           }}
         />
       </div>
-
+      {/* Routes de navigation interpages */}
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/category" component={Category} />

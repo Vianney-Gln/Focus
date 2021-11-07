@@ -11,6 +11,8 @@ import "../styles/index.css";
 import "../styles/home.scss";
 
 const Home = () => {
+  // récupération du contexte
+  // Achaque clique sur les links de cette page le burger s'affiche
   const burgerContext = useContext(BurgerContext);
   return (
     <div className="Containerhome">

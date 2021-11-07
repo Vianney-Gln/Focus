@@ -14,6 +14,7 @@ import imgCanal from "../assets/images/canal.png";
 import "../styles/starRate.css";
 
 const Suggestion = () => {
+  // recuperation du contexte
   const burgerContext = useContext(BurgerContext);
 
   return (
@@ -21,6 +22,7 @@ const Suggestion = () => {
       <BackgroundImage />
 
       <div className="redirectcat">
+        {/* Au clique sur go to latest le burger apparait  */}
         <Link onClick={burgerContext.displayBurger} to="/category">
           <h3>Go to Latest →</h3>
         </Link>

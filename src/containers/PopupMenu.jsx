@@ -6,15 +6,19 @@ import "../styles/popupMenu.css";
 const PopupMenu = () => {
   const burgerContext = useContext(BurgerContext);
 
+  /* A chaque clique sur un link le popupMenu se ferme et le burger retrouve son état initial */
   return (
     <div className="popup-menu-elements">
       <ul className="popup-menu-elements-top">
         <Link to="/category">
           <li
             role="presentation"
-            onClick={() =>
-              burgerContext.setDisplayPopupMenu(!burgerContext.displayPopupMenu)
-            }
+            onClick={() => {
+              burgerContext.setDisplayPopupMenu(
+                !burgerContext.displayPopupMenu
+              );
+              burgerContext.setOpen(false);
+            }}
           >
             UPCOMING
           </li>
@@ -22,9 +26,12 @@ const PopupMenu = () => {
         <Link to="/category">
           <li
             role="presentation"
-            onClick={() =>
-              burgerContext.setDisplayPopupMenu(!burgerContext.displayPopupMenu)
-            }
+            onClick={() => {
+              burgerContext.setDisplayPopupMenu(
+                !burgerContext.displayPopupMenu
+              );
+              burgerContext.setOpen(false);
+            }}
           >
             TOP RATED
           </li>
@@ -32,9 +39,12 @@ const PopupMenu = () => {
         <Link to="/category">
           <li
             role="presentation"
-            onClick={() =>
-              burgerContext.setDisplayPopupMenu(!burgerContext.displayPopupMenu)
-            }
+            onClick={() => {
+              burgerContext.setDisplayPopupMenu(
+                !burgerContext.displayPopupMenu
+              );
+              burgerContext.setOpen(false);
+            }}
           >
             LATEST
           </li>
@@ -44,9 +54,12 @@ const PopupMenu = () => {
         <Link to="/mylist">
           <li
             role="presentation"
-            onClick={() =>
-              burgerContext.setDisplayPopupMenu(!burgerContext.displayPopupMenu)
-            }
+            onClick={() => {
+              burgerContext.setDisplayPopupMenu(
+                !burgerContext.displayPopupMenu
+              );
+              burgerContext.setOpen(false);
+            }}
             className="my-list"
             type="button"
           >
@@ -56,9 +69,12 @@ const PopupMenu = () => {
         <Link to="/aboutus">
           <li
             role="presentation"
-            onClick={() =>
-              burgerContext.setDisplayPopupMenu(!burgerContext.displayPopupMenu)
-            }
+            onClick={() => {
+              burgerContext.setDisplayPopupMenu(
+                !burgerContext.displayPopupMenu
+              );
+              burgerContext.setOpen(false);
+            }}
             className="about-us"
             type="button"
           >
