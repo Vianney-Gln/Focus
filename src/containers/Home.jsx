@@ -12,13 +12,12 @@ import "../styles/home.scss";
 import tempImage from "../assets/images/westworlded.jpg";
 
 const Home = () => {
-  const suggestion1ref = useRef(null);
-  const suggestion2ref = useRef(null);
-  const suggestion3ref = useRef(null);
+  const suggestion1ref = useRef();
+  const suggestion2ref = useRef();
+  const suggestion3ref = useRef();
   const executeScroll = (scrollRef) => scrollRef.current.scrollIntoView();
-
   return (
-    <div className="Containerhome">
+    <main className="Containerhome">
       {/* Top Menu */}
       <header className="navBar">
         <div className="navFixe">
@@ -84,7 +83,7 @@ const Home = () => {
       <Suggestion refValue={suggestion3ref} />
 
       {/* Footer */}
-      <div className="footer">
+      <section className="footer">
         <ul className="footercategory">
           <Link to="/category">
             <li className="footeritem">UPCOMING</li>
@@ -102,8 +101,8 @@ const Home = () => {
             <li className="footeritem">ABOUT US</li>
           </Link>
         </ul>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 
