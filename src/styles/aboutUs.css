@@ -4,10 +4,13 @@
   justify-content: space-between;
   padding: 50px;
   width: 100%;
-  }
+}
 .aboutUs .top-navbar .logonav {
 position: relative;
   }
+.aboutUs .logonav-mobile {
+    display: none;
+}
 .aboutUs h1 {
   padding-top:0em;
   letter-spacing: 0em;
@@ -114,17 +117,17 @@ position: relative;
   -moz-animation:spin 2s linear infinite;
   animation:spin 2s linear infinite;
 }
-@-moz-keyframes spin { 
-  100% { -moz-transform: rotate(360deg); } 
+@-moz-keyframes spin {
+  100% { -moz-transform: rotate(360deg); }
 }
-@-webkit-keyframes spin { 
-  100% { -webkit-transform: rotate(360deg); } 
+@-webkit-keyframes spin {
+  100% { -webkit-transform: rotate(360deg); }
 }
-@keyframes spin { 
-  100% { 
-      -webkit-transform: rotate(360deg); 
-      transform:rotate(360deg); 
-  } 
+@keyframes spin {
+  100% {
+      -webkit-transform: rotate(360deg);
+      transform:rotate(360deg);
+  }
 }
 .aboutUs .teamMembers .icon-react-cute:hover {
   opacity: 0.75;
@@ -145,6 +148,12 @@ position: relative;
   .aboutUs {
     width: auto;
     padding: 20px;
+  }
+  .aboutUs .logonav {
+    display: none;
+  }
+  .aboutUs .logonav-mobile {
+    display: inherit;
   }
   .aboutUs .top-navbar {
     width: auto;
@@ -203,6 +212,7 @@ position: relative;
     height: 160px;
   }
   .aboutUs .teamMembers-step1 img:hover, .aboutUs .teamMembers-step2 img:hover, .aboutUs .teamMembers-step3 img:hover, .aboutUs .teamMembers-step4 img:hover {
+    filter: grayscale(0%);
     transform: none;
   }
   .aboutUs .teamMembers p {

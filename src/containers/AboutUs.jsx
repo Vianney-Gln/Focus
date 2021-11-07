@@ -1,6 +1,6 @@
 import React from "react";
-import Hamburger from "hamburger-react";
 import Logo from "../components/Logo";
+import LogoMobile from "../components/LogoMobile";
 import avatarK from "../assets/images/avatarK.png";
 import avatarG from "../assets/images/avatarG.png";
 import avatarL from "../assets/images/avatarL.png";
@@ -16,7 +16,7 @@ const AboutUs = () => (
   <div className="aboutUs">
     <div className="top-navbar">
       <Logo />
-      <Hamburger />
+      <LogoMobile />
     </div>
     <h1>Concept</h1>
     <div className="concept">
