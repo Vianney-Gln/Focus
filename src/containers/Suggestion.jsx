@@ -23,7 +23,7 @@ const Suggestion = ({ refValue }) => (
       </div>
 
       <div className="suggestion-body">
-        <h2>Slideshow</h2>
+        <div className="slideshow" />
 
         <div className="suggestion-informations">
           <h1>Fight Club</h1>
