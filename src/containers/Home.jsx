@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Hamburger from "hamburger-react";
 import { Link } from "react-router-dom";
 import ImageItemPreviews from "../components/ImageItemPreviews";
@@ -8,10 +8,15 @@ import SearchBar from "../components/SearchBar";
 import Switch from "../components/Switch";
 import Suggestion from "./Suggestion";
 import "../styles/home.scss";
+import BurgerContext from "../contexts/BurgerContext";
 
 import tempImage from "../assets/images/westworlded.jpg";
 
 const Home = () => {
+  // récupération du contexte
+  // Achaque clique sur les links de cette page le burger s'affiche
+  const burgerContext = useContext(BurgerContext);
+
   /**
    * Create Ref for each section
    */
@@ -64,7 +69,11 @@ const Home = () => {
         </div>
         <div className="navunfixe">
           <div className="contbuttonmylist">
-            <Link to="/mylist" className="buttonmylist">
+            <Link
+              to="/mylist"
+              className="buttonmylist"
+              onClick={burgerContext.displayBurger}
+            >
               MY LIST
             </Link>
           </div>
@@ -136,19 +145,19 @@ const Home = () => {
       {/* Footer */}
       <section className="footer" ref={footerref}>
         <ul className="footercategory">
-          <Link to="/category">
+          <Link onClick={burgerContext.displayBurger} to="/category">
             <li className="footeritem">UPCOMING</li>
           </Link>
-          <Link to="/category">
+          <Link onClick={burgerContext.displayBurger} to="/category">
             <li className="footeritem">TOP RATED</li>
           </Link>
-          <Link to="/category">
+          <Link onClick={burgerContext.displayBurger} to="/category">
             <li className="footeritem">LATEST</li>
           </Link>
-          <Link to="/mylist">
+          <Link onClick={burgerContext.displayBurger} to="/mylist">
             <li className="footeritem">MY LIST</li>
           </Link>
-          <Link to="/aboutus">
+          <Link onClick={burgerContext.displayBurger} to="/aboutus">
             <li className="footeritem">ABOUT US</li>
           </Link>
         </ul>
