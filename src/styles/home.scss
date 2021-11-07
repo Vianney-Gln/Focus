@@ -7,6 +7,7 @@
   width: 100%;
   padding: 50px;
   top: 0;
+  z-index: 4;
 
   .navFixe {
     display: flex;
@@ -78,6 +79,7 @@
 }
 .home-navigation {
   position: fixed;
+  z-index: 4;
   top: 50%;
   right: 50px;
   transform: translateY(-50%);
