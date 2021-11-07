@@ -69,13 +69,13 @@ const Home = () => {
       <Suggestion />
       <div className="footer">
         <ul className="footercategory">
-          <Link to="/category">
+          <Link onClick={burgerContext.displayBurger} to="/category">
             <li className="footeritem">UPCOMING</li>
           </Link>
-          <Link to="/category">
+          <Link onClick={burgerContext.displayBurger} to="/category">
             <li className="footeritem">TOP RATED</li>
           </Link>
-          <Link to="/category">
+          <Link onClick={burgerContext.displayBurger} to="/category">
             <li className="footeritem">LATEST</li>
           </Link>
           <Link onClick={burgerContext.displayBurger} to="/mylist">
