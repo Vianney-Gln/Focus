@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Hamburger from "hamburger-react";
 import { Link } from "react-router-dom";
 import ImageItemPreviews from "../components/ImageItemPreviews";
@@ -12,10 +12,47 @@ import "../styles/home.scss";
 import tempImage from "../assets/images/westworlded.jpg";
 
 const Home = () => {
+  /**
+   * Create Ref for each section
+   */
   const suggestion1ref = useRef();
   const suggestion2ref = useRef();
   const suggestion3ref = useRef();
-  const executeScroll = (scrollRef) => scrollRef.current.scrollIntoView();
+  const footerref = useRef();
+  const prehomeref = useRef();
+
+  /**
+   * Scroll to the ref Element
+   * @param {ref} scrollRef Name of ref
+   */
+  const executeScroll = (scrollRef) => {
+    scrollRef.current.scrollIntoView();
+  };
+
+  /**
+   * Mechanic for suggestion 1 image
+   */
+  const [scroll, setScroll] = useState(0);
+  useEffect(() => {
+    const prehomeImg = document.querySelector(".pre-home img");
+    const maxHeight = suggestion1ref.current.offsetTop;
+    const percentWidth = 75 / 100;
+    const percentOpacity = 60 / 100;
+    const calcWidth = Math.round((scroll / maxHeight) * percentWidth * 100);
+    const calcOpacity =
+      Math.round((scroll / maxHeight) * percentOpacity * 100) / 100;
+
+    prehomeImg.style.width = `${Math.min(25 + calcWidth, 100)}%`;
+    prehomeImg.style.opacity = Math.max(1 - calcOpacity, 0.4);
+  }, [scroll]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => setScroll(window.scrollY));
+
+    return () =>
+      window.removeEventListener("scroll", () => setScroll(window.scrollY));
+  }, []);
+
   return (
     <main className="Containerhome">
       {/* Top Menu */}
@@ -50,30 +87,44 @@ const Home = () => {
       {/* Right Menu */}
       <div className="home-navigation">
         <button
-          className="btn-navigation upcoming"
+          className="btn-navigation"
+          type="button"
+          onClick={() => executeScroll(prehomeref)}
+        >
+          <p>Home</p>
+        </button>
+        <button
+          className="btn-navigation"
           type="button"
           onClick={() => executeScroll(suggestion1ref)}
         >
           <p>Upcomming</p>
         </button>
         <button
-          className="btn-navigation popular"
+          className="btn-navigation"
           type="button"
           onClick={() => executeScroll(suggestion2ref)}
         >
           <p>Popular</p>
         </button>
         <button
-          className="btn-navigation nowplaying"
+          className="btn-navigation"
           type="button"
           onClick={() => executeScroll(suggestion3ref)}
         >
           <p>Now Playing</p>
         </button>
+        <button
+          className="btn-navigation"
+          type="button"
+          onClick={() => executeScroll(footerref)}
+        >
+          <p>Menu</p>
+        </button>
       </div>
 
       {/* Pre-Home */}
-      <section className="pre-home">
+      <section className="pre-home" ref={prehomeref}>
         <ImageItemPreviews source={tempImage} />
       </section>
 
@@ -83,7 +134,7 @@ const Home = () => {
       <Suggestion refValue={suggestion3ref} />
 
       {/* Footer */}
-      <section className="footer">
+      <section className="footer" ref={footerref}>
         <ul className="footercategory">
           <Link to="/category">
             <li className="footeritem">UPCOMING</li>
