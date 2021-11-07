@@ -78,7 +78,7 @@ const Home = () => {
           <Link to="/category">
             <li className="footeritem">LATEST</li>
           </Link>
-          <Link to="/mylist">
+          <Link onClick={burgerContext.displayBurger} to="/mylist">
             <li className="footeritem">MY LIST</li>
           </Link>
           <Link to="/aboutus">

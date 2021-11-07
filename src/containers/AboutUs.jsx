@@ -1,5 +1,4 @@
 import React from "react";
-
 import Logo from "../components/Logo";
 import avatarK from "../assets/images/avatarK.png";
 import avatarG from "../assets/images/avatarG.png";
