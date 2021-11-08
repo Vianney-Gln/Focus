@@ -24,6 +24,8 @@
         font-size: 100px;
       }
       .movie-informations {
+       
+
         display: flex;
         flex-flow: row wrap;
         justify-content: space-between;
@@ -32,6 +34,7 @@
         }
       }
       .movie-synopsis {
+        
         padding: 50px 0;
         line-height: 150%;
         min-height: 50%;
@@ -86,10 +89,11 @@
       }
     }
   }
+  /* Suggestion SlideShow */
   .suggestion-body{
   .containers-slideshow{
-    padding-top: 0%;
-    margin-top: 10%;
+    padding-top: 15%; 
+    padding-right: 10%;
     display: flex;
     flex-direction: column;
     justify-content:flex-start;
@@ -97,15 +101,16 @@
     width: 50vw;
     height: 100vh;
     
-    .img-slideshow{
-      max-width: 30vw;
-      max-height: 30vh;
-    }
+    
     .slideshow{
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;    
+    
+    .img-slideshow{
+      max-width: 25vw;
+      max-height: 25vh;
     }
     .btn-fleche-slideShow{
       background: none;
@@ -123,7 +128,11 @@
       font-size: 100px;
     }
   }
+  }
 }
+}
+
+/* Partie plus nécessaire qui peut-être supprimé ?  */
   .redirectcat {
     font-size: 18px;
     font-weight: 200;
@@ -274,9 +283,12 @@
       }
     }
   }
-}
+
+
 
 @media screen and (max-width: 800px) {
+
+  
   .suggestion {
     .suggestionInfocarou {
       & > div {
