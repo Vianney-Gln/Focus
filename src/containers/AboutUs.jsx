@@ -1,6 +1,7 @@
 import React from "react";
-import Logo from "../components/Logo";
-import LogoMobile from "../components/LogoMobile";
+
+import { Logo, LogoMobile } from "../components";
+
 import avatarK from "../assets/images/avatarK.png";
 import avatarG from "../assets/images/avatarG.png";
 import avatarL from "../assets/images/avatarL.png";

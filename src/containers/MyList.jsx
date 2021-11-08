@@ -1,7 +1,6 @@
 import { React } from "react";
-import Logo from "../components/Logo";
+import { Logo, ElementList } from "../components";
 import "../styles/myList.css";
-import ElementList from "../components/ElementList";
 
 /* structure du composant myList */
 const MyList = () => {
