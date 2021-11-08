@@ -1,0 +1,40 @@
+.react-slideshow {
+  position: relative;
+
+  .slide-items {
+    position: relative;
+    width: auto;
+
+    .preview {
+      z-index: 0;
+      top: 0;
+    }
+    .current {
+      z-index: 0;
+      padding: 20px 50px;
+    }
+    .prev {
+      transform: scale(0.5);
+    }
+    .next {
+      position: absolute;
+      transform: scale(0.5);
+    }
+  }
+  .left-arrow {
+    position: absolute;
+    left: 0;
+    display: none;
+  }
+  .right-arrow {
+    position: absolute;
+    left: 0;
+    display: none;
+  }
+
+  img {
+    width: 350px;
+    height: auto;
+    max-height: 200px;
+  }
+}
