@@ -1,12 +1,7 @@
 import React from "react";
-/* import StarRate from "../components/StarRate"; */
 import Rate from "rc-rate";
 import "rc-rate/assets/index.css";
-// import "../styles/index.css";
-// import "../styles/suggestion.css";
 import "../styles/suggestion.scss";
-// import Slideshow from "../components/Slidshow";
-// import BackgroundImage from "../components/BackgroundImage";
 import imgNet from "../assets/images/netflix.png";
 import imgCanal from "../assets/images/canal.png";
 import "../styles/starRate.css";

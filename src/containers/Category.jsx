@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
+import {
+  BackgroundImage,
+  ItemsPreviews,
+  Logo,
+  LogoMobile,
+  SearchBar,
+} from "../components";
 import "../styles/category.css";
-import BackgroundImage from "../components/BackgroundImage";
-import ItemsPreviews from "../components/ItemsPreviews";
 import "../styles/backgroundImage.css";
-import Logo from "../components/Logo";
-import SearchBar from "../components/SearchBar";
-import LogoMobile from "../components/LogoMobile";
 
 import { tmdbMovieUpcomming } from "../services/TheMovieDbFunctions";
 
