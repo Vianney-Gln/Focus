@@ -1,25 +1,26 @@
 /*/////////////////////////////////////////   aboutUS CSS begins   ///////////////////////////////////////////////*/
-.aboutUs .top-navbar {
+.aboutUs .navFixe {
   display: flex;
   justify-content: space-between;
-  padding: 50px;
+  align-items: center;
+  margin-top: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
   width: 100%;
 }
-.aboutUs .top-navbar .logonav {
-position: relative;
-  }
-.aboutUs .logonav-mobile {
-    display: none;
+.aboutUs .below-header {
+  padding-top:12%;
+  font-weight: 200;
 }
 .aboutUs h1 {
-  padding-top:0em;
+  padding: 20px 0 20px 0;
   letter-spacing: 0em;
   text-align: center;
 }
 .aboutUs .concept p {
-  width: 1000px;
+  width: 800px;
   margin: 0 auto;
-  font-size: 30px;
+  font-size: 20px;
   text-align: justify;
 }
 .aboutUs .concept .tagline {
@@ -96,17 +97,20 @@ position: relative;
   font-size: 14px;
 }
 /*////////// pseudofooter ///////*/
-.aboutUs .teamMembers .minitext {
-  width:760px;
-  margin:0 auto;
-  color: #555555;
-  font-size: 14px;
-  font-variant: normal;
+.aboutUs .minitext {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding-top: 2em;
   padding-bottom: 30px;
 }
+.aboutUs .minitext p {
+  color: #333;
+  font-size: 14px;
+}
 /*////////// pseudofooter easter egg & its cosmetics ///////*/
-.aboutUs .teamMembers .icon-react-cute {
+.aboutUs .icon-react-cute {
   opacity: 0.25;
   display: block;
   margin:0 auto;
@@ -129,25 +133,36 @@ position: relative;
       transform:rotate(360deg);
   }
 }
-.aboutUs .teamMembers .icon-react-cute:hover {
+.aboutUs .icon-react-cute:hover {
   opacity: 0.75;
   filter: grayscale(0%);
   -webkit-animation:spin 0.5s linear infinite;
   -moz-animation:spin 0.5s linear infinite;
   animation:spin 0.5s linear infinite;
 }
-.aboutUs .teamMembers .icon-react-cute:active {
+.aboutUs .icon-react-cute:active {
   opacity: 1;
   filter: grayscale(0%);
   -webkit-animation:spin 0.25s linear infinite;
   -moz-animation:spin 0.25s linear infinite;
   animation:spin 0.25s linear infinite;
 }
-/*/////////////////////////////////////////         MOBILE      ///////////////////////////////////////////////*/
-@media screen and (max-width: 810px) {
+/*/////////////////////////////////////////         TABLET      ///////////////////////////////////////////////*/
+@media screen and (max-width: 800px) {
   .aboutUs {
-    width: auto;
-    padding: 20px;
+    padding: 0px;
+  }
+  .aboutUs .navBar {
+    margin: 0px;
+    width: 100%;
+  }
+  .aboutUs .navFixe {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+  }
+  .aboutUs .below-header {
+    padding-top:20%;
   }
   .aboutUs .logonav {
     display: none;
@@ -155,16 +170,11 @@ position: relative;
   .aboutUs .logonav-mobile {
     display: inherit;
   }
-  .aboutUs .top-navbar {
-    width: auto;
-    padding: 0 0 30px 0px;
-  }
   .aboutUs h1 {
     font-size:48px;
-    padding: 5px 0 10px 0;
   }
   .aboutUs .concept p {
-    width: auto;
+    width: 80%;
     font-size:19px;
     text-align: left;
   }
@@ -174,57 +184,74 @@ position: relative;
     width: 190px;
   }
   .aboutUs .teamMembers {
+    width: 800px;
+  }
+  .aboutUs .teamMembers .member-name {
+    font-size: 18px;
+  }
+  .aboutUs .teamMembers p {
+    font-size: 16px;
+  }
+  .aboutUs .teamMembers .quote-text {
+    font-size: 14px;
+  }
+}
+/*/////////////////////////////////////////         MOBILE     ///////////////////////////////////////////////*/
+@media screen and (max-width: 500px) {
+  .aboutUs {
+    padding: 0px;
+  }
+  .aboutUs .navBar {
+    margin: 0px;
+    width: 100%;
+  }
+  .aboutUs .navFixe {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+  }
+  .aboutUs .below-header {
+    padding-top:30%;
+  }
+  .aboutUs .teamMembers {
     grid-template-columns: 100%;
     grid-template-rows: 50% 50% 50% 50%;
-    width: auto;
-    align-items: center;
-    justify-items: center;
+    width: 65%;
   }
   .aboutUs .teamMembers-step1 {
     grid-column-start: 1;
-    grid-column-end: 3;
+    grid-column-end: 1;
     grid-row-start: 1;
     grid-row-end: 1;
   }
   .aboutUs .teamMembers-step2 {
     grid-column-start: 1;
-    grid-column-end: 3;
+    grid-column-end: 1;
     grid-row-start: 2;
     grid-row-end: 2;
   }
   .aboutUs .teamMembers-step3 {
     grid-column-start: 1;
-    grid-column-end: 3;
+    grid-column-end: 1;
     grid-row-start: 3;
     grid-row-end: 3;
   }
   .aboutUs .teamMembers-step4 {
     grid-column-start: 1;
-    grid-column-end: 3;
+    grid-column-end: 1;
     grid-row-start: 4;
     grid-row-end: 4;
   }
   .aboutUs .teamMembers .member-name {
-    font-size: 22px;
-  }
-  .aboutUs .teamMembers img {
-    width: 210px;
-    height: 160px;
-  }
-  .aboutUs .teamMembers-step1 img:hover, .aboutUs .teamMembers-step2 img:hover, .aboutUs .teamMembers-step3 img:hover, .aboutUs .teamMembers-step4 img:hover {
-    filter: grayscale(0%);
-    transform: none;
-  }
-  .aboutUs .teamMembers p {
     font-size: 18px;
   }
-  .aboutUs .teamMembers .quote-text {
+  .aboutUs .teamMembers p {
     font-size: 16px;
   }
-  .aboutUs .teamMembers .minitext {
-    width: auto;
-    margin:0 auto;
+  .aboutUs .teamMembers .quote-text {
+    font-size: 14px;
   }
+  
 }
 /*/////////////////////////////////////////   aboutUS CSS end   ///////////////////////////////////////////////*/
 
