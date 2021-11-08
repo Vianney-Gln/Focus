@@ -1,11 +1,5 @@
 import React from "react";
-
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-// import ItemsPreviews from "../components/ItemsPreviews";
-// import StarRater from "../components/StarRater";
 import westworlded from "../assets/images/westworlded.jpg";
-// import "../styles/starRater.css";
 import "../styles/index.css";
 import "../styles/itemModal.css";
 import "../styles/itemsPreviews.css";

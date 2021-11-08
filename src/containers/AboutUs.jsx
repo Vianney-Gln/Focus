@@ -1,23 +1,26 @@
-import React from "react";
-import Hamburger from "hamburger-react";
-import Logo from "../components/Logo";
-import LogoMobile from "../components/LogoMobile";
+import React, { useContext } from "react";
+import { Logo, LogoMobile } from "../components";
 import avatarK from "../assets/images/avatarK.png";
 import avatarG from "../assets/images/avatarG.png";
 import avatarL from "../assets/images/avatarL.png";
 import avatarV from "../assets/images/avatarV.png";
 import reactIconHeart from "../assets/images/reactIconHeart.png";
+import BurgerContext from "../contexts/BurgerContext";
 
 import "../styles/index.css";
 import "../styles/aboutUs.css";
 
-const AboutUs = () => (
-  <div className="aboutUs">
+const AboutUs = () => {
+  // utilisation du contexte pour garder le burger affiché même au rechargement de la page
+  const burgerContext = useContext(BurgerContext);
+  burgerContext.displayBurger();
+
+  return (
+    <div className="aboutUs">
     <header className="navBar">
       <div className="navFixe">
         <Logo />
         <LogoMobile />
-        <Hamburger />
       </div>
     </header>
     <div className="below-header">
@@ -84,7 +87,7 @@ const AboutUs = () => (
         />
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default AboutUs;
