@@ -14,11 +14,15 @@ import BurgerContext from "../contexts/BurgerContext";
 
 import tempImage from "../assets/images/westworlded.jpg";
 import useOnScreen from "../hooks/useOnScreen";
+import { SignInContext } from "../contexts/SignInContext";
+import { AuthContext } from "../contexts/AuthContext";
 
 const Home = () => {
   // récupération du contexte
   // Achaque clique sur les links de cette page le burger s'affiche
   const burgerContext = useContext(BurgerContext);
+  const signinContext = useContext(SignInContext);
+  const authContext = useContext(AuthContext);
 
   /**
    * Create Ref for each section
@@ -86,6 +90,7 @@ const Home = () => {
         </div>
         <div className="navunfixe">
           <div className="contbuttonmylist">
+            {/* IF logged redirect to mylist, else show login */}
             <Link
               to="/mylist"
               className="buttonmylist"
@@ -95,9 +100,24 @@ const Home = () => {
             </Link>
           </div>
           <div className="contButtonSignIn">
-            <button type="button" className="btn-common btn-aperture">
-              SIGN IN
-            </button>
+            {!authContext.isLogged && (
+              <button
+                type="button"
+                className="btn-common btn-aperture"
+                onClick={signinContext.showSignIn}
+              >
+                SIGN IN
+              </button>
+            )}
+            {authContext.isLogged && (
+              <button
+                type="button"
+                className="btn-common btn-aperture"
+                onClick={authContext.userLogout}
+              >
+                LOGOUT
+              </button>
+            )}
           </div>
           {(suggestion1IsVisible ||
             suggestion2IsVisible ||

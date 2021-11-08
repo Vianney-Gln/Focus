@@ -8,13 +8,21 @@ import App from "./App";
 import "./assets/fonts/grotesk/Grotesk.css";
 import "./assets/fonts/focus/focus.css";
 
+/* Temporary */
+import { SignInProvider } from "./contexts/SignInContext";
+import { AuthProvider } from "./contexts/AuthContext";
+
 ReactDOM.render(
   <React.StrictMode>
-    <BurgerProvider>
-      <Router>
-        <App />
-      </Router>
-    </BurgerProvider>
+    <AuthProvider>
+      <SignInProvider>
+        <BurgerProvider>
+          <Router>
+            <App />
+          </Router>
+        </BurgerProvider>
+      </SignInProvider>
+    </AuthProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

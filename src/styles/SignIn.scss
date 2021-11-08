@@ -9,6 +9,15 @@
   align-items: center;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 10;
+  transform: scaleX(0);
+  transition: transform 0.6s;
+  transition-timing-function: cubic-bezier(1, -0.6, 0, 1);
+  transform-origin: bottom;
+
+  &.showSignIn {
+    transform: scaleX(1);
+    transition-timing-function: cubic-bezier(1, 0, 0, 1.6);
+  }
 
   .container {
     display: flex;
@@ -50,20 +59,35 @@
       }
     }
 
-    .signInButton {
+    .btn-container {
       position: relative;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #7e7e7e;
-      color: #fff;
-      border-radius: 20px;
-      border: none;
-      text-transform: uppercase;
-      font-weight: bold;
-      padding: 10px 40px;
-      cursor: pointer;
-      &:hover {
-        background-color: #222;
+      text-align: center;
+
+      .redirectToRegister {
+        color: #fff;
+        background: none;
+        border: none;
+        font-weight: bold;
+        padding: 10px 40px;
+        cursor: pointer;
+        margin-right: 20px;
+        &:hover {
+          color: #7e7e7e;
+        }
+      }
+
+      .signInButton {
+        background-color: #7e7e7e;
+        color: #fff;
+        border-radius: 20px;
+        border: none;
+        text-transform: uppercase;
+        font-weight: bold;
+        padding: 10px 40px;
+        cursor: pointer;
+        &:hover {
+          background-color: #222;
+        }
       }
     }
 
