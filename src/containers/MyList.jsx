@@ -1,8 +1,9 @@
+
 import { React, useContext } from "react";
-import Logo from "../components/Logo";
 import "../styles/myList.css";
-import ElementList from "../components/ElementList";
 import BurgerContext from "../contexts/BurgerContext";
+import { Logo, ElementList } from "../components";
+import "../styles/myList.css";
 
 /* structure du composant myList */
 const MyList = () => {
