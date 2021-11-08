@@ -1,9 +1,16 @@
-import { React } from "react";
+
+import { React, useContext } from "react";
+import "../styles/myList.css";
+import BurgerContext from "../contexts/BurgerContext";
 import { Logo, ElementList } from "../components";
 import "../styles/myList.css";
 
 /* structure du composant myList */
 const MyList = () => {
+  // utilisation du contexte pour garder le burger affiché même au rechargement de la page
+  const burgerContext = useContext(BurgerContext);
+  burgerContext.displayBurger();
+
   /* creation d'une boucle pour appeler plusieurs fois le composant <ElementList /> */
 
   const itemLists = [];

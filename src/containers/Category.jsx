@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+
+import React, { useEffect, useState, useContext } from "react";
 import {
   BackgroundImage,
   ItemsPreviews,
@@ -8,11 +9,15 @@ import {
 } from "../components";
 import "../styles/category.css";
 import "../styles/backgroundImage.css";
-
+import BurgerContext from "../contexts/BurgerContext";
 import { tmdbMovieUpcomming } from "../services/TheMovieDbFunctions";
 
 const Category = () => {
   const [movies, setMovies] = useState([]);
+
+  // utilisation du contexte pour garder le burger affiché même au rechargement de la page
+  const burgerContext = useContext(BurgerContext);
+  burgerContext.displayBurger();
 
   useEffect(() => {
     const run = async () => {
