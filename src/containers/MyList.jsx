@@ -1,6 +1,4 @@
-
-import { React, useContext } from "react";
-import "../styles/myList.css";
+import React, { useContext } from "react";
 import BurgerContext from "../contexts/BurgerContext";
 import { Logo, ElementList } from "../components";
 import "../styles/myList.css";

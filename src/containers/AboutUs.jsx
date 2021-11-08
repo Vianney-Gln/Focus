@@ -1,13 +1,5 @@
-
 import React, { useContext } from "react";
 import { Logo, LogoMobile } from "../components";
-import LogoMobile from "../components/LogoMobile";
-
-
-
-
-
-
 import avatarK from "../assets/images/avatarK.png";
 import avatarG from "../assets/images/avatarG.png";
 import avatarL from "../assets/images/avatarL.png";
