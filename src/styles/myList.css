@@ -6,12 +6,16 @@
 
 .barre-logo-burger {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   margin-top: 50px;
   padding-left: 50px;
   padding-right: 50px;
   width: 100%;
+}
+
+#root > div.myList > div.barre-logo-burger > div.search > button > i {
+  font-size: inherit;
 }
 .barre-logo-burger i {
   font-size: 36px;
@@ -78,11 +82,27 @@
     display: none;
   }
   .myList .barre-logo-burger-mobile {
-    display: block;
+    display: flex;
+    align-items: center;
     width: 20%;
     position: absolute;
-    top: 20px;
+    top: 15px;
     left: 20px;
+  }
+  #root > div.myList > div.barre-logo-burger-mobile > div.search > button {
+    font-size: 14px;
+  }
+  #root > div.myList > div.barre-logo-burger-mobile > div.search {
+    flex-flow: row nowrap;
+    margin: 0;
+    margin-left: 10px;
+  }
+
+  #root > div.myList > div.barre-logo-burger-mobile > div.search input {
+    width: 100px;
+  }
+  #root > div.myList > div.barre-logo-burger-mobile > div.search > button > i {
+    font-size: 14px;
   }
   .myList .barre-logo-burger-mobile img {
     width: 50px;
