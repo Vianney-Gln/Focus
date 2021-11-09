@@ -9,7 +9,7 @@ import {
 import "../styles/category.css";
 import "../styles/backgroundImage.css";
 import BurgerContext from "../contexts/BurgerContext";
-import { suggestionFetch } from "../services/TheMovieDbFunctions";
+import { tmdbMovieUpcoming } from "../services/TheMovieDbFunctions";
 
 const Category = () => {
   const [movies, setMovies] = useState([]);
@@ -20,7 +20,7 @@ const Category = () => {
 
   useEffect(() => {
     const run = async () => {
-      const data = await suggestionFetch();
+      const data = await tmdbMovieUpcoming();
       console.log(data);
       const map = data.map((datamovie) => (
         <ItemsPreviews key={datamovie.id} data={datamovie} />
