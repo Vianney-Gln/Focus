@@ -22,6 +22,12 @@ const Suggestion = ({ refValue }) => {
     }
   };
 
+  const handleRating = (value) => {
+    setRating(value);
+    // si connecter enregistrer le rating
+    // sinon pas enregistrer
+  };
+
   return (
     <>
       {/* <BackgroundImage /> */}
@@ -47,10 +53,7 @@ const Suggestion = ({ refValue }) => {
             </div>
             <div className="movie-mores">
               <div className="movie-rating">
-                <Rating
-                  onClick={(rate) => setRating(rate)}
-                  ratingValue={rating}
-                />
+                <Rating onClick={handleRating} ratingValue={rating} />
               </div>
               <button
                 className="movie-addtomylist"
