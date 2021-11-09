@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import Hamburger from "hamburger-react";
 import { Link } from "react-router-dom";
-import ImageItemPreviews from "../components/ImageItemPreviews";
-import Logo from "../components/Logo";
-import LogoMobile from "../components/LogoMobile";
-import SearchBar from "../components/SearchBar";
-import Switch from "../components/Switch";
+import {
+  ImageItemPreviews,
+  Logo,
+  LogoMobile,
+  SearchBar,
+  Switch,
+} from "../components";
 import Suggestion from "./Suggestion";
 import "../styles/home.scss";
 import BurgerContext from "../contexts/BurgerContext";
