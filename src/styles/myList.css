@@ -63,14 +63,55 @@
   width: 100%;
   overflow-y: auto;
 }
+.barre-logo-burger-mobile {
+  display: none;
+}
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 500px) {
   .myList {
     padding: 0;
     margin: 0;
   }
-  .barre-logo-burger {
+  .myList .barre-logo-burger {
     padding-left: 15px;
     padding-right: 15px;
+    display: none;
+  }
+  .myList .barre-logo-burger-mobile {
+    display: block;
+    width: 20%;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+  .myList .barre-logo-burger-mobile img {
+    width: 50px;
+  }
+
+  .myList .views-titles {
+    padding: 0;
+    flex-direction: column-reverse;
+    margin-top: 50px;
+  }
+
+  .myList .views-titles h1 {
+    width: 100%;
+    font-size: 50px;
+    margin-bottom: 30px;
+  }
+
+  .myList .views-titles .viewed-asc {
+    display: flex;
+    width: 100%;
+  }
+
+  .myList .views-titles .viewed-asc button {
+    width: 300px;
+  }
+  .myList .container-items-list {
+    height: 100vh;
+  }
+  .myList .container-items-list {
+    overflow-y: visible;
   }
 }
