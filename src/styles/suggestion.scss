@@ -162,11 +162,12 @@
       display: flex;
       flex-flow: row wrap;
       justify-content: flex-start;
-      min-width: 70%;
+      min-width: 100%;
       max-width: 90%;
       h1 {
+        
         width: 100%;
-        font-size: 110px;
+        font-size: 100px;
       }
       .movie-informations {
        
@@ -242,7 +243,7 @@
       flex-direction: column;
       justify-content:center;
       align-items: center;
-      width: 80vw;
+      width: 90vw;
       height: 5%;
       margin-bottom: 0px;
       position:absolute;
