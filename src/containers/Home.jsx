@@ -65,7 +65,7 @@ const Home = () => {
   }, []);
 
   /**
-   * Test visibility of element
+   * Test visibility of element by 50%
    */
   const suggestion1IsVisible = useOnScreen(suggestion1ref);
   const suggestion2IsVisible = useOnScreen(suggestion2ref);
@@ -84,17 +84,21 @@ const Home = () => {
       {/* Top Menu */}
       <header className="navBar">
         <div className="navFixe">
-          <Logo />
-          <LogoMobile />
+          <Logo scrollTo={() => executeScroll(prehomeref)} />
+          <LogoMobile scrollTo={() => executeScroll(prehomeref)} />
           <SearchBar />
         </div>
         <div className="navunfixe">
           <div className="contbuttonmylist">
-            {/* IF logged redirect to mylist, else show login */}
+            {/* IF logged redirect to mylist, else show login with no redirect */}
             <Link
-              to="/mylist"
+              to={authContext.isLogged ? "/mylist" : "/"}
               className="buttonmylist"
-              onClick={burgerContext.displayBurger}
+              onClick={
+                authContext.isLogged
+                  ? burgerContext.displayBurger
+                  : signinContext.showSignIn
+              }
             >
               MY LIST
             </Link>
@@ -145,13 +149,6 @@ const Home = () => {
 
       {/* Right Menu */}
       <div className="home-navigation">
-        <button
-          className="btn-navigation"
-          type="button"
-          onClick={() => executeScroll(prehomeref)}
-        >
-          <p>Home</p>
-        </button>
         <button
           className="btn-navigation"
           type="button"

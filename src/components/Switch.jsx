@@ -5,14 +5,14 @@ const SwitchMtoS = () => {
   const [type, setType] = React.useState("movie");
 
   const handleSwitch = () => {
-    setType((t) => {
-      let tp = t;
-      if (tp === "movie") {
-        tp = "serie";
+    setType((currentType) => {
+      let newType = currentType;
+      if (newType === "movie") {
+        newType = "serie";
       } else {
-        tp = "movie";
+        newType = "movie";
       }
-      return tp;
+      return newType;
     });
   };
 

@@ -74,7 +74,7 @@ export const tmdbMovieProviders = async (id) => {
  * Fetch API and give you the 20 upcoming movies
  * @returns Array of 20 upcoming movies
  */
-export const tmdbMovieUpcomming = async () => {
+export const tmdbMovieUpcoming = async () => {
   const { data } = await apiBaseUrl.get("/movie/upcoming", {
     params: {
       region: "US",
@@ -225,4 +225,53 @@ export const tmdbSearchMovies = async (query) => {
   } catch (err) {
     return err;
   }
+};
+
+const randomArr = (arr, nb) => {
+  const selectedValue = [];
+  const selectedIndex = [];
+  while (selectedIndex.length + 1 <= nb) {
+    const value = arr[Math.floor(Math.random() * arr.length)];
+    const index = arr.indexOf(value);
+    if (!selectedIndex.includes(index)) {
+      selectedIndex.push(index);
+      selectedValue.push(value);
+    }
+  }
+  return selectedValue;
+};
+
+export const suggestionFetch = async () => {
+  const listUpcoming = await tmdbMovieUpcoming();
+  const listPopular = await tmdbMoviePopular();
+  const listNowPlaying = await tmdbMovieNowPlaying();
+  const filteredUpcoming = randomArr(listUpcoming, 3);
+  const filteredPopular = randomArr(listPopular, 3);
+  const filteredNowPlaying = randomArr(listNowPlaying, 3);
+
+  let fullUpcoming = [];
+  filteredUpcoming.forEach((value) => {
+    fullUpcoming.push(tmdbMovieInfos(value.id));
+  });
+  let fullPopular = [];
+  filteredPopular.forEach((value) => {
+    fullPopular.push(tmdbMovieInfos(value.id));
+  });
+  let fullNowPlaying = [];
+  filteredNowPlaying.forEach((value) => {
+    fullNowPlaying.push(tmdbMovieInfos(value.id));
+  });
+  fullUpcoming = await Promise.all(fullUpcoming);
+  fullPopular = await Promise.all(fullPopular);
+  fullNowPlaying = await Promise.all(fullNowPlaying);
+  console.log({
+    upcoming: fullUpcoming,
+    popular: fullPopular,
+    nowplaying: fullNowPlaying,
+  });
+  return {
+    upcoming: fullUpcoming,
+    popular: fullPopular,
+    nowplaying: fullNowPlaying,
+  };
 };

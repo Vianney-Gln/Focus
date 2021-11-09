@@ -55,7 +55,12 @@
         }
         .movie-addtomylist {
           font-size: 24px;
-          font-weight: 300;
+          font-weight: 200;
+          font-family: inherit;
+          border: none;
+          background: none;
+          color: #fff;
+          cursor: pointer;
           i::before {
             transform: scale(1.7);
             margin-right: 0.5em;
