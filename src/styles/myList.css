@@ -100,6 +100,7 @@
 
   #root > div.myList > div.barre-logo-burger-mobile > div.search input {
     width: 100px;
+    margin-top: -10px;
   }
   #root > div.myList > div.barre-logo-burger-mobile > div.search > button > i {
     font-size: 14px;
