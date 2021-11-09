@@ -264,11 +264,6 @@ export const suggestionFetch = async () => {
   fullUpcoming = await Promise.all(fullUpcoming);
   fullPopular = await Promise.all(fullPopular);
   fullNowPlaying = await Promise.all(fullNowPlaying);
-  console.log({
-    upcoming: fullUpcoming,
-    popular: fullPopular,
-    nowplaying: fullNowPlaying,
-  });
   return {
     upcoming: fullUpcoming,
     popular: fullPopular,
