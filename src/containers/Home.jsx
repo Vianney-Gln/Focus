@@ -201,7 +201,15 @@ const Home = () => {
           <Link onClick={burgerContext.displayBurger} to="/category">
             <li className="footeritem">LATEST</li>
           </Link>
-          <Link onClick={burgerContext.displayBurger} to="/mylist">
+          <Link
+            to={authContext.isLogged ? "/mylist" : "/"}
+            className="buttonmylist"
+            onClick={
+              authContext.isLogged
+                ? burgerContext.displayBurger
+                : signinContext.showSignIn
+            }
+          >
             <li className="footeritem">MY LIST</li>
           </Link>
           <Link onClick={burgerContext.displayBurger} to="/aboutus">

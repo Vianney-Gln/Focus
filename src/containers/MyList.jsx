@@ -1,13 +1,25 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import BurgerContext from "../contexts/BurgerContext";
 import { Logo, ElementList } from "../components";
 import "../styles/myList.css";
+import { AuthContext } from "../contexts/AuthContext";
 
 /* structure du composant myList */
 const MyList = () => {
+  const history = useHistory();
   // utilisation du contexte pour garder le burger affiché même au rechargement de la page
   const burgerContext = useContext(BurgerContext);
-  burgerContext.displayBurger();
+  // burgerContext.displayBurger();
+
+  const authContext = useContext(AuthContext);
+  useEffect(() => {
+    if (!authContext.isLogged) {
+      history.push("/");
+    } else {
+      burgerContext.displayBurger();
+    }
+  }, []);
 
   /* creation d'une boucle pour appeler plusieurs fois le composant <ElementList /> */
 
