@@ -186,6 +186,9 @@
 }
 /*/////////////////////////////////////////         MOBILE     ///////////////////////////////////////////////*/
 @media screen and (max-width: 500px) {
+  #root .hamburger-displayed {
+    position: absolute;
+  }
   .aboutUs .navBar {
   position: static;
   }
