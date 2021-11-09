@@ -1,9 +1,6 @@
 /*/////////////////////////////////////////   aboutUS CSS begins   ///////////////////////////////////////////////*/
 #root .hamburger-displayed {
   position: fixed;
-  z-index: 10;
-  top: 8%;
-  right: 5%;
 }
 .aboutUs .navFixe {
   display: flex;
