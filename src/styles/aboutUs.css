@@ -1,15 +1,20 @@
 /*/////////////////////////////////////////   aboutUS CSS begins   ///////////////////////////////////////////////*/
+#root .hamburger-displayed {
+  position: fixed;
+  z-index: 10;
+  top: 8%;
+  right: 5%;
+}
 .aboutUs .navFixe {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 50px;
-  padding-left: 50px;
-  padding-right: 50px;
+  margin: 0px;
+  padding: 0 0 0 0;
   width: 100%;
 }
 .aboutUs .below-header {
-  padding-top:12%;
+  padding-top:75px;
   font-weight: 200;
 }
 .aboutUs h1 {
@@ -18,58 +23,60 @@
   text-align: center;
 }
 .aboutUs .concept p {
-  width: 800px;
+  width: 40%;
   margin: 0 auto;
   font-size: 20px;
-  text-align: justify;
+  text-align: left;
 }
 .aboutUs .concept .tagline {
   padding-top:1em;
   padding-bottom:0.5em;
   font-style: italic;
-  font-size: 28px;
-  text-align: right;
+  font-size: 20px;
 }
 /*////////// display group members, using Grid for responsiveness ///////*/
-.aboutUs .teamMembers {
-  width: 1200px;
-  display: grid;
-  margin: 0 auto;
-  grid-template-columns: 180px 180px 180px 180px;
-  grid-gap: 20px;
+.aboutUs .flex-teamMembers {
+  display: flex;
   justify-content: center;
-  align-content: center;
+  width: 100%;
+}
+.aboutUs .teamMembers {
+  width: 50%;
+  display: grid;
+  grid-template-columns: 180px 180px;
+  grid-template-rows: 50% 50%;
+  grid-gap: 10px;
+  justify-content: center;
 }
 .aboutUs .teamMembers-step1 {
   grid-column-start: 1;
-  grid-column-end: 2;
+  grid-column-end: 1;
   grid-row-start: 1;
   grid-row-end: 1;
 }
 .aboutUs .teamMembers-step2 {
   grid-column-start: 2;
-  grid-column-end: 3;
+  grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 1;
 }
 .aboutUs .teamMembers-step3 {
-  grid-column-start: 3;
-  grid-column-end: 4;
-  grid-row-start: 1;
-  grid-row-end: 1;
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 2;
+  grid-row-end: 2;
 }
 .aboutUs .teamMembers-step4 {
-  grid-column-start: 4;
-  grid-column-end: 5;
-  grid-row-start: 1;
-  grid-row-end: 1;
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 2;
 }
 .aboutUs .teamMembers .member-name {
   font-size: 22px;
-  text-align: left;
+  text-align: center;
   padding-bottom: 5px;
   background-color:#000;
-  width: 125px;
 }
 .aboutUs .teamMembers a:hover {
   text-decoration: none;
@@ -149,20 +156,8 @@
 }
 /*/////////////////////////////////////////         TABLET      ///////////////////////////////////////////////*/
 @media screen and (max-width: 800px) {
-  .aboutUs {
-    padding: 0px;
-  }
-  .aboutUs .navBar {
-    margin: 0px;
-    width: 100%;
-  }
-  .aboutUs .navFixe {
-    margin: 0px;
-    padding: 0px;
-    width: 100%;
-  }
   .aboutUs .below-header {
-    padding-top:20%;
+    padding-top:10%;
   }
   .aboutUs .logonav {
     display: none;
@@ -181,10 +176,6 @@
   .aboutUs .concept .tagline {
     font-size:19px;
     text-align: center;
-    width: 190px;
-  }
-  .aboutUs .teamMembers {
-    width: 800px;
   }
   .aboutUs .teamMembers .member-name {
     font-size: 18px;
@@ -198,25 +189,18 @@
 }
 /*/////////////////////////////////////////         MOBILE     ///////////////////////////////////////////////*/
 @media screen and (max-width: 500px) {
-  .aboutUs {
-    padding: 0px;
-  }
   .aboutUs .navBar {
-    margin: 0px;
-    width: 100%;
-  }
-  .aboutUs .navFixe {
-    margin: 0px;
-    padding: 0px;
-    width: 100%;
+  position: static;
   }
   .aboutUs .below-header {
-    padding-top:30%;
+    padding-top:0;
   }
   .aboutUs .teamMembers {
-    grid-template-columns: 100%;
+    grid-template-columns: 180px;
     grid-template-rows: 50% 50% 50% 50%;
-    width: 65%;
+  }
+  .aboutUs .teamMembers .member-name {
+ 
   }
   .aboutUs .teamMembers-step1 {
     grid-column-start: 1;
