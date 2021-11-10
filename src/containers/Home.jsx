@@ -196,10 +196,10 @@ const Home = () => {
             <li className="footeritem">UPCOMING</li>
           </Link>
           <Link onClick={burgerContext.displayBurger} to="/category">
-            <li className="footeritem">TOP RATED</li>
+            <li className="footeritem">POPULAR</li>
           </Link>
           <Link onClick={burgerContext.displayBurger} to="/category">
-            <li className="footeritem">LATEST</li>
+            <li className="footeritem">NOW PLAYING</li>
           </Link>
           <Link
             to={authContext.isLogged ? "/mylist" : "/"}

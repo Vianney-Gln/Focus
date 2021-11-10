@@ -56,7 +56,7 @@ function App() {
       {/* Routes de navigation interpages */}
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/category" component={Category} />
+        <Route exact path="/category/:cat" component={Category} />
         <Route exact path="/aboutus" component={AboutUs} />
         <Route exact path="/mylist" component={MyList} />
         {/* Temporary Route START */}
