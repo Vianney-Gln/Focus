@@ -1,6 +1,4 @@
 import React from "react";
-import Rate from "rc-rate";
-import "rc-rate/assets/index.css";
 import "../styles/suggestion.scss";
 import imgNet from "../assets/images/netflix.png";
 import imgCanal from "../assets/images/canal.png";
@@ -18,6 +16,9 @@ const Suggestion = ({ refValue }) => (
               <i className="icon-left-open-big" />
             </button>
             <img className="img-slideshow" src={SlideImg} alt="slideimg" />
+            <button type="button" className="btn-fleche-slideShow">
+              <i className="icon-play" />
+            </button>
             <button type="button" className="btn-fleche-slideShow">
               <i className="icon-right-open-big" />
             </button>
@@ -39,9 +40,7 @@ const Suggestion = ({ refValue }) => (
             out-of-control spiral toward oblivion.
           </div>
           <div className="movie-mores">
-            <div className="movie-rating">
-              <Rate />
-            </div>
+            <div className="movie-rating">{/* <Rate /> */}</div>
             <div className="movie-addtomylist">
               <i className="icon-plus" /> Add to my list
             </div>

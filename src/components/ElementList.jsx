@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import "../styles/elementListe.css";
-import Rate from "rc-rate";
 import movie from "../Data";
-import "../../node_modules/rc-rate/assets/index.css";
 
 function ElementList() {
   const [check, setCheck] = useState(false);
@@ -36,9 +34,7 @@ function ElementList() {
           <p className="creator">Creator/cast</p>
           <p className="date-release">{movie.release_date}</p>
           <p className="runtime">{`${hours(movie.runtime)}`}</p>
-          <p>
-            <Rate />
-          </p>
+          <p>{/* <Rate /> */}</p>
         </div>
         <div
           onClick={handleCheck}

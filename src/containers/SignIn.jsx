@@ -3,9 +3,26 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import "../styles/SignIn.scss";
 
+import { loginUser } from "../services/FirebaseUserFunctions";
+
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  /**
+   * Inscription Part
+   */
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const user = await loginUser(email, password);
+      setEmail("");
+      setPassword("");
+      console.log("User Logged :", user);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="signInModal">
@@ -16,7 +33,7 @@ const SignIn = () => {
 
         <h1>Sign In</h1>
 
-        <form>
+        <form onSubmit={handleLogin}>
           <label htmlFor="signInEmail">
             <p>Type your email address:</p>
             <input
