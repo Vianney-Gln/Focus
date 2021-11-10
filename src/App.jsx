@@ -42,6 +42,7 @@ function App() {
 
       {/* At click on SignIn or similar, show SignIn component */}
       <SignIn />
+      <SignUp />
 
       <div className={burgerContext.classBurger}>
         <Hamburger

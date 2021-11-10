@@ -69,9 +69,12 @@ const loginUser = async (mail, password) => {
       mail,
       password
     );
-    return userCredential;
+    if (userCredential) {
+      return userCredential;
+    }
+    return false;
   } catch (err) {
-    return err;
+    return false;
   }
 };
 

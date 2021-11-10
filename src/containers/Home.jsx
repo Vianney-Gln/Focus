@@ -14,14 +14,14 @@ import BurgerContext from "../contexts/BurgerContext";
 
 import tempImage from "../assets/images/westworlded.jpg";
 import useOnScreen from "../hooks/useOnScreen";
-import { SignInContext } from "../contexts/SignInContext";
+import { SignContext } from "../contexts/SignContext";
 import { AuthContext } from "../contexts/AuthContext";
 
 const Home = () => {
   // récupération du contexte
   // Achaque clique sur les links de cette page le burger s'affiche
   const burgerContext = useContext(BurgerContext);
-  const signinContext = useContext(SignInContext);
+  const signinContext = useContext(SignContext);
   const authContext = useContext(AuthContext);
 
   /**

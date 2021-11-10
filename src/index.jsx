@@ -9,19 +9,19 @@ import "./assets/fonts/grotesk/Grotesk.css";
 import "./assets/fonts/focus/focus.css";
 
 /* Temporary */
-import { SignInProvider } from "./contexts/SignInContext";
+import { SignProvider } from "./contexts/SignContext";
 import { AuthProvider } from "./contexts/AuthContext";
 
 ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
-      <SignInProvider>
+      <SignProvider>
         <BurgerProvider>
           <Router>
             <App />
           </Router>
         </BurgerProvider>
-      </SignInProvider>
+      </SignProvider>
     </AuthProvider>
   </React.StrictMode>,
   document.getElementById("root")
