@@ -8,10 +8,10 @@ import { SignInContext } from "../contexts/SignInContext";
 import { AuthContext } from "../contexts/AuthContext";
 import SlideImg from "../assets/images/westworlded.jpg";
 
-const Suggestion = ({ refValue }) => {
+const Suggestion = ({ refValue, data }) => {
   const signinContext = useContext(SignInContext);
   const authContext = useContext(AuthContext);
-
+  console.log(data);
   const [rating, setRating] = useState(0);
 
   const handleAddToMyList = () => {
@@ -40,7 +40,11 @@ const Suggestion = ({ refValue }) => {
                 <i className="icon-left-open-big" />
               </button>
               <div className="container-image-player">
-                <img className="img-slideshow" src={SlideImg} alt="slideimg" />
+                <img
+                  className="img-slideshow"
+                  src={data ? data.background : SlideImg}
+                  alt="slideimg"
+                />
                 <button type="button" className="btn-fleche-slideShow">
                   <i className="icon-play" />
                 </button>
@@ -52,18 +56,22 @@ const Suggestion = ({ refValue }) => {
           </div>
 
           <div className="suggestion-informations">
-            <h1>Fight Club</h1>
+            <h1>{data ? data.title : "Not documented"}</h1>
             <div className="movie-informations">
-              <div className="movie-author">David Fincher</div>
-              <div className="movie-year">1999</div>
-              <div className="movie-duration">2h 19m</div>
+              <div className="movie-author">
+                {data ? data.author : "Not documented"}
+              </div>
+              <div className="movie-year">
+                {data ? data.date.year : "Not documented"}
+              </div>
+              <div className="movie-duration">
+                {data
+                  ? `${data.duration.hours}h ${data.duration.minutes}`
+                  : "Not documented"}
+              </div>
             </div>
             <div className="movie-synopsis">
-              A ticking-time-bomb insomniac and a slippery soap salesman channel
-              primal male aggression into a shocking new form of therapy. Their
-              concept catches on, with underground &quot;fight clubs&quot;
-              forming in every town, until an eccentric gets in the way and
-              ignites an out-of-control spiral toward oblivion.
+              {data ? data.synopsis : "Not documented"}
             </div>
             <div className="movie-mores">
               <div className="movie-rating">

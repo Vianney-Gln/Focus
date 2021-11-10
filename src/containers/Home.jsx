@@ -16,6 +16,7 @@ import tempImage from "../assets/images/westworlded.jpg";
 import useOnScreen from "../hooks/useOnScreen";
 import { SignInContext } from "../contexts/SignInContext";
 import { AuthContext } from "../contexts/AuthContext";
+import { suggestionFetch } from "../services/TheMovieDbFunctions";
 
 const Home = () => {
   // récupération du contexte
@@ -79,6 +80,20 @@ const Home = () => {
   if (suggestion2IsVisible) categoryLink = `/category/popular`;
   if (suggestion3IsVisible) categoryLink = `/category/now-playing`;
 
+  const [movies, setMovies] = React.useState([]);
+
+  React.useEffect(() => {
+    const run = async () => {
+      const data = await suggestionFetch();
+      console.log(data);
+      const map = data.upcoming.map((datamovie) => (
+        <Suggestion key={datamovie.id} data={datamovie} />
+      ));
+      setMovies(map);
+    };
+    run();
+  }, []);
+
   return (
     <main className="Containerhome">
       {/* Top Menu */}
@@ -141,12 +156,10 @@ const Home = () => {
           <Hamburger />
         </div>
       </header>
-
       {/* Switch Button */}
       <div className="switchHome">
         <Switch />
       </div>
-
       {/* Right Menu */}
       <div className="home-navigation">
         <button
@@ -178,14 +191,15 @@ const Home = () => {
           <p>Menu</p>
         </button>
       </div>
-
       {/* Pre-Home */}
       <section className="pre-home" ref={prehomeref}>
         <ImageItemPreviews source={tempImage} />
       </section>
-
       {/* 3 Suggestion page */}
-      <Suggestion refValue={suggestion1ref} />
+      <section className="upcoming" ref={suggestion1ref}>
+        {movies}
+      </section>
+      {/* <Suggestion refValue={suggestion1ref} /> */}
       <Suggestion refValue={suggestion2ref} />
       <Suggestion refValue={suggestion3ref} />
 
