@@ -108,10 +108,16 @@ const SignUp = () => {
     }
   };
 
+  /**
+   * Hide SignUp when click on button close
+   */
   const handleClose = () => {
     signContext.hideSignUp();
   };
 
+  /**
+   * Hide SignUp and Show SignIn
+   */
   const handleShowLoginPage = () => {
     signContext.hideSignUp();
     signContext.showSignIn();

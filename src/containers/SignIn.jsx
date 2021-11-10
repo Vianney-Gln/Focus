@@ -38,10 +38,16 @@ const SignIn = () => {
     }
   };
 
+  /**
+   * Hide SignIn on click
+   */
   const handleClose = () => {
     signContext.hideSignIn();
   };
 
+  /**
+   * Hide SignIn and Show SignUp
+   */
   const handleShowRegisterPage = () => {
     signContext.hideSignIn();
     signContext.showSignUp();
