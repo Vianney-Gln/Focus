@@ -82,6 +82,8 @@ const Home = () => {
   /* Fetch La data des films */
   /* State de la catégorie upcoming */
   const [upcoming, setUpcoming] = React.useState([]);
+  const [popular, setPopular] = React.useState([]);
+  const [nowPlaying, setNowPlaying] = React.useState([]);
 
   React.useEffect(() => {
     const run = async () => {
@@ -89,10 +91,18 @@ const Home = () => {
       const data = await suggestionFetch();
       console.log(data);
       /* Récupère la data de la catégorie upcoming */
-      const map = data.upcoming.map((dataupcoming) => (
+      const mapUpcomming = data.upcoming.map((dataupcoming) => (
         <Suggestion key={dataupcoming.id} data={dataupcoming} />
       ));
-      setUpcoming(map);
+      const mapPopular = data.popular.map((datapopular) => (
+        <Suggestion key={datapopular.id} data={datapopular} />
+      ));
+      const mapNowPlaying = data.nowplaying.map((datanowplaying) => (
+        <Suggestion key={datanowplaying.id} data={datanowplaying} />
+      ));
+      setUpcoming(mapUpcomming);
+      setPopular(mapPopular);
+      setNowPlaying(mapNowPlaying);
     };
     run();
   }, []);
@@ -202,9 +212,15 @@ const Home = () => {
       <section className="upcoming" ref={suggestion1ref}>
         {upcoming}
       </section>
+      <section className="popular" ref={suggestion2ref}>
+        {popular}
+      </section>
+      <section className="nowplaying" ref={suggestion3ref}>
+        {nowPlaying}
+      </section>
       {/* <Suggestion refValue={suggestion1ref} /> */}
-      <Suggestion refValue={suggestion2ref} />
-      <Suggestion refValue={suggestion3ref} />
+      {/* <Suggestion refValue={suggestion2ref} /> */}
+      {/* <Suggestion refValue={suggestion3ref} /> */}
 
       {/* Footer */}
       <section className="footer" ref={footerref}>

@@ -8,7 +8,7 @@ import { SignInContext } from "../contexts/SignInContext";
 import { AuthContext } from "../contexts/AuthContext";
 import SlideImg from "../assets/images/westworlded.jpg";
 
-const Suggestion = ({ refValue, data }) => {
+const Suggestion = ({ data }) => {
   const signinContext = useContext(SignInContext);
   const authContext = useContext(AuthContext);
   console.log(data);
@@ -32,7 +32,7 @@ const Suggestion = ({ refValue, data }) => {
   return (
     <>
       {/* <BackgroundImage /> */}
-      <section className="suggestion" ref={refValue}>
+      <section className="suggestion">
         <div className="suggestion-body">
           <div className="containers-slideshow">
             <div className="slideshow">
