@@ -5,15 +5,24 @@ import "../styles/suggestion.scss";
 import imgNet from "../assets/images/netflix.png";
 import imgCanal from "../assets/images/canal.png";
 import "../styles/starRate.css";
+import SlideImg from "../assets/images/westworlded.jpg";
 
 const Suggestion = ({ refValue }) => (
   <>
     {/* <BackgroundImage /> */}
     <section className="suggestion" ref={refValue}>
       <div className="suggestion-body">
-        {/* -- Slideshow -- */}
-        <div className="slideshow">{/* <Slideshow /> */}</div>
-        {/* -- Slideshow -- */}
+        <div className="containers-slideshow">
+          <div className="slideshow">
+            <button type="button" className="btn-fleche-slideShow">
+              <i className="icon-left-open-big" />
+            </button>
+            <img className="img-slideshow" src={SlideImg} alt="slideimg" />
+            <button type="button" className="btn-fleche-slideShow">
+              <i className="icon-right-open-big" />
+            </button>
+          </div>
+        </div>
 
         <div className="suggestion-informations">
           <h1>Fight Club</h1>
