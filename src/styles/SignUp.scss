@@ -94,21 +94,54 @@
         }
       }
     }
+    .cgu {
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+      margin-bottom: 20px;
 
-    .signUpButton {
+      input {
+        width: auto;
+        padding: 0;
+        margin: 0;
+        margin-right: 10px;
+      }
+      label {
+        font-size: 14px;
+      }
+    }
+    .container-button {
+      display: flex;
+      justify-content: center;
+      align-content: center;
       position: relative;
       left: 50%;
       transform: translateX(-50%);
-      background-color: #7e7e7e;
-      color: #fff;
-      border-radius: 20px;
-      border: none;
-      text-transform: uppercase;
-      font-weight: bold;
-      padding: 10px 40px;
-      cursor: pointer;
-      &:hover {
-        background-color: #222;
+
+      .btn-already-register {
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin-right: 20px;
+        font-weight: bold;
+        color: #fff;
+        &:hover {
+          color: #7e7e7e;
+        }
+      }
+
+      .signUpButton {
+        background-color: #7e7e7e;
+        color: #fff;
+        border-radius: 20px;
+        border: none;
+        text-transform: uppercase;
+        font-weight: bold;
+        padding: 10px 40px;
+        cursor: pointer;
+        &:hover {
+          background-color: #222;
+        }
       }
     }
 

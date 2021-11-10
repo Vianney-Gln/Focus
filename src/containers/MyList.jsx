@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import BurgerContext from "../contexts/BurgerContext";
-import { Logo, ElementList } from "../components";
+import { Logo, ElementList, LogoMobile, SearchBar } from "../components";
 import "../styles/myList.css";
 import { AuthContext } from "../contexts/AuthContext";
 
@@ -34,8 +34,13 @@ const MyList = () => {
       {authContext.isLogged && (
         <div className="myList">
           <div className="barre-logo-burger">
-            <Logo />
-          </div>
+          <Logo />
+          <SearchBar />
+        </div>
+        <div className="barre-logo-burger-mobile">
+          <LogoMobile />
+          <SearchBar />
+        </div>
 
           <div className="container-views-titles">
             <div className="views-titles">

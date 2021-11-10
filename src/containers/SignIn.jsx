@@ -8,7 +8,6 @@ import { loginUser } from "../services/FirebaseUserFunctions";
 /* Temporary Import for test */
 import { SignInContext } from "../contexts/SignInContext";
 import { AuthContext } from "../contexts/AuthContext";
-
 const SignIn = () => {
   const signinContext = useContext(SignInContext);
   const authContext = useContext(AuthContext);
@@ -37,7 +36,7 @@ const SignIn = () => {
   const handleClose = () => {
     signinContext.hideSignIn();
   };
-
+  
   return (
     <div className={`signInModal ${signinContext.classShowSignIn}`}>
       <div className="container">
