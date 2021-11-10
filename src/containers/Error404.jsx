@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import gif from "../assets/images/compteur.gif";
 import "../styles/error404.css";
 
@@ -23,9 +23,11 @@ const Error404 = () => {
         <h2>4</h2>
       </div>
       <p>You are being redirected...</p>
-      <button type="button" className="buttonRedirectHome">
-        BACK TO HOME
-      </button>
+      <Link to="/">
+        <button type="button" className="buttonRedirectHome">
+          BACK TO HOME
+        </button>
+      </Link>
     </div>
   );
 };
