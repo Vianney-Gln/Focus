@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import BackgroundContext from "../contexts/BackgroundContext";
 
 function BackgroundImage() {
+  const background = useContext(BackgroundContext);
+
   return (
-    <img
-      className="background-image"
-      src="http://image.tmdb.org/t/p/original/s3TBrRGB1iav7gFOCNx3H31MoES.jpg"
-      alt="background"
-    />
+    background && (
+      <img className="background-image" src={background} alt="background" />
+    )
   );
 }
 
