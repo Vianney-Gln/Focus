@@ -1,6 +1,5 @@
 import React from "react";
-
-import ItemsPreviews from "../components/ItemsPreviews";
+import { ItemsPreviews } from "../components";
 
 import "../styles/index.css";
 import "../styles/player.css";

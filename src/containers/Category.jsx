@@ -1,20 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import {
+  BackgroundImage,
+  ItemsPreviews,
+  Logo,
+  LogoMobile,
+  SearchBar,
+} from "../components";
 import "../styles/category.css";
-import BackgroundImage from "../components/BackgroundImage";
-import ItemsPreviews from "../components/ItemsPreviews";
 import "../styles/backgroundImage.css";
-import Logo from "../components/Logo";
-import SearchBar from "../components/SearchBar";
-import LogoMobile from "../components/LogoMobile";
-
-import { tmdbMovieUpcomming } from "../services/TheMovieDbFunctions";
+import BurgerContext from "../contexts/BurgerContext";
+import { tmdbMovieUpcoming } from "../services/TheMovieDbFunctions";
 
 const Category = () => {
   const [movies, setMovies] = useState([]);
 
+  // utilisation du contexte pour garder le burger affiché même au rechargement de la page
+  const burgerContext = useContext(BurgerContext);
+  burgerContext.displayBurger();
+
   useEffect(() => {
     const run = async () => {
-      const data = await tmdbMovieUpcomming();
+      const data = await tmdbMovieUpcoming();
       console.log(data);
       const map = data.map((datamovie) => (
         <ItemsPreviews key={datamovie.id} data={datamovie} />

@@ -1,22 +1,28 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import Hamburger from "hamburger-react";
 import { Link } from "react-router-dom";
-import ImageItemPreviews from "../components/ImageItemPreviews";
-import Logo from "../components/Logo";
-import LogoMobile from "../components/LogoMobile";
-import SearchBar from "../components/SearchBar";
-import Switch from "../components/Switch";
+import {
+  ImageItemPreviews,
+  Logo,
+  LogoMobile,
+  SearchBar,
+  Switch,
+} from "../components";
 import Suggestion from "./Suggestion";
 import "../styles/home.scss";
 import BurgerContext from "../contexts/BurgerContext";
 
 import tempImage from "../assets/images/westworlded.jpg";
 import useOnScreen from "../hooks/useOnScreen";
+import { SignInContext } from "../contexts/SignInContext";
+import { AuthContext } from "../contexts/AuthContext";
 
 const Home = () => {
   // récupération du contexte
   // Achaque clique sur les links de cette page le burger s'affiche
   const burgerContext = useContext(BurgerContext);
+  const signinContext = useContext(SignInContext);
+  const authContext = useContext(AuthContext);
 
   /**
    * Create Ref for each section
@@ -59,7 +65,7 @@ const Home = () => {
   }, []);
 
   /**
-   * Test visibility of element
+   * Test visibility of element by 50%
    */
   const suggestion1IsVisible = useOnScreen(suggestion1ref);
   const suggestion2IsVisible = useOnScreen(suggestion2ref);
@@ -78,24 +84,44 @@ const Home = () => {
       {/* Top Menu */}
       <header className="navBar">
         <div className="navFixe">
-          <Logo />
-          <LogoMobile />
+          <Logo scrollTo={() => executeScroll(prehomeref)} />
+          <LogoMobile scrollTo={() => executeScroll(prehomeref)} />
           <SearchBar />
         </div>
         <div className="navunfixe">
           <div className="contbuttonmylist">
+            {/* IF logged redirect to mylist, else show login with no redirect */}
             <Link
-              to="/mylist"
+              to={authContext.isLogged ? "/mylist" : "/"}
               className="buttonmylist"
-              onClick={burgerContext.displayBurger}
+              onClick={
+                authContext.isLogged
+                  ? burgerContext.displayBurger
+                  : signinContext.showSignIn
+              }
             >
               MY LIST
             </Link>
           </div>
           <div className="contButtonSignIn">
-            <button type="button" className="btn-common btn-aperture">
-              SIGN IN
-            </button>
+            {!authContext.isLogged && (
+              <button
+                type="button"
+                className="btn-common btn-aperture"
+                onClick={signinContext.showSignIn}
+              >
+                SIGN IN
+              </button>
+            )}
+            {authContext.isLogged && (
+              <button
+                type="button"
+                className="btn-common btn-aperture"
+                onClick={authContext.userLogout}
+              >
+                LOGOUT
+              </button>
+            )}
           </div>
           {(suggestion1IsVisible ||
             suggestion2IsVisible ||
@@ -123,13 +149,6 @@ const Home = () => {
 
       {/* Right Menu */}
       <div className="home-navigation">
-        <button
-          className="btn-navigation"
-          type="button"
-          onClick={() => executeScroll(prehomeref)}
-        >
-          <p>Home</p>
-        </button>
         <button
           className="btn-navigation"
           type="button"
@@ -182,7 +201,15 @@ const Home = () => {
           <Link onClick={burgerContext.displayBurger} to="/category">
             <li className="footeritem">LATEST</li>
           </Link>
-          <Link onClick={burgerContext.displayBurger} to="/mylist">
+          <Link
+            to={authContext.isLogged ? "/mylist" : "/"}
+            className="buttonmylist"
+            onClick={
+              authContext.isLogged
+                ? burgerContext.displayBurger
+                : signinContext.showSignIn
+            }
+          >
             <li className="footeritem">MY LIST</li>
           </Link>
           <Link onClick={burgerContext.displayBurger} to="/aboutus">
