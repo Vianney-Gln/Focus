@@ -60,11 +60,6 @@ function App() {
         <Route exact path="/category" component={Category} />
         <Route exact path="/aboutus" component={AboutUs} />
         <Route exact path="/mylist" component={MyList} />
-        {/* Temporary Route START */}
-        <Route exact path="/login" component={SignIn} />
-        <Route exact path="/register" component={SignUp} />
-        {/* <Route exact path="/logout" component={SignUp} /> */}
-        {/* Temporary Route END */}
         <Route component={Error404} />
       </Switch>
     </>
