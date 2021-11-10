@@ -192,13 +192,16 @@ const Home = () => {
       {/* Footer */}
       <section className="footer" ref={footerref}>
         <ul className="footercategory">
-          <Link onClick={burgerContext.displayBurger} to="/category">
+          <Link onClick={burgerContext.displayBurger} to="/category/upcoming">
             <li className="footeritem">UPCOMING</li>
           </Link>
-          <Link onClick={burgerContext.displayBurger} to="/category">
+          <Link onClick={burgerContext.displayBurger} to="/category/popular">
             <li className="footeritem">POPULAR</li>
           </Link>
-          <Link onClick={burgerContext.displayBurger} to="/category">
+          <Link
+            onClick={burgerContext.displayBurger}
+            to="/category/now-playing"
+          >
             <li className="footeritem">NOW PLAYING</li>
           </Link>
           <Link
