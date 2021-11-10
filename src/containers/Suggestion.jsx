@@ -1,12 +1,5 @@
 import React from "react";
-/* import StarRate from "../components/StarRate"; */
-import Rate from "rc-rate";
-import "rc-rate/assets/index.css";
-// import "../styles/index.css";
-// import "../styles/suggestion.css";
 import "../styles/suggestion.scss";
-// import Slideshow from "../components/Slidshow";
-// import BackgroundImage from "../components/BackgroundImage";
 import imgNet from "../assets/images/netflix.png";
 import imgCanal from "../assets/images/canal.png";
 import "../styles/starRate.css";
@@ -35,9 +28,7 @@ const Suggestion = ({ refValue }) => (
             out-of-control spiral toward oblivion.
           </div>
           <div className="movie-mores">
-            <div className="movie-rating">
-              <Rate />
-            </div>
+            <div className="movie-rating">{/* <Rate /> */}</div>
             <div className="movie-addtomylist">
               <i className="icon-plus" /> Add to my list
             </div>

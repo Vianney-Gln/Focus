@@ -199,9 +199,20 @@ const SignUp = () => {
               trailColor="#bbb"
             />
           </div>
-          <button type="submit" className="signUpButton">
-            Submit
-          </button>
+          <div className="cgu">
+            <label htmlFor="cguCheckbox">
+              <input type="checkbox" id="cguCheckbox" />
+              You have read and by checking this box, accepted the CGUs
+            </label>
+          </div>
+          <div className="container-button">
+            <button type="button" className="btn-already-register">
+              Already have an account ? Sign in here
+            </button>
+            <button type="submit" className="signUpButton">
+              Register
+            </button>
+          </div>
         </form>
       </div>
     </div>
