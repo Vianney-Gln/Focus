@@ -120,6 +120,27 @@
         max-width: 25vw;
         max-height: 25vh;
       }
+      .container-image-player{
+        max-width: 25vw;
+        max-height: 25vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        background-color: lawngreen;
+        .icon-play{
+          display: none;
+        }
+        &:hover .icon-play{
+          display: flex;
+          font-size: 50px;
+          position: absolute;
+          top: 10vh;
+          left: 10vw;
+        }
+    }
+    
       .btn-fleche-slideShow{
         background: none;
         color: white;
@@ -135,6 +156,8 @@
       .icon-left-open-big{
         font-size: 100px;
       }
+    
+
     }
     }
   }

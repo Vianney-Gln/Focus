@@ -22,7 +22,12 @@ const Suggestion = ({ refValue }) => (
             <button type="button" className="btn-fleche-slideShow">
               <i className="icon-left-open-big" />
             </button>
-            <img className="img-slideshow" src={SlideImg} alt="slideimg" />
+            <div className="container-image-player">
+              <img className="img-slideshow" src={SlideImg} alt="slideimg" />
+              <button type="button" className="btn-fleche-slideShow">
+                <i className="icon-play" />
+              </button>
+            </div>
             <button type="button" className="btn-fleche-slideShow">
               <i className="icon-right-open-big" />
             </button>
