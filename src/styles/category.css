@@ -170,12 +170,4 @@
   .container-category .barre-header button i {
     font-size: 14px;
   }
-
-  /* en mobile toute la page défile */
-  .container-category
-    .container-previous-items-center
-    .container-previous-items {
-    overflow-y: visible;
-    height: auto;
-  }
 }
