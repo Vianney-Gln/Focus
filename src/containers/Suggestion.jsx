@@ -33,21 +33,21 @@ const Suggestion = ({ refValue }) => {
     <>
       {/* <BackgroundImage /> */}
       <section className="suggestion" ref={refValue}>
-          <div className="suggestion-body">
-            <div className="containers-slideshow">
-              <div className="slideshow">
-                <button type="button" className="btn-fleche-slideShow">
-                  <i className="icon-left-open-big" />
-                </button>
-                <img className="img-slideshow" src={SlideImg} alt="slideimg" />
-                <button type="button" className="btn-fleche-slideShow">
-                  <i className="icon-play" />
-                </button>
-                <button type="button" className="btn-fleche-slideShow">
-                  <i className="icon-right-open-big" />
-                </button>
-              </div>
+        <div className="suggestion-body">
+          <div className="containers-slideshow">
+            <div className="slideshow">
+              <button type="button" className="btn-fleche-slideShow">
+                <i className="icon-left-open-big" />
+              </button>
+              <img className="img-slideshow" src={SlideImg} alt="slideimg" />
+              <button type="button" className="btn-fleche-slideShow">
+                <i className="icon-play" />
+              </button>
+              <button type="button" className="btn-fleche-slideShow">
+                <i className="icon-right-open-big" />
+              </button>
             </div>
+          </div>
 
           <div className="suggestion-informations">
             <h1>Fight Club</h1>

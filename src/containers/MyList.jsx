@@ -34,13 +34,13 @@ const MyList = () => {
       {authContext.isLogged && (
         <div className="myList">
           <div className="barre-logo-burger">
-          <Logo />
-          <SearchBar />
-        </div>
-        <div className="barre-logo-burger-mobile">
-          <LogoMobile />
-          <SearchBar />
-        </div>
+            <Logo />
+            <SearchBar />
+          </div>
+          <div className="barre-logo-burger-mobile">
+            <LogoMobile />
+            <SearchBar />
+          </div>
 
           <div className="container-views-titles">
             <div className="views-titles">
