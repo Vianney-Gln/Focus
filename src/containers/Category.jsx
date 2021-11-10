@@ -23,7 +23,7 @@ const Category = () => {
   const burgerContext = useContext(BurgerContext);
   burgerContext.displayBurger();
   const { cat } = useParams();
-  console.log(cat);
+
   let fetchFunction;
 
   switch (cat) {
@@ -67,7 +67,7 @@ const Category = () => {
 
         <div className="container-previous-items-center">
           <div className="title-category">
-            <h1>{cat.replace("-", "")}</h1>
+            <h1>{cat.replace("-", " ")}</h1>
           </div>
           <div className="container-previous-items">{movies}</div>
         </div>
