@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import BurgerContext from "../contexts/BurgerContext";
-import { Logo, ElementList } from "../components";
+import { Logo, ElementList, LogoMobile, SearchBar } from "../components";
 import "../styles/myList.css";
 
 /* structure du composant myList */
@@ -22,6 +22,11 @@ const MyList = () => {
       <div className="myList">
         <div className="barre-logo-burger">
           <Logo />
+          <SearchBar />
+        </div>
+        <div className="barre-logo-burger-mobile">
+          <LogoMobile />
+          <SearchBar />
         </div>
 
         <div className="container-views-titles">
