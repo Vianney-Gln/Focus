@@ -9,7 +9,6 @@ import LogoMobile from "./LogoMobile";
 import MyList from "./MyList";
 import NavHome from "./NavHome";
 import SearchBar from "./SearchBar";
-import Slidshow from "./Slidshow";
 import Switch from "./Switch";
 
 export {
@@ -24,6 +23,5 @@ export {
   MyList,
   NavHome,
   SearchBar,
-  Slidshow,
   Switch,
 };

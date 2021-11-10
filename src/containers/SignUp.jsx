@@ -4,7 +4,12 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { Line } from "rc-progress";
 import "../styles/SignUp.scss";
 
+import { createUser } from "../services/FirebaseUserFunctions";
+
 const SignUp = () => {
+  /**
+   * Password verification
+   */
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
@@ -15,7 +20,6 @@ const SignUp = () => {
   const [verifLength, setVerifLength] = useState(false);
   const [verifIdentical, setVerifIdentical] = useState(false);
   const [colorBar, setColorBar] = useState("#e64141");
-
   useEffect(() => {
     setSecurePassword(0);
     // Verif Length
@@ -64,7 +68,7 @@ const SignUp = () => {
       setVerifIdentical(true);
     }
   }, [password, passwordConfirm]);
-
+  // Change color by password difficulty
   useEffect(() => {
     if (securePassword === 0) {
       setColorBar("#e64141");
@@ -75,6 +79,33 @@ const SignUp = () => {
     }
   }, [securePassword]);
 
+  /**
+   * Inscription Part
+   */
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    const verif = [
+      verifCapitals,
+      verifNumbers,
+      verifSymbols,
+      verifLength ? "valid" : "error",
+      verifIdentical ? "valid" : "error",
+    ];
+    try {
+      if (verif.includes("error")) {
+        throw new Error("Your password does not meet the criteria");
+      } else {
+        const user = await createUser(email, password);
+        setEmail("");
+        setPassword("");
+        setPasswordConfirm("");
+        console.log("User Created :", user);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="signUpModal">
       <div className="container">
@@ -84,7 +115,7 @@ const SignUp = () => {
 
         <h1>Sign Up</h1>
 
-        <form>
+        <form onSubmit={handleRegister}>
           <label htmlFor="signUpEmail">
             <p>Type your email address:</p>
             <input
@@ -168,9 +199,20 @@ const SignUp = () => {
               trailColor="#bbb"
             />
           </div>
-          <button type="submit" className="signUpButton">
-            Submit
-          </button>
+          <div className="cgu">
+            <label htmlFor="cguCheckbox">
+              <input type="checkbox" id="cguCheckbox" />
+              You have read and by checking this box, accepted the CGUs
+            </label>
+          </div>
+          <div className="container-button">
+            <button type="button" className="btn-already-register">
+              Already have an account ? Sign in here
+            </button>
+            <button type="submit" className="signUpButton">
+              Register
+            </button>
+          </div>
         </form>
       </div>
     </div>

@@ -5,11 +5,17 @@ import logo from "../assets/images/focus_big.png";
 // import "../styles/logo.css";
 import "../styles/logo.scss";
 
-const Logo = () => {
+const Logo = ({ scrollTo }) => {
   const burgerContext = useContext(BurgerContext);
+
+  const handleClickLogo = () => {
+    burgerContext.hiddenBurger();
+    if (scrollTo) scrollTo();
+  };
+
   return (
     <div className="logonav">
-      <Link onClick={burgerContext.hiddenBurger} to="/">
+      <Link onClick={handleClickLogo} to="/">
         <img src={logo} alt="Logotype" className="logo" />
       </Link>
     </div>
