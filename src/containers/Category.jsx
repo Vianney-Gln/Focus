@@ -10,6 +10,7 @@ import {
 import "../styles/category.css";
 import "../styles/backgroundImage.css";
 import BurgerContext from "../contexts/BurgerContext";
+// import BackgroundContext from "../contexts/BackgroundContext";
 import {
   tmdbMovieUpcoming,
   tmdbMoviePopular,
@@ -22,10 +23,17 @@ const Category = () => {
   // utilisation du contexte pour garder le burger affiché même au rechargement de la page
   const burgerContext = useContext(BurgerContext);
   burgerContext.displayBurger();
+
+  // utilisation du contexte pour changer le background de categorie
+  // const { background, setBackground } = useContext(BackgroundContext);
+
+  // récupération du paramètre d'url cat de category
   const { cat } = useParams();
 
+  // initialisation d'une variable qui répupère la fonction de fetching depuis services en fonction de la category de film surlaquelle l'utilisateur appuis
   let fetchFunction;
 
+  // 3 fonctions de fetching qui affichent les films en fonction des categories, par defaut on met Upcoming
   switch (cat) {
     case "upcoming":
       fetchFunction = tmdbMovieUpcoming;
@@ -40,6 +48,7 @@ const Category = () => {
       fetchFunction = tmdbMovieUpcoming;
   }
 
+  // on relance le fetch chaque fois que la valeur de cat change
   useEffect(() => {
     const run = async () => {
       const data = await fetchFunction();
