@@ -79,17 +79,20 @@ const Home = () => {
   if (suggestion1IsVisible) categoryLink = `/category/upcoming`;
   if (suggestion2IsVisible) categoryLink = `/category/popular`;
   if (suggestion3IsVisible) categoryLink = `/category/now-playing`;
-
-  const [movies, setMovies] = React.useState([]);
+  /* Fetch La data des films */
+  /* State de la catégorie upcoming */
+  const [upcoming, setUpcoming] = React.useState([]);
 
   React.useEffect(() => {
     const run = async () => {
+      /* Récupère la data à partir de la function suggestionFetch movie */
       const data = await suggestionFetch();
       console.log(data);
-      const map = data.upcoming.map((datamovie) => (
-        <Suggestion key={datamovie.id} data={datamovie} />
+      /* Récupère la data de la catégorie upcoming */
+      const map = data.upcoming.map((dataupcoming) => (
+        <Suggestion key={dataupcoming.id} data={dataupcoming} />
       ));
-      setMovies(map);
+      setUpcoming(map);
     };
     run();
   }, []);
@@ -197,7 +200,7 @@ const Home = () => {
       </section>
       {/* 3 Suggestion page */}
       <section className="upcoming" ref={suggestion1ref}>
-        {movies}
+        {upcoming}
       </section>
       {/* <Suggestion refValue={suggestion1ref} /> */}
       <Suggestion refValue={suggestion2ref} />
