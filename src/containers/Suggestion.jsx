@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Rating } from "react-simple-star-rating";
 import "../styles/suggestion.scss";
 import imgNet from "../assets/images/netflix.png";
@@ -7,8 +7,11 @@ import "../styles/starRate.css";
 import { SignContext } from "../contexts/SignContext";
 import { AuthContext } from "../contexts/AuthContext";
 import SlideImg from "../assets/images/westworlded.jpg";
-import { postIntoDb } from "../services/FirebaseDatabaseFuntions";
-import { tmdbMovieUpcoming } from "../services/TheMovieDbFunctions";
+import {
+  tmdbMovieInfos,
+  tmdbMovieUpcoming,
+} from "../services/TheMovieDbFunctions";
+import { writeMovie, getMovieList } from "../services/FirebaseRealtimeDatabase";
 
 const Suggestion = ({ refValue }) => {
   const signinContext = useContext(SignContext);
@@ -19,12 +22,25 @@ const Suggestion = ({ refValue }) => {
   const handleAddToMyList = async () => {
     try {
       if (authContext.isLogged) {
-        console.log("???");
         // Ajouter a MaList
         const data = await tmdbMovieUpcoming();
-        console.log(data[1]);
-        await postIntoDb(data[1]);
-        console.log("Ok ?");
+        const datas = await Promise.all(
+          data.map((movie) => tmdbMovieInfos(movie.id))
+        );
+        const written = [];
+        for (let i = 0; i < datas.length; i += 1) {
+          written.push(
+            writeMovie(
+              datas[i].id,
+              datas[i].title,
+              datas[i].poster ? datas[i].poster : datas[i].background,
+              datas[i].author,
+              datas[i].date.base,
+              datas[i].duration.base
+            )
+          );
+        }
+        await Promise.all(written);
       } else {
         // Demander de se connecter
         signinContext.showSignIn();
@@ -39,6 +55,12 @@ const Suggestion = ({ refValue }) => {
     // si connecter enregistrer le rating
     // sinon pas enregistrer
   };
+
+  useEffect(() => {
+    (async () => {
+      await getMovieList();
+    })();
+  }, []);
 
   return (
     <>
