@@ -5,7 +5,7 @@ import {
   browserLocalPersistence,
 } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-
+import { getDatabase } from "firebase/database";
 /**
  * Firebase Configuration
  */
@@ -17,6 +17,7 @@ const firebaseConfig = {
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_FIREBASE_APP_ID,
   measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
+  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
 };
 
 const app = initializeApp(firebaseConfig);
@@ -24,5 +25,6 @@ const auth = getAuth(app);
 setPersistence(auth, browserLocalPersistence);
 
 const db = getFirestore(app);
+const realtimeDb = getDatabase(app);
 
-export { app, auth, db };
+export { app, auth, db, realtimeDb };
