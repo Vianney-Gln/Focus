@@ -1,4 +1,4 @@
-import { ref, set, get, child } from "firebase/database";
+import { ref, set, get, child, update } from "firebase/database";
 import { realtimeDb as Database } from "./Firebase";
 
 /**
@@ -39,6 +39,24 @@ export const getMovieList = async () => {
     }
     return null;
   } catch (err) {
+    return err;
+  }
+};
+
+export const updateMovie = async (movieid) => {
+  try {
+    const post = {
+      title: "That was Edited bruda",
+    };
+    const updates = {};
+
+    updates[`/movies/movie_${movieid}`] = post;
+
+    await update(ref(Database), updates);
+
+    return true;
+  } catch (err) {
+    console.log(err);
     return err;
   }
 };

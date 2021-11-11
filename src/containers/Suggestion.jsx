@@ -8,10 +8,9 @@ import { SignContext } from "../contexts/SignContext";
 import { AuthContext } from "../contexts/AuthContext";
 import SlideImg from "../assets/images/westworlded.jpg";
 import {
-  tmdbMovieInfos,
-  tmdbMovieUpcoming,
-} from "../services/TheMovieDbFunctions";
-import { writeMovie, getMovieList } from "../services/FirebaseRealtimeDatabase";
+  updateMovie,
+  getMovieList,
+} from "../services/FirebaseRealtimeDatabase";
 
 const Suggestion = ({ refValue }) => {
   const signinContext = useContext(SignContext);
@@ -23,24 +22,7 @@ const Suggestion = ({ refValue }) => {
     try {
       if (authContext.isLogged) {
         // Ajouter a MaList
-        const data = await tmdbMovieUpcoming();
-        const datas = await Promise.all(
-          data.map((movie) => tmdbMovieInfos(movie.id))
-        );
-        const written = [];
-        for (let i = 0; i < datas.length; i += 1) {
-          written.push(
-            writeMovie(
-              datas[i].id,
-              datas[i].title,
-              datas[i].poster ? datas[i].poster : datas[i].background,
-              datas[i].author,
-              datas[i].date.base,
-              datas[i].duration.base
-            )
-          );
-        }
-        await Promise.all(written);
+        await updateMovie(425909);
       } else {
         // Demander de se connecter
         signinContext.showSignIn();
@@ -58,7 +40,7 @@ const Suggestion = ({ refValue }) => {
 
   useEffect(() => {
     (async () => {
-      await getMovieList();
+      console.log(await getMovieList());
     })();
   }, []);
 
