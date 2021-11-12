@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Rating } from "react-simple-star-rating";
 import "../styles/suggestion.scss";
 import imgNet from "../assets/images/netflix.png";
@@ -7,10 +7,7 @@ import "../styles/starRate.css";
 import { SignContext } from "../contexts/SignContext";
 import { AuthContext } from "../contexts/AuthContext";
 import SlideImg from "../assets/images/westworlded.jpg";
-import {
-  updateMovie,
-  getMovieList,
-} from "../services/FirebaseRealtimeDatabase";
+import { updateMovie } from "../services/FirebaseRealtimeDatabase";
 
 const Suggestion = ({ refValue }) => {
   const signinContext = useContext(SignContext);
@@ -22,7 +19,7 @@ const Suggestion = ({ refValue }) => {
     try {
       if (authContext.isLogged) {
         // Ajouter a MaList
-        await updateMovie(425909);
+        await updateMovie(460458);
       } else {
         // Demander de se connecter
         signinContext.showSignIn();
@@ -35,14 +32,14 @@ const Suggestion = ({ refValue }) => {
   const handleRating = (value) => {
     setRating(value);
     // si connecter enregistrer le rating
-    // sinon pas enregistrer
+    if (authContext.isLogged) {
+      // Connected
+    }
+    // Sinon pas enregistrer
+    else {
+      // not connected
+    }
   };
-
-  useEffect(() => {
-    (async () => {
-      console.log(await getMovieList());
-    })();
-  }, []);
 
   return (
     <>

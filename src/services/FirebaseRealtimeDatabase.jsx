@@ -1,4 +1,4 @@
-import { ref, set, get, child, update } from "firebase/database";
+import { ref, set, get, child, update, remove } from "firebase/database";
 import { realtimeDb as Database } from "./Firebase";
 
 /**
@@ -43,18 +43,33 @@ export const getMovieList = async () => {
   }
 };
 
+/**
+ * Update Movies
+ * @param {number} movieid Movie ID
+ * @returns boolean
+ */
 export const updateMovie = async (movieid) => {
   try {
     const post = {
       title: "That was Edited bruda",
     };
-    const updates = {};
+    await update(ref(Database, `movies/movie_${movieid}`), post);
+    return console.log("Normaly Updated ?");
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
+};
 
-    updates[`/movies/movie_${movieid}`] = post;
-
-    await update(ref(Database), updates);
-
-    return true;
+/**
+ * Delete movie by is ID
+ * @param {number} movieid Movie ID
+ * @returns boolean
+ */
+export const deleteMovie = async (movieid) => {
+  try {
+    await remove(ref(Database, `movies/movie_${movieid}`));
+    return console.log("Normaly Removed ?");
   } catch (err) {
     console.log(err);
     return err;
