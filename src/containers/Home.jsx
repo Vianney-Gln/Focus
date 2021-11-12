@@ -89,20 +89,29 @@ const Home = () => {
     const run = async () => {
       /* Récupère la data à partir de la function suggestionFetch movie */
       const data = await suggestionFetch();
-      console.log(data);
+
+      /* console.log(data); */
       /* Récupère la data de la catégorie upcoming */
       const mapUpcomming = data.upcoming.map((dataupcoming) => (
-        <Suggestion key={dataupcoming.id} data={dataupcoming} />
+        <Suggestion
+          key={dataupcoming.id}
+          data={dataupcoming}
+          test={console.log(dataupcoming)}
+        />
       ));
+      /* Récupère la data de la catégorie popular */
       const mapPopular = data.popular.map((datapopular) => (
         <Suggestion key={datapopular.id} data={datapopular} />
       ));
+
+      /* Récupère la data de la catégorie nowplaying */
       const mapNowPlaying = data.nowplaying.map((datanowplaying) => (
         <Suggestion key={datanowplaying.id} data={datanowplaying} />
       ));
-      setUpcoming(mapUpcomming);
-      setPopular(mapPopular);
-      setNowPlaying(mapNowPlaying);
+
+      setUpcoming(mapUpcomming[1]);
+      setPopular(mapPopular[1]);
+      setNowPlaying(mapNowPlaying[1]);
     };
     run();
   }, []);

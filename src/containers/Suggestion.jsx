@@ -11,7 +11,6 @@ import SlideImg from "../assets/images/westworlded.jpg";
 const Suggestion = ({ data }) => {
   const signinContext = useContext(SignInContext);
   const authContext = useContext(AuthContext);
-  console.log(data);
   const [rating, setRating] = useState(0);
 
   const handleAddToMyList = () => {
