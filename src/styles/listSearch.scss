@@ -6,6 +6,9 @@
   top: 100px;
   left: 275px;
   line-height: 25px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
 
   li {
     cursor: pointer;
