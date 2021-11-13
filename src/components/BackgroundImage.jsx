@@ -2,11 +2,15 @@ import React, { useContext } from "react";
 import BackgroundContext from "../contexts/BackgroundContext";
 
 function BackgroundImage() {
-  const background = useContext(BackgroundContext);
+  const backgroundContext = useContext(BackgroundContext);
 
   return (
-    background && (
-      <img className="background-image" src={background} alt="background" />
+    backgroundContext.background && (
+      <img
+        className="background-image"
+        src={backgroundContext.background}
+        alt="background"
+      />
     )
   );
 }

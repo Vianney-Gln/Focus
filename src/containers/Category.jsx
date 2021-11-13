@@ -24,9 +24,6 @@ const Category = () => {
   const burgerContext = useContext(BurgerContext);
   burgerContext.displayBurger();
 
-  // utilisation du contexte pour changer le background de categorie
-  // const { background, setBackground } = useContext(BackgroundContext);
-
   // récupération du paramètre d'url cat de category
   const { cat } = useParams();
 
