@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Rating } from "react-simple-star-rating";
+// import { ItemsPreviews } from "../components";
 import westworlded from "../assets/images/westworlded.jpg";
 import "../styles/starRate.css";
 import "../styles/itemModal.css";
-import "../styles/itemsPreviews.css";
 
 const ItemModal = () => {
   const [rating, setRating] = useState(0);
@@ -19,14 +19,12 @@ const ItemModal = () => {
         <div className="modalContent">
           <div className="top-thumbnail">
             {/* <ItemsPreviews /> */}
+
             <img src={westworlded} alt="" />
             <h1>westworld</h1>
-
-            <button className="button-close" type="button">
-              <a href="#close" title="Close" className="close">
-                X
-              </a>
-            </button>
+            <a href="#close" title="Close" className="close">
+              X
+            </a>
           </div>
           <div className="bottom-infos">
             <div className="bottom-infos-grid">
@@ -36,15 +34,13 @@ const ItemModal = () => {
               <div className="bottom-infos-grid-date">2016</div>
               <div className="bottom-infos-grid-length">3 Seasons</div>
               <div className="bottom-infos-grid-starRater">
-              <Rating onClick={handleRating} ratingValue={rating} />
+                <Rating onClick={handleRating} ratingValue={rating} />
               </div>
               <div className="bottom-infos-grid-availableOn">
                 Available On <i className="fa fa-play-circle-o" />
               </div>
               <div className="bottom-infos-grid-addToMyList">
-                <button className="button-plus" type="button">
-                  +
-                </button>
+                <i className="fa fa-plus" />
                 <span>Add to my list</span>
               </div>
               <div className="bottom-infos-grid-platforms" />
