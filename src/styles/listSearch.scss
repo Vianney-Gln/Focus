@@ -10,4 +10,7 @@
   li {
     cursor: pointer;
   }
+  li:hover {
+    text-decoration: underline;
+  }
 }
