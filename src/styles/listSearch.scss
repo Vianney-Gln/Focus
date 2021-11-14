@@ -1,19 +1,36 @@
 .listSearch {
   width: 250px;
-  height: 150px;
+  max-height: 150px;
   color: white;
+  background-color: black;
   position: absolute;
   top: 100px;
   left: 275px;
   line-height: 25px;
   display: flex;
   flex-direction: column;
-  overflow-y: hidden;
+  overflow: hidden;
+  z-index: 20;
+  opacity: 0.8;
 
   li {
     cursor: pointer;
   }
   li:hover {
     text-decoration: underline;
+  }
+}
+
+.listSearch-display-none {
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  .listSearch {
+    top: 50px;
+    left: 10px;
+    width: 300px;
+    max-height: 150px;
+    font-size: 14px;
   }
 }

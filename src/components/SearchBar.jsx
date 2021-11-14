@@ -44,7 +44,7 @@ const SearchBar = () => {
           <i className="fa fa-search" />
         </button>
       </div>
-      <ListSearch listTitle={listTitle} />
+      <ListSearch listTitle={listTitle} search={search} />
     </>
   );
 };
