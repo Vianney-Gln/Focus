@@ -8,6 +8,10 @@ const SearchBar = () => {
   // states
   const [search, setSearch] = useState("");
   const [listTitle, setListTitle] = useState([]);
+  const [searchById, setSearchById] = useState(null);
+  console.log(searchById);
+
+  // fonction qui appelle toutes les infos du film en fonction de l'id récupéré (searchById);CONTINUER ICI------
 
   useEffect(() => {
     // fonction qui recherche un titre de film
@@ -19,7 +23,14 @@ const SearchBar = () => {
         // Limitation du nombre de caractères affichés à 40
         const map = result.map((res, index) =>
           index < 5 ? (
-            <li>
+            <li
+              /* recuperation des id au click sur les li */
+              key={res.id}
+              onClick={() => {
+                setSearchById(res.id);
+              }}
+              role="presentation"
+            >
               {res.title.length > 40
                 ? `${res.title.substring(0, 40)}...`
                 : res.title}
