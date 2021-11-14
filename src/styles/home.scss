@@ -208,3 +208,68 @@
     }
   }
 }
+
+@media screen and (max-width: 500px) {
+  .home {
+    .mainHome {
+      height: 75vh;
+      background-size: 70%;
+
+      .navhome {
+        display: none;
+
+        .itemnavhome {
+          display: none;
+        }
+      }
+    }
+  }
+  .navBar { 
+    padding: 2%;
+    gap: 10px;
+
+    .navFixe {
+      padding: 4%;
+
+      .logonav-mobile {
+        display: inherit;
+       
+      }
+      .logonav {
+        display: none;
+      }
+    }
+    .navunfixe {
+      .contbuttonmylist {
+        display: none;
+      }
+      .contButtonSignIn {
+        display: none;
+      }
+    }
+    .fakeBurger {
+      display: inherit;
+    }
+  }
+  .footer {
+    display: none;
+  }
+  .home-navigation{
+    display: none;
+  }
+  .goto-category {
+    margin-left: 10px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 200;
+    font-style: italic;
+    box-sizing: inherit;
+   
+    & > a {
+      text-decoration: none;
+      font-size: 12px;
+      line-height : 1.5;
+      
+    }
+  }
+}
