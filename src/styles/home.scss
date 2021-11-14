@@ -196,4 +196,15 @@
   .home-navigation{
     display: none;
   }
+  .goto-category {
+    margin-left: 10px;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 200;
+    font-style: italic;
+
+    & > a {
+      text-decoration: none;
+    }
+  }
 }
