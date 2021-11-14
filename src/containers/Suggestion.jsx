@@ -6,6 +6,7 @@ import imgCanal from "../assets/images/canal.png";
 import "../styles/starRate.css";
 import { SignInContext } from "../contexts/SignInContext";
 import { AuthContext } from "../contexts/AuthContext";
+
 import SlideImg from "../assets/images/westworlded.jpg";
 
 const Suggestion = ({ data }) => {

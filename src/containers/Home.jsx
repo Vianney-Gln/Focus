@@ -93,11 +93,7 @@ const Home = () => {
       /* console.log(data); */
       /* Récupère la data de la catégorie upcoming */
       const mapUpcomming = data.upcoming.map((dataupcoming) => (
-        <Suggestion
-          key={dataupcoming.id}
-          data={dataupcoming}
-          test={console.log(dataupcoming)}
-        />
+        <Suggestion key={dataupcoming.id} data={dataupcoming} />
       ));
       /* Récupère la data de la catégorie popular */
       const mapPopular = data.popular.map((datapopular) => (
@@ -108,14 +104,16 @@ const Home = () => {
       const mapNowPlaying = data.nowplaying.map((datanowplaying) => (
         <Suggestion key={datanowplaying.id} data={datanowplaying} />
       ));
-
-      setUpcoming(mapUpcomming[1]);
-      setPopular(mapPopular[1]);
-      setNowPlaying(mapNowPlaying[1]);
+      setUpcoming(mapUpcomming[0]);
+      setPopular(mapPopular[0]);
+      setNowPlaying(mapNowPlaying[0]);
     };
     run();
   }, []);
 
+  const handleSlideUp = () => {
+    setUpcoming(!upcoming);
+  };
   return (
     <main className="Containerhome">
       {/* Top Menu */}
@@ -220,6 +218,9 @@ const Home = () => {
       {/* 3 Suggestion page */}
       <section className="upcoming" ref={suggestion1ref}>
         {upcoming}
+        <button type="button" onClick={handleSlideUp}>
+          😃
+        </button>
       </section>
       <section className="popular" ref={suggestion2ref}>
         {popular}
