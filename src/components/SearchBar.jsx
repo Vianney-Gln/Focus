@@ -16,8 +16,17 @@ const SearchBar = () => {
         const result = await tmdbSearchMovies(search);
 
         // cette fonction limite à 5 la liste des films trouvés
+        // Limitation du nombre de caractères affichés à 40
         const map = result.map((res, index) =>
-          index < 5 ? <li>{res.title}</li> : ""
+          index < 5 ? (
+            <li>
+              {res.title.length > 40
+                ? `${res.title.substring(0, 40)}...`
+                : res.title}
+            </li>
+          ) : (
+            ""
+          )
         );
 
         setListTitle(map);
