@@ -1,5 +1,7 @@
   /*/////////////////////////////////////////   itemModal CSS begins  ///////////////////////////////////////////////*/
-
+.itemModal {
+  display: none;
+}
   /*////////// Modal Content ///////*/
 .itemModal .modalContent {
   margin: 5% auto;
