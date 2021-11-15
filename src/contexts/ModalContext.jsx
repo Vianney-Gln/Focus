@@ -1,4 +1,5 @@
 import React, { createContext, useState } from "react";
+import { tmdbMovieInfos } from "../services/TheMovieDbFunctions";
 
 const ModalContext = createContext(null);
 
@@ -11,6 +12,14 @@ function ModalProvider({ children }) {
   const setModalIsOpenToFalse = () => {
     setModalIsOpen(false);
   };
+
+  // fonction qui appelle toutes les infos du film en fonction de l'id récupéré
+  const [infosMovie, setInfosMovie] = useState({});
+  async function getInfosMovie(id) {
+    const result = await tmdbMovieInfos(id);
+    setInfosMovie(result);
+  }
+
   return (
     <ModalContext.Provider
       value={{
@@ -18,6 +27,8 @@ function ModalProvider({ children }) {
         setModalIsOpen,
         setModalIsOpenToFalse,
         setModalIsOpenToTrue,
+        getInfosMovie,
+        infosMovie,
       }}
     >
       {children}

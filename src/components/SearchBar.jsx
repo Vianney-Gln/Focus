@@ -1,10 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 // import "../styles/SearchBar.css";
 import "../styles/SearchBar.scss";
-import {
-  tmdbSearchMovies,
-  tmdbMovieInfos,
-} from "../services/TheMovieDbFunctions";
+import { tmdbSearchMovies } from "../services/TheMovieDbFunctions";
 import ListSearch from "./ListSearch";
 import { ModalContext } from "../contexts/ModalContext";
 
@@ -12,16 +9,7 @@ const SearchBar = () => {
   // states
   const [search, setSearch] = useState("");
   const [listTitle, setListTitle] = useState([]);
-  const [infosMovie, setInfosMovie] = useState({});
   const modalContext = useContext(ModalContext);
-
-  // fonction qui appelle toutes les infos du film en fonction de l'id récupéré
-
-  async function getInfosMovie(id) {
-    const result = await tmdbMovieInfos(id);
-    setInfosMovie(result);
-    console.log(infosMovie);
-  }
 
   useEffect(() => {
     // fonction qui recherche un titre de film
@@ -38,7 +26,7 @@ const SearchBar = () => {
               key={res.id}
               onClick={() => {
                 modalContext.setModalIsOpenToTrue();
-                getInfosMovie(res.id);
+                modalContext.getInfosMovie(res.id);
               }}
               role="presentation"
             >
