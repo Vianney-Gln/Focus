@@ -1,16 +1,14 @@
 /*/////////////////////////////////////////SearchBar*Desktop*début///////////////////////////////////////////////*/
 
 @media screen and (min-width: 800px) {
-
   .search {
     /* padding-left: 10vw; */
     width: 100%;
     display: flex;
     /* position: fixed; */
     margin-left: 50px;
-    
   }
-  
+
   .searchTerm {
     width: 200px;
     border: none;
@@ -21,11 +19,11 @@
     color: white;
     background-color: transparent;
   }
-  
-  .searchTerm:focus{
+
+  .searchTerm:focus {
     color: white;
   }
-  
+
   .searchButton {
     border: none;
     border-bottom: 1px solid white;
@@ -36,15 +34,12 @@
     padding: 0 10px 0 0;
     font-size: 18px;
   }
-  
 }
 /*/////////////////////////////////////////SearchBar*Desktop*Fin///////////////////////////////////////////////*/
 
 /*/////////////////////////////////////////SearchBar*Mobile*Début///////////////////////////////////////////////*/
 
-
 @media screen and (max-width: 800px) {
-
   .searchTerm {
     width: 70px;
     border: none;
@@ -55,8 +50,7 @@
     color: white;
     background-color: transparent;
   }
-  
-  
+
   .searchButton {
     border: none;
     border-bottom: 1px solid white;
