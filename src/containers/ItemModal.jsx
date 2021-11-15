@@ -1,28 +1,48 @@
 import React, { useState } from "react";
+import Modal from "react-modal";
 import { Rating } from "react-simple-star-rating";
 // import { ItemsPreviews } from "../components";
 import westworlded from "../assets/images/westworlded.jpg";
-import "../styles/starRate.css";
 import "../styles/itemModal.css";
 
 const ItemModal = () => {
+  // si connecté, enregistrer le rating
+  // sinon pas enregistrer
   const [rating, setRating] = useState(0);
   const handleRating = (value) => {
     setRating(value);
-    // si connecté, enregistrer le rating
-    // sinon pas enregistrer
+  };
+  // Modal Toggle Open/Closed
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const setModalIsOpenToTrue = () => {
+    setModalIsOpen(true);
+  };
+  const setModalIsOpenToFalse = () => {
+    setModalIsOpen(false);
   };
 
   return (
     <div className="itemModal">
-      <main id="openModal" className="modalBehind">
-        <div className="modalContent">
+      <button type="button" onClick={setModalIsOpenToTrue}>
+        Open Modal
+      </button>
+      <Modal
+        portalClassName="itemModal"
+        className="itemModal"
+        overlayClassName="modalOverlay"
+        isOpen={modalIsOpen}
+        onRequestClose={() => setModalIsOpen(false)}
+      >
+        <main className="modalContent">
           <div className="top-thumbnail">
-            {/* <ItemsPreviews /> */}
-
             <img src={westworlded} alt="" />
             <h1>westworld</h1>
-            <a href="#close" title="Close" className="close">
+            <a
+              href="#close"
+              title="Close"
+              className="close"
+              onClick={setModalIsOpenToFalse}
+            >
               X
             </a>
           </div>
@@ -60,8 +80,8 @@ const ItemModal = () => {
               </div>
             </div>
           </div>
-        </div>
-      </main>
+        </main>
+      </Modal>
     </div>
   );
 };

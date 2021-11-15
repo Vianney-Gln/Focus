@@ -1,17 +1,18 @@
   /*/////////////////////////////////////////   itemModal CSS begins  ///////////////////////////////////////////////*/
-.itemModal {
-  display: none;
-}
-  /*////////// Modal Content ///////*/
-.itemModal .modalContent {
+
+  /*////////// Modal Overlay ///////*/
+.itemModal .modalOverlay {
   margin: 5% auto;
   padding: 5px;
   border: 2px solid #fff;
   border-radius: 3px;
   width: 800px;
-  height: 600px;
 }
+.itemModal .modalContent {
+  height: 600px;
+  }
   /*////////// Modal Content - TOP part ///////*/
+
 .itemModal .top-thumbnail {
   height: 70%;
   position: relative;
@@ -26,7 +27,7 @@
   letter-spacing: 0;
   position: relative;
   top: -100%;
-  left: 10px;
+  left: 2%;
   width: 90%;
 }
 .itemModal .top-thumbnail .close {
@@ -34,7 +35,7 @@
   color: #fff;
   font-size: 35px;
   position: relative;
-  left: 95%;
+  left: 96%;
   top: -115%;
   text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.6);
   transition: 0.5s;
@@ -127,7 +128,7 @@
 }
 /*/////////////////////////////////////////         TABLET      ///////////////////////////////////////////////*/
 @media screen and (max-width: 800px) {
-  .itemModal .modalContent {
+  .itemModal .modalOverlay {
     margin: 7% auto;
     border: none;
     width: 760px;
@@ -204,7 +205,7 @@
 }
 /*/////////////////////////////////////////         MOBILE     ///////////////////////////////////////////////*/
 @media screen and (max-width: 500px) {
-  .itemModal .modalContent {
+  .itemModal .modalOverlay {
     width: auto;
   }
   .itemModal .top-thumbnail h1 {
