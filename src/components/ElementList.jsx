@@ -1,13 +1,33 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+// Packages
+import { Rating } from "react-simple-star-rating";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+// Contexts
+import { AuthContext } from "../contexts/AuthContext";
+// Services
+import { updateUserMyList } from "../services/FirebaseRealtimeDatabase";
+// Css
 import "../styles/elementListe.css";
-import movie from "../Data";
 
-function ElementList() {
-  const [check, setCheck] = useState(false);
+const ElementList = ({ data }) => {
+  const authContext = useContext(AuthContext);
+  const [check, setCheck] = useState(data.user.watch);
 
   /* fonction qui inverse l'état de check, au click */
-  function handleCheck() {
-    setCheck(!check);
+  async function handleCheck() {
+    try {
+      setCheck(!check);
+      if (authContext.isLogged) {
+        // Connected
+        await updateUserMyList(authContext.userID, data.id, {
+          watch: !check,
+        });
+      }
+      return true;
+    } catch (err) {
+      return console.log(err);
+    }
   }
 
   /* fonction qui convertie le nombre de minutes en heures + minutes */
@@ -17,24 +37,42 @@ function ElementList() {
     return `${nbrHours}h${minutes}`;
   };
 
+  const [rating, setRating] = useState(data.user.rating);
+  const handleRating = async (value, movieID) => {
+    try {
+      setRating(value);
+      // si connecter enregistrer le rating
+      if (authContext.isLogged) {
+        // Connected
+        await updateUserMyList(authContext.userID, movieID, {
+          rating: value,
+        });
+      }
+      return true;
+    } catch (err) {
+      return console.log(err);
+    }
+  };
+
   return (
     <div className="container-element-list">
       <div className="element-list">
         <div className="image-movie">
-          <img
-            src={`${"http://image.tmdb.org/t/p/w300"}${movie.backdrop_path}`}
-            alt="film"
-          />
+          <img src={data.poster.replace("original", "w500")} alt="film" />
         </div>
         <div className="infos-movie">
           <div className="title-movie">
-            {/* retourne les différentes infos depuis le fichier Data.jsx en dynamique */}
-            <h2>{movie.title.toUpperCase()}</h2>
+            <h2>{data.title.toUpperCase()}</h2>
           </div>
-          <p className="creator">Creator/cast</p>
-          <p className="date-release">{movie.release_date}</p>
-          <p className="runtime">{`${hours(movie.runtime)}`}</p>
-          <p>{/* <Rate /> */}</p>
+          <p className="creator">{data.author}</p>
+          <p className="date-release">{data.date}</p>
+          <p className="runtime">{`${hours(data.duration)}`}</p>
+          <p>
+            <Rating
+              onClick={(value) => handleRating(value, data.id)}
+              ratingValue={rating}
+            />
+          </p>
         </div>
         <div
           onClick={handleCheck}
@@ -48,9 +86,12 @@ function ElementList() {
             <span>{check && <i className="fa fa-check" />}</span>
           </p>
         </div>
+        <div className="remove">
+          <FontAwesomeIcon icon={faTimes} />
+        </div>
       </div>
     </div>
   );
-}
+};
 
 export default ElementList;

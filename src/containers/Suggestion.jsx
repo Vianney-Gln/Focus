@@ -8,7 +8,11 @@ import { SignContext } from "../contexts/SignContext";
 import { AuthContext } from "../contexts/AuthContext";
 
 import SlideImg from "../assets/images/westworlded.jpg";
-import { updateMovie } from "../services/FirebaseRealtimeDatabase";
+import {
+  addMovie,
+  addMovieToMyList,
+  updateUserMyList,
+} from "../services/FirebaseRealtimeDatabase";
 
 const Suggestion = ({ data }) => {
   const signinContext = useContext(SignContext);
@@ -17,9 +21,19 @@ const Suggestion = ({ data }) => {
 
   const handleAddToMyList = async () => {
     try {
+      // Ajouter a MaList
       if (authContext.isLogged) {
-        // Ajouter a MaList
-        await updateMovie(460458);
+        // try to add this movie to the database
+        const movieData = {
+          title: data.title || "Not documented",
+          poster: data.background || "Not documented",
+          author: data.author || "Not documented",
+          date: data.date.base || "Not documented",
+          duration: data.duration.base || "Not documented",
+        };
+        await addMovie(data.id, movieData);
+        // update to add user on movie
+        await addMovieToMyList(authContext.userID, data.id);
       } else {
         // Demander de se connecter
         signinContext.showSignIn();
@@ -29,16 +43,16 @@ const Suggestion = ({ data }) => {
     }
   };
 
-  const handleRating = (value) => {
+  const handleRating = (value, movieID) => {
     setRating(value);
     // si connecter enregistrer le rating
     if (authContext.isLogged) {
       // Connected
+      updateUserMyList(authContext.userID, movieID, {
+        rating: value,
+      });
     }
-    // Sinon pas enregistrer
-    else {
-      // not connected
-    }
+    return true;
   };
 
   return (
@@ -77,7 +91,7 @@ const Suggestion = ({ data }) => {
                 {data ? data.date.year : "Not documented"}
               </div>
               <div className="movie-duration">
-                {data
+                {data && data.duration
                   ? `${data.duration.hours}h ${data.duration.minutes}`
                   : "Not documented"}
               </div>
@@ -87,7 +101,10 @@ const Suggestion = ({ data }) => {
             </div>
             <div className="movie-mores">
               <div className="movie-rating">
-                <Rating onClick={handleRating} ratingValue={rating} />
+                <Rating
+                  onClick={(value) => handleRating(value, data.id)}
+                  ratingValue={rating}
+                />
               </div>
               <button
                 className="movie-addtomylist"

@@ -1,9 +1,10 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import BurgerContext from "../contexts/BurgerContext";
 import { Logo, ElementList, LogoMobile, SearchBar } from "../components";
 import "../styles/myList.css";
 import { AuthContext } from "../contexts/AuthContext";
+import { getListofMyList } from "../services/FirebaseRealtimeDatabase";
 
 /* structure du composant myList */
 const MyList = () => {
@@ -22,12 +23,23 @@ const MyList = () => {
   }, []);
 
   /* creation d'une boucle pour appeler plusieurs fois le composant <ElementList /> */
+  const [itemList, setItemList] = useState([]);
+  useEffect(() => {
+    (async () => {
+      const data = await getListofMyList(authContext.userID);
+      console.log(data);
+      const map = data.map((movie) => (
+        <ElementList key={movie.id} data={movie} />
+      ));
+      setItemList(map);
+    })();
+  }, []);
 
-  const itemLists = [];
-
-  for (let i = 0; i < 10; i += 1) {
-    itemLists.push(<ElementList />);
-  }
+  /* creation d'une boucle pour appeler plusieurs fois le composant <ElementList /> */
+  // const itemLists = [];
+  // for (let i = 0; i < 10; i += 1) {
+  //   itemLists.push(<ElementList />);
+  // }
 
   return (
     <>
@@ -59,7 +71,7 @@ const MyList = () => {
             </div>
           </div>
 
-          <div className="container-items-list">{itemLists}</div>
+          <div className="container-items-list">{itemList}</div>
         </div>
       )}
     </>
