@@ -63,13 +63,14 @@ const ElementList = ({ data }) => {
     }
   };
 
-  const handleRemoveFromMyList = async (e, movieID) => {
+  const handleRemoveFromMyList = async (movieID) => {
     try {
       // si connecter enregistrer le rating
       if (authContext.isLogged) {
         // Connected
         await removeFromMyList(authContext.userID, movieID);
         // remove element from DOM
+        console.log(movieID);
         document.querySelector(`.movie_${movieID}`).remove();
       }
       return true;
