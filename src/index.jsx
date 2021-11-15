@@ -10,20 +10,20 @@ import "./assets/fonts/focus/focus.css";
 import BackgroundProvider from "./components/BackgroundProvider";
 
 /* Temporary */
-import { SignInProvider } from "./contexts/SignInContext";
+import { SignProvider } from "./contexts/SignContext";
 import { AuthProvider } from "./contexts/AuthContext";
 
 ReactDOM.render(
   <React.StrictMode>
     <BackgroundProvider>
       <AuthProvider>
-        <SignInProvider>
+        <SignProvider>
           <BurgerProvider>
             <Router>
               <App />
             </Router>
           </BurgerProvider>
-        </SignInProvider>
+        </SignProvider>
       </AuthProvider>
     </BackgroundProvider>
   </React.StrictMode>,

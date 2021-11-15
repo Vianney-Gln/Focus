@@ -6,11 +6,11 @@ import "../styles/SignIn.scss";
 import { loginUser } from "../services/FirebaseUserFunctions";
 
 /* Temporary Import for test */
-import { SignInContext } from "../contexts/SignInContext";
+import { SignContext } from "../contexts/SignContext";
 import { AuthContext } from "../contexts/AuthContext";
 
 const SignIn = () => {
-  const signinContext = useContext(SignInContext);
+  const signContext = useContext(SignContext);
   const authContext = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,21 +25,36 @@ const SignIn = () => {
       if (user) {
         authContext.setUserID(user.uid);
         authContext.setIsLogged(true);
-        signinContext.hideSignIn();
+        signContext.hideSignIn();
         setEmail("");
         setPassword("");
+      } else {
+        setEmail("");
+        setPassword("");
+        // Message pas cool
       }
     } catch (error) {
       console.log(error);
     }
   };
 
+  /**
+   * Hide SignIn on click
+   */
   const handleClose = () => {
-    signinContext.hideSignIn();
+    signContext.hideSignIn();
+  };
+
+  /**
+   * Hide SignIn and Show SignUp
+   */
+  const handleShowRegisterPage = () => {
+    signContext.hideSignIn();
+    signContext.showSignUp();
   };
 
   return (
-    <div className={`signInModal ${signinContext.classShowSignIn}`}>
+    <div className={`signInModal ${signContext.classShowSignIn}`}>
       <div className="container">
         <button type="button" className="btn-close" onClick={handleClose}>
           <FontAwesomeIcon icon={faTimes} />
@@ -74,7 +89,11 @@ const SignIn = () => {
             <button type="submit" className="signInButton">
               Sign In
             </button>
-            <button type="button" className="redirectToRegister">
+            <button
+              type="button"
+              className="redirectToRegister"
+              onClick={handleShowRegisterPage}
+            >
               Not register ? Sign up for free here
             </button>
           </div>
