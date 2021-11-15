@@ -8,6 +8,7 @@ import Category from "./containers/Category";
 import AboutUs from "./containers/AboutUs";
 import MyList from "./containers/MyList";
 import Error404 from "./containers/Error404";
+import ItemModal from "./containers/ItemModal";
 import BurgerContext from "./contexts/BurgerContext";
 /* Temporary Import for test */
 import SignIn from "./containers/SignIn";
@@ -64,6 +65,7 @@ function App() {
         <Route exact path="/mylist" component={MyList} />
         <Route component={Error404} />
       </Switch>
+      <ItemModal />
     </>
   );
 }
