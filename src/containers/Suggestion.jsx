@@ -10,10 +10,27 @@ import { AuthContext } from "../contexts/AuthContext";
 import SlideImg from "../assets/images/westworlded.jpg";
 import { updateMovie } from "../services/FirebaseRealtimeDatabase";
 
-const Suggestion = ({ data }) => {
+const Suggestion = ({ data, refValue, setBackgroundSuggestion }) => {
   const signinContext = useContext(SignContext);
   const authContext = useContext(AuthContext);
   const [rating, setRating] = useState(0);
+  const [currentData, setCurrentData] = useState(1);
+  const suggestionData = data[currentData];
+
+  setBackgroundSuggestion(suggestionData.background);
+
+  const handleChangeSlideshow = (num) => {
+    let newCurrent = currentData + num;
+
+    if (newCurrent < 0) {
+      newCurrent = 2;
+    }
+    if (newCurrent > 2) {
+      newCurrent = 0;
+    }
+
+    setCurrentData(newCurrent);
+  };
 
   const handleAddToMyList = async () => {
     try {
@@ -44,46 +61,68 @@ const Suggestion = ({ data }) => {
   return (
     <>
       {/* <BackgroundImage /> */}
-      <section className="suggestion">
+      <section className="suggestion" ref={refValue}>
         <div className="suggestion-body">
           <div className="containers-slideshow">
             <div className="slideshow">
-              <button type="button" className="btn-fleche-slideShow">
+              <button
+                type="button"
+                className="btn-fleche-slideShow"
+                onClick={() => handleChangeSlideshow(-1)}
+              >
                 <i className="icon-left-open-big" />
               </button>
               <div className="container-image-player">
                 <img
                   className="img-slideshow"
-                  src={data ? data.background : SlideImg}
+                  src={
+                    suggestionData && suggestionData.background
+                      ? suggestionData.background
+                      : SlideImg
+                  }
                   alt="slideimg"
                 />
                 <button type="button" className="btn-fleche-slideShow">
                   <i className="icon-play" />
                 </button>
               </div>
-              <button type="button" className="btn-fleche-slideShow">
+              <button
+                type="button"
+                className="btn-fleche-slideShow"
+                onClick={() => handleChangeSlideshow(1)}
+              >
                 <i className="icon-right-open-big" />
               </button>
             </div>
           </div>
 
           <div className="suggestion-informations">
-            <h1>{data ? data.title : "Not documented"}</h1>
+            <h1>
+              {suggestionData && suggestionData.title
+                ? suggestionData.title
+                : "Not documented"}
+            </h1>
             <div className="movie-informations">
               <div className="movie-author">
-                {data ? data.author : "Not documented"}
+                {suggestionData && suggestionData.author
+                  ? suggestionData.author
+                  : "Not documented"}
               </div>
               <div className="movie-year">
-                {data ? data.date.year : "Not documented"}
+                {suggestionData && suggestionData.date.year
+                  ? suggestionData.date.year
+                  : "Not documented"}
               </div>
               <div className="movie-duration">
-                {data
-                  ? `${data.duration.hours}h ${data.duration.minutes}`
+                {suggestionData && suggestionData.duration.hours
+                  ? `${suggestionData.duration.hours}h ${suggestionData.duration.minutes}`
                   : "Not documented"}
               </div>
             </div>
             <div className="movie-synopsis">
-              {data ? data.synopsis : "Not documented"}
+              {suggestionData && suggestionData.synopsis
+                ? suggestionData.synopsis
+                : "Not documented"}
             </div>
             <div className="movie-mores">
               <div className="movie-rating">

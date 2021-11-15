@@ -12,7 +12,7 @@ import Suggestion from "./Suggestion";
 import "../styles/home.scss";
 import BurgerContext from "../contexts/BurgerContext";
 
-import tempImage from "../assets/images/westworlded.jpg";
+// import tempImage from "../assets/images/westworlded.jpg";
 import useOnScreen from "../hooks/useOnScreen";
 import { SignContext } from "../contexts/SignContext";
 import { AuthContext } from "../contexts/AuthContext";
@@ -81,39 +81,86 @@ const Home = () => {
   if (suggestion3IsVisible) categoryLink = `/category/now-playing`;
   /* Fetch La data des films */
   /* State de la catégorie upcoming */
-  const [upcoming, setUpcoming] = React.useState([]);
-  const [popular, setPopular] = React.useState([]);
-  const [nowPlaying, setNowPlaying] = React.useState([]);
+  // const [upcoming, setUpcoming] = React.useState([]);
+  // const [popular, setPopular] = React.useState([]);
+  // const [nowPlaying, setNowPlaying] = React.useState([]);
+
+  /* TEST */
+  const [suggestionList, setSuggestionList] = useState([]);
+
+  const [backgroundSuggestion, setBackgroundSuggestion] = useState([]);
+
+  const setCategorySuggestion = (source, category) => {
+    console.log(source, category);
+    const currentBackground = backgroundSuggestion;
+    if (category === "upcoming") {
+      currentBackground[0] = source;
+    } else if (category === "popular") {
+      currentBackground[1] = source;
+    } else if (category === "nowplaying") {
+      currentBackground[2] = source;
+    }
+    setBackgroundSuggestion(currentBackground);
+  };
 
   React.useEffect(() => {
     const run = async () => {
       /* Récupère la data à partir de la function suggestionFetch movie */
       const data = await suggestionFetch();
-
+      console.log(data);
+      setBackgroundSuggestion([
+        data.upcoming[1].background,
+        data.popular[1].background,
+        data.nowplaying[1].background,
+      ]);
       /* console.log(data); */
       /* Récupère la data de la catégorie upcoming */
-      const mapUpcomming = data.upcoming.map((dataupcoming) => (
-        <Suggestion key={dataupcoming.id} data={dataupcoming} />
-      ));
+      // const mapUpcomming = data.upcoming.map((dataupcoming) => (
+      //   <Suggestion key={dataupcoming.id} data={dataupcoming} />
+      // ));
+
+      setSuggestionList([
+        <Suggestion
+          data={data.upcoming}
+          current={1}
+          refValue={suggestion1ref}
+          setBackgroundSuggestion={(background) => {
+            setCategorySuggestion(background, "upcoming");
+          }}
+        />,
+        <Suggestion
+          data={data.popular}
+          current={1}
+          refValue={suggestion2ref}
+          setBackgroundSuggestion={(background) => {
+            setCategorySuggestion(background, "popular");
+          }}
+        />,
+        <Suggestion
+          data={data.nowplaying}
+          current={1}
+          refValue={suggestion3ref}
+          setBackgroundSuggestion={(background) => {
+            setCategorySuggestion(background, "nowplaying");
+          }}
+        />,
+      ]);
+
       /* Récupère la data de la catégorie popular */
-      const mapPopular = data.popular.map((datapopular) => (
-        <Suggestion key={datapopular.id} data={datapopular} />
-      ));
+      // const mapPopular = data.popular.map((datapopular) => (
+      //   <Suggestion key={datapopular.id} data={datapopular} />
+      // ));
 
       /* Récupère la data de la catégorie nowplaying */
-      const mapNowPlaying = data.nowplaying.map((datanowplaying) => (
-        <Suggestion key={datanowplaying.id} data={datanowplaying} />
-      ));
-      setUpcoming(mapUpcomming[0]);
-      setPopular(mapPopular[0]);
-      setNowPlaying(mapNowPlaying[0]);
+      // const mapNowPlaying = data.nowplaying.map((datanowplaying) => (
+      //   <Suggestion key={datanowplaying.id} data={datanowplaying} />
+      // ));
+      // setUpcoming(mapUpcomming[0]);
+      // setPopular(mapPopular[0]);
+      // setNowPlaying(mapNowPlaying[0]);
     };
     run();
   }, []);
-
-  const handleSlideUp = () => {
-    setUpcoming(!upcoming);
-  };
   return (
     <main className="Containerhome">
       {/* Top Menu */}
@@ -211,23 +258,33 @@ const Home = () => {
           <p>Menu</p>
         </button>
       </div>
-      {/* Pre-Home */}
       <section className="pre-home" ref={prehomeref}>
-        <ImageItemPreviews source={tempImage} />
+        {!suggestion2IsVisible && !suggestion3IsVisible && (
+          <ImageItemPreviews source={backgroundSuggestion[0]} />
+        )}
+        {suggestion2IsVisible && (
+          <ImageItemPreviews source={backgroundSuggestion[1]} />
+        )}
+
+        {suggestion3IsVisible && (
+          <ImageItemPreviews source={backgroundSuggestion[2]} />
+        )}
       </section>
-      {/* 3 Suggestion page */}
-      <section className="upcoming" ref={suggestion1ref}>
-        {upcoming}
-        <button type="button" onClick={handleSlideUp}>
-          😃
-        </button>
-      </section>
-      <section className="popular" ref={suggestion2ref}>
-        {popular}
-      </section>
-      <section className="nowplaying" ref={suggestion3ref}>
-        {nowPlaying}
-      </section>
+      {suggestionList.length < 3 && (
+        <>
+          <section className="suggestion" ref={suggestion1ref}>
+            <h1>Suggestion 1</h1>
+          </section>
+          <section className="suggestion" ref={suggestion2ref}>
+            <h1>Suggestion 2</h1>
+          </section>
+          <section className="suggestion" ref={suggestion3ref}>
+            <h1>Suggestion 3</h1>
+          </section>
+        </>
+      )}
+      {suggestionList.length === 3 && suggestionList}
+
       {/* <Suggestion refValue={suggestion1ref} /> */}
       {/* <Suggestion refValue={suggestion2ref} /> */}
       {/* <Suggestion refValue={suggestion3ref} /> */}
