@@ -136,12 +136,23 @@
 @media screen and (max-width: 800px) {
   .itemModal .modalOverlay {
     margin: 7% auto;
-    border: none;
     width: 760px;
   }
+  .itemModal .modalContent {
+    height: 568px;
+  }
+  .itemModal .top-thumbnail {
+    height: 50%;
+  }
+  .itemModal .top-thumbnail h1 {
+    font-size: 40px;
+  }
+  .itemModal .top-thumbnail .close {
+    left: 96%;
+    top: -115%;
+  }
   .itemModal .bottom-infos {
-    height: auto;
-    padding: 10px;
+    height: 50%;
   }
   .itemModal .bottom-infos-grid {
     grid-template-columns: 1fr 1fr 1fr;
@@ -202,24 +213,38 @@
     grid-column-end: 4;
     grid-row-start: 3;
     grid-row-end: 3;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     border-top: 2px solid #7e7e7e;
     border-bottom: 2px solid #7e7e7e;
+    /* overflow-y doesn't seem to work responsively, using another trick then */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    max-height: 90px;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
   }
 }
 /*/////////////////////////////////////////         MOBILE     ///////////////////////////////////////////////*/
 @media screen and (max-width: 500px) {
   .itemModal .modalOverlay {
-    width: auto;
+    width: 100%;
+    margin: 2% auto;
+  }
+  .itemModal .modalContent {
+    height: 548px;
   }
   .itemModal .top-thumbnail h1 {
     font-size: 30px;
-    letter-spacing: 0;
-    position: relative;
-    top: -100%;
-    left: 10px;
     width: 85%;
+  }
+  .itemModal .top-thumbnail .close {
+    left: 90%;
+    top: -122%;
+  }
+  .itemModal .bottom-infos-grid-starRater {
+    width: 145px;
   }
 
 
