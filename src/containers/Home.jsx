@@ -14,14 +14,14 @@ import BurgerContext from "../contexts/BurgerContext";
 
 import tempImage from "../assets/images/westworlded.jpg";
 import useOnScreen from "../hooks/useOnScreen";
-import { SignInContext } from "../contexts/SignInContext";
+import { SignContext } from "../contexts/SignContext";
 import { AuthContext } from "../contexts/AuthContext";
 
 const Home = () => {
   // récupération du contexte
   // Achaque clique sur les links de cette page le burger s'affiche
   const burgerContext = useContext(BurgerContext);
-  const signinContext = useContext(SignInContext);
+  const signinContext = useContext(SignContext);
   const authContext = useContext(AuthContext);
 
   /**
@@ -192,14 +192,17 @@ const Home = () => {
       {/* Footer */}
       <section className="footer" ref={footerref}>
         <ul className="footercategory">
-          <Link onClick={burgerContext.displayBurger} to="/category">
+          <Link onClick={burgerContext.displayBurger} to="/category/upcoming">
             <li className="footeritem">UPCOMING</li>
           </Link>
-          <Link onClick={burgerContext.displayBurger} to="/category">
-            <li className="footeritem">TOP RATED</li>
+          <Link onClick={burgerContext.displayBurger} to="/category/popular">
+            <li className="footeritem">POPULAR</li>
           </Link>
-          <Link onClick={burgerContext.displayBurger} to="/category">
-            <li className="footeritem">LATEST</li>
+          <Link
+            onClick={burgerContext.displayBurger}
+            to="/category/now-playing"
+          >
+            <li className="footeritem">NOW PLAYING</li>
           </Link>
           <Link
             to={authContext.isLogged ? "/mylist" : "/"}
