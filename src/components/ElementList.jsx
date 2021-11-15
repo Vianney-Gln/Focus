@@ -8,7 +8,7 @@ import { AuthContext } from "../contexts/AuthContext";
 // Services
 import { updateUserMyList } from "../services/FirebaseRealtimeDatabase";
 // Css
-import "../styles/elementListe.css";
+import "../styles/elementListe.scss";
 
 const ElementList = ({ data }) => {
   const authContext = useContext(AuthContext);
@@ -60,19 +60,17 @@ const ElementList = ({ data }) => {
         <div className="image-movie">
           <img src={data.poster.replace("original", "w500")} alt="film" />
         </div>
-        <div className="infos-movie">
-          <div className="title-movie">
-            <h2>{data.title.toUpperCase()}</h2>
-          </div>
-          <p className="creator">{data.author}</p>
-          <p className="date-release">{data.date}</p>
-          <p className="runtime">{`${hours(data.duration)}`}</p>
-          <p>
-            <Rating
-              onClick={(value) => handleRating(value, data.id)}
-              ratingValue={rating}
-            />
-          </p>
+        <div className="title-movie">
+          <h2>{data.title}</h2>
+        </div>
+        <div className="author-movie">{data.author}</div>
+        <div className="release-date-movie">{data.date}</div>
+        <div className="duration-movie">{`${hours(data.duration)}`}</div>
+        <div className="rating-movie">
+          <Rating
+            onClick={(value) => handleRating(value, data.id)}
+            ratingValue={rating}
+          />
         </div>
         <div
           onClick={handleCheck}
@@ -86,8 +84,10 @@ const ElementList = ({ data }) => {
             <span>{check && <i className="fa fa-check" />}</span>
           </p>
         </div>
-        <div className="remove">
-          <FontAwesomeIcon icon={faTimes} />
+        <div className="remove-movie">
+          <button type="button">
+            <FontAwesomeIcon icon={faTimes} />
+          </button>
         </div>
       </div>
     </div>
