@@ -1,10 +1,11 @@
 import React from "react";
 import "../styles/listSearch.scss";
 
-function ListSearch({ listTitle, search }) {
+function ListSearch({ listTitle, search, setSearch }) {
   return (
     <ul
-      className={search.length >= 3 ? "listSearch" : "listSearch-display-none"}
+      onMouseLeave={() => setSearch("")}
+      className={search.length > 3 ? "listSearch" : "listSearch-display-none"}
     >
       {listTitle}
     </ul>
