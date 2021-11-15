@@ -14,14 +14,15 @@ import BurgerContext from "../contexts/BurgerContext";
 
 import tempImage from "../assets/images/westworlded.jpg";
 import useOnScreen from "../hooks/useOnScreen";
-import { SignInContext } from "../contexts/SignInContext";
+import { SignContext } from "../contexts/SignContext";
 import { AuthContext } from "../contexts/AuthContext";
+import { suggestionFetch } from "../services/TheMovieDbFunctions";
 
 const Home = () => {
   // récupération du contexte
   // Achaque clique sur les links de cette page le burger s'affiche
   const burgerContext = useContext(BurgerContext);
-  const signinContext = useContext(SignInContext);
+  const signinContext = useContext(SignContext);
   const authContext = useContext(AuthContext);
 
   /**
@@ -78,7 +79,41 @@ const Home = () => {
   if (suggestion1IsVisible) categoryLink = `/category/upcoming`;
   if (suggestion2IsVisible) categoryLink = `/category/popular`;
   if (suggestion3IsVisible) categoryLink = `/category/now-playing`;
+  /* Fetch La data des films */
+  /* State de la catégorie upcoming */
+  const [upcoming, setUpcoming] = React.useState([]);
+  const [popular, setPopular] = React.useState([]);
+  const [nowPlaying, setNowPlaying] = React.useState([]);
 
+  React.useEffect(() => {
+    const run = async () => {
+      /* Récupère la data à partir de la function suggestionFetch movie */
+      const data = await suggestionFetch();
+
+      /* console.log(data); */
+      /* Récupère la data de la catégorie upcoming */
+      const mapUpcomming = data.upcoming.map((dataupcoming) => (
+        <Suggestion key={dataupcoming.id} data={dataupcoming} />
+      ));
+      /* Récupère la data de la catégorie popular */
+      const mapPopular = data.popular.map((datapopular) => (
+        <Suggestion key={datapopular.id} data={datapopular} />
+      ));
+
+      /* Récupère la data de la catégorie nowplaying */
+      const mapNowPlaying = data.nowplaying.map((datanowplaying) => (
+        <Suggestion key={datanowplaying.id} data={datanowplaying} />
+      ));
+      setUpcoming(mapUpcomming[0]);
+      setPopular(mapPopular[0]);
+      setNowPlaying(mapNowPlaying[0]);
+    };
+    run();
+  }, []);
+
+  const handleSlideUp = () => {
+    setUpcoming(!upcoming);
+  };
   return (
     <main className="Containerhome">
       {/* Top Menu */}
@@ -141,12 +176,10 @@ const Home = () => {
           <Hamburger />
         </div>
       </header>
-
       {/* Switch Button */}
       <div className="switchHome">
         <Switch />
       </div>
-
       {/* Right Menu */}
       <div className="home-navigation">
         <button
@@ -178,28 +211,41 @@ const Home = () => {
           <p>Menu</p>
         </button>
       </div>
-
       {/* Pre-Home */}
       <section className="pre-home" ref={prehomeref}>
         <ImageItemPreviews source={tempImage} />
       </section>
-
       {/* 3 Suggestion page */}
-      <Suggestion refValue={suggestion1ref} />
-      <Suggestion refValue={suggestion2ref} />
-      <Suggestion refValue={suggestion3ref} />
+      <section className="upcoming" ref={suggestion1ref}>
+        {upcoming}
+        <button type="button" onClick={handleSlideUp}>
+          😃
+        </button>
+      </section>
+      <section className="popular" ref={suggestion2ref}>
+        {popular}
+      </section>
+      <section className="nowplaying" ref={suggestion3ref}>
+        {nowPlaying}
+      </section>
+      {/* <Suggestion refValue={suggestion1ref} /> */}
+      {/* <Suggestion refValue={suggestion2ref} /> */}
+      {/* <Suggestion refValue={suggestion3ref} /> */}
 
       {/* Footer */}
       <section className="footer" ref={footerref}>
         <ul className="footercategory">
-          <Link onClick={burgerContext.displayBurger} to="/category">
+          <Link onClick={burgerContext.displayBurger} to="/category/upcoming">
             <li className="footeritem">UPCOMING</li>
           </Link>
-          <Link onClick={burgerContext.displayBurger} to="/category">
-            <li className="footeritem">TOP RATED</li>
+          <Link onClick={burgerContext.displayBurger} to="/category/popular">
+            <li className="footeritem">POPULAR</li>
           </Link>
-          <Link onClick={burgerContext.displayBurger} to="/category">
-            <li className="footeritem">LATEST</li>
+          <Link
+            onClick={burgerContext.displayBurger}
+            to="/category/now-playing"
+          >
+            <li className="footeritem">NOW PLAYING</li>
           </Link>
           <Link
             to={authContext.isLogged ? "/mylist" : "/"}

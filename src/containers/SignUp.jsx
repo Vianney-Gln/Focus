@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { Line } from "rc-progress";
 import "../styles/SignUp.scss";
 
 import { createUser } from "../services/FirebaseUserFunctions";
+import { SignContext } from "../contexts/SignContext";
 
 const SignUp = () => {
+  const signContext = useContext(SignContext);
   /**
    * Password verification
    */
@@ -106,10 +108,25 @@ const SignUp = () => {
     }
   };
 
+  /**
+   * Hide SignUp when click on button close
+   */
+  const handleClose = () => {
+    signContext.hideSignUp();
+  };
+
+  /**
+   * Hide SignUp and Show SignIn
+   */
+  const handleShowLoginPage = () => {
+    signContext.hideSignUp();
+    signContext.showSignIn();
+  };
+
   return (
-    <div className="signUpModal">
+    <div className={`signUpModal ${signContext.classShowSignUp}`}>
       <div className="container">
-        <button type="button" className="btn-close">
+        <button type="button" className="btn-close" onClick={handleClose}>
           <FontAwesomeIcon icon={faTimes} />
         </button>
 
@@ -202,11 +219,15 @@ const SignUp = () => {
           <div className="cgu">
             <label htmlFor="cguCheckbox">
               <input type="checkbox" id="cguCheckbox" />
-              You have read and by checking this box, accepted the CGUs
+              I&apos;m accepting the Terms of use.
             </label>
           </div>
           <div className="container-button">
-            <button type="button" className="btn-already-register">
+            <button
+              type="button"
+              className="btn-already-register"
+              onClick={handleShowLoginPage}
+            >
               Already have an account ? Sign in here
             </button>
             <button type="submit" className="signUpButton">
