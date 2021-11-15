@@ -52,7 +52,7 @@ const SignIn = () => {
     signContext.hideSignIn();
     signContext.showSignUp();
   };
-
+  
   return (
     <div className={`signInModal ${signContext.classShowSignIn}`}>
       <div className="container">
