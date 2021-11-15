@@ -16,6 +16,7 @@ const ItemModal = ({ data }) => {
   const authContext = useContext(AuthContext);
   const [rating, setRating] = useState(0);
   const modalContext = useContext(ModalContext);
+  Modal.setAppElement("#root");
 
   const handleAddToMyList = async () => {
     try {

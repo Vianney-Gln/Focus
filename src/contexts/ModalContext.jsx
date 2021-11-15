@@ -13,7 +13,12 @@ function ModalProvider({ children }) {
   };
   return (
     <ModalContext.Provider
-      value={(modalIsOpen, setModalIsOpenToFalse, setModalIsOpenToTrue)}
+      value={{
+        modalIsOpen,
+        setModalIsOpen,
+        setModalIsOpenToFalse,
+        setModalIsOpenToTrue,
+      }}
     >
       {children}
     </ModalContext.Provider>
