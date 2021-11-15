@@ -131,7 +131,7 @@ export const updateUserMyList = async (userID, movieID, data) => {
 
 export const removeFromMyList = async (userID, movieID) => {
   try {
-    await remove(ref(Database, `users/user_${userID}/${movieID}`));
+    await remove(ref(Database, `movies/${movieID}/${userID}`));
     return console.log("Normaly Removed ?");
   } catch (err) {
     console.log(err);

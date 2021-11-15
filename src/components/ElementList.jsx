@@ -6,7 +6,10 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 // Contexts
 import { AuthContext } from "../contexts/AuthContext";
 // Services
-import { updateUserMyList } from "../services/FirebaseRealtimeDatabase";
+import {
+  removeFromMyList,
+  updateUserMyList,
+} from "../services/FirebaseRealtimeDatabase";
 // Css
 import "../styles/elementListe.scss";
 
@@ -37,7 +40,13 @@ const ElementList = ({ data }) => {
     return `${nbrHours}h${minutes}`;
   };
 
+  // State for rating, interact with function at bottom
   const [rating, setRating] = useState(data.user.rating);
+  /**
+   * Handle Rating change with Database
+   * @param {number} value Rating /5
+   * @param {number} movieID Movie ID
+   */
   const handleRating = async (value, movieID) => {
     try {
       setRating(value);
@@ -54,8 +63,23 @@ const ElementList = ({ data }) => {
     }
   };
 
+  const handleRemoveFromMyList = async (e, movieID) => {
+    try {
+      // si connecter enregistrer le rating
+      if (authContext.isLogged) {
+        // Connected
+        await removeFromMyList(authContext.userID, movieID);
+        // remove element from DOM
+        document.querySelector(`.movie_${movieID}`).remove();
+      }
+      return true;
+    } catch (err) {
+      return console.log(err);
+    }
+  };
+
   return (
-    <div className="container-element-list">
+    <div className={`container-element-list movie_${data.id}`}>
       <div className="element-list">
         <div className="image-movie">
           <img src={data.poster.replace("original", "w500")} alt="film" />
@@ -85,7 +109,7 @@ const ElementList = ({ data }) => {
           </p>
         </div>
         <div className="remove-movie">
-          <button type="button">
+          <button type="button" onClick={() => handleRemoveFromMyList(data.id)}>
             <FontAwesomeIcon icon={faTimes} />
           </button>
         </div>
