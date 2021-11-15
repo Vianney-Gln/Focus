@@ -78,11 +78,19 @@ const ElementList = ({ data }) => {
     }
   };
 
+  const [fullyLoaded, setFullyLoaded] = useState(false);
+
   return (
     <div className={`container-element-list movie_${data.id}`}>
       <div className="element-list">
         <div className="image-movie">
-          <img src={data.poster.replace("original", "w500")} alt="film" />
+          {!fullyLoaded && <div className="loadingInfos" />}
+          <img
+            src={data.poster}
+            alt="film"
+            onLoad={() => setFullyLoaded(true)}
+            style={fullyLoaded ? {} : { display: "none" }}
+          />
         </div>
         <div className="title-movie">
           <h2>{data.title}</h2>

@@ -27,7 +27,6 @@ const MyList = () => {
   useEffect(() => {
     (async () => {
       const data = await getListofMyList(authContext.userID);
-      console.log(data);
       const map = data.map((movie) => (
         <ElementList key={movie.id} data={movie} />
       ));
