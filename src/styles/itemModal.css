@@ -21,6 +21,7 @@
   object-fit: cover;
   width: 100%;
   height:100%;
+  background-color: #000;
 }
 .itemModal .top-thumbnail h1 {
   font-size: 60px;
@@ -54,8 +55,8 @@
   display: grid;
   grid-gap: 5px;
   padding: 8px;
-  grid-template-columns: 25% 10% 15% 48%;
-  grid-template-rows: 26px 32px 94px;
+  grid-template-columns: 20% 16% 16% 46%;
+  grid-template-rows: 36px 26px 94px;
 }
 .itemModal .bottom-infos-grid-creators {
   grid-column-start: 1;
@@ -74,8 +75,7 @@
   grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 1;
-  text-align: right;
-  padding-right: 30px;
+  text-align: left;
 }
 .itemModal .bottom-infos-grid-starRater {
   grid-column-start: 1;
@@ -96,21 +96,21 @@
   -webkit-text-stroke: 2px #313131;
   vertical-align: middle;
 }
-.itemModal .bottom-infos-grid-addToMyList i {
-  font-size: 28px;
-}
-.itemModal .bottom-infos-grid-addToMyList span {
-  position: relative;
-  top:-4px;
-  left:8px;
-}
 .itemModal .bottom-infos-grid-addToMyList {
   grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 3;
   grid-row-end: 3;
   padding-top: 40px;
+}
+.itemModal .bottom-infos-grid-addToMyList .btn-addToMyList {
   font-size: 18px;
+  font-weight: 200;
+  font-family: inherit;
+  border: none;
+  background: none;
+  color: #fff;
+  cursor: pointer;
 }
 .itemModal .bottom-infos-grid-platforms {
   grid-column-start: 2;
@@ -118,6 +118,12 @@
   grid-row-start: 3;
   grid-row-end: 3;
   overflow: hidden;
+}
+.itemModal .bottom-infos-grid-platforms img {
+  height: 20px;
+  width: auto;
+  object-fit: contain;
+  margin: 5px;
 }
 .itemModal .bottom-infos-grid-synopsis {
   grid-column-start: 4;
@@ -162,7 +168,6 @@
     grid-row-start: 4;
     grid-row-end: 4;
     text-align: right;
-    padding: 0;
   }
   .itemModal .bottom-infos-grid-starRater {
     grid-column-start: 3;
