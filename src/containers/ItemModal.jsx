@@ -4,6 +4,7 @@ import { Rating } from "react-simple-star-rating";
 import { SignContext } from "../contexts/SignContext";
 import { AuthContext } from "../contexts/AuthContext";
 import { updateMovie } from "../services/FirebaseRealtimeDatabase";
+import { ModalContext } from "../contexts/ModalContext";
 // import { ItemsPreviews } from "../components";
 // import westworlded from "../assets/images/westworlded.jpg";
 import imgNet from "../assets/images/netflix.png";
@@ -14,6 +15,7 @@ const ItemModal = ({ data }) => {
   const signinContext = useContext(SignContext);
   const authContext = useContext(AuthContext);
   const [rating, setRating] = useState(0);
+  const modalContext = useContext(ModalContext);
 
   const handleAddToMyList = async () => {
     try {
@@ -33,7 +35,7 @@ const ItemModal = ({ data }) => {
   const handleRating = (value) => {
     setRating(value);
   };
-  // Modal Toggle Open/Closed
+  /* Modal Toggle Open/Closed
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const setModalIsOpenToTrue = () => {
     setModalIsOpen(true);
@@ -41,18 +43,22 @@ const ItemModal = ({ data }) => {
   const setModalIsOpenToFalse = () => {
     setModalIsOpen(false);
   };
+  CE CODE EST DANS MODALCONTEXT
+  */
 
   return (
     <div className="itemModal">
-      <button type="button" onClick={setModalIsOpenToTrue}>
+      {/* <button type="button" onClick={setModalIsOpenToTrue}>
         Open Modal
-      </button>
+      </button> */}
       <Modal
         portalClassName="itemModal"
         className="itemModal"
         overlayClassName="modalOverlay"
-        isOpen={modalIsOpen}
-        onRequestClose={() => setModalIsOpen(false)}
+        isOpen={modalContext.modalIsOpen}
+        onRequestClose={() => {
+          modalContext.setModalIsOpen(false);
+        }}
       >
         <main className="modalContent">
           <div className="top-thumbnail">
@@ -62,7 +68,7 @@ const ItemModal = ({ data }) => {
               href="#close"
               title="Close"
               className="close"
-              onClick={setModalIsOpenToFalse}
+              onClick={modalContext.setModalIsOpenToFalse}
             >
               X
             </a>
