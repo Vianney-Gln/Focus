@@ -1,38 +1,85 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import Modal from "react-modal";
 import { Rating } from "react-simple-star-rating";
+import { SignContext } from "../contexts/SignContext";
+import { AuthContext } from "../contexts/AuthContext";
+import { updateMovie } from "../services/FirebaseRealtimeDatabase";
 // import { ItemsPreviews } from "../components";
-import westworlded from "../assets/images/westworlded.jpg";
-import "../styles/starRate.css";
+// import westworlded from "../assets/images/westworlded.jpg";
+import imgNet from "../assets/images/netflix.png";
+import imgCanal from "../assets/images/canal.png";
 import "../styles/itemModal.css";
 
-const ItemModal = () => {
+const ItemModal = ({ data }) => {
+  const signinContext = useContext(SignContext);
+  const authContext = useContext(AuthContext);
   const [rating, setRating] = useState(0);
+
+  const handleAddToMyList = async () => {
+    try {
+      if (authContext.isLogged) {
+        // Ajouter a MaList
+        await updateMovie(460458);
+      } else {
+        // Demander de se connecter
+        signinContext.showSignIn();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  // si connecté, enregistrer le rating
+  // sinon pas enregistrer
   const handleRating = (value) => {
     setRating(value);
-    // si connecté, enregistrer le rating
-    // sinon pas enregistrer
+  };
+  // Modal Toggle Open/Closed
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const setModalIsOpenToTrue = () => {
+    setModalIsOpen(true);
+  };
+  const setModalIsOpenToFalse = () => {
+    setModalIsOpen(false);
   };
 
   return (
     <div className="itemModal">
-      <main id="openModal" className="modalBehind">
-        <div className="modalContent">
+      <button type="button" onClick={setModalIsOpenToTrue}>
+        Open Modal
+      </button>
+      <Modal
+        portalClassName="itemModal"
+        className="itemModal"
+        overlayClassName="modalOverlay"
+        isOpen={modalIsOpen}
+        onRequestClose={() => setModalIsOpen(false)}
+      >
+        <main className="modalContent">
           <div className="top-thumbnail">
-            {/* <ItemsPreviews /> */}
-
-            <img src={westworlded} alt="" />
-            <h1>westworld</h1>
-            <a href="#close" title="Close" className="close">
+            <img src={data ? data.background : "no image"} alt="" />
+            <h1>{data ? data.title : "Not documented"}</h1>
+            <a
+              href="#close"
+              title="Close"
+              className="close"
+              onClick={setModalIsOpenToFalse}
+            >
               X
             </a>
           </div>
           <div className="bottom-infos">
             <div className="bottom-infos-grid">
               <div className="bottom-infos-grid-creators">
-                Lisa Joy & Jonathan Nolan
+                {data ? data.author : "Not documented"}
               </div>
-              <div className="bottom-infos-grid-date">2016</div>
-              <div className="bottom-infos-grid-length">3 Seasons</div>
+              <div className="bottom-infos-grid-date">
+                {data ? data.date.year : "Not documented"}
+              </div>
+              <div className="bottom-infos-grid-length">
+                {data
+                  ? `${data.duration.hours}h ${data.duration.minutes}`
+                  : "Not documented"}
+              </div>
               <div className="bottom-infos-grid-starRater">
                 <Rating onClick={handleRating} ratingValue={rating} />
               </div>
@@ -40,28 +87,25 @@ const ItemModal = () => {
                 Available On <i className="fa fa-play-circle-o" />
               </div>
               <div className="bottom-infos-grid-addToMyList">
-                <i className="fa fa-plus" />
-                <span>Add to my list</span>
+                <button
+                  className="btn-addToMyList"
+                  type="button"
+                  onClick={handleAddToMyList}
+                >
+                  <i className="icon-plus" /> Add to my list
+                </button>
               </div>
-              <div className="bottom-infos-grid-platforms" />
+              <div className="bottom-infos-grid-platforms">
+                <img src={imgNet} alt="Netflix" />
+                <img src={imgCanal} alt="Canal+" />
+              </div>
               <div className="bottom-infos-grid-synopsis">
-                In the 2050s, Delos Inc. operates several theme parks, including
-                the American-Old-West-themed Westworld. Each environment is
-                populated by hosts. Indistinguishable from humans, these
-                androids are programmed to fulfill the guests every desire. They
-                will engage in—and be the objects of—every kind of violent
-                and/or sexual activity, but their programming makes it
-                impossible for them to allow the guests to be harmed. The
-                Operators create narratives for these hosts to repeat each day
-                while interacting with guests, but they wipe their memories each
-                cycle. Delos Inc. party line is that the android hosts, being
-                machines, can not be harmed by these scenarios the same way that
-                a human would be.{" "}
+                {data ? data.synopsis : "Not documented"}
               </div>
             </div>
           </div>
-        </div>
-      </main>
+        </main>
+      </Modal>
     </div>
   );
 };
