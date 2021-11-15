@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
+import { useParams } from "react-router-dom";
 import {
   BackgroundImage,
   ItemsPreviews,
@@ -9,7 +10,12 @@ import {
 import "../styles/category.css";
 import "../styles/backgroundImage.css";
 import BurgerContext from "../contexts/BurgerContext";
-import { tmdbMovieUpcoming } from "../services/TheMovieDbFunctions";
+// import BackgroundContext from "../contexts/BackgroundContext";
+import {
+  tmdbMovieUpcoming,
+  tmdbMoviePopular,
+  tmdbMovieNowPlaying,
+} from "../services/TheMovieDbFunctions";
 
 const Category = () => {
   const [movies, setMovies] = useState([]);
@@ -18,9 +24,31 @@ const Category = () => {
   const burgerContext = useContext(BurgerContext);
   burgerContext.displayBurger();
 
+  // récupération du paramètre d'url cat de category
+  const { cat } = useParams();
+
+  // initialisation d'une variable qui répupère la fonction de fetching depuis services en fonction de la category de film surlaquelle l'utilisateur appuis
+  let fetchFunction;
+
+  // 3 fonctions de fetching qui affichent les films en fonction des categories, par defaut on met Upcoming
+  switch (cat) {
+    case "upcoming":
+      fetchFunction = tmdbMovieUpcoming;
+      break;
+    case "popular":
+      fetchFunction = tmdbMoviePopular;
+      break;
+    case "now-playing":
+      fetchFunction = tmdbMovieNowPlaying;
+      break;
+    default:
+      fetchFunction = tmdbMovieUpcoming;
+  }
+
+  // on relance le fetch chaque fois que la valeur de cat change
   useEffect(() => {
     const run = async () => {
-      const data = await tmdbMovieUpcoming();
+      const data = await fetchFunction();
       console.log(data);
       const map = data.map((datamovie) => (
         <ItemsPreviews key={datamovie.id} data={datamovie} />
@@ -28,7 +56,7 @@ const Category = () => {
       setMovies(map);
     };
     run();
-  }, []);
+  }, [cat]);
 
   return (
     <>
@@ -45,7 +73,7 @@ const Category = () => {
 
         <div className="container-previous-items-center">
           <div className="title-category">
-            <h1>Category</h1>
+            <h1>{cat.replace("-", " ")}</h1>
           </div>
           <div className="container-previous-items">{movies}</div>
         </div>

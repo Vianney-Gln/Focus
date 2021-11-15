@@ -8,6 +8,7 @@ import Category from "./containers/Category";
 import AboutUs from "./containers/AboutUs";
 import MyList from "./containers/MyList";
 import Error404 from "./containers/Error404";
+import ItemModal from "./containers/ItemModal";
 import BurgerContext from "./contexts/BurgerContext";
 /* Temporary Import for test */
 import SignIn from "./containers/SignIn";
@@ -42,6 +43,7 @@ function App() {
 
       {/* At click on SignIn or similar, show SignIn component */}
       <SignIn />
+      <SignUp />
 
       <div className={burgerContext.classBurger}>
         <Hamburger
@@ -55,17 +57,15 @@ function App() {
       </div>
       {/* Routes de navigation interpages */}
       <Switch>
+        {/* BackgroundProvider vient prendre des infos pour maj du background sur category.jsx */}
+
         <Route exact path="/" component={Home} />
-        <Route exact path="/category" component={Category} />
+        <Route exact path="/category/:cat" component={Category} />
         <Route exact path="/aboutus" component={AboutUs} />
         <Route exact path="/mylist" component={MyList} />
-        {/* Temporary Route START */}
-        <Route exact path="/login" component={SignIn} />
-        <Route exact path="/register" component={SignUp} />
-        {/* <Route exact path="/logout" component={SignUp} /> */}
-        {/* Temporary Route END */}
         <Route component={Error404} />
       </Switch>
+      <ItemModal />
     </>
   );
 }
