@@ -1,17 +1,25 @@
 import React, { useState, useEffect } from "react";
 // import "../styles/SearchBar.css";
 import "../styles/SearchBar.scss";
-import { tmdbSearchMovies } from "../services/TheMovieDbFunctions";
+import {
+  tmdbSearchMovies,
+  tmdbMovieInfos,
+} from "../services/TheMovieDbFunctions";
 import ListSearch from "./ListSearch";
 
 const SearchBar = () => {
   // states
   const [search, setSearch] = useState("");
   const [listTitle, setListTitle] = useState([]);
-  const [searchById, setSearchById] = useState(null);
-  console.log(searchById);
+  const [infosMovie, setInfosMovie] = useState({});
 
-  // fonction qui appelle toutes les infos du film en fonction de l'id récupéré (searchById);CONTINUER ICI------
+  // fonction qui appelle toutes les infos du film en fonction de l'id récupéré
+
+  async function getInfosMovie(id) {
+    const result = await tmdbMovieInfos(id);
+    setInfosMovie(result);
+    console.log(infosMovie);
+  }
 
   useEffect(() => {
     // fonction qui recherche un titre de film
@@ -27,7 +35,7 @@ const SearchBar = () => {
               /* recuperation des id au click sur les li */
               key={res.id}
               onClick={() => {
-                setSearchById(res.id);
+                getInfosMovie(res.id);
               }}
               role="presentation"
             >
