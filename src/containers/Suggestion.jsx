@@ -7,6 +7,7 @@ import "../styles/starRate.css";
 import { SignContext } from "../contexts/SignContext";
 import { AuthContext } from "../contexts/AuthContext";
 import SlideImg from "../assets/images/westworlded.jpg";
+import { updateMovie } from "../services/FirebaseRealtimeDatabase";
 
 const Suggestion = ({ refValue }) => {
   const signinContext = useContext(SignContext);
@@ -14,19 +15,30 @@ const Suggestion = ({ refValue }) => {
 
   const [rating, setRating] = useState(0);
 
-  const handleAddToMyList = () => {
-    if (authContext.isLogged) {
-      // Ajouter a MaList
-    } else {
-      // Demander de se connecter
-      signinContext.showSignIn();
+  const handleAddToMyList = async () => {
+    try {
+      if (authContext.isLogged) {
+        // Ajouter a MaList
+        await updateMovie(460458);
+      } else {
+        // Demander de se connecter
+        signinContext.showSignIn();
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
   const handleRating = (value) => {
     setRating(value);
     // si connecter enregistrer le rating
-    // sinon pas enregistrer
+    if (authContext.isLogged) {
+      // Connected
+    }
+    // Sinon pas enregistrer
+    else {
+      // not connected
+    }
   };
 
   return (

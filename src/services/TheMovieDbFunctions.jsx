@@ -160,7 +160,12 @@ export const tmdbMovieInfos = async (id) => {
   try {
     const { data } = await apiBaseUrl.get(`/movie/${id}`);
     const date = data.release_date.split("-").map((d) => parseInt(d, 10));
-    const dateObj = { year: date[0], month: date[1], day: date[2] };
+    const dateObj = {
+      year: date[0],
+      month: date[1],
+      day: date[2],
+      base: data.release_date,
+    };
     let len = new Date(data.runtime * 60 * 1000)
       .toISOString()
       .substr(11, 8)
@@ -170,16 +175,17 @@ export const tmdbMovieInfos = async (id) => {
       hours: len[0],
       minutes: len[1],
       seconds: len[2],
+      base: data.runtime,
     };
 
     const resFiltered = {
       id: data.id,
-      title: data.title,
-      synopsis: data.overview,
-      genres: data.genres.map((g) => g.name),
-      duration: len,
-      date: dateObj,
-      author: await tmdbMovieCredits(data.id),
+      title: data.title || "Not defined",
+      synopsis: data.overview || "Not defined",
+      genres: data.genres.map((g) => g.name) || ["Not defined"],
+      duration: data.runtime ? len : null,
+      date: dateObj || "Not defined",
+      author: (await tmdbMovieCredits(data.id)) || "Not defined",
       providers: await tmdbMovieProviders(data.id),
       trailer: await tmdbMovieVideos(data.id),
       poster: imageBaseUrl(
