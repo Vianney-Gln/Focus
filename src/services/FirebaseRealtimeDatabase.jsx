@@ -75,3 +75,55 @@ export const deleteMovie = async (movieid) => {
     return err;
   }
 };
+
+/*  WIP  */
+
+export const getListofMyList = async (userID) => {
+  try {
+    const snapshot = await get(child(ref(Database), `users/user_${userID}`));
+    if (snapshot.exists()) {
+      return snapshot.val();
+    }
+    return null;
+  } catch (err) {
+    return err;
+  }
+};
+
+export const addMovieToMyList = async (userID, movieID) => {
+  try {
+    await set(ref(Database, `users/user_${userID}`), {
+      watch: false,
+      movie_id: movieID,
+    });
+    return console.log("Normaly Added ?");
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
+};
+
+export const updateUserMyList = async (userID, movieID, watch) => {
+  try {
+    console.log(movieID);
+    const post = {
+      watch,
+    };
+    await update(ref(Database, `users/user_${userID}`), post);
+    return console.log("Normaly Updated ?");
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
+};
+
+export const removeFromMyList = async (userID, movieID) => {
+  try {
+    console.log(movieID);
+    await remove(ref(Database, `users/user_${userID}`));
+    return console.log("Normaly Removed ?");
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
+};
