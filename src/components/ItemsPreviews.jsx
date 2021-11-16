@@ -1,10 +1,20 @@
 import "../styles/itemsPreviews.css";
-import React from "react";
+import React, { useContext } from "react";
 import ImageItemPreviews from "./ImageItemPreviews";
+import { ModalContext } from "../contexts/ModalContext";
 
-function ItemsPreviews({ data }) {
+function ItemsPreviews({ data, id }) {
+  const modalContext = useContext(ModalContext);
   return (
-    <div className="preview-items">
+    <div
+      /* le modal apparait au clique sur la vignette et son contenu se met à jour en fonction de l'id du film */
+      onClick={() => {
+        modalContext.getInfosMovie(id);
+        modalContext.setModalIsOpenToTrue();
+      }}
+      role="presentation"
+      className="preview-items"
+    >
       <div className="container-image">
         <ImageItemPreviews source={data.image} />
       </div>

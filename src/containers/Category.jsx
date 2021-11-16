@@ -51,7 +51,7 @@ const Category = () => {
       const data = await fetchFunction();
       console.log(data);
       const map = data.map((datamovie) => (
-        <ItemsPreviews key={datamovie.id} data={datamovie} />
+        <ItemsPreviews key={datamovie.id} data={datamovie} id={datamovie.id} />
       ));
       setMovies(map);
     };
