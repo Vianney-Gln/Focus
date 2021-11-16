@@ -25,9 +25,9 @@ const SignIn = () => {
       if (user) {
         authContext.setUserID(user.uid);
         authContext.setIsLogged(true);
-        signContext.hideSignIn();
         setEmail("");
         setPassword("");
+        signContext.hideSignIn();
       } else {
         setEmail("");
         setPassword("");
