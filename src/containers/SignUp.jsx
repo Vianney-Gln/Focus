@@ -6,9 +6,11 @@ import "../styles/SignUp.scss";
 
 import { createUser } from "../services/FirebaseUserFunctions";
 import { SignContext } from "../contexts/SignContext";
+import { AuthContext } from "../contexts/AuthContext";
 
 const SignUp = () => {
   const signContext = useContext(SignContext);
+  const authContext = useContext(AuthContext);
   /**
    * Password verification
    */
@@ -98,10 +100,12 @@ const SignUp = () => {
         throw new Error("Your password does not meet the criteria");
       } else {
         const user = await createUser(email, password);
+        authContext.setUserID(user.uid);
+        authContext.setIsLogged(true);
         setEmail("");
         setPassword("");
         setPasswordConfirm("");
-        console.log("User Created :", user);
+        signContext.hideSignUp();
       }
     } catch (error) {
       console.log(error);
