@@ -151,6 +151,20 @@ const getLoggedUser = async () => {
   }
 };
 
+/**
+ * Check if user is logged or not
+ * Not a promise function
+ * @returns currentUser or false
+ */
+const getLoggedUserSync = () => {
+  onAuthStateChangedNoPromise(auth, (user) => {
+    if (user) {
+      return user;
+    }
+    return false;
+  });
+};
+
 export {
   createUser,
   loginUser,
@@ -159,4 +173,5 @@ export {
   reloginUser,
   updateUserPassword,
   getLoggedUser,
+  getLoggedUserSync,
 };

@@ -14,7 +14,7 @@ import BurgerContext from "./contexts/BurgerContext";
 import SignIn from "./containers/SignIn";
 import SignUp from "./containers/SignUp";
 import { AuthContext } from "./contexts/AuthContext";
-import { getLoggedUser } from "./services/FirebaseUserFunctions";
+import { getLoggedUserSync } from "./services/FirebaseUserFunctions";
 
 function App() {
   const burgerContext = useContext(BurgerContext);
@@ -24,7 +24,7 @@ function App() {
     (async () => {
       try {
         if (authContext.isLogged) return null;
-        const userCredentials = await getLoggedUser();
+        const userCredentials = getLoggedUserSync();
         if (userCredentials) {
           authContext.setUserID(userCredentials.uid);
           return authContext.setIsLogged(true);
