@@ -153,6 +153,10 @@ const getLoggedUser = async () => {
   }
 };
 
+/**
+ * Look is user is logged and launch callback function
+ * @param {function} callback Callback Function
+ */
 const onAuth = (callback) => {
   onAuthStateChangedNoPromise(auth, (user) => callback(user));
 };
