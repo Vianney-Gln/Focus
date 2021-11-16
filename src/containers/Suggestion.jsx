@@ -77,7 +77,7 @@ const Suggestion = ({ data }) => {
                 {data ? data.date.year : "Not documented"}
               </div>
               <div className="movie-duration">
-                {data
+                {data && data.duration
                   ? `${data.duration.hours}h ${data.duration.minutes}`
                   : "Not documented"}
               </div>
