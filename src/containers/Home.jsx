@@ -17,6 +17,7 @@ import useOnScreen from "../hooks/useOnScreen";
 import { SignInContext } from "../contexts/SignInContext";
 import { AuthContext } from "../contexts/AuthContext";
 import { suggestionFetch } from "../services/TheMovieDbFunctions";
+import Player from "./Player";
 
 const Home = () => {
   // récupération du contexte
@@ -104,6 +105,7 @@ const Home = () => {
       const mapNowPlaying = data.nowplaying.map((datanowplaying) => (
         <Suggestion key={datanowplaying.id} data={datanowplaying} />
       ));
+
       setUpcoming(mapUpcomming[0]);
       setPopular(mapPopular[0]);
       setNowPlaying(mapNowPlaying[0]);
@@ -111,12 +113,10 @@ const Home = () => {
     run();
   }, []);
 
-  const handleSlideUp = () => {
-    setUpcoming(!upcoming);
-  };
   return (
     <main className="Containerhome">
       {/* Top Menu */}
+      <Player />
       <header className="navBar">
         <div className="navFixe">
           <Logo scrollTo={() => executeScroll(prehomeref)} />
@@ -218,9 +218,6 @@ const Home = () => {
       {/* 3 Suggestion page */}
       <section className="upcoming" ref={suggestion1ref}>
         {upcoming}
-        <button type="button" onClick={handleSlideUp}>
-          😃
-        </button>
       </section>
       <section className="popular" ref={suggestion2ref}>
         {popular}

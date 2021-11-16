@@ -8,6 +8,7 @@ import { SignInContext } from "../contexts/SignInContext";
 import { AuthContext } from "../contexts/AuthContext";
 
 import SlideImg from "../assets/images/westworlded.jpg";
+import PlayerContext from "../contexts/PlayerContext";
 
 const Suggestion = ({ data }) => {
   const signinContext = useContext(SignInContext);
@@ -29,6 +30,8 @@ const Suggestion = ({ data }) => {
     // sinon pas enregistrer
   };
 
+  const playerContext = useContext(PlayerContext);
+
   return (
     <>
       {/* <BackgroundImage /> */}
@@ -45,7 +48,11 @@ const Suggestion = ({ data }) => {
                   src={data ? data.background : SlideImg}
                   alt="slideimg"
                 />
-                <button type="button" className="btn-fleche-slideShow">
+                <button
+                  type="button"
+                  className="btn-fleche-slideShow"
+                  onClick={playerContext.handlePlayer}
+                >
                   <i className="icon-play" />
                 </button>
               </div>
