@@ -1,17 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 // import "../styles/SearchBar.css";
 import "../styles/SearchBar.scss";
 import { tmdbSearchMovies } from "../services/TheMovieDbFunctions";
 import ListSearch from "./ListSearch";
+import { ModalContext } from "../contexts/ModalContext";
 
 const SearchBar = () => {
   // states
   const [search, setSearch] = useState("");
   const [listTitle, setListTitle] = useState([]);
-  const [searchById, setSearchById] = useState(null);
-  console.log(searchById);
-
-  // fonction qui appelle toutes les infos du film en fonction de l'id récupéré (searchById);CONTINUER ICI------
+  const modalContext = useContext(ModalContext);
 
   useEffect(() => {
     // fonction qui recherche un titre de film
@@ -27,7 +25,8 @@ const SearchBar = () => {
               /* recuperation des id au click sur les li */
               key={res.id}
               onClick={() => {
-                setSearchById(res.id);
+                modalContext.setModalIsOpenToTrue();
+                modalContext.getInfosMovie(res.id);
               }}
               role="presentation"
             >
@@ -64,7 +63,7 @@ const SearchBar = () => {
           <i className="fa fa-search" />
         </button>
       </div>
-      <ListSearch listTitle={listTitle} search={search} />
+      <ListSearch listTitle={listTitle} search={search} setSearch={setSearch} />
     </>
   );
 };

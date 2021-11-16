@@ -4,16 +4,29 @@ import { Rating } from "react-simple-star-rating";
 import { SignContext } from "../contexts/SignContext";
 import { AuthContext } from "../contexts/AuthContext";
 import { updateMovie } from "../services/FirebaseRealtimeDatabase";
+import { ModalContext } from "../contexts/ModalContext";
 // import { ItemsPreviews } from "../components";
 // import westworlded from "../assets/images/westworlded.jpg";
-import imgNet from "../assets/images/netflix.png";
-import imgCanal from "../assets/images/canal.png";
+// import imgNet from "../assets/images/netflix.png";
+// import imgCanal from "../assets/images/canal.png";
 import "../styles/itemModal.css";
 
-const ItemModal = ({ data }) => {
+const ItemModal = () => {
   const signinContext = useContext(SignContext);
   const authContext = useContext(AuthContext);
   const [rating, setRating] = useState(0);
+  const modalContext = useContext(ModalContext);
+  Modal.setAppElement("#root");
+
+  // récupération des icones plateformes
+  let icones;
+  if (modalContext.infosMovie.providers) {
+    icones = modalContext.infosMovie.providers.map((icon) => (
+      <img src={icon.img} alt={icon.providers} title={icon.providers} />
+    ));
+  }
+
+  console.log(icones);
 
   const handleAddToMyList = async () => {
     try {
@@ -33,7 +46,7 @@ const ItemModal = ({ data }) => {
   const handleRating = (value) => {
     setRating(value);
   };
-  // Modal Toggle Open/Closed
+  /* Modal Toggle Open/Closed
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const setModalIsOpenToTrue = () => {
     setModalIsOpen(true);
@@ -41,28 +54,32 @@ const ItemModal = ({ data }) => {
   const setModalIsOpenToFalse = () => {
     setModalIsOpen(false);
   };
+  CE CODE EST DANS MODALCONTEXT
+  */
 
   return (
     <div className="itemModal">
-      <button type="button" onClick={setModalIsOpenToTrue}>
+      {/* <button type="button" onClick={setModalIsOpenToTrue}>
         Open Modal
-      </button>
+      </button> */}
       <Modal
         portalClassName="itemModal"
         className="itemModal"
         overlayClassName="modalOverlay"
-        isOpen={modalIsOpen}
-        onRequestClose={() => setModalIsOpen(false)}
+        isOpen={modalContext.modalIsOpen}
+        onRequestClose={() => {
+          modalContext.setModalIsOpen(false);
+        }}
       >
         <main className="modalContent">
           <div className="top-thumbnail">
-            <img src={data ? data.background : "no image"} alt="" />
-            <h1>{data ? data.title : "Not documented"}</h1>
+            <img src={modalContext.infosMovie.background} alt="" />
+            {/* <h1>{modalContext.infosMovie.title}</h1> */}
             <a
               href="#close"
               title="Close"
               className="close"
-              onClick={setModalIsOpenToFalse}
+              onClick={modalContext.setModalIsOpenToFalse}
             >
               X
             </a>
@@ -70,15 +87,15 @@ const ItemModal = ({ data }) => {
           <div className="bottom-infos">
             <div className="bottom-infos-grid">
               <div className="bottom-infos-grid-creators">
-                {data ? data.author : "Not documented"}
+                {modalContext.infosMovie.title}
               </div>
               <div className="bottom-infos-grid-date">
-                {data ? data.date.year : "Not documented"}
+                {modalContext.infosMovie.date &&
+                  `${modalContext.infosMovie.date.year}`}
               </div>
               <div className="bottom-infos-grid-length">
-                {data
-                  ? `${data.duration.hours}h ${data.duration.minutes}`
-                  : "Not documented"}
+                {modalContext.infosMovie.duration &&
+                  `${modalContext.infosMovie.duration.hours}h ${modalContext.infosMovie.duration.minutes} min`}
               </div>
               <div className="bottom-infos-grid-starRater">
                 <Rating onClick={handleRating} ratingValue={rating} />
@@ -95,12 +112,9 @@ const ItemModal = ({ data }) => {
                   <i className="icon-plus" /> Add to my list
                 </button>
               </div>
-              <div className="bottom-infos-grid-platforms">
-                <img src={imgNet} alt="Netflix" />
-                <img src={imgCanal} alt="Canal+" />
-              </div>
+              <div className="bottom-infos-grid-platforms">{icones}</div>
               <div className="bottom-infos-grid-synopsis">
-                {data ? data.synopsis : "Not documented"}
+                {modalContext.infosMovie.synopsis}
               </div>
             </div>
           </div>
