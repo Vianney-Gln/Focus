@@ -4,30 +4,56 @@ import "../styles/suggestion.scss";
 import imgNet from "../assets/images/netflix.png";
 import imgCanal from "../assets/images/canal.png";
 import "../styles/starRate.css";
-import { SignInContext } from "../contexts/SignInContext";
+import { SignContext } from "../contexts/SignContext";
 import { AuthContext } from "../contexts/AuthContext";
 
 import SlideImg from "../assets/images/westworlded.jpg";
 import PlayerContext from "../contexts/PlayerContext";
+import {
+  addMovie,
+  addMovieToMyList,
+  updateUserMyList,
+} from "../services/FirebaseRealtimeDatabase";
 
 const Suggestion = ({ data }) => {
-  const signinContext = useContext(SignInContext);
+  const signinContext = useContext(SignContext);
   const authContext = useContext(AuthContext);
   const [rating, setRating] = useState(0);
 
-  const handleAddToMyList = () => {
-    if (authContext.isLogged) {
+  const handleAddToMyList = async () => {
+    try {
       // Ajouter a MaList
-    } else {
-      // Demander de se connecter
-      signinContext.showSignIn();
+      if (authContext.isLogged) {
+        // try to add this movie to the database
+        const movieData = {
+          title: data.title || "Not documented",
+          poster: data.background || "Not documented",
+          author: data.author || "Not documented",
+          date: data.date.base || "Not documented",
+          duration: data.duration.base || "Not documented",
+        };
+        await addMovie(data.id, movieData);
+        // update to add user on movie
+        await addMovieToMyList(authContext.userID, data.id);
+      } else {
+        // Demander de se connecter
+        signinContext.showSignIn();
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
-  const handleRating = (value) => {
+  const handleRating = (value, movieID) => {
     setRating(value);
     // si connecter enregistrer le rating
-    // sinon pas enregistrer
+    if (authContext.isLogged) {
+      // Connected
+      updateUserMyList(authContext.userID, movieID, {
+        rating: value,
+      });
+    }
+    return true;
   };
 
   const playerContext = useContext(PlayerContext);
@@ -72,7 +98,7 @@ const Suggestion = ({ data }) => {
                 {data ? data.date.year : "Not documented"}
               </div>
               <div className="movie-duration">
-                {data
+                {data && data.duration
                   ? `${data.duration.hours}h ${data.duration.minutes}`
                   : "Not documented"}
               </div>
@@ -82,7 +108,10 @@ const Suggestion = ({ data }) => {
             </div>
             <div className="movie-mores">
               <div className="movie-rating">
-                <Rating onClick={handleRating} ratingValue={rating} />
+                <Rating
+                  onClick={(value) => handleRating(value, data.id)}
+                  ratingValue={rating}
+                />
               </div>
               <button
                 className="movie-addtomylist"

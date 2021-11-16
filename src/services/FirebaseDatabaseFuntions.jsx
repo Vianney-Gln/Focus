@@ -28,8 +28,14 @@ const getIntoDb = async () => {
  * @returns Boolean
  */
 const postIntoDb = async (newData) => {
-  await addDoc(myListCollection, newData);
-  return true;
+  try {
+    console.log(myListCollection);
+    await addDoc(myListCollection, newData);
+    console.log("???");
+    return true;
+  } catch (error) {
+    return console.log(error);
+  }
 };
 
 /**

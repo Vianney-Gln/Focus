@@ -1,38 +1,19 @@
-/******* itemModal CSS begins *******/
+/*/////////////////////////////////////////   itemModal CSS begins  ///////////////////////////////////////////////*/
 
-/* Close Button */
-.itemModal .button-close {
-  color: #fff;
-  background:none;
-  border: none;
-  font-size: 35px;
-  z-index: 1;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 8%;
-  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.6);
-  cursor: pointer;
-  transition: 0.5s;
-}
-.itemModal .button-close:hover {
-  color: #000;
-}
-.itemModal .button-close:active {
-  transform: translateY(3px);
-  transition: transform 0.15s;
-}
-
-/* Modal Content */
-.itemModal {
-  margin: 0 auto;
+/*////////// Modal Overlay ///////*/
+.itemModal .modalOverlay {
+  margin: 5% auto;
   padding: 5px;
-  margin-bottom: 3em;
   border: 2px solid #fff;
   border-radius: 3px;
   width: 800px;
+}
+
+.itemModal .modalContent {
   height: 600px;
 }
+/*////////// Modal Content - TOP part ///////*/
+
 .itemModal .top-thumbnail {
   height: 70%;
   position: relative;
@@ -41,31 +22,42 @@
   object-fit: cover;
   width: 100%;
   height: 100%;
+  background-color: #000;
 }
 .itemModal .top-thumbnail h1 {
   font-size: 60px;
   letter-spacing: 0;
-  z-index: 1;
   position: relative;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
   top: -100%;
-  width: 96%;
+  left: 2%;
+  width: 90%;
 }
-
+.itemModal .top-thumbnail .close {
+  text-decoration: none;
+  color: #fff;
+  font-size: 35px;
+  position: relative;
+  left: 96%;
+  top: -115%;
+  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.6);
+  transition: 0.5s;
+}
+.itemModal .close:hover {
+  color: #000;
+}
 .itemModal .bottom-infos {
+  height: 30%;
   font-size: 16px;
   font-weight: 200;
-  height: 30%;
   background-color: #313131;
 }
+/*////////// Modal Content - BOTTOM part ///////*/
 .itemModal .bottom-infos-grid {
   display: grid;
   grid-gap: 5px;
   padding: 8px;
-  grid-template-columns: 25% 10% 15% 48%;
-  grid-template-rows: 26px 32px 94px;
+  grid-template-columns: 20% 16% 16% 46%;
+  grid-template-rows: 36px 26px 94px;
 }
 .itemModal .bottom-infos-grid-creators {
   grid-column-start: 1;
@@ -84,8 +76,7 @@
   grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 1;
-  text-align: right;
-  padding-right: 10px;
+  text-align: left;
 }
 .itemModal .bottom-infos-grid-starRater {
   grid-column-start: 1;
@@ -106,42 +97,21 @@
   -webkit-text-stroke: 2px #313131;
   vertical-align: middle;
 }
-.itemModal .bottom-infos-grid-addToMyList .btn-plus {
-  font-size: 38px;
-}
-.itemModal .bottom-infos-grid-addToMyList span {
-
-  position: relative;
-  top:-6px;
-  left:8px;
-}
 .itemModal .bottom-infos-grid-addToMyList {
   grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 3;
   grid-row-end: 3;
   padding-top: 40px;
+}
+.itemModal .bottom-infos-grid-addToMyList .btn-addToMyList {
   font-size: 18px;
-
-}
-.itemModal .bottom-infos-grid-addToMyList .btn-common {
-  font-size: 16px;
-  padding: 8px 10px 8px 10px;
-  transition: 0.5s;
-  border-top-left-radius: 0%;
-  border-bottom-left-radius: 0%;
-}
-.itemModal .bottom-infos-grid-addToMyList .btn-common i {
-  font-size: 16px;
-  padding: 0px 8px 0px 0px;
-}
-.itemModal .bottom-infos-grid-addToMyList .btn-common:hover {
-  border: 2px solid #000;
-  border-left: 2px solid #fff;
-}
-.itemModal .bottom-infos-grid-addToMyList .btn-common:active {
-  transform: translateY(3px);
-  transition: transform 0.15s;
+  font-weight: 200;
+  font-family: inherit;
+  border: none;
+  background: none;
+  color: #fff;
+  cursor: pointer;
 }
 .itemModal .bottom-infos-grid-platforms {
   grid-column-start: 2;
@@ -150,6 +120,12 @@
   grid-row-end: 3;
   overflow: hidden;
 }
+.itemModal .bottom-infos-grid-platforms img {
+  height: 20px;
+  width: auto;
+  object-fit: contain;
+  margin: 5px;
+}
 .itemModal .bottom-infos-grid-synopsis {
   grid-column-start: 4;
   grid-column-end: 4;
@@ -157,45 +133,18 @@
   grid-row-end: 4;
   overflow-y: auto;
 }
-  /******* Mobile *******/
-@media screen and (max-width: 768px) {
-  .itemModal .button-close {
-    font-size: 36px;
-    right: 5px;
-    top: 0;
-    width: 8%;
-  }
-  .itemModal {
-    width: 100%;
-    padding: 20px 0 0 0;
+/*/////////////////////////////////////////         TABLET      ///////////////////////////////////////////////*/
+@media screen and (max-width: 800px) {
+  .itemModal .modalOverlay {
+    margin: 7% auto;
     border: none;
-  }
-  .itemModal .top-thumbnail {
-    height: 500px;
-  }
-  .itemModal .top-thumbnail img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-  }
-  .itemModal .top-thumbnail h1 {
-    position: relative;
-    left: -45px;
-    right: 0;
-    top: -99%;
-    width: 100%;
-    font-size: 28px;
+    width: 760px;
   }
   .itemModal .bottom-infos {
-    font-size: 16px;
     height: auto;
-    background-color: #313131;
-    padding: 8px;
+    padding: 10px;
   }
   .itemModal .bottom-infos-grid {
-    display: grid;
-    grid-gap: 5px;
-    padding: 5px;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto auto auto auto auto;
   }
@@ -226,37 +175,26 @@
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 1;
-    padding-top: 10px;
-    font-size: 20px;;
+    text-align: right;
   }
   .itemModal .bottom-infos-grid-availableOn {
-    grid-column-start: 2;
+    grid-column-start: 1;
     grid-column-end: 4;
     grid-row-start: 6;
     grid-row-end: 6;
-    padding-top: 10px;
-    padding-left: 0px;
-    font-size: 18px;
-  }
-  .itemModal .bottom-infos-grid-availableOn i {
-    font-size: 28px;
-    -webkit-text-stroke: 2px #313131;
-    vertical-align: middle;
   }
   .itemModal .bottom-infos-grid-addToMyList {
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 1;
-    margin-left: 0px;
-    padding-top:0px;
+    padding-top: 0px;
   }
   .itemModal .bottom-infos-grid-platforms {
     grid-column-start: 1;
     grid-column-end: 4;
     grid-row-start: 7;
     grid-row-end: 7;
-    padding-top: 10px;
     overflow: hidden;
     display: inline;
   }
@@ -269,9 +207,21 @@
     padding-bottom: 10px;
     border-top: 2px solid #7e7e7e;
     border-bottom: 2px solid #7e7e7e;
-    overflow-y: auto;
+  }
+}
+/*/////////////////////////////////////////         MOBILE     ///////////////////////////////////////////////*/
+@media screen and (max-width: 500px) {
+  .itemModal .modalOverlay {
+    width: auto;
+  }
+  .itemModal .top-thumbnail h1 {
+    font-size: 30px;
+    letter-spacing: 0;
+    position: relative;
+    top: -100%;
+    left: 10px;
+    width: 85%;
   }
 }
 
-  /******* itemModal CSS ends *******/
-
+/*/////////////////////////////////////////   itemModal CSS ends  ///////////////////////////////////////////////*/

@@ -13,8 +13,8 @@ import "../styles/home.scss";
 import BurgerContext from "../contexts/BurgerContext";
 
 import tempImage from "../assets/images/westworlded.jpg";
-import useOnScreen from "../hooks/useOnScreen";
-import { SignInContext } from "../contexts/SignInContext";
+import UseOnScreen from "../hooks/UseOnScreen";
+import { SignContext } from "../contexts/SignContext";
 import { AuthContext } from "../contexts/AuthContext";
 import { suggestionFetch } from "../services/TheMovieDbFunctions";
 import Player from "./Player";
@@ -23,7 +23,7 @@ const Home = () => {
   // récupération du contexte
   // Achaque clique sur les links de cette page le burger s'affiche
   const burgerContext = useContext(BurgerContext);
-  const signinContext = useContext(SignInContext);
+  const signinContext = useContext(SignContext);
   const authContext = useContext(AuthContext);
 
   /**
@@ -69,9 +69,9 @@ const Home = () => {
   /**
    * Test visibility of element by 50%
    */
-  const suggestion1IsVisible = useOnScreen(suggestion1ref);
-  const suggestion2IsVisible = useOnScreen(suggestion2ref);
-  const suggestion3IsVisible = useOnScreen(suggestion3ref);
+  const suggestion1IsVisible = UseOnScreen(suggestion1ref);
+  const suggestion2IsVisible = UseOnScreen(suggestion2ref);
+  const suggestion3IsVisible = UseOnScreen(suggestion3ref);
 
   /**
    * custom link to category changed by the 3rd section
@@ -232,14 +232,17 @@ const Home = () => {
       {/* Footer */}
       <section className="footer" ref={footerref}>
         <ul className="footercategory">
-          <Link onClick={burgerContext.displayBurger} to="/category">
+          <Link onClick={burgerContext.displayBurger} to="/category/upcoming">
             <li className="footeritem">UPCOMING</li>
           </Link>
-          <Link onClick={burgerContext.displayBurger} to="/category">
-            <li className="footeritem">TOP RATED</li>
+          <Link onClick={burgerContext.displayBurger} to="/category/popular">
+            <li className="footeritem">POPULAR</li>
           </Link>
-          <Link onClick={burgerContext.displayBurger} to="/category">
-            <li className="footeritem">LATEST</li>
+          <Link
+            onClick={burgerContext.displayBurger}
+            to="/category/now-playing"
+          >
+            <li className="footeritem">NOW PLAYING</li>
           </Link>
           <Link
             to={authContext.isLogged ? "/mylist" : "/"}

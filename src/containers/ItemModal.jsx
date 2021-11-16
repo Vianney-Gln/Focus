@@ -1,61 +1,127 @@
-import React from "react";
-import westworlded from "../assets/images/westworlded.jpg";
-import "../styles/index.css";
+import React, { useContext, useState } from "react";
+import Modal from "react-modal";
+import { Rating } from "react-simple-star-rating";
+import { SignContext } from "../contexts/SignContext";
+import { AuthContext } from "../contexts/AuthContext";
+import { updateMovie } from "../services/FirebaseRealtimeDatabase";
+import { ModalContext } from "../contexts/ModalContext";
+// import { ItemsPreviews } from "../components";
+// import westworlded from "../assets/images/westworlded.jpg";
+// import imgNet from "../assets/images/netflix.png";
+// import imgCanal from "../assets/images/canal.png";
 import "../styles/itemModal.css";
-import "../styles/itemsPreviews.css";
 
-const ItemModal = () => (
-  <div className="itemModal">
-    <div className="top-thumbnail">
-      {/* <ItemsPreviews /> */}
-      <img src={westworlded} alt="" />
-      <h1>westworld</h1>
-      <button className="button-close" type="button">
-        X
-      </button>
-    </div>
-    <div className="bottom-infos">
-      <div className="bottom-infos-grid">
-        <div className="bottom-infos-grid-creators">
-          Lisa Joy & Jonathan Nolan
-        </div>
-        <div className="bottom-infos-grid-date">2016</div>
-        <div className="bottom-infos-grid-length">3 Seasons</div>
-        <div className="bottom-infos-grid-starRater">
-          <i className="fa fa-star-o" aria-hidden="true" />
-          <i className="fa fa-star" aria-hidden="true" />
-          <i className="fa fa-star" aria-hidden="true" />
-          <i className="fa fa-star" aria-hidden="true" />
-          <i className="fa fa-star" aria-hidden="true" />
+const ItemModal = () => {
+  const signinContext = useContext(SignContext);
+  const authContext = useContext(AuthContext);
+  const [rating, setRating] = useState(0);
+  const modalContext = useContext(ModalContext);
+  Modal.setAppElement("#root");
 
-          {/* <StarRater /> */}
-        </div>
-        <div className="bottom-infos-grid-availableOn">
-          Available On <i className="fa fa-play-circle-o" />
-        </div>
-        <div className="bottom-infos-grid-addToMyList">
-          <button className="button-plus" type="button">
-            +
-          </button>
-          <span>Add to my list</span>
-        </div>
-        <div className="bottom-infos-grid-platforms" />
-        <div className="bottom-infos-grid-synopsis">
-          In the 2050s, Delos Inc. operates several theme parks, including the
-          American-Old-West-themed Westworld. Each environment is populated by
-          hosts. Indistinguishable from humans, these androids are programmed to
-          fulfill the guests every desire. They will engage in—and be the
-          objects of—every kind of violent and/or sexual activity, but their
-          programming makes it impossible for them to allow the guests to be
-          harmed. The Operators create narratives for these hosts to repeat each
-          day while interacting with guests, but they wipe their memories each
-          cycle. Delos Inc. party line is that the android hosts, being
-          machines, can not be harmed by these scenarios the same way that a
-          human would be.{" "}
-        </div>
-      </div>
+  // récupération des icones plateformes
+  let icones;
+  if (modalContext.infosMovie.providers) {
+    icones = modalContext.infosMovie.providers.map((icon) => (
+      <img src={icon.img} alt={icon.providers} title={icon.providers} />
+    ));
+  }
+
+  console.log(icones);
+
+  const handleAddToMyList = async () => {
+    try {
+      if (authContext.isLogged) {
+        // Ajouter a MaList
+        await updateMovie(460458);
+      } else {
+        // Demander de se connecter
+        signinContext.showSignIn();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  // si connecté, enregistrer le rating
+  // sinon pas enregistrer
+  const handleRating = (value) => {
+    setRating(value);
+  };
+  /* Modal Toggle Open/Closed
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const setModalIsOpenToTrue = () => {
+    setModalIsOpen(true);
+  };
+  const setModalIsOpenToFalse = () => {
+    setModalIsOpen(false);
+  };
+  CE CODE EST DANS MODALCONTEXT
+  */
+
+  return (
+    <div className="itemModal">
+      {/* <button type="button" onClick={setModalIsOpenToTrue}>
+        Open Modal
+      </button> */}
+      <Modal
+        portalClassName="itemModal"
+        className="itemModal"
+        overlayClassName="modalOverlay"
+        isOpen={modalContext.modalIsOpen}
+        onRequestClose={() => {
+          modalContext.setModalIsOpen(false);
+        }}
+      >
+        <main className="modalContent">
+          <div className="top-thumbnail">
+            <img src={modalContext.infosMovie.background} alt="" />
+            {/* <h1>{modalContext.infosMovie.title}</h1> */}
+            <a
+              href="#close"
+              title="Close"
+              className="close"
+              onClick={modalContext.setModalIsOpenToFalse}
+            >
+              X
+            </a>
+          </div>
+          <div className="bottom-infos">
+            <div className="bottom-infos-grid">
+              <div className="bottom-infos-grid-creators">
+                {modalContext.infosMovie.title}
+              </div>
+              <div className="bottom-infos-grid-date">
+                {modalContext.infosMovie.date &&
+                  `${modalContext.infosMovie.date.year}`}
+              </div>
+              <div className="bottom-infos-grid-length">
+                {modalContext.infosMovie.duration &&
+                  `${modalContext.infosMovie.duration.hours}h ${modalContext.infosMovie.duration.minutes} min`}
+              </div>
+              <div className="bottom-infos-grid-starRater">
+                <Rating onClick={handleRating} ratingValue={rating} />
+              </div>
+              <div className="bottom-infos-grid-availableOn">
+                Available On <i className="fa fa-play-circle-o" />
+              </div>
+              <div className="bottom-infos-grid-addToMyList">
+                <button
+                  className="btn-addToMyList"
+                  type="button"
+                  onClick={handleAddToMyList}
+                >
+                  <i className="icon-plus" /> Add to my list
+                </button>
+              </div>
+              <div className="bottom-infos-grid-platforms">{icones}</div>
+              <div className="bottom-infos-grid-synopsis">
+                {modalContext.infosMovie.synopsis}
+              </div>
+            </div>
+          </div>
+        </main>
+      </Modal>
     </div>
-  </div>
-);
+  );
+};
 
 export default ItemModal;
