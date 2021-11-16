@@ -3,24 +3,14 @@ import { realtimeDb as Database } from "./Firebase";
 
 /**
  * Add a movie to Database
+ * @param {object} data {data, poster, author, date, duration}
  * @param {number} id Movie ID
- * @param {string} title Movie Title
- * @param {string} image Movie Poster or Baskdrop
- * @param {string} author Movie Author / Director
- * @param {string} date Movie Release Date
- * @param {number} duration Movie Duration
  * @returns Actually nothing
  */
-export const writeMovie = async (id, title, image, author, date, duration) => {
+export const addMovie = async (id, data) => {
   try {
-    await set(ref(Database, `movies/movie_${id}`), {
-      title,
-      poster: image,
-      author,
-      date,
-      duration,
-    });
-    return console.log("Normaly Added ?");
+    await set(ref(Database, `movies/${id}`), data);
+    return true;
   } catch (err) {
     console.log(err);
     return err;
@@ -53,7 +43,7 @@ export const updateMovie = async (movieid) => {
     const post = {
       title: "That was Edited bruda",
     };
-    await update(ref(Database, `movies/movie_${movieid}`), post);
+    await update(ref(Database, `movies/${movieid}`), post);
     return console.log("Normaly Updated ?");
   } catch (err) {
     console.log(err);
@@ -68,7 +58,7 @@ export const updateMovie = async (movieid) => {
  */
 export const deleteMovie = async (movieid) => {
   try {
-    await remove(ref(Database, `movies/movie_${movieid}`));
+    await remove(ref(Database, `movies/${movieid}`));
     return console.log("Normaly Removed ?");
   } catch (err) {
     console.log(err);
@@ -80,9 +70,35 @@ export const deleteMovie = async (movieid) => {
 
 export const getListofMyList = async (userID) => {
   try {
-    const snapshot = await get(child(ref(Database), `users/user_${userID}`));
+    const snapshot = await get(child(ref(Database), `movies`));
     if (snapshot.exists()) {
-      return snapshot.val();
+      const res = [];
+      snapshot.forEach((snap) => {
+        const val = snap.val();
+        // look if val has a key USERID
+        if (Object.prototype.hasOwnProperty.call(val, userID)) {
+          val.id = parseInt(snap.key, 10);
+          // Rename USERID to "user" as a key (short anwser)
+          delete Object.assign(val, { user: val[userID] })[userID];
+          res.push(val);
+        }
+      });
+      return res;
+    }
+    return null;
+  } catch (err) {
+    return err;
+  }
+};
+export const getMovieofMyList = async (userID, movieID) => {
+  try {
+    const snapshot = await get(child(ref(Database), `movies/${movieID}`));
+    if (snapshot.exists()) {
+      const val = snapshot.val();
+      if (Object.prototype.hasOwnProperty.call(val, userID)) {
+        val.id = movieID;
+        return val;
+      }
     }
     return null;
   } catch (err) {
@@ -92,9 +108,9 @@ export const getListofMyList = async (userID) => {
 
 export const addMovieToMyList = async (userID, movieID) => {
   try {
-    await set(ref(Database, `users/user_${userID}`), {
+    await set(ref(Database, `movies/${movieID}/${userID}`), {
       watch: false,
-      movie_id: movieID,
+      rating: null,
     });
     return console.log("Normaly Added ?");
   } catch (err) {
@@ -103,13 +119,9 @@ export const addMovieToMyList = async (userID, movieID) => {
   }
 };
 
-export const updateUserMyList = async (userID, movieID, watch) => {
+export const updateUserMyList = async (userID, movieID, data) => {
   try {
-    console.log(movieID);
-    const post = {
-      watch,
-    };
-    await update(ref(Database, `users/user_${userID}`), post);
+    await update(ref(Database, `movies/${movieID}/${userID}`), data);
     return console.log("Normaly Updated ?");
   } catch (err) {
     console.log(err);
@@ -119,8 +131,7 @@ export const updateUserMyList = async (userID, movieID, watch) => {
 
 export const removeFromMyList = async (userID, movieID) => {
   try {
-    console.log(movieID);
-    await remove(ref(Database, `users/user_${userID}`));
+    await remove(ref(Database, `movies/${movieID}/${userID}`));
     return console.log("Normaly Removed ?");
   } catch (err) {
     console.log(err);

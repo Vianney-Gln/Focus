@@ -6,7 +6,6 @@ import ImageItemPreviews from "./ImageItemPreviews";
 import ItemsPreviews from "./ItemsPreviews";
 import Logo from "./Logo";
 import LogoMobile from "./LogoMobile";
-import MyList from "./MyList";
 import NavHome from "./NavHome";
 import SearchBar from "./SearchBar";
 import Switch from "./Switch";
@@ -20,7 +19,6 @@ export {
   ItemsPreviews,
   Logo,
   LogoMobile,
-  MyList,
   NavHome,
   SearchBar,
   Switch,
