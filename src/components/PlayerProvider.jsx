@@ -12,6 +12,7 @@ function PlayerProvider({ children }) {
   const handlePlayer = () => {
     setPlayer(!player);
   };
+
   return (
     <PlayerContext.Provider
       value={{

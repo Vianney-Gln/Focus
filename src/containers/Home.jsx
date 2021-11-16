@@ -17,7 +17,6 @@ import UseOnScreen from "../hooks/UseOnScreen";
 import { SignContext } from "../contexts/SignContext";
 import { AuthContext } from "../contexts/AuthContext";
 import { suggestionFetch } from "../services/TheMovieDbFunctions";
-import Player from "./Player";
 
 const Home = () => {
   // récupération du contexte
@@ -116,7 +115,7 @@ const Home = () => {
   return (
     <main className="Containerhome">
       {/* Top Menu */}
-      <Player />
+
       <header className="navBar">
         <div className="navFixe">
           <Logo scrollTo={() => executeScroll(prehomeref)} />

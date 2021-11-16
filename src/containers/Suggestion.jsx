@@ -14,6 +14,7 @@ import {
   addMovieToMyList,
   updateUserMyList,
 } from "../services/FirebaseRealtimeDatabase";
+import Player from "./Player";
 
 const Suggestion = ({ data }) => {
   const signinContext = useContext(SignContext);
@@ -60,6 +61,7 @@ const Suggestion = ({ data }) => {
 
   return (
     <>
+      <Player data={data} />
       {/* <BackgroundImage /> */}
       <section className="suggestion">
         <div className="suggestion-body">
