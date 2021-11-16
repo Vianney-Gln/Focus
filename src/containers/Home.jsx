@@ -13,7 +13,7 @@ import "../styles/home.scss";
 import BurgerContext from "../contexts/BurgerContext";
 
 import tempImage from "../assets/images/westworlded.jpg";
-import useOnScreen from "../hooks/useOnScreen";
+import UseOnScreen from "../hooks/UseOnScreen";
 import { SignContext } from "../contexts/SignContext";
 import { AuthContext } from "../contexts/AuthContext";
 import { suggestionFetch } from "../services/TheMovieDbFunctions";
@@ -68,9 +68,9 @@ const Home = () => {
   /**
    * Test visibility of element by 50%
    */
-  const suggestion1IsVisible = useOnScreen(suggestion1ref);
-  const suggestion2IsVisible = useOnScreen(suggestion2ref);
-  const suggestion3IsVisible = useOnScreen(suggestion3ref);
+  const suggestion1IsVisible = UseOnScreen(suggestion1ref);
+  const suggestion2IsVisible = UseOnScreen(suggestion2ref);
+  const suggestion3IsVisible = UseOnScreen(suggestion3ref);
 
   /**
    * custom link to category changed by the 3rd section

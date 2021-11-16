@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, createContext } from "react";
 import { logoutUser } from "../services/FirebaseUserFunctions";
 
-export const AuthContext = React.createContext(null);
+export const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
   const [userID, setUserID] = useState(null);
