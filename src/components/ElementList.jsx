@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react";
 import { Rating } from "react-simple-star-rating";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+// import { faEye } from "@fortawesome/free-regular-svg-icons";
 // Contexts
 import { AuthContext } from "../contexts/AuthContext";
 // Services
@@ -32,13 +33,6 @@ const ElementList = ({ data }) => {
       return console.log(err);
     }
   }
-
-  /* fonction qui convertie le nombre de minutes en heures + minutes */
-  const hours = (nbrMinutes) => {
-    const nbrHours = (nbrMinutes / 60).toFixed(0);
-    const minutes = (nbrMinutes % 60).toFixed(0);
-    return `${nbrHours}h${minutes}`;
-  };
 
   // State for rating, interact with function at bottom
   const [rating, setRating] = useState(data.user.rating);
@@ -79,6 +73,43 @@ const ElementList = ({ data }) => {
     }
   };
 
+  const parseDuration = (time) => {
+    let len = new Date(parseInt(time, 10) * 60 * 1000)
+      .toISOString()
+      .substr(11, 8)
+      .split(":")
+      .map((n) => parseInt(n, 10));
+    len = {
+      hours: len[0],
+      minutes: len[1],
+      seconds: len[2],
+      base: time,
+    };
+    // Seconds
+    if (len.seconds !== 0) {
+      if (len.minutes > 1) {
+        len.seconds = `${len.seconds.toString().padStart(2, "0")}s`;
+      } else {
+        len.seconds = `${len.seconds}s`;
+      }
+    } else {
+      len.seconds = "";
+    }
+    // Minutes
+    if (len.hours > 1) {
+      len.minutes = `${len.minutes.toString().padStart(2, "0")}m`;
+    } else {
+      len.minutes = `${len.minutes}m`;
+    }
+    // Hours
+    if (len.hours > 0) {
+      len.hours = `${len.hours}h`;
+    } else {
+      len.hours = "";
+    }
+    return `${len.hours}${len.minutes}${len.seconds}`;
+  };
+
   const [fullyLoaded, setFullyLoaded] = useState(false);
 
   return (
@@ -98,7 +129,9 @@ const ElementList = ({ data }) => {
         </div>
         <div className="author-movie">{data.author}</div>
         <div className="release-date-movie">{data.date}</div>
-        <div className="duration-movie">{`${hours(data.duration)}`}</div>
+        <div className="duration-movie">{`${parseDuration(
+          data.duration
+        )}`}</div>
         <div className="rating-movie">
           <Rating
             onClick={(value) => handleRating(value, data.id)}
@@ -114,7 +147,10 @@ const ElementList = ({ data }) => {
         >
           <p>
             {/* si le state check est true alors la case sera cochée */}
-            <span>{check && <i className="fa fa-check" />}</span>
+            <span>
+              {check && <i className="icon-eye" />}
+              {!check && <i className="icon-eye-off" />}
+            </span>
           </p>
         </div>
         <div className="remove-movie">
