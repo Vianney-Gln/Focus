@@ -74,7 +74,7 @@ const ItemModal = () => {
         <main className="modalContent">
           <div className="top-thumbnail">
             <img src={modalContext.infosMovie.background} alt="" />
-            <h1>{modalContext.infosMovie.title}</h1>
+            {/* <h1>{modalContext.infosMovie.title}</h1> */}
             <a
               href="#close"
               title="Close"
