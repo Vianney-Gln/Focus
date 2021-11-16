@@ -99,9 +99,11 @@ const SignUp = () => {
       if (verif.includes("error")) {
         throw new Error("Your password does not meet the criteria");
       } else {
-        const user = await createUser(email, password);
-        authContext.setUserID(user.uid);
+        const userCredential = await createUser(email, password);
+        authContext.setUserID(userCredential.user.uid);
         authContext.setIsLogged(true);
+        localStorage.setItem("user", userCredential.user.uid);
+        localStorage.setItem("logged", true);
         setEmail("");
         setPassword("");
         setPasswordConfirm("");

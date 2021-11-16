@@ -14,26 +14,27 @@ import BurgerContext from "./contexts/BurgerContext";
 import SignIn from "./containers/SignIn";
 import SignUp from "./containers/SignUp";
 import { AuthContext } from "./contexts/AuthContext";
-import { getLoggedUserSync } from "./services/FirebaseUserFunctions";
+import { onAuth } from "./services/FirebaseUserFunctions";
 
 function App() {
   const burgerContext = useContext(BurgerContext);
   const authContext = useContext(AuthContext);
 
   useEffect(() => {
-    (async () => {
-      try {
-        if (authContext.isLogged) return null;
-        const userCredentials = getLoggedUserSync();
-        if (userCredentials) {
-          authContext.setUserID(userCredentials.uid);
-          return authContext.setIsLogged(true);
-        }
-        return null;
-      } catch (err) {
-        return console.log(err);
+    try {
+      if (!authContext.isLogged) {
+        onAuth((user) => {
+          if (user) {
+            authContext.setUserID(user.uid);
+            authContext.setIsLogged(true);
+            console.log("Logged");
+          }
+        });
       }
-    })();
+      return true;
+    } catch (err) {
+      return console.log(err);
+    }
   }, []);
 
   return (

@@ -21,10 +21,12 @@ const SignIn = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const user = await loginUser(email, password);
-      if (user) {
-        authContext.setUserID(user.uid);
+      const userCredential = await loginUser(email, password);
+      if (userCredential) {
+        authContext.setUserID(userCredential.user.uid);
         authContext.setIsLogged(true);
+        localStorage.setItem("user", userCredential.user.uid);
+        localStorage.setItem("logged", true);
         setEmail("");
         setPassword("");
         signContext.hideSignIn();

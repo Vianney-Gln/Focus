@@ -49,7 +49,6 @@ const Category = () => {
   useEffect(() => {
     const run = async () => {
       const data = await fetchFunction();
-      console.log(data);
       const map = data.map((datamovie) => (
         <ItemsPreviews key={datamovie.id} data={datamovie} id={datamovie.id} />
       ));

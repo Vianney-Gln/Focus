@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import BurgerContext from "../contexts/BurgerContext";
 import { Logo, ElementList, LogoMobile, SearchBar } from "../components";
 import "../styles/myList.css";
 import { AuthContext } from "../contexts/AuthContext";
@@ -12,25 +11,22 @@ const MyList = () => {
   const history = useHistory();
 
   // useContext des différents context
-  const burgerContext = useContext(BurgerContext);
   const authContext = useContext(AuthContext);
 
-  // Si page chargé mais pas connecté
-  if (!authContext.isLogged) {
-    history.push("/");
-  } else {
-    burgerContext.displayBurger();
-  }
+  const [itemList, setItemList] = useState([]);
 
   /* creation d'une boucle pour appeler plusieurs fois le composant <ElementList /> */
-  const [itemList, setItemList] = useState([]);
   useEffect(() => {
     (async () => {
-      const data = await getListofMyList(authContext.userID);
-      const map = data.map((movie) => (
-        <ElementList key={movie.id} data={movie} />
-      ));
-      setItemList(map);
+      if (authContext.isLogged) {
+        const data = await getListofMyList(authContext.userID);
+        const map = data.map((movie) => (
+          <ElementList key={movie.id} data={movie} />
+        ));
+        setItemList(map);
+      } else {
+        history.push("/");
+      }
     })();
   }, []);
 

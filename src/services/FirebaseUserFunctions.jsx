@@ -85,6 +85,8 @@ const loginUser = async (mail, password) => {
 const logoutUser = async () => {
   try {
     await signOut(auth);
+    localStorage.removeItem("user");
+    localStorage.removeItem("logged");
     return true;
   } catch (err) {
     return err;
@@ -151,18 +153,8 @@ const getLoggedUser = async () => {
   }
 };
 
-/**
- * Check if user is logged or not
- * Not a promise function
- * @returns currentUser or false
- */
-const getLoggedUserSync = () => {
-  onAuthStateChangedNoPromise(auth, (user) => {
-    if (user) {
-      return user;
-    }
-    return false;
-  });
+const onAuth = (callback) => {
+  onAuthStateChangedNoPromise(auth, (user) => callback(user));
 };
 
 export {
@@ -173,5 +165,5 @@ export {
   reloginUser,
   updateUserPassword,
   getLoggedUser,
-  getLoggedUserSync,
+  onAuth,
 };
