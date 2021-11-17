@@ -11,13 +11,36 @@ import SlideImg from "../assets/images/westworlded.jpg";
 import {
   addMovie,
   addMovieToMyList,
+  removeFromMyList,
   updateUserMyList,
 } from "../services/FirebaseRealtimeDatabase";
 
-const Suggestion = ({ data }) => {
+const Suggestion = ({ data, userMyList }) => {
   const signinContext = useContext(SignContext);
   const authContext = useContext(AuthContext);
   const [rating, setRating] = useState(0);
+
+  const userMovieMyListID = userMyList.map((movie) => movie.id);
+
+  const [buttonType, setButtonType] = useState(null);
+  const buttonMyList = (bool) => {
+    // Si ajouté
+    if (bool) {
+      setButtonType(
+        <>
+          <i className="icon-plus" /> Add to my list
+        </>
+      );
+    } else {
+      setButtonType(
+        <>
+          <i className="icon-cancel" /> Remove
+          <br />
+          from my list
+        </>
+      );
+    }
+  };
 
   const handleAddToMyList = async () => {
     try {
@@ -34,6 +57,24 @@ const Suggestion = ({ data }) => {
         await addMovie(data.id, movieData);
         // update to add user on movie
         await addMovieToMyList(authContext.userID, data.id);
+        // Change button to "Remove from my list"
+        buttonMyList(false);
+      } else {
+        // Demander de se connecter
+        signinContext.showSignIn();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleRemoveOfMyList = async () => {
+    try {
+      // Remove movie from MaList
+      if (authContext.isLogged) {
+        await removeFromMyList(authContext.userID, data.id);
+        // Change button to "Add to my list"
+        buttonMyList(true);
       } else {
         // Demander de se connecter
         signinContext.showSignIn();
@@ -106,13 +147,36 @@ const Suggestion = ({ data }) => {
                   ratingValue={rating}
                 />
               </div>
-              <button
-                className="movie-addtomylist"
-                type="button"
-                onClick={handleAddToMyList}
-              >
-                <i className="icon-plus" /> Add to my list
-              </button>
+              {userMovieMyListID.includes(data.id) && (
+                <button
+                  className="movie-addtomylist"
+                  type="button"
+                  onClick={handleRemoveOfMyList}
+                >
+                  {buttonType !== null && buttonType}
+                  {buttonType === null && (
+                    <>
+                      <i className="icon-cancel" /> Remove
+                      <br />
+                      from my list
+                    </>
+                  )}
+                </button>
+              )}
+              {!userMovieMyListID.includes(data.id) && (
+                <button
+                  className="movie-addtomylist"
+                  type="button"
+                  onClick={handleAddToMyList}
+                >
+                  {buttonType !== null && buttonType}
+                  {buttonType === null && (
+                    <>
+                      <i className="icon-plus" /> Add to my list
+                    </>
+                  )}
+                </button>
+              )}
               <div className="movie-platforms">
                 <div className="text">
                   Available on <i className="icon-play-circled2" />
