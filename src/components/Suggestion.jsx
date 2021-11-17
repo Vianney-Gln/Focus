@@ -45,6 +45,8 @@ const Suggestion = ({ data, loaded = false, userMyList = null, type, top }) => {
       );
       if (thisMovie && thisMovie.user && thisMovie.user.rating) {
         setRating(thisMovie.user.rating);
+      } else {
+        setRating(0);
       }
     }
   }, [loaded, suggestionData]);
