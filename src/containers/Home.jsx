@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import Hamburger from "hamburger-react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import {
   ImageItemPreviews,
   Logo,
@@ -11,7 +11,6 @@ import {
 import Suggestion from "./Suggestion";
 import "../styles/home.scss";
 import BurgerContext from "../contexts/BurgerContext";
-
 import tempImage from "../assets/images/westworlded.jpg";
 import UseOnScreen from "../hooks/UseOnScreen";
 import { SignContext } from "../contexts/SignContext";
@@ -44,6 +43,16 @@ const Home = () => {
   const executeScroll = (scrollRef) => {
     scrollRef.current.scrollIntoView();
   };
+
+  const { sug } = useParams();
+
+  useEffect(() => {
+    if (sug != null) {
+      if (sug.toLowerCase() === "upcoming") executeScroll(suggestion1ref);
+      if (sug.toLowerCase() === "popular") executeScroll(suggestion2ref);
+      if (sug.toLowerCase() === "nowplaying") executeScroll(suggestion3ref);
+    }
+  }, []);
 
   /**
    * Mechanic for suggestion 1 image
@@ -79,9 +88,19 @@ const Home = () => {
    * custom link to category changed by the 3rd section
    */
   let categoryLink = `/category`;
-  if (suggestion1IsVisible) categoryLink = `/category/upcoming`;
-  if (suggestion2IsVisible) categoryLink = `/category/popular`;
-  if (suggestion3IsVisible) categoryLink = `/category/now-playing`;
+
+  if (suggestion1IsVisible) {
+    categoryLink = `/category/upcoming`;
+  }
+
+  if (suggestion2IsVisible) {
+    categoryLink = `/category/popular`;
+  }
+
+  if (suggestion3IsVisible) {
+    categoryLink = `/category/now-playing`;
+  }
+
   /* Fetch La data des films */
   /* State de la catégorie upcoming */
   const [upcoming, setUpcoming] = React.useState([]);
@@ -184,7 +203,7 @@ const Home = () => {
       </div>
       {/* Right Menu */}
       <div className="home-navigation">
-        <Link to="/suggestion/upcoming">
+        <Link to="/upcoming">
           <button
             className="btn-navigation"
             type="button"
@@ -193,7 +212,7 @@ const Home = () => {
             <p>Upcoming</p>
           </button>
         </Link>
-        <Link to="/suggestion/popular">
+        <Link to="/popular">
           <button
             className="btn-navigation"
             type="button"
@@ -202,7 +221,7 @@ const Home = () => {
             <p>Popular</p>
           </button>
         </Link>
-        <Link to="/suggestion/nowplaying">
+        <Link to="nowplaying">
           <button
             className="btn-navigation"
             type="button"
