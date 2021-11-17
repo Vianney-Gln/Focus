@@ -1,11 +1,17 @@
+// React
 import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+// Package
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+// Components
 import { Logo, ElementList, LogoMobile, SearchBar } from "../components";
-import "../styles/myList.css";
-import { AuthContext } from "../contexts/AuthContext";
+// Firebase Functions
 import { getListofMyList } from "../services/FirebaseRealtimeDatabase";
+// Contexts
+import { AuthContext } from "../contexts/AuthContext";
+// Styles Css
+import "../styles/myList.css";
 
 /* structure du composant myList */
 const MyList = () => {
@@ -15,6 +21,7 @@ const MyList = () => {
   // useContext des différents context
   const authContext = useContext(AuthContext);
 
+  // States
   const [itemList, setItemList] = useState([]);
   const [showView, setShowView] = useState(true);
   const [showOrder, setShowOrder] = useState(true);
