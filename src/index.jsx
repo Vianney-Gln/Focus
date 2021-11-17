@@ -7,7 +7,6 @@ import BurgerProvider from "./components/BurgerProvider";
 import App from "./App";
 import "./assets/fonts/grotesk/Grotesk.css";
 import "./assets/fonts/focus/focus.css";
-import PlayerProvider from "./components/PlayerProvider";
 import BackgroundProvider from "./components/BackgroundProvider";
 import { ModalProvider } from "./contexts/ModalContext";
 
@@ -21,13 +20,11 @@ ReactDOM.render(
       <BackgroundProvider>
         <AuthProvider>
           <SignProvider>
-            <PlayerProvider>
-              <BurgerProvider>
-                <Router>
-                  <App />
-                </Router>
-              </BurgerProvider>
-            </PlayerProvider>
+            <BurgerProvider>
+              <Router>
+                <App />
+              </Router>
+            </BurgerProvider>
           </SignProvider>
         </AuthProvider>
       </BackgroundProvider>

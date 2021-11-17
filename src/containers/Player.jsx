@@ -1,25 +1,18 @@
-import React, { useContext } from "react";
+import React from "react";
 
 import "../styles/index.css";
 import "../styles/player.css";
 import "../styles/itemsPreviews.css";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import trailer from "../assets/images/inception.mp4";
-import PlayerContext from "../contexts/PlayerContext";
 
-const Player = ({ data }) => {
-  const playerContext = useContext(PlayerContext);
+const Player = ({ data, player, handlePlayer }) => {
   console.log(data.trailer);
 
   return (
-    <div className={playerContext.player ? "player-open" : "player-close"}>
+    <div className={player ? "player-open" : "player-close"}>
       <div className="container-btn-close">
-        <button
-          type="button"
-          className="btn-close"
-          onClick={playerContext.handlePlayer}
-        >
+        <button type="button" className="btn-close" onClick={handlePlayer}>
           <FontAwesomeIcon icon={faTimes} />
         </button>
       </div>

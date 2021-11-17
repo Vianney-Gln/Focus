@@ -8,7 +8,6 @@ import { SignContext } from "../contexts/SignContext";
 import { AuthContext } from "../contexts/AuthContext";
 
 import SlideImg from "../assets/images/westworlded.jpg";
-import PlayerContext from "../contexts/PlayerContext";
 import {
   addMovie,
   addMovieToMyList,
@@ -57,11 +56,14 @@ const Suggestion = ({ data }) => {
     return true;
   };
 
-  const playerContext = useContext(PlayerContext);
+  const [player, setPlayer] = useState(false);
 
+  const handlePlayer = () => {
+    setPlayer(!player);
+  };
   return (
     <>
-      <Player data={data} />
+      <Player player={player} data={data} handlePlayer={handlePlayer} />
       {/* <BackgroundImage /> */}
       <section className="suggestion">
         <div className="suggestion-body">
@@ -79,7 +81,7 @@ const Suggestion = ({ data }) => {
                 <button
                   type="button"
                   className="btn-fleche-slideShow"
-                  onClick={playerContext.handlePlayer}
+                  onClick={handlePlayer}
                 >
                   <i className="icon-play" />
                 </button>
