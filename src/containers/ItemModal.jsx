@@ -53,10 +53,11 @@ const ItemModal = () => {
   useEffect(() => {
     (async () => {
       if (!authContext.isLogged) return;
+      console.log("Launch on Mount");
       const userMyList = await getListofMyList(authContext.userID);
       setUserMovieMyListID(userMyList.map((movie) => movie.id));
     })();
-  }, []);
+  }, [modalContext.infosMovie]);
 
   /**
    * State who set the text in Button Add / Remove to MyList
@@ -181,6 +182,13 @@ const ItemModal = () => {
     }
     return true;
   };
+
+  useEffect(() => {
+    if (!userMovieMyListID.includes(modalContext.infosMovie.id)) {
+      setRating(0);
+      setButtonType(null);
+    }
+  }, [userMovieMyListID]);
 
   return (
     <div className="itemModal">

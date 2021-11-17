@@ -31,7 +31,8 @@ const MyList = () => {
   useEffect(() => {
     (async () => {
       if (authContext.isLogged) {
-        const data = await getListofMyList(authContext.userID);
+        let data = await getListofMyList(authContext.userID);
+        data = data.filter((movie) => movie.title);
         setItemList(data);
       } else {
         history.push("/");
