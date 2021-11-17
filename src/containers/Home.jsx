@@ -27,6 +27,15 @@ const Home = () => {
   const signinContext = useContext(SignContext);
   const authContext = useContext(AuthContext);
 
+  // fonction qui capte le redimensionnement de la fenetre et qui affiche ou non le burger
+  window.onresize = () => {
+    if (window.matchMedia("(max-width:800px)").matches) {
+      burgerContext.displayBurger();
+    } else {
+      burgerContext.hiddenBurger();
+    }
+  };
+
   /**
    * Create Ref for each section
    */

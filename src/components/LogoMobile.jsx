@@ -7,7 +7,7 @@ function LogoMobile() {
   const burgerContext = useContext(BurgerContext);
   return (
     <div className="logonav-mobile">
-      <Link onClick={burgerContext.hiddenBurger} to="/">
+      <Link onClick={burgerContext.displayBurger} to="/">
         <img src={logoMobile} alt="logo" />
       </Link>
     </div>
