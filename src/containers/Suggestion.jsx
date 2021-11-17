@@ -20,9 +20,20 @@ const Suggestion = ({ data, userMyList }) => {
   const authContext = useContext(AuthContext);
   const [rating, setRating] = useState(0);
 
+  /**
+   * Format userMyList to get only the ID of movie
+   */
   const userMovieMyListID = userMyList.map((movie) => movie.id);
 
+  /**
+   * State who set the text in Button Add / Remove to MyList
+   */
   const [buttonType, setButtonType] = useState(null);
+
+  /**
+   * Change the button text
+   * @param {boolean} bool If add or remove but in Boolean
+   */
   const buttonMyList = (bool) => {
     // Si ajouté
     if (bool) {
@@ -42,6 +53,9 @@ const Suggestion = ({ data, userMyList }) => {
     }
   };
 
+  /**
+   * Add the movie to user list if connected
+   */
   const handleAddToMyList = async () => {
     try {
       // Ajouter a MaList
@@ -68,6 +82,9 @@ const Suggestion = ({ data, userMyList }) => {
     }
   };
 
+  /**
+   * Remove the movie from the user list if connected
+   */
   const handleRemoveOfMyList = async () => {
     try {
       // Remove movie from MaList
@@ -84,6 +101,12 @@ const Suggestion = ({ data, userMyList }) => {
     }
   };
 
+  /**
+   * Handle the rating of a movie but save only if connected
+   * @param {number} value Rating number /5
+   * @param {number} movieID Movie ID
+   * @returns Because eslint will not work without this
+   */
   const handleRating = (value, movieID) => {
     setRating(value);
     // si connecter enregistrer le rating
