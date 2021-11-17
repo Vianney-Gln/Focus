@@ -158,8 +158,6 @@ const Suggestion = ({ data, userMyList }) => {
       updateUserMyList(authContext.userID, movieID, {
         rating: value,
       });
-      // Change button to "Remove from my list"
-      buttonMyList(false);
     }
     return true;
   };

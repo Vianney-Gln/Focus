@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { Line } from "rc-progress";
@@ -9,6 +10,7 @@ import { SignContext } from "../contexts/SignContext";
 import { AuthContext } from "../contexts/AuthContext";
 
 const SignUp = () => {
+  const history = useHistory();
   const signContext = useContext(SignContext);
   const authContext = useContext(AuthContext);
   /**
@@ -108,6 +110,10 @@ const SignUp = () => {
         setPassword("");
         setPasswordConfirm("");
         signContext.hideSignUp();
+        if (signContext.redirect !== null) {
+          history.push(signContext.redirect);
+          signContext.setRedirect(null);
+        }
       }
     } catch (error) {
       console.log(error);

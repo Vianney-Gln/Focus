@@ -50,12 +50,17 @@ const ItemModal = () => {
    * Get user Mylist if Connected and format to get only ID
    */
   const [userMovieMyListID, setUserMovieMyListID] = useState([]);
+  const [currentMovie, setCurrentMovie] = useState(null);
   useEffect(() => {
     (async () => {
       if (!authContext.isLogged) return;
-      console.log("Launch on Mount");
-      const userMyList = await getListofMyList(authContext.userID);
-      setUserMovieMyListID(userMyList.map((movie) => movie.id));
+      const userMoviesMyList = await getListofMyList(authContext.userID);
+      setUserMovieMyListID(userMoviesMyList.map((movie) => movie.id));
+      setCurrentMovie(
+        userMoviesMyList.find(
+          (movie) => movie.id === modalContext.infosMovie.id
+        )
+      );
     })();
   }, [modalContext.infosMovie]);
 
@@ -177,8 +182,6 @@ const ItemModal = () => {
       updateUserMyList(authContext.userID, movieID, {
         rating: value,
       });
-      // Change button to "Remove from my list"
-      buttonMyList(false);
     }
     return true;
   };
@@ -189,6 +192,15 @@ const ItemModal = () => {
       setButtonType(null);
     }
   }, [userMovieMyListID]);
+
+  useEffect(() => {
+    if (userMovieMyListID.includes(modalContext.infosMovie.id)) {
+      if (currentMovie != null) {
+        console.log(currentMovie);
+        setRating(currentMovie.user.rating);
+      }
+    }
+  }, [currentMovie]);
 
   return (
     <div className="itemModal">
@@ -249,13 +261,28 @@ const ItemModal = () => {
                     onClick={handleRemoveOfMyList}
                   >
                     {buttonType !== null && buttonType}
-                    {buttonType === null && (
-                      <>
-                        <i className="icon-cancel" /> Remove
-                        <br />
-                        from my list
-                      </>
-                    )}
+                    {buttonType === null &&
+                      currentMovie &&
+                      Object.prototype.hasOwnProperty.call(
+                        currentMovie.user,
+                        "watch"
+                      ) && (
+                        <>
+                          <i className="icon-cancel" /> Remove
+                          <br />
+                          from my list
+                        </>
+                      )}
+                    {buttonType === null &&
+                      currentMovie &&
+                      !Object.prototype.hasOwnProperty.call(
+                        currentMovie.user,
+                        "watch"
+                      ) && (
+                        <>
+                          <i className="icon-plus" /> Add to my list
+                        </>
+                      )}
                   </button>
                 )}
                 {!userMovieMyListID.includes(modalContext.infosMovie.id) && (

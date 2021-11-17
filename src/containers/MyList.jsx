@@ -37,7 +37,11 @@ const MyList = () => {
     (async () => {
       if (authContext.isLogged) {
         let data = await getListofMyList(authContext.userID);
-        data = data.filter((movie) => movie.title);
+        data = data.filter(
+          (movie) =>
+            movie.title &&
+            Object.prototype.hasOwnProperty.call(movie.user, "watch")
+        );
         setItemList(data);
       } else {
         history.push("/");
