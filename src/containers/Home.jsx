@@ -17,8 +17,12 @@ import UseOnScreen from "../hooks/UseOnScreen";
 import { SignContext } from "../contexts/SignContext";
 import { AuthContext } from "../contexts/AuthContext";
 import { suggestionFetch } from "../services/TheMovieDbFunctions";
+import { getListofMyList } from "../services/FirebaseRealtimeDatabase";
 
 const Home = () => {
+  // gestion du titre du document
+  document.title = "suggestions-Focus";
+
   // récupération du contexte
   // Achaque clique sur les links de cette page le burger s'affiche
   const burgerContext = useContext(BurgerContext);
@@ -89,20 +93,35 @@ const Home = () => {
     const run = async () => {
       /* Récupère la data à partir de la function suggestionFetch movie */
       const data = await suggestionFetch();
-
-      /* console.log(data); */
+      // Get user my list and add as a props for each suggestion
+      let userMyList = null;
+      if (authContext.isLogged) {
+        userMyList = await getListofMyList(authContext.userID);
+      }
       /* Récupère la data de la catégorie upcoming */
       const mapUpcomming = data.upcoming.map((dataupcoming) => (
-        <Suggestion key={dataupcoming.id} data={dataupcoming} />
+        <Suggestion
+          key={dataupcoming.id}
+          data={dataupcoming}
+          userMyList={userMyList}
+        />
       ));
       /* Récupère la data de la catégorie popular */
       const mapPopular = data.popular.map((datapopular) => (
-        <Suggestion key={datapopular.id} data={datapopular} />
+        <Suggestion
+          key={datapopular.id}
+          data={datapopular}
+          userMyList={userMyList}
+        />
       ));
 
       /* Récupère la data de la catégorie nowplaying */
       const mapNowPlaying = data.nowplaying.map((datanowplaying) => (
-        <Suggestion key={datanowplaying.id} data={datanowplaying} />
+        <Suggestion
+          key={datanowplaying.id}
+          data={datanowplaying}
+          userMyList={userMyList}
+        />
       ));
 
       setUpcoming(mapUpcomming[0]);
@@ -131,7 +150,7 @@ const Home = () => {
               onClick={
                 authContext.isLogged
                   ? burgerContext.displayBurger
-                  : signinContext.showSignIn
+                  : () => signinContext.showSignIn("/mylist")
               }
             >
               MY LIST
@@ -181,27 +200,33 @@ const Home = () => {
       </div>
       {/* Right Menu */}
       <div className="home-navigation">
-        <button
-          className="btn-navigation"
-          type="button"
-          onClick={() => executeScroll(suggestion1ref)}
-        >
-          <p>Upcoming</p>
-        </button>
-        <button
-          className="btn-navigation"
-          type="button"
-          onClick={() => executeScroll(suggestion2ref)}
-        >
-          <p>Popular</p>
-        </button>
-        <button
-          className="btn-navigation"
-          type="button"
-          onClick={() => executeScroll(suggestion3ref)}
-        >
-          <p>Now Playing</p>
-        </button>
+        <Link to="/suggestion/upcoming">
+          <button
+            className="btn-navigation"
+            type="button"
+            onClick={() => executeScroll(suggestion1ref)}
+          >
+            <p>Upcoming</p>
+          </button>
+        </Link>
+        <Link to="/suggestion/popular">
+          <button
+            className="btn-navigation"
+            type="button"
+            onClick={() => executeScroll(suggestion2ref)}
+          >
+            <p>Popular</p>
+          </button>
+        </Link>
+        <Link to="/suggestion/nowplaying">
+          <button
+            className="btn-navigation"
+            type="button"
+            onClick={() => executeScroll(suggestion3ref)}
+          >
+            <p>Now Playing</p>
+          </button>
+        </Link>
         <button
           className="btn-navigation"
           type="button"

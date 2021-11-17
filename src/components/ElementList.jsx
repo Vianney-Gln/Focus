@@ -3,7 +3,6 @@ import React, { useContext, useState } from "react";
 import { Rating } from "react-simple-star-rating";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
-// import { faEye } from "@fortawesome/free-regular-svg-icons";
 // Contexts
 import { AuthContext } from "../contexts/AuthContext";
 // Services
@@ -118,7 +117,7 @@ const ElementList = ({ data }) => {
         <div className="image-movie">
           {!fullyLoaded && <div className="loadingInfos" />}
           <img
-            src={data.poster}
+            src={data.poster.replace("original", "w500")}
             alt="film"
             onLoad={() => setFullyLoaded(true)}
             style={fullyLoaded ? {} : { display: "none" }}

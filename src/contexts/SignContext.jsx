@@ -7,18 +7,25 @@ const SignProvider = ({ children }) => {
   const [signInIsOpen, setSignInIsOpen] = useState(false);
   const [classShowSignUp, setClassShowSignUp] = useState("");
   const [signUpIsOpen, setSignUpIsOpen] = useState(false);
+  const [redirect, setRedirect] = useState(null);
 
-  const showSignIn = () => {
+  const showSignIn = (path = null) => {
     setClassShowSignIn("showSignIn");
     setSignInIsOpen(true);
+    if (path !== null) {
+      setRedirect(path);
+    }
   };
   const hideSignIn = () => {
     setClassShowSignIn("");
     setSignInIsOpen(false);
   };
-  const showSignUp = () => {
+  const showSignUp = (path = null) => {
     setClassShowSignUp("showSignUp");
     setSignUpIsOpen(true);
+    if (path !== null) {
+      setRedirect(path);
+    }
   };
   const hideSignUp = () => {
     setClassShowSignUp("");
@@ -36,6 +43,8 @@ const SignProvider = ({ children }) => {
         signUpIsOpen,
         showSignUp,
         hideSignUp,
+        redirect,
+        setRedirect,
       }}
     >
       {children}
