@@ -5,10 +5,8 @@ import { SignContext } from "../contexts/SignContext";
 import { AuthContext } from "../contexts/AuthContext";
 import { updateMovie } from "../services/FirebaseRealtimeDatabase";
 import { ModalContext } from "../contexts/ModalContext";
-// import { ItemsPreviews } from "../components";
-// import westworlded from "../assets/images/westworlded.jpg";
-// import imgNet from "../assets/images/netflix.png";
-// import imgCanal from "../assets/images/canal.png";
+// import Player from "./Player";
+
 import "../styles/itemModal.css";
 
 const ItemModal = () => {
@@ -46,27 +44,24 @@ const ItemModal = () => {
   const handleRating = (value) => {
     setRating(value);
   };
-  /* Modal Toggle Open/Closed
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const setModalIsOpenToTrue = () => {
-    setModalIsOpen(true);
+  // gestion du Player vidéo
+  const [player, setPlayer] = useState(false);
+  const handlePlayer = () => {
+    setPlayer(!player);
   };
-  const setModalIsOpenToFalse = () => {
-    setModalIsOpen(false);
-  };
-  CE CODE EST DANS MODALCONTEXT
-  */
+  /* <Player
+  player={player}
+  data={modalContext.getInfosMovie(id)}
+  handlePlayer={handlePlayer}
+/> */
 
   return (
     <div className="itemModal">
-      {/* <button type="button" onClick={setModalIsOpenToTrue}>
-        Open Modal
-      </button> */}
       <Modal
         portalClassName="itemModal"
         className="itemModal"
         overlayClassName="modalOverlay"
-        isOpen={modalContext.modalIsOpen}
+        isOpen={modalContext.modalIsOpen} // Modal Toggle Open/Closed importé depuis ModalContext
         onRequestClose={() => {
           modalContext.setModalIsOpen(false);
         }}
@@ -74,6 +69,10 @@ const ItemModal = () => {
         <main className="modalContent">
           <div className="top-thumbnail">
             <img src={modalContext.infosMovie.background} alt="" />
+            <button type="button" className="openPlayer" onClick={handlePlayer}>
+              Open player
+            </button>
+
             <h1>{modalContext.infosMovie.title}</h1>
             <a
               href="#close"
