@@ -19,9 +19,10 @@ function ItemsPreviews({ data, id }) {
         <ImageItemPreviews source={data.image} />
       </div>
       <span className="title">
-        {data.title.length > 18
+        {/* {data.title.length > 18
           ? `${data.title.substring(0, 12)}...`
-          : data.title}
+          : data.title} */}
+        {data.title}
       </span>
     </div>
   );

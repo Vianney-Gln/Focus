@@ -8,6 +8,9 @@
   padding: 50px;
   top: 0;
   z-index: 4;
+  background-color: rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 50px 20px #000;
+  padding-bottom: 20px;
 
   .navFixe {
     display: flex;
@@ -70,6 +73,7 @@
   align-items: center;
   gap: 50px;
   font-family: "Grotesk";
+  box-shadow: 0px 0px 50px 20px #000;
   .footercategory {
     display: flex;
     flex-direction: column;
@@ -90,6 +94,20 @@
     }
   }
 }
+
+.upcoming {
+  grid-row: 1 / 2;
+  height: 100vh;
+}
+.popular {
+  grid-row: 2 / 3;
+  height: 100vh;
+}
+.nowplaying {
+  grid-row: 3 / 4;
+  height: 100vh;
+}
+
 .home-navigation {
   position: fixed;
   z-index: 4;
@@ -122,15 +140,6 @@
       transform: rotate(180deg) scale(1.2);
       font-weight: 600;
     }
-  }
-  .upcoming {
-    grid-row: 1 / 2;
-  }
-  .popular {
-    grid-row: 2 / 3;
-  }
-  .nowplaying {
-    grid-row: 3 / 4;
   }
 }
 .pre-home {
@@ -195,7 +204,7 @@
   .footer {
     display: none;
   }
-  .home-navigation{
+  .home-navigation {
     display: none;
   }
   .goto-category {
@@ -226,17 +235,18 @@
       }
     }
   }
+
   .navBar { 
     padding: 1%;
     gap: 0px;
     background-color: black;
+
 
     .navFixe {
       padding: 4%;
 
       .logonav-mobile {
         display: inherit;
-       
       }
       .logonav {
         display: none;
@@ -259,7 +269,7 @@
   .footer {
     display: none;
   }
-  .home-navigation{
+  .home-navigation {
     display: none;
   }
   .goto-category {
@@ -269,6 +279,7 @@
     font-weight: 200;
     font-style: italic;
     box-sizing: inherit;
+
     text-decoration: underline;
     text-overflow: Ellipsis;
     overflow: hidden;
@@ -281,6 +292,7 @@
       font-size: 10px;
       line-height : 1.5;
       
+
     }
   }
 }

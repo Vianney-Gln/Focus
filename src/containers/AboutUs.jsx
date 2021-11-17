@@ -15,6 +15,8 @@ export default function AboutUs() {
   const burgerContext = useContext(BurgerContext);
   burgerContext.displayBurger();
 
+  document.title = "aboutus-Focus";
+
   return (
     <div className="aboutUs">
       <header className="navBar">
