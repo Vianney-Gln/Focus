@@ -30,6 +30,7 @@ const Suggestion = ({ data, loaded = false, userMyList = null, type, top }) => {
   const [currentData, setCurrentData] = useState(1);
   const [rating, setRating] = useState(0);
   const [buttonType, setButtonType] = useState(null);
+  const [thisMovie, setThisMovie] = useState(null);
   const suggestionData = data ? data[currentData] : null;
 
   /**
@@ -40,11 +41,12 @@ const Suggestion = ({ data, loaded = false, userMyList = null, type, top }) => {
 
   useEffect(() => {
     if (loaded && suggestionData && authContext.isLogged) {
-      const thisMovie = userMyList.find(
+      const checkthisMovie = userMyList.find(
         (movie) => movie.id === suggestionData.id
       );
-      if (thisMovie && thisMovie.user && thisMovie.user.rating) {
-        setRating(thisMovie.user.rating);
+      setThisMovie(checkthisMovie);
+      if (checkthisMovie && checkthisMovie.user && checkthisMovie.user.rating) {
+        setRating(checkthisMovie.user.rating);
       } else {
         setRating(0);
       }
@@ -343,13 +345,28 @@ const Suggestion = ({ data, loaded = false, userMyList = null, type, top }) => {
                   onClick={handleRemoveOfMyList}
                 >
                   {buttonType !== null && buttonType}
-                  {buttonType === null && (
-                    <>
-                      <i className="icon-cancel" /> Remove
-                      <br />
-                      from my list
-                    </>
-                  )}
+                  {buttonType === null &&
+                    thisMovie &&
+                    Object.prototype.hasOwnProperty.call(
+                      thisMovie.user,
+                      "watch"
+                    ) && (
+                      <>
+                        <i className="icon-cancel" /> Remove
+                        <br />
+                        from my list
+                      </>
+                    )}
+                  {buttonType === null &&
+                    thisMovie &&
+                    !Object.prototype.hasOwnProperty.call(
+                      thisMovie.user,
+                      "watch"
+                    ) && (
+                      <>
+                        <i className="icon-plus" /> Add to my list
+                      </>
+                    )}
                 </button>
               )}
             {loaded &&
