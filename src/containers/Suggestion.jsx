@@ -13,6 +13,7 @@ import {
   addMovieToMyList,
   updateUserMyList,
 } from "../services/FirebaseRealtimeDatabase";
+import Player from "./Player";
 
 const Suggestion = ({ data }) => {
   const signinContext = useContext(SignContext);
@@ -55,8 +56,14 @@ const Suggestion = ({ data }) => {
     return true;
   };
 
+  const [player, setPlayer] = useState(false);
+
+  const handlePlayer = () => {
+    setPlayer(!player);
+  };
   return (
     <>
+      <Player player={player} data={data} handlePlayer={handlePlayer} />
       {/* <BackgroundImage /> */}
       <section className="suggestion">
         <div className="suggestion-body">
@@ -71,7 +78,11 @@ const Suggestion = ({ data }) => {
                   src={data ? data.background : SlideImg}
                   alt="slideimg"
                 />
-                <button type="button" className="btn-fleche-slideShow">
+                <button
+                  type="button"
+                  className="btn-fleche-slideShow"
+                  onClick={handlePlayer}
+                >
                   <i className="icon-play" />
                 </button>
               </div>
