@@ -118,7 +118,7 @@ const ElementList = ({ data }) => {
         <div className="image-movie">
           {!fullyLoaded && <div className="loadingInfos" />}
           <img
-            src={data.poster}
+            src={data.poster.replace("original", "w500")}
             alt="film"
             onLoad={() => setFullyLoaded(true)}
             style={fullyLoaded ? {} : { display: "none" }}
