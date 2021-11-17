@@ -184,27 +184,33 @@ const Home = () => {
       </div>
       {/* Right Menu */}
       <div className="home-navigation">
-        <button
-          className="btn-navigation"
-          type="button"
-          onClick={() => executeScroll(suggestion1ref)}
-        >
-          <p>Upcoming</p>
-        </button>
-        <button
-          className="btn-navigation"
-          type="button"
-          onClick={() => executeScroll(suggestion2ref)}
-        >
-          <p>Popular</p>
-        </button>
-        <button
-          className="btn-navigation"
-          type="button"
-          onClick={() => executeScroll(suggestion3ref)}
-        >
-          <p>Now Playing</p>
-        </button>
+        <Link to="/suggestion/upcoming">
+          <button
+            className="btn-navigation"
+            type="button"
+            onClick={() => executeScroll(suggestion1ref)}
+          >
+            <p>Upcoming</p>
+          </button>
+        </Link>
+        <Link to="/suggestion/popular">
+          <button
+            className="btn-navigation"
+            type="button"
+            onClick={() => executeScroll(suggestion2ref)}
+          >
+            <p>Popular</p>
+          </button>
+        </Link>
+        <Link to="/suggestion/nowplaying">
+          <button
+            className="btn-navigation"
+            type="button"
+            onClick={() => executeScroll(suggestion3ref)}
+          >
+            <p>Now Playing</p>
+          </button>
+        </Link>
         <button
           className="btn-navigation"
           type="button"
