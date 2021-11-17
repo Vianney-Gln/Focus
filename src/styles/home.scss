@@ -246,13 +246,22 @@
     background-color: black;
 
     .navFixe {
-      padding: 4%;
+      padding: 10px;
 
       .logonav-mobile {
         display: inherit;
+
+        img {
+          height: 5vh;
+        }
       }
       .logonav {
         display: none;
+      }
+
+      .search {
+        margin: 0;
+        transform: translate(10px, -5px);
       }
     }
     .navunfixe {
@@ -262,9 +271,6 @@
       .contButtonSignIn {
         display: none;
       }
-    }
-    .fakeBurger {
-      display: inherit;
     }
   }
   .footer {
