@@ -8,6 +8,8 @@ import { getListofMyList } from "../services/FirebaseRealtimeDatabase";
 
 /* structure du composant myList */
 const MyList = () => {
+  // gestion du titre du document
+  document.title = "mylist-Focus";
   // Pour les redirections
   const history = useHistory();
 
