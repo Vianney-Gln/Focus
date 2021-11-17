@@ -120,6 +120,7 @@ const Home = () => {
           userMyList={userMyList}
         />
       ));
+
       setUpcoming(mapUpcomming[0]);
       setPopular(mapPopular[0]);
       setNowPlaying(mapNowPlaying[0]);
@@ -127,12 +128,10 @@ const Home = () => {
     run();
   }, []);
 
-  const handleSlideUp = () => {
-    setUpcoming(!upcoming);
-  };
   return (
     <main className="Containerhome">
       {/* Top Menu */}
+
       <header className="navBar">
         <div className="navFixe">
           <Logo scrollTo={() => executeScroll(prehomeref)} />
@@ -234,9 +233,6 @@ const Home = () => {
       {/* 3 Suggestion page */}
       <section className="upcoming" ref={suggestion1ref}>
         {upcoming}
-        <button type="button" onClick={handleSlideUp}>
-          😃
-        </button>
       </section>
       <section className="popular" ref={suggestion2ref}>
         {popular}

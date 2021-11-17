@@ -199,7 +199,7 @@ const ItemModal = () => {
         <main className="modalContent">
           <div className="top-thumbnail">
             <img src={modalContext.infosMovie.background} alt="" />
-            {/* <h1>{modalContext.infosMovie.title}</h1> */}
+            <h1>{modalContext.infosMovie.title}</h1>
             <a
               href="#close"
               title="Close"
@@ -212,7 +212,7 @@ const ItemModal = () => {
           <div className="bottom-infos">
             <div className="bottom-infos-grid">
               <div className="bottom-infos-grid-creators">
-                {modalContext.infosMovie.title}
+                {modalContext.infosMovie.author}
               </div>
               <div className="bottom-infos-grid-date">
                 {modalContext.infosMovie.date &&
