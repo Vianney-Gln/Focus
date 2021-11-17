@@ -46,7 +46,7 @@
     display: flex;
     flex-flow: row wrap;
     margin-left: 50px;
-  
+
     .searchTerm {
       width: 100px;
       border: none;
@@ -65,12 +65,12 @@
       background: none;
       padding: 0 10px;
       cursor: pointer;
-  
+
       &:focus-visible {
         outline-offset: 5px;
         z-index: 1;
       }
-  
+
       i {
         transition: transform 0.2s;
       }
@@ -87,9 +87,9 @@
     display: flex;
     flex-flow: row wrap;
     margin-left: 50px;
-  
+
     .searchTerm {
-      width: 30px;
+      width: 100px;
       border: none;
       border-bottom: 1px solid #fff;
       color: #fff;
@@ -106,12 +106,12 @@
       background: none;
       padding: 0 10px;
       cursor: pointer;
-  
+
       &:focus-visible {
         outline-offset: 5px;
         z-index: 1;
       }
-  
+
       i {
         transition: transform 0.2s;
       }

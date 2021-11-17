@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import Hamburger from "hamburger-react";
 import { Link, useParams } from "react-router-dom";
 import {
   ImageItemPreviews,
@@ -208,9 +207,6 @@ const Home = () => {
               </Link>
             </div>
           )}
-        </div>
-        <div className="fakeBurger">
-          <Hamburger />
         </div>
       </header>
       {/* Switch Button */}
