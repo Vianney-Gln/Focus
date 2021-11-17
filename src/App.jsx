@@ -60,9 +60,7 @@ function App() {
         {/* BackgroundProvider vient prendre des infos pour maj du background sur category.jsx */}
 
         <Route exact path="/" component={Home} />
-        <Route exact path="/suggestion/upcoming" component={Home} />
-        <Route exact path="/suggestion/popular" component={Home} />
-        <Route exact path="/suggestion/nowplaying" component={Home} />
+        <Route exact path="/:sug" component={Home} />
         <Route exact path="/category/:cat" component={Category} />
         <Route exact path="/aboutus" component={AboutUs} />
         <Route exact path="/mylist" component={MyList} />
