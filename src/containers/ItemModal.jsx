@@ -9,6 +9,9 @@ import {
   removeFromMyList,
   updateUserMyList,
   getListofMyList,
+  getMovieofMyList,
+  getMovieListByID,
+  updateMovie,
 } from "../services/FirebaseRealtimeDatabase";
 import { ModalContext } from "../contexts/ModalContext";
 // import { ItemsPreviews } from "../components";
@@ -90,17 +93,45 @@ const ItemModal = () => {
     try {
       // Ajouter a MaList
       if (authContext.isLogged) {
-        // try to add this movie to the database
-        const movieData = {
-          title: modalContext.infosMovie.title || "Not documented",
-          poster: modalContext.infosMovie.background || "Not documented",
-          author: modalContext.infosMovie.author || "Not documented",
-          date: modalContext.infosMovie.date.base || "Not documented",
-          duration: modalContext.infosMovie.duration.base || "Not documented",
-        };
-        await addMovie(modalContext.infosMovie.id, movieData);
+        // Get if this movie already exit in db
+        const movieAlreadyExist = await getMovieListByID(
+          modalContext.infosMovie.id
+        );
+        // If Not exist
+        if (!movieAlreadyExist) {
+          // try to add this movie to the database
+          const movieData = {
+            title: modalContext.infosMovie.title || "Not documented",
+            poster: modalContext.infosMovie.background || "Not documented",
+            author: modalContext.infosMovie.author || "Not documented",
+            date: modalContext.infosMovie.date.base || "Not documented",
+            duration: modalContext.infosMovie.duration.base || "Not documented",
+          };
+          await addMovie(modalContext.infosMovie.id, movieData);
+        }
+        // If Exist
+        else {
+          // try to update this movie to the database
+          const movieData = {
+            title: modalContext.infosMovie.title || "Not documented",
+            poster: modalContext.infosMovie.background || "Not documented",
+            author: modalContext.infosMovie.author || "Not documented",
+            date: modalContext.infosMovie.date.base || "Not documented",
+            duration: modalContext.infosMovie.duration.base || "Not documented",
+          };
+          await updateMovie(modalContext.infosMovie.id, movieData);
+        }
+        // get if user already rated this movie
+        const movieInfo = await getMovieofMyList(
+          authContext.userID,
+          modalContext.infosMovie.id
+        );
         // update to add user on movie
-        await addMovieToMyList(authContext.userID, modalContext.infosMovie.id);
+        await addMovieToMyList(
+          authContext.userID,
+          modalContext.infosMovie.id,
+          movieInfo.user.rating || null
+        );
         // Change button to "Remove from my list"
         buttonMyList(false);
       } else {
@@ -145,6 +176,8 @@ const ItemModal = () => {
       updateUserMyList(authContext.userID, movieID, {
         rating: value,
       });
+      // Change button to "Remove from my list"
+      buttonMyList(false);
     }
     return true;
   };
@@ -190,7 +223,12 @@ const ItemModal = () => {
                   `${modalContext.infosMovie.duration.hours}h ${modalContext.infosMovie.duration.minutes} min`}
               </div>
               <div className="bottom-infos-grid-starRater">
-                <Rating onClick={handleRating} ratingValue={rating} />
+                <Rating
+                  onClick={(value) =>
+                    handleRating(value, modalContext.infosMovie.id)
+                  }
+                  ratingValue={rating}
+                />
               </div>
               <div className="bottom-infos-grid-availableOn">
                 Available On <i className="fa fa-play-circle-o" />

@@ -10,9 +10,12 @@ import { AuthContext } from "../contexts/AuthContext";
 import SlideImg from "../assets/images/westworlded.jpg";
 import {
   addMovie,
+  updateMovie,
   addMovieToMyList,
   removeFromMyList,
   updateUserMyList,
+  getMovieListByID,
+  getMovieofMyList,
 } from "../services/FirebaseRealtimeDatabase";
 
 const Suggestion = ({ data, userMyList }) => {
@@ -59,6 +62,44 @@ const Suggestion = ({ data, userMyList }) => {
   const handleAddToMyList = async () => {
     try {
       // Ajouter a MaList
+      if (authContext.isLogged) {
+        // Get if this movie already exit in db
+        const movieAlreadyExist = await getMovieListByID(data.id);
+        // If Not exist
+        if (!movieAlreadyExist) {
+          // try to add this movie to the database
+          const movieData = {
+            title: data.title || "Not documented",
+            poster: data.background || "Not documented",
+            author: data.author || "Not documented",
+            date: data.date.base || "Not documented",
+            duration: data.duration.base || "Not documented",
+          };
+          await addMovie(data.id, movieData);
+        }
+        // If Exist
+        else {
+          // try to update this movie to the database
+          const movieData = {
+            title: data.title || "Not documented",
+            poster: data.background || "Not documented",
+            author: data.author || "Not documented",
+            date: data.date.base || "Not documented",
+            duration: data.duration.base || "Not documented",
+          };
+          await updateMovie(data.id, movieData);
+        }
+        // get if user already rated this movie
+        const movieInfo = await getMovieofMyList(authContext.userID, data.id);
+        // update to add user on movie
+        await addMovieToMyList(
+          authContext.userID,
+          data.id,
+          movieInfo.user.rating || null
+        );
+        // Change button to "Remove from my list"
+        buttonMyList(false);
+      }
       if (authContext.isLogged) {
         // try to add this movie to the database
         const movieData = {
@@ -115,6 +156,8 @@ const Suggestion = ({ data, userMyList }) => {
       updateUserMyList(authContext.userID, movieID, {
         rating: value,
       });
+      // Change button to "Remove from my list"
+      buttonMyList(false);
     }
     return true;
   };
