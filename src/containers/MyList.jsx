@@ -32,9 +32,11 @@ const MyList = () => {
     })();
   }, []);
 
+  /**
+   * Filter itemlist by viewed or not viewed
+   */
   const filterView = () => {
     if (itemList.length === 0) return;
-    console.log(itemList);
     setShowView(!showView);
     // Show only viewed movies
     const filteredMovie = [];
@@ -42,7 +44,9 @@ const MyList = () => {
       for (let i = 0; i < itemList.length; i += 1)
         if (itemList[i].user && itemList[i].user.watch)
           filteredMovie.push(itemList[i]);
-    } else {
+    }
+    // Show only not-viewed movies
+    else {
       for (let i = 0; i < itemList.length; i += 1)
         if (itemList[i].user && !itemList[i].user.watch)
           filteredMovie.push(itemList[i]);
@@ -50,9 +54,11 @@ const MyList = () => {
     setFilteredArr(filteredMovie);
   };
 
+  /**
+   * Filter itemlist by ASC or DESC
+   */
   const filterOrder = () => {
     if (itemList.length === 0) return;
-    console.log(itemList);
     setShowOrder(!showOrder);
     let filteredMovie = itemList.slice();
     // Show movies order by asc
@@ -74,8 +80,10 @@ const MyList = () => {
     setFilteredArr(filteredMovie);
   };
 
+  /**
+   * Cancel all filters
+   */
   const handleCancelFilter = () => {
-    console.log(itemList);
     setFilteredArr([]);
     setShowView(true);
     setShowOrder(true);
