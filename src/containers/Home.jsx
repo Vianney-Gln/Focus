@@ -19,6 +19,9 @@ import { AuthContext } from "../contexts/AuthContext";
 import { suggestionFetch } from "../services/TheMovieDbFunctions";
 
 const Home = () => {
+  // gestion du titre du document
+  document.title = "suggestions-Focus";
+
   // récupération du contexte
   // Achaque clique sur les links de cette page le burger s'affiche
   const burgerContext = useContext(BurgerContext);
