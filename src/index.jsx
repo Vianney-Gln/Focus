@@ -8,6 +8,7 @@ import App from "./App";
 import "./assets/fonts/grotesk/Grotesk.css";
 import "./assets/fonts/focus/focus.css";
 import BackgroundProvider from "./components/BackgroundProvider";
+import { ModalProvider } from "./contexts/ModalContext";
 
 /* Temporary */
 import { SignProvider } from "./contexts/SignContext";
@@ -15,17 +16,19 @@ import { AuthProvider } from "./contexts/AuthContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BackgroundProvider>
-      <AuthProvider>
-        <SignProvider>
-          <BurgerProvider>
-            <Router>
-              <App />
-            </Router>
-          </BurgerProvider>
-        </SignProvider>
-      </AuthProvider>
-    </BackgroundProvider>
+    <ModalProvider>
+      <BackgroundProvider>
+        <AuthProvider>
+          <SignProvider>
+            <BurgerProvider>
+              <Router>
+                <App />
+              </Router>
+            </BurgerProvider>
+          </SignProvider>
+        </AuthProvider>
+      </BackgroundProvider>
+    </ModalProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

@@ -18,6 +18,8 @@ import {
 } from "../services/TheMovieDbFunctions";
 
 const Category = () => {
+  // gestion du titre du document
+  document.title = "category-Focus";
   const [movies, setMovies] = useState([]);
 
   // utilisation du contexte pour garder le burger affiché même au rechargement de la page
@@ -49,9 +51,8 @@ const Category = () => {
   useEffect(() => {
     const run = async () => {
       const data = await fetchFunction();
-      console.log(data);
       const map = data.map((datamovie) => (
-        <ItemsPreviews key={datamovie.id} data={datamovie} />
+        <ItemsPreviews key={datamovie.id} data={datamovie} id={datamovie.id} />
       ));
       setMovies(map);
     };

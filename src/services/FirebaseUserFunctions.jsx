@@ -85,6 +85,8 @@ const loginUser = async (mail, password) => {
 const logoutUser = async () => {
   try {
     await signOut(auth);
+    localStorage.removeItem("user");
+    localStorage.removeItem("logged");
     return true;
   } catch (err) {
     return err;
@@ -151,6 +153,14 @@ const getLoggedUser = async () => {
   }
 };
 
+/**
+ * Look is user is logged and launch callback function
+ * @param {function} callback Callback Function
+ */
+const onAuth = (callback) => {
+  onAuthStateChangedNoPromise(auth, (user) => callback(user));
+};
+
 export {
   createUser,
   loginUser,
@@ -159,4 +169,5 @@ export {
   reloginUser,
   updateUserPassword,
   getLoggedUser,
+  onAuth,
 };
