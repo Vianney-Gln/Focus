@@ -27,7 +27,9 @@
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-
+    .btn-aperture {
+      background-color: transparent;}
+      
     .contbuttonmylist {
       display: flex;
       flex-wrap: nowrap;
@@ -95,7 +97,7 @@
   right: 50px;
   transform: translateY(-50%);
   display: grid;
-  gap: 10px;
+  gap: 30px;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(4, 1fr);
 
@@ -225,8 +227,9 @@
     }
   }
   .navBar { 
-    padding: 2%;
-    gap: 10px;
+    padding: 1%;
+    gap: 0px;
+    background-color: black;
 
     .navFixe {
       padding: 4%;
@@ -249,6 +252,8 @@
     }
     .fakeBurger {
       display: inherit;
+    
+
     }
   }
   .footer {
@@ -258,16 +263,22 @@
     display: none;
   }
   .goto-category {
-    margin-left: 10px;
+    margin-left: 5px;
     color: #fff;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 200;
     font-style: italic;
     box-sizing: inherit;
+    text-decoration: underline;
+    text-overflow: Ellipsis;
+    overflow: hidden;
+    max-height: 1em;
+    line-height: 1em;
+
    
     & > a {
-      text-decoration: none;
-      font-size: 12px;
+      text-decoration: underline;
+      font-size: 10px;
       line-height : 1.5;
       
     }
