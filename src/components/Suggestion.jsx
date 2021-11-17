@@ -384,7 +384,9 @@ const Suggestion = ({ data, loaded = false, userMyList = null, type, top }) => {
                 {loaded &&
                   suggestionData &&
                   suggestionData.providers &&
-                  suggestionData.providers.length === 0 && <h6>0 Platform</h6>}
+                  suggestionData.providers.length === 0 && (
+                    <span>0 Platform</span>
+                  )}
                 {!loaded && <div className="loadingInfos" />}
               </div>
             </div>
