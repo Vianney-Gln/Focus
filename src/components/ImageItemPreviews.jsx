@@ -7,7 +7,6 @@ function ImageItemPreviews({ source }) {
     <img
       onMouseOver={() => {
         backgroundContext.setBackground(source.replace("w500", "original"));
-        console.log(source);
       }}
       onFocus={() => 0}
       src={source}

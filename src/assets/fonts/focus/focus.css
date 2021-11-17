@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'focus';
-  src: url('focus.eot?44233900');
-  src: url('focus.eot?44233900#iefix') format('embedded-opentype'),
-       url('focus.woff2?44233900') format('woff2'),
-       url('focus.woff?44233900') format('woff'),
-       url('focus.ttf?44233900') format('truetype'),
-       url('focus.svg?44233900#focus') format('svg');
+  src: url('focus.eot?69785674');
+  src: url('focus.eot?69785674#iefix') format('embedded-opentype'),
+       url('focus.woff2?69785674') format('woff2'),
+       url('focus.woff?69785674') format('woff'),
+       url('focus.ttf?69785674') format('truetype'),
+       url('focus.svg?69785674#focus') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'focus';
-    src: url('focus.svg?44233900#focus') format('svg');
+    src: url('focus.svg?69785674#focus') format('svg');
   }
 }
 */
@@ -81,6 +81,8 @@
 .icon-up-open-mini:before { content: '\e81b'; } /* '' */
 .icon-down-open-big:before { content: '\e81c'; } /* '' */
 .icon-left-open-big:before { content: '\e81d'; } /* '' */
+.icon-ok:before { content: '\e822'; } /* '' */
+.icon-cancel:before { content: '\e823'; } /* '' */
 .icon-spin3:before { content: '\e832'; } /* '' */
 .icon-spin4:before { content: '\e834'; } /* '' */
 .icon-spin5:before { content: '\e838'; } /* '' */
