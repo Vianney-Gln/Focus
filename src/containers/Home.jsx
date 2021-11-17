@@ -147,7 +147,7 @@ const Home = () => {
               onClick={
                 authContext.isLogged
                   ? burgerContext.displayBurger
-                  : signinContext.showSignIn
+                  : () => signinContext.showSignIn("/mylist")
               }
             >
               MY LIST

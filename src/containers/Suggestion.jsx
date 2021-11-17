@@ -27,7 +27,8 @@ const Suggestion = ({ data, userMyList }) => {
   /**
    * Format userMyList to get only the ID of movie
    */
-  const userMovieMyListID = userMyList.map((movie) => movie.id);
+  const userMovieMyListID =
+    userMyList !== null ? userMyList.map((movie) => movie.id) : [];
 
   /**
    * State who set the text in Button Add / Remove to MyList

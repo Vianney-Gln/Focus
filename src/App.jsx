@@ -27,7 +27,6 @@ function App() {
           if (user) {
             authContext.setUserID(user.uid);
             authContext.setIsLogged(true);
-            console.log("Logged");
           }
         });
       }

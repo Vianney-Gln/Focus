@@ -10,6 +10,7 @@ import { Logo, ElementList, LogoMobile, SearchBar } from "../components";
 import { getListofMyList } from "../services/FirebaseRealtimeDatabase";
 // Contexts
 import { AuthContext } from "../contexts/AuthContext";
+import BurgerContext from "../contexts/BurgerContext";
 // Styles Css
 import "../styles/myList.css";
 
@@ -20,6 +21,8 @@ const MyList = () => {
 
   // useContext des différents context
   const authContext = useContext(AuthContext);
+  const burgerContext = useContext(BurgerContext);
+  burgerContext.displayBurger();
 
   // States
   const [itemList, setItemList] = useState([]);

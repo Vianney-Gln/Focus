@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import "../styles/SignIn.scss";
@@ -10,6 +11,7 @@ import { SignContext } from "../contexts/SignContext";
 import { AuthContext } from "../contexts/AuthContext";
 
 const SignIn = () => {
+  const history = useHistory();
   const signContext = useContext(SignContext);
   const authContext = useContext(AuthContext);
   const [email, setEmail] = useState("");
@@ -30,6 +32,10 @@ const SignIn = () => {
         setEmail("");
         setPassword("");
         signContext.hideSignIn();
+        if (signContext.redirect !== null) {
+          history.push(signContext.redirect);
+          signContext.setRedirect(null);
+        }
       } else {
         setEmail("");
         setPassword("");
