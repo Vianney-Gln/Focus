@@ -4,35 +4,61 @@ import "../styles/suggestion.scss";
 import imgNet from "../assets/images/netflix.png";
 import imgCanal from "../assets/images/canal.png";
 import "../styles/starRate.css";
-import { SignInContext } from "../contexts/SignInContext";
+import { SignContext } from "../contexts/SignContext";
 import { AuthContext } from "../contexts/AuthContext";
+
 import SlideImg from "../assets/images/westworlded.jpg";
+import {
+  addMovie,
+  addMovieToMyList,
+  updateUserMyList,
+} from "../services/FirebaseRealtimeDatabase";
 
-const Suggestion = ({ refValue }) => {
-  const signinContext = useContext(SignInContext);
+const Suggestion = ({ data }) => {
+  const signinContext = useContext(SignContext);
   const authContext = useContext(AuthContext);
-
   const [rating, setRating] = useState(0);
 
-  const handleAddToMyList = () => {
-    if (authContext.isLogged) {
+  const handleAddToMyList = async () => {
+    try {
       // Ajouter a MaList
-    } else {
-      // Demander de se connecter
-      signinContext.showSignIn();
+      if (authContext.isLogged) {
+        // try to add this movie to the database
+        const movieData = {
+          title: data.title || "Not documented",
+          poster: data.background || "Not documented",
+          author: data.author || "Not documented",
+          date: data.date.base || "Not documented",
+          duration: data.duration.base || "Not documented",
+        };
+        await addMovie(data.id, movieData);
+        // update to add user on movie
+        await addMovieToMyList(authContext.userID, data.id);
+      } else {
+        // Demander de se connecter
+        signinContext.showSignIn();
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
-  const handleRating = (value) => {
+  const handleRating = (value, movieID) => {
     setRating(value);
     // si connecter enregistrer le rating
-    // sinon pas enregistrer
+    if (authContext.isLogged) {
+      // Connected
+      updateUserMyList(authContext.userID, movieID, {
+        rating: value,
+      });
+    }
+    return true;
   };
 
   return (
     <>
       {/* <BackgroundImage /> */}
-      <section className="suggestion" ref={refValue}>
+      <section className="suggestion">
         <div className="suggestion-body">
           <div className="containers-slideshow">
             <div className="slideshow">
@@ -40,7 +66,11 @@ const Suggestion = ({ refValue }) => {
                 <i className="icon-left-open-big" />
               </button>
               <div className="container-image-player">
-                <img className="img-slideshow" src={SlideImg} alt="slideimg" />
+                <img
+                  className="img-slideshow"
+                  src={data ? data.background : SlideImg}
+                  alt="slideimg"
+                />
                 <button type="button" className="btn-fleche-slideShow">
                   <i className="icon-play" />
                 </button>
@@ -52,22 +82,29 @@ const Suggestion = ({ refValue }) => {
           </div>
 
           <div className="suggestion-informations">
-            <h1>Fight Club</h1>
+            <h1>{data ? data.title : "Not documented"}</h1>
             <div className="movie-informations">
-              <div className="movie-author">David Fincher</div>
-              <div className="movie-year">1999</div>
-              <div className="movie-duration">2h 19m</div>
+              <div className="movie-author">
+                {data ? data.author : "Not documented"}
+              </div>
+              <div className="movie-year">
+                {data ? data.date.year : "Not documented"}
+              </div>
+              <div className="movie-duration">
+                {data && data.duration
+                  ? `${data.duration.hours}h ${data.duration.minutes}`
+                  : "Not documented"}
+              </div>
             </div>
             <div className="movie-synopsis">
-              A ticking-time-bomb insomniac and a slippery soap salesman channel
-              primal male aggression into a shocking new form of therapy. Their
-              concept catches on, with underground &quot;fight clubs&quot;
-              forming in every town, until an eccentric gets in the way and
-              ignites an out-of-control spiral toward oblivion.
+              {data ? data.synopsis : "Not documented"}
             </div>
             <div className="movie-mores">
               <div className="movie-rating">
-                <Rating onClick={handleRating} ratingValue={rating} />
+                <Rating
+                  onClick={(value) => handleRating(value, data.id)}
+                  ratingValue={rating}
+                />
               </div>
               <button
                 className="movie-addtomylist"

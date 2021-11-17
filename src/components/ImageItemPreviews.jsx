@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import BackgroundContext from "../contexts/BackgroundContext";
 
 function ImageItemPreviews({ source }) {
+  const backgroundContext = useContext(BackgroundContext);
   return (
     <img
-      // src="http://image.tmdb.org/t/p/w300/s3TBrRGB1iav7gFOCNx3H31MoES.jpg"
+      onMouseOver={() => {
+        backgroundContext.setBackground(source.replace("w500", "original"));
+        console.log(source);
+      }}
+      onFocus={() => 0}
       src={source}
       alt="films"
     />

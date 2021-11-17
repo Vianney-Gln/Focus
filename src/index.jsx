@@ -7,22 +7,28 @@ import BurgerProvider from "./components/BurgerProvider";
 import App from "./App";
 import "./assets/fonts/grotesk/Grotesk.css";
 import "./assets/fonts/focus/focus.css";
+import BackgroundProvider from "./components/BackgroundProvider";
+import { ModalProvider } from "./contexts/ModalContext";
 
 /* Temporary */
-import { SignInProvider } from "./contexts/SignInContext";
+import { SignProvider } from "./contexts/SignContext";
 import { AuthProvider } from "./contexts/AuthContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <AuthProvider>
-      <SignInProvider>
-        <BurgerProvider>
-          <Router>
-            <App />
-          </Router>
-        </BurgerProvider>
-      </SignInProvider>
-    </AuthProvider>
+    <ModalProvider>
+      <BackgroundProvider>
+        <AuthProvider>
+          <SignProvider>
+            <BurgerProvider>
+              <Router>
+                <App />
+              </Router>
+            </BurgerProvider>
+          </SignProvider>
+        </AuthProvider>
+      </BackgroundProvider>
+    </ModalProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

@@ -63,7 +63,7 @@
 }
 
 .myList .container-items-list {
-  height: 75vh;
+  height: calc(100vh - 179px);
   width: 100%;
   overflow-y: auto;
 }
