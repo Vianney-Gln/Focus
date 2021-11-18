@@ -18,6 +18,7 @@ import {
 import { ModalContext } from "../contexts/ModalContext";
 import Player from "./Player";
 import "../styles/itemModal.css";
+import defaultImg from "../assets/images/imgDefault.png";
 
 const ItemModal = () => {
   const signinContext = useContext(SignContext);
@@ -107,7 +108,7 @@ const ItemModal = () => {
           // try to add this movie to the database
           const movieData = {
             title: modalContext.infosMovie.title || "Not documented",
-            poster: modalContext.infosMovie.background || "Not documented",
+            poster: modalContext.infosMovie.background || defaultImg,
             author: modalContext.infosMovie.author || "Not documented",
             date: modalContext.infosMovie.date.base || "Not documented",
             duration: modalContext.infosMovie.duration.base || "Not documented",
@@ -119,7 +120,7 @@ const ItemModal = () => {
           // try to update this movie to the database
           const movieData = {
             title: modalContext.infosMovie.title || "Not documented",
-            poster: modalContext.infosMovie.background || "Not documented",
+            poster: modalContext.infosMovie.background || defaultImg,
             author: modalContext.infosMovie.author || "Not documented",
             date: modalContext.infosMovie.date.base || "Not documented",
             duration: modalContext.infosMovie.duration.base || "Not documented",
@@ -225,7 +226,14 @@ const ItemModal = () => {
       >
         <main className="modalContent">
           <div className="top-thumbnail">
-            <img src={modalContext.infosMovie.background} alt="" />
+                        <img
+              src={
+                modalContext.infosMovie.background
+                  ? modalContext.infosMovie.background
+                  : defaultImg
+              }
+              alt={modalContext.infosMovie.title}
+            />
             <button
               className="showModal"
               type="button"
