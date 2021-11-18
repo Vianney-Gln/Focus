@@ -1,10 +1,14 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import BurgerContext from "../contexts/BurgerContext";
+import { AuthContext } from "../contexts/AuthContext";
+import { SignContext } from "../contexts/SignContext";
 import "../styles/popupMenu.css";
 
 const PopupMenu = () => {
   const burgerContext = useContext(BurgerContext);
+  const authContext = useContext(AuthContext);
+  const signContext = useContext(SignContext);
 
   /* A chaque clique sur un link le popupMenu se ferme et le burger retrouve son état initial */
   return (
@@ -81,6 +85,24 @@ const PopupMenu = () => {
             ABOUT US
           </li>
         </Link>
+        {!authContext.isLogged && (
+          <li
+            type="button"
+            onClick={signContext.showSignIn}
+            role="presentation"
+          >
+            SIGN IN
+          </li>
+        )}
+        {authContext.isLogged && (
+          <li
+            type="button"
+            onClick={authContext.userLogout}
+            role="presentation"
+          >
+            LOGOUT
+          </li>
+        )}
       </ul>
     </div>
   );
