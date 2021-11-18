@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import {
   BackgroundImage,
   ItemsPreviews,
@@ -29,8 +29,12 @@ const Category = () => {
   // récupération du paramètre d'url cat de category
   const { cat } = useParams();
 
+  // récupération de l'history pour redirection vers 404 en cas d'erreur de parametre d'url
+
+  const history = useHistory();
+
   // initialisation d'une variable qui répupère la fonction de fetching depuis services en fonction de la category de film surlaquelle l'utilisateur appuis
-  let fetchFunction;
+  let fetchFunction = tmdbMovieUpcoming;
 
   // 3 fonctions de fetching qui affichent les films en fonction des categories, par defaut on met Upcoming
   switch (cat) {
@@ -44,7 +48,7 @@ const Category = () => {
       fetchFunction = tmdbMovieNowPlaying;
       break;
     default:
-      fetchFunction = tmdbMovieUpcoming;
+      history.push("/error404");
   }
 
   // on relance le fetch chaque fois que la valeur de cat change
