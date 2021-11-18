@@ -78,3 +78,25 @@
     margin-right: 10px;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .popup-menu-elements .popup-menu-elements-top,
+  .popup-menu-elements .popup-menu-elements-bottom {
+    align-items: center;
+    margin: 0;
+  }
+
+  .popup-menu-elements .popup-menu-elements-top li,
+  .popup-menu-elements .popup-menu-elements-bottom .my-list,
+  .popup-menu-elements .popup-menu-elements-bottom .about-us {
+    font-size: 32px;
+  }
+
+  .popup-menu-elements .cross-close {
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  .popup-menu-elements .popup-menu-elements-bottom > li{
+    font-size: 32px;
+  }
+}
