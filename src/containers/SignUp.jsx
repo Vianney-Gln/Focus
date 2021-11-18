@@ -124,6 +124,7 @@ const SignUp = () => {
           signContext.setRedirect(null);
         }
       }
+      return true;
     } catch (err) {
       return false;
     }

@@ -149,6 +149,7 @@ const ItemModal = () => {
         // Demander de se connecter
         signinContext.showSignIn();
       }
+      return true;
     } catch (error) {
       return false;
     }
@@ -168,6 +169,7 @@ const ItemModal = () => {
         // Demander de se connecter
         signinContext.showSignIn();
       }
+      return true;
     } catch (error) {
       return false;
     }

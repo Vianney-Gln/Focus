@@ -44,6 +44,7 @@ const SignIn = () => {
         setPassword("");
         // Message pas cool
       }
+      return true;
     } catch (error) {
       return false;
     }
