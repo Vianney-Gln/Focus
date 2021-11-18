@@ -226,7 +226,7 @@ const ItemModal = () => {
       >
         <main className="modalContent">
           <div className="top-thumbnail">
-                        <img
+            <img
               src={
                 modalContext.infosMovie.background
                   ? modalContext.infosMovie.background
