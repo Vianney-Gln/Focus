@@ -29,12 +29,10 @@ const getIntoDb = async () => {
  */
 const postIntoDb = async (newData) => {
   try {
-    console.log(myListCollection);
     await addDoc(myListCollection, newData);
-    console.log("???");
     return true;
   } catch (error) {
-    return console.log(error);
+    return false;
   }
 };
 

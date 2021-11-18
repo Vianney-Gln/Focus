@@ -12,8 +12,7 @@ export const addMovie = async (id, data) => {
     await set(ref(Database, `movies/${id}`), data);
     return true;
   } catch (err) {
-    console.log(err);
-    return err;
+    return false;
   }
 };
 
@@ -57,10 +56,9 @@ export const getMovieListByID = async (movieID) => {
 export const updateMovie = async (movieid, post) => {
   try {
     await update(ref(Database, `movies/${movieid}`), post);
-    return console.log("Normaly Updated ?");
+    return true;
   } catch (err) {
-    console.log(err);
-    return err;
+    return false;
   }
 };
 
@@ -72,10 +70,9 @@ export const updateMovie = async (movieid, post) => {
 export const deleteMovie = async (movieid) => {
   try {
     await remove(ref(Database, `movies/${movieid}`));
-    return console.log("Normaly Removed ?");
+    return true;
   } catch (err) {
-    console.log(err);
-    return err;
+    return false;
   }
 };
 
@@ -127,29 +124,26 @@ export const addMovieToMyList = async (userID, movieID, rating = null) => {
       watch: false,
       rating,
     });
-    return console.log("Normaly Added ?");
+    return true;
   } catch (err) {
-    console.log(err);
-    return err;
+    return false;
   }
 };
 
 export const updateUserMyList = async (userID, movieID, data) => {
   try {
     await update(ref(Database, `movies/${movieID}/${userID}`), data);
-    return console.log("Normaly Updated ?");
+    return true;
   } catch (err) {
-    console.log(err);
-    return err;
+    return false;
   }
 };
 
 export const removeFromMyList = async (userID, movieID) => {
   try {
     await remove(ref(Database, `movies/${movieID}/${userID}`));
-    return console.log("Normaly Removed ?");
+    return true;
   } catch (err) {
-    console.log(err);
-    return err;
+    return false;
   }
 };

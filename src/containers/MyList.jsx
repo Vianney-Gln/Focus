@@ -152,7 +152,6 @@ const MyList = () => {
         </div>
 
         <div className="container-items-list">
-          {console.log(filteredArr)}
           {filteredArr.length === 0 &&
             itemList.map((movie) => (
               <ElementList key={movie.id} data={movie} />
