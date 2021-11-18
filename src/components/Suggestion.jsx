@@ -40,7 +40,7 @@ const Suggestion = ({ data, loaded = false, userMyList = null, type, top }) => {
     userMyList !== null ? userMyList.map((movie) => movie.id) : [];
 
   useEffect(() => {
-    if (loaded && suggestionData && authContext.isLogged) {
+    if (loaded && suggestionData && authContext.isLogged && userMyList) {
       const checkthisMovie = userMyList.find(
         (movie) => movie.id === suggestionData.id
       );
@@ -114,11 +114,14 @@ const Suggestion = ({ data, loaded = false, userMyList = null, type, top }) => {
           authContext.userID,
           suggestionData.id
         );
+        let ratingDefault = null;
+        if (movieInfo && movieInfo.user && movieInfo.user.rating)
+          ratingDefault = movieInfo.user.rating;
         // update to add user on movie
         await addMovieToMyList(
           authContext.userID,
           suggestionData.id,
-          movieInfo.user.rating || null
+          ratingDefault
         );
         // Change button to "Remove from my list"
         buttonMyList(false);

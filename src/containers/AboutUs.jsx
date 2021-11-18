@@ -15,7 +15,7 @@ export default function AboutUs() {
   const burgerContext = useContext(BurgerContext);
   burgerContext.displayBurger();
 
-  document.title = "aboutus-Focus";
+  document.title = "About Us | Focus";
 
   return (
     <div className="aboutUs">
