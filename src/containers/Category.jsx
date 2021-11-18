@@ -19,7 +19,6 @@ import {
 } from "../services/TheMovieDbFunctions";
 // styles
 import "../styles/category.css";
-import "../styles/backgroundImage.css";
 
 const Category = () => {
   const [movies, setMovies] = useState([]);
