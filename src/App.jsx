@@ -15,6 +15,7 @@ import SignIn from "./containers/SignIn";
 import SignUp from "./containers/SignUp";
 import { AuthContext } from "./contexts/AuthContext";
 import { getLoggedUserSync } from "./services/FirebaseUserFunctions";
+import TermOfUse from "./containers/TermOfUse";
 
 function App() {
   const burgerContext = useContext(BurgerContext);
@@ -63,6 +64,7 @@ function App() {
         <Route exact path="/category/:cat" component={Category} />
         <Route exact path="/aboutus" component={AboutUs} />
         <Route exact path="/mylist" component={MyList} />
+        <Route exact path="/term-of-use" component={TermOfUse} />
         <Route component={Error404} />
       </Switch>
       <ItemModal />
