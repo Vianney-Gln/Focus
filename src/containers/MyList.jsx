@@ -17,7 +17,7 @@ import "../styles/myList.css";
 /* structure du composant myList */
 const MyList = () => {
   // gestion du titre du document
-  document.title = "mylist-Focus";
+  document.title = "My List | Focus";
   // Pour les redirections
   const history = useHistory();
 

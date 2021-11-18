@@ -18,8 +18,6 @@ import {
 } from "../services/TheMovieDbFunctions";
 
 const Category = () => {
-  // gestion du titre du document
-  document.title = "category-Focus";
   const [movies, setMovies] = useState([]);
 
   // utilisation du contexte pour garder le burger affiché même au rechargement de la page
@@ -28,6 +26,11 @@ const Category = () => {
 
   // récupération du paramètre d'url cat de category
   const { cat } = useParams();
+
+  const capitalize = (s) => (s && s[0].toUpperCase() + s.slice(1)) || "";
+
+  // gestion du titre du document
+  document.title = `${capitalize(cat)} | Focus`;
 
   // récupération de l'history pour redirection vers 404 en cas d'erreur de parametre d'url
 

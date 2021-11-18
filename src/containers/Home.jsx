@@ -10,6 +10,9 @@ import { SignContext } from "../contexts/SignContext";
 import UseOnScreen from "../hooks/UseOnScreen";
 
 const Home = () => {
+  // gestion du titre du document
+  document.title = "Focus | Suggestions";
+
   /**
    * Contexts
    */
