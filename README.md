@@ -1,6 +1,7 @@
 ![Focus](https://i.imgur.com/RkOF8m2.png)
 
 ## ![What is Focus](https://i.imgur.com/XqLrPTo.png)
+
 <br>
 
 Proudly presents: Focus, this app.<br>
@@ -12,6 +13,7 @@ This app provides functionalities such as: browsing libraries, bookmarking movie
 <br>
 
 ## ![Tables of Contents](https://i.imgur.com/onvvWvF.png)
+
 <br>
 
 ⋆ [Concept](https://github.com/Vianney-Gln/Focus/tree/dev#-2)<br>
@@ -28,6 +30,7 @@ This app provides functionalities such as: browsing libraries, bookmarking movie
 <br>
 
 ## ![Concept](https://i.imgur.com/VAtnKbo.png)
+
 <br>
 
 How to get away from the principle of giant streaming platforms like
@@ -40,6 +43,7 @@ discover ?
 <br>
 
 ## ![Technologies Used](https://i.imgur.com/Kxz5fpB.png)
+
 <br>
 
 For this project we used:<br>
@@ -51,6 +55,7 @@ For this project we used:<br>
 <br>
 
 ## ![Features](https://i.imgur.com/Z21S0ND.png)
+
 <br>
 
 Currently provided:<br>
@@ -65,6 +70,7 @@ Currently provided:<br>
 <br>
 
 ## ![Screenshots](https://i.imgur.com/ZQfZDn2.png)
+
 <br>
 
 WIP
@@ -73,6 +79,7 @@ WIP
 <br>
 
 ## ![Setup](https://i.imgur.com/viJ8RPS.png)
+
 <br>
 
 This project uses 2 API, TheMovieDb and Firebase.<br>
@@ -83,6 +90,7 @@ Launch `npm install` to install all packages.
 <br>
 
 ## ![Usage](https://i.imgur.com/Hf1U6Ux.png)
+
 <br>
 
 You can launch the project with `npm start` after you have installed all packages.<br>
@@ -91,6 +99,7 @@ This project uses same commands like the basics `create-react-app`.
 <br>
 
 ## ![Project Status](https://i.imgur.com/leIJxes.png)
+
 <br>
 
 Currently in progress.
@@ -98,6 +107,7 @@ Currently in progress.
 <br>
 
 ## ![Room of Improvement](https://i.imgur.com/xLKSIqd.png)
+
 <br>
 
 WIP
@@ -105,6 +115,7 @@ WIP
 <br>
 
 ## ![Acknowledgements](https://i.imgur.com/Tqkkjy2.png)
+
 <br>
 
 Our thanks to :<br>
@@ -117,6 +128,7 @@ Our thanks to :<br>
 <br>
 
 ## ![Contact](https://i.imgur.com/dfLq9ZE.png)
+
 <br>
 
 Github: [@Vianney G.](https://github.com/Vianney-Gln)<br>
