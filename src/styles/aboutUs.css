@@ -11,7 +11,7 @@
   width: 100%;
 }
 .aboutUs .below-header {
-  padding-top:75px;
+  padding-top: 75px;
   font-weight: 200;
 }
 .aboutUs h1 {
@@ -26,8 +26,8 @@
   text-align: left;
 }
 .aboutUs .concept .tagline {
-  padding-top:1em;
-  padding-bottom:0.5em;
+  padding-top: 1em;
+  padding-bottom: 0.5em;
   font-style: italic;
   font-size: 20px;
 }
@@ -73,12 +73,15 @@
   font-size: 22px;
   text-align: center;
   padding-bottom: 5px;
-  background-color:#000;
+  background-color: #000;
 }
 .aboutUs .teamMembers a:hover {
   text-decoration: none;
 }
-.aboutUs .teamMembers-step1 img, .aboutUs .teamMembers-step2 img, .aboutUs .teamMembers-step3 img, .aboutUs .teamMembers-step4 img {
+.aboutUs .teamMembers-step1 img,
+.aboutUs .teamMembers-step2 img,
+.aboutUs .teamMembers-step3 img,
+.aboutUs .teamMembers-step4 img {
   border-radius: 4px;
   object-fit: cover;
   width: 180px;
@@ -86,7 +89,10 @@
   filter: grayscale(100%);
   transition: all 0.3s ease-in-out;
 }
-.aboutUs .teamMembers-step1 img:hover, .aboutUs .teamMembers-step2 img:hover, .aboutUs .teamMembers-step3 img:hover, .aboutUs .teamMembers-step4 img:hover {
+.aboutUs .teamMembers-step1 img:hover,
+.aboutUs .teamMembers-step2 img:hover,
+.aboutUs .teamMembers-step3 img:hover,
+.aboutUs .teamMembers-step4 img:hover {
   filter: grayscale(0%);
   transform: rotate(-0.5rad) translateX(-30px) translateY(20px);
 }
@@ -117,44 +123,48 @@
 .aboutUs .icon-react-cute {
   opacity: 0.25;
   display: block;
-  margin:0 auto;
+  margin: 0 auto;
   width: 48px;
   height: 48px;
   filter: grayscale(100%);
-  -webkit-animation:spin 2s linear infinite;
-  -moz-animation:spin 2s linear infinite;
-  animation:spin 2s linear infinite;
+  -webkit-animation: spin 2s linear infinite;
+  -moz-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
 }
 @-moz-keyframes spin {
-  100% { -moz-transform: rotate(360deg); }
+  100% {
+    -moz-transform: rotate(360deg);
+  }
 }
 @-webkit-keyframes spin {
-  100% { -webkit-transform: rotate(360deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 @keyframes spin {
   100% {
-      -webkit-transform: rotate(360deg);
-      transform:rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 .aboutUs .icon-react-cute:hover {
   opacity: 0.75;
   filter: grayscale(0%);
-  -webkit-animation:spin 0.5s linear infinite;
-  -moz-animation:spin 0.5s linear infinite;
-  animation:spin 0.5s linear infinite;
+  -webkit-animation: spin 0.5s linear infinite;
+  -moz-animation: spin 0.5s linear infinite;
+  animation: spin 0.5s linear infinite;
 }
 .aboutUs .icon-react-cute:active {
   opacity: 1;
   filter: grayscale(0%);
-  -webkit-animation:spin 0.25s linear infinite;
-  -moz-animation:spin 0.25s linear infinite;
-  animation:spin 0.25s linear infinite;
+  -webkit-animation: spin 0.25s linear infinite;
+  -moz-animation: spin 0.25s linear infinite;
+  animation: spin 0.25s linear infinite;
 }
 /*/////////////////////////////////////////         TABLET      ///////////////////////////////////////////////*/
 @media screen and (max-width: 800px) {
   .aboutUs .below-header {
-    padding-top:10%;
+    padding-top: 10%;
   }
   .aboutUs .logonav {
     display: none;
@@ -163,15 +173,15 @@
     display: inherit;
   }
   .aboutUs h1 {
-    font-size:48px;
+    font-size: 48px;
   }
   .aboutUs .concept p {
     width: 80%;
-    font-size:19px;
+    font-size: 19px;
     text-align: left;
   }
   .aboutUs .concept .tagline {
-    font-size:19px;
+    font-size: 19px;
     text-align: center;
   }
   .aboutUs .teamMembers .member-name {
@@ -190,22 +200,19 @@
     position: absolute;
   }
   .aboutUs .navBar {
-  position: static;
+    position: static;
   }
   .aboutUs .logonav-mobile img {
-    padding-top: 5px;
-    width: 50px;
-    }
+    margin: 10px;
+  }
   .aboutUs .below-header {
-    padding-top:0;
+    padding-top: 0;
   }
   .aboutUs .teamMembers {
     grid-template-columns: 180px;
     grid-template-rows: 260px 260px 260px 260px;
   }
-  .aboutUs .teamMembers .member-name {
- 
-  }
+
   .aboutUs .teamMembers-step1 {
     grid-column-start: 1;
     grid-column-end: 1;
@@ -239,8 +246,5 @@
   .aboutUs .teamMembers .quote-text {
     font-size: 14px;
   }
-  
 }
 /*/////////////////////////////////////////   aboutUS CSS end   ///////////////////////////////////////////////*/
-
-

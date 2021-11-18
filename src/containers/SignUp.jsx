@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { Line } from "rc-progress";
@@ -9,6 +10,7 @@ import { SignContext } from "../contexts/SignContext";
 import { AuthContext } from "../contexts/AuthContext";
 
 const SignUp = () => {
+  const history = useHistory();
   const signContext = useContext(SignContext);
   const authContext = useContext(AuthContext);
   /**
@@ -99,13 +101,19 @@ const SignUp = () => {
       if (verif.includes("error")) {
         throw new Error("Your password does not meet the criteria");
       } else {
-        const user = await createUser(email, password);
-        authContext.setUserID(user.uid);
+        const userCredential = await createUser(email, password);
+        authContext.setUserID(userCredential.user.uid);
         authContext.setIsLogged(true);
+        localStorage.setItem("user", userCredential.user.uid);
+        localStorage.setItem("logged", true);
         setEmail("");
         setPassword("");
         setPasswordConfirm("");
         signContext.hideSignUp();
+        if (signContext.redirect !== null) {
+          history.push(signContext.redirect);
+          signContext.setRedirect(null);
+        }
       }
     } catch (error) {
       console.log(error);

@@ -53,6 +53,10 @@
 .views-titles .viewed-asc {
   width: 50%;
 }
+.views-titles .viewed-asc .checked {
+  background-color: #fff;
+  color: #000;
+}
 
 .button-margin-left {
   margin-left: 5px;
@@ -106,7 +110,7 @@
     font-size: 14px;
   }
   .myList .barre-logo-burger-mobile img {
-    width: 50px;
+    height: 5vh;
   }
 
   .myList .views-titles {

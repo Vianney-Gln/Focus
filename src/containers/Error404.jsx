@@ -4,6 +4,8 @@ import gif from "../assets/images/compteur.gif";
 import "../styles/error404.css";
 
 const Error404 = () => {
+  // gestion du titre du document
+  document.title = "erreur404-Focus";
   const [redirectTimer, setRedirectTimer] = useState(5);
 
   useEffect(() => {
