@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useHistory } from "react-router-dom";
 import { Logo, LogoMobile, SearchBar, Suggestion } from "../components";
 import "../styles/home.scss";
 import { suggestionFetch } from "../services/TheMovieDbFunctions";
@@ -73,12 +73,15 @@ const Home = () => {
     scrollToRef.current.scrollIntoView();
 
   const { sug } = useParams();
+  const history = useHistory();
 
   useEffect(() => {
     if (sug != null) {
       if (sug.toLowerCase() === "upcoming") scrollToReference(upcomingRef);
-      if (sug.toLowerCase() === "popular") scrollToReference(popularRef);
-      if (sug.toLowerCase() === "nowplaying") scrollToReference(nowplayingRef);
+      else if (sug.toLowerCase() === "popular") scrollToReference(popularRef);
+      else if (sug.toLowerCase() === "nowplaying")
+        scrollToReference(nowplayingRef);
+      else history.push("/error404");
     }
   }, []);
 
@@ -94,20 +97,25 @@ const Home = () => {
    */
   useEffect(() => {
     (async () => {
-      /**
-       * Fetch Suggestions
-       */
-      const data = await suggestionFetch();
-      // Change loaded false to true
-      setSuggestionLoaded(true);
-      // Fill array with data
-      setSuggestionDatas([data.upcoming, data.popular, data.nowplaying]);
-      // Fetch User MyList
-      if (authContext.isLogged) {
-        const userMyList = await getListofMyList(authContext.userID);
-        setSuggestionUserMyList(userMyList);
+      try {
+        /**
+         * Fetch Suggestions
+         */
+        const data = await suggestionFetch();
+        // Change loaded false to true
+        setSuggestionLoaded(true);
+        // Fill array with data
+        setSuggestionDatas([data.upcoming, data.popular, data.nowplaying]);
+        // Fetch User MyList
+        if (authContext.isLogged) {
+          const userMyList = await getListofMyList(authContext.userID);
+          setSuggestionUserMyList(userMyList);
+        }
+        setUpcomingTop(upcomingRef.current.offsetTop);
+        return true;
+      } catch (error) {
+        return false;
       }
-      setUpcomingTop(upcomingRef.current.offsetTop);
     })();
   }, []);
 

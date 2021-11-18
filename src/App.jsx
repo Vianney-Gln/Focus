@@ -62,6 +62,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/aboutus" component={AboutUs} />
         <Route exact path="/mylist" component={MyList} />
+        <Route exact path="/error404" component={Error404} />
         <Route exact path="/:sug" component={Home} />
         <Route exact path="/category/:cat" component={Category} />
         <Route component={Error404} />
