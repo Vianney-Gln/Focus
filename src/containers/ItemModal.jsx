@@ -55,12 +55,14 @@ const ItemModal = () => {
     (async () => {
       if (!authContext.isLogged) return;
       const userMoviesMyList = await getListofMyList(authContext.userID);
-      setUserMovieMyListID(userMoviesMyList.map((movie) => movie.id));
-      setCurrentMovie(
-        userMoviesMyList.find(
-          (movie) => movie.id === modalContext.infosMovie.id
-        )
-      );
+      if (userMoviesMyList) {
+        setUserMovieMyListID(userMoviesMyList.map((movie) => movie.id));
+        setCurrentMovie(
+          userMoviesMyList.find(
+            (movie) => movie.id === modalContext.infosMovie.id
+          )
+        );
+      }
     })();
   }, [modalContext.infosMovie]);
 
@@ -132,11 +134,14 @@ const ItemModal = () => {
           authContext.userID,
           modalContext.infosMovie.id
         );
+        let ratingDefault = null;
+        if (movieInfo && movieInfo.user && movieInfo.user.rating)
+          ratingDefault = movieInfo.user.rating;
         // update to add user on movie
         await addMovieToMyList(
           authContext.userID,
           modalContext.infosMovie.id,
-          movieInfo.user.rating || null
+          ratingDefault
         );
         // Change button to "Remove from my list"
         buttonMyList(false);
