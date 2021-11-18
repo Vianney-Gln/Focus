@@ -1,4 +1,6 @@
+// react
 import React, { createContext, useState } from "react";
+// services
 import { tmdbMovieInfos } from "../services/TheMovieDbFunctions";
 
 const ModalContext = createContext(null);

@@ -1,4 +1,6 @@
+// react
 import React, { useState, createContext } from "react";
+// services
 import { logoutUser } from "../services/FirebaseUserFunctions";
 
 export const AuthContext = createContext(null);
