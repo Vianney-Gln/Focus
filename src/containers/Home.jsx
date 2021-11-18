@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
-import Hamburger from "hamburger-react";
 import { Logo, LogoMobile, SearchBar, Suggestion } from "../components";
 import "../styles/home.scss";
 import { suggestionFetch } from "../services/TheMovieDbFunctions";
@@ -17,6 +16,23 @@ const Home = () => {
   const burgerContext = useContext(BurgerContext);
   const authContext = useContext(AuthContext);
   const signinContext = useContext(SignContext);
+
+  // fonction qui affiche le burger ou non en fonction de la taille de la fenêtre dès le chargement de la page
+  window.onload = () => {
+    if (window.matchMedia("(max-width:800px)").matches) {
+      burgerContext.displayBurger();
+    } else {
+      burgerContext.hiddenBurger();
+    }
+  };
+  // fonction qui capte le redimensionnement de la fenetre et qui affiche ou non le burger
+  window.onresize = () => {
+    if (window.matchMedia("(max-width:800px)").matches) {
+      burgerContext.displayBurger();
+    } else {
+      burgerContext.hiddenBurger();
+    }
+  };
 
   /**
    * Create Ref for each Section
@@ -149,9 +165,6 @@ const Home = () => {
               </Link>
             </div>
           )}
-        </div>
-        <div className="fakeBurger">
-          <Hamburger />
         </div>
       </header>
 
