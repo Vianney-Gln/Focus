@@ -6,7 +6,7 @@ import BurgerProvider from "./contexts/BurgerContext";
 import App from "./App";
 import "./assets/fonts/grotesk/Grotesk.css";
 import "./assets/fonts/focus/focus.css";
-import BackgroundProvider from "./components/BackgroundProvider";
+import BackgroundProvider from "./contexts/BackgroundContext";
 import { ModalProvider } from "./contexts/ModalContext";
 
 /* Temporary */

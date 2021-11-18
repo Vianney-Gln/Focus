@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import BackgroundContext from "../contexts/BackgroundContext";
+import { BackgroundContext } from "../contexts/BackgroundContext";
 
 function BackgroundImage() {
   const backgroundContext = useContext(BackgroundContext);

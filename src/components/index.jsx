@@ -1,5 +1,4 @@
 import BackgroundImage from "./BackgroundImage";
-import BurgerProvider from "./BurgerProvider";
 import ButtonSignIn from "./ButtonSignIn";
 import ElementList from "./ElementList";
 import ImageItemPreviews from "./ImageItemPreviews";
@@ -13,7 +12,6 @@ import Suggestion from "./Suggestion";
 
 export {
   BackgroundImage,
-  BurgerProvider,
   ButtonSignIn,
   ElementList,
   ImageItemPreviews,
