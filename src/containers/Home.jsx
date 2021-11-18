@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState, useContext } from "react";
 import { Link, useParams, useHistory } from "react-router-dom";
 import { Logo, LogoMobile, SearchBar, Suggestion } from "../components";
 import "../styles/home.scss";
+import "../styles/switch.scss";
 import { suggestionFetch } from "../services/TheMovieDbFunctions";
 import { getListofMyList } from "../services/FirebaseRealtimeDatabase";
 import { BurgerContext } from "../contexts/BurgerContext";
