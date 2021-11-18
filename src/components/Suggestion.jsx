@@ -144,8 +144,9 @@ const Suggestion = ({ data, loaded = false, userMyList = null, type, top }) => {
         // Demander de se connecter
         signinContext.showSignIn();
       }
+      return true;
     } catch (error) {
-      console.log(error);
+      return false;
     }
   };
 
@@ -163,8 +164,9 @@ const Suggestion = ({ data, loaded = false, userMyList = null, type, top }) => {
         // Demander de se connecter
         signinContext.showSignIn();
       }
+      return true;
     } catch (error) {
-      console.log(error);
+      return false;
     }
   };
 

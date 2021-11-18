@@ -65,7 +65,6 @@ export default function AboutUs() {
               <a href="https://github.com/anarkhya">
                 <img src={avatarG} alt="avatar" />
               </a>
-              <p>console.log(philosophy) </p>
               <p className="quote-text">« !maybe && maybe !not. »</p>
             </div>
             <div className="teamMembers-step3">

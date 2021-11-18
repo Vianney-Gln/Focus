@@ -33,7 +33,7 @@ function App() {
       }
       return true;
     } catch (err) {
-      return console.log(err);
+      return false;
     }
   }, []);
 

@@ -29,7 +29,7 @@ const ElementList = ({ data }) => {
       }
       return true;
     } catch (err) {
-      return console.log(err);
+      return false;
     }
   }
 
@@ -52,7 +52,7 @@ const ElementList = ({ data }) => {
       }
       return true;
     } catch (err) {
-      return console.log(err);
+      return false;
     }
   };
 
@@ -63,12 +63,11 @@ const ElementList = ({ data }) => {
         // Connected
         await removeFromMyList(authContext.userID, movieID);
         // remove element from DOM
-        console.log(movieID);
         document.querySelector(`.movie_${movieID}`).remove();
       }
       return true;
     } catch (err) {
-      return console.log(err);
+      return false;
     }
   };
 

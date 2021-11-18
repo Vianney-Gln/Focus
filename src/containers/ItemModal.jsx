@@ -149,8 +149,9 @@ const ItemModal = () => {
         // Demander de se connecter
         signinContext.showSignIn();
       }
+      return true;
     } catch (error) {
-      console.log(error);
+      return false;
     }
   };
 
@@ -168,8 +169,9 @@ const ItemModal = () => {
         // Demander de se connecter
         signinContext.showSignIn();
       }
+      return true;
     } catch (error) {
-      console.log(error);
+      return false;
     }
   };
 
@@ -201,7 +203,6 @@ const ItemModal = () => {
   useEffect(() => {
     if (userMovieMyListID.includes(modalContext.infosMovie.id)) {
       if (currentMovie != null) {
-        console.log(currentMovie);
         setRating(currentMovie.user.rating);
       }
     }
