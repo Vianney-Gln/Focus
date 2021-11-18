@@ -5,10 +5,9 @@ export default (ref) => {
   const options = {
     threshold: 0.5,
   };
-  const observer = new IntersectionObserver(
-    ([entry]) => setVisibility(entry.isIntersecting),
-    options
-  );
+  const observer = new IntersectionObserver(([entry]) => {
+    setVisibility(entry.isIntersecting);
+  }, options);
   useEffect(() => {
     observer.observe(ref.current);
 
