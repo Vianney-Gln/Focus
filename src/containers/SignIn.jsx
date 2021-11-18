@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import "../styles/SignIn.scss";
@@ -10,6 +11,7 @@ import { SignContext } from "../contexts/SignContext";
 import { AuthContext } from "../contexts/AuthContext";
 
 const SignIn = () => {
+  const history = useHistory();
   const signContext = useContext(SignContext);
   const authContext = useContext(AuthContext);
   const [email, setEmail] = useState("");
@@ -21,13 +23,19 @@ const SignIn = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const user = await loginUser(email, password);
-      if (user) {
-        authContext.setUserID(user.uid);
+      const userCredential = await loginUser(email, password);
+      if (userCredential) {
+        authContext.setUserID(userCredential.user.uid);
         authContext.setIsLogged(true);
+        localStorage.setItem("user", userCredential.user.uid);
+        localStorage.setItem("logged", true);
         setEmail("");
         setPassword("");
         signContext.hideSignIn();
+        if (signContext.redirect !== null) {
+          history.push(signContext.redirect);
+          signContext.setRedirect(null);
+        }
       } else {
         setEmail("");
         setPassword("");

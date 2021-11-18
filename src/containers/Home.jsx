@@ -1,138 +1,142 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
-import Hamburger from "hamburger-react";
-import { Link } from "react-router-dom";
-import {
-  ImageItemPreviews,
-  Logo,
-  LogoMobile,
-  SearchBar,
-  Switch,
-} from "../components";
-import Suggestion from "./Suggestion";
+import React, { useEffect, useRef, useState, useContext } from "react";
+import { Link, useParams, useHistory } from "react-router-dom";
+import { Logo, LogoMobile, SearchBar, Suggestion } from "../components";
 import "../styles/home.scss";
-import BurgerContext from "../contexts/BurgerContext";
-
-import tempImage from "../assets/images/westworlded.jpg";
-import UseOnScreen from "../hooks/UseOnScreen";
-import { SignContext } from "../contexts/SignContext";
-import { AuthContext } from "../contexts/AuthContext";
 import { suggestionFetch } from "../services/TheMovieDbFunctions";
+import { getListofMyList } from "../services/FirebaseRealtimeDatabase";
+import BurgerContext from "../contexts/BurgerContext";
+import { AuthContext } from "../contexts/AuthContext";
+import { SignContext } from "../contexts/SignContext";
+import UseOnScreen from "../hooks/UseOnScreen";
 
 const Home = () => {
-  // récupération du contexte
-  // Achaque clique sur les links de cette page le burger s'affiche
+  /**
+   * Contexts
+   */
   const burgerContext = useContext(BurgerContext);
-  const signinContext = useContext(SignContext);
   const authContext = useContext(AuthContext);
+  const signinContext = useContext(SignContext);
 
-  /**
-   * Create Ref for each section
-   */
-  const suggestion1ref = useRef();
-  const suggestion2ref = useRef();
-  const suggestion3ref = useRef();
-  const footerref = useRef();
-  const prehomeref = useRef();
+  // affiche le burger ou non en fonction de la taille de la fenêtre dès le chargement de la page
 
-  /**
-   * Scroll to the ref Element
-   * @param {ref} scrollRef Name of ref
-   */
-  const executeScroll = (scrollRef) => {
-    scrollRef.current.scrollIntoView();
+  if (window.matchMedia("(max-width:800px)").matches) {
+    burgerContext.displayBurger();
+  } else {
+    burgerContext.hiddenBurger();
+  }
+
+  // fonction qui capte le redimensionnement de la fenetre et qui affiche ou non le burger
+  window.onresize = () => {
+    if (window.matchMedia("(max-width:800px)").matches) {
+      burgerContext.displayBurger();
+    } else {
+      burgerContext.hiddenBurger();
+    }
   };
 
   /**
-   * Mechanic for suggestion 1 image
+   * Create Ref for each Section
    */
-  const [scroll, setScroll] = useState(0);
-  useEffect(() => {
-    const prehomeImg = document.querySelector(".pre-home img");
-    const maxHeight = suggestion1ref.current.offsetTop;
-    const percentWidth = 75 / 100;
-    const percentOpacity = 60 / 100;
-    const calcWidth = Math.round((scroll / maxHeight) * percentWidth * 100);
-    const calcOpacity =
-      Math.round((scroll / maxHeight) * percentOpacity * 100) / 100;
-
-    prehomeImg.style.width = `${Math.min(25 + calcWidth, 100)}%`;
-    prehomeImg.style.opacity = Math.max(1 - calcOpacity, 0.4);
-  }, [scroll]);
-  useEffect(() => {
-    window.addEventListener("scroll", () => setScroll(window.scrollY));
-
-    return () =>
-      window.removeEventListener("scroll", () => setScroll(window.scrollY));
-  }, []);
+  const prehomeRef = useRef();
+  const upcomingRef = useRef();
+  const popularRef = useRef();
+  const nowplayingRef = useRef();
+  const footerRef = useRef();
 
   /**
    * Test visibility of element by 50%
    */
-  const suggestion1IsVisible = UseOnScreen(suggestion1ref);
-  const suggestion2IsVisible = UseOnScreen(suggestion2ref);
-  const suggestion3IsVisible = UseOnScreen(suggestion3ref);
+  const upcomingIsVisible = UseOnScreen(upcomingRef);
+  const popularIsVisible = UseOnScreen(popularRef);
+  const nowplayingIsVisible = UseOnScreen(nowplayingRef);
+
+  let categoryLink = "";
+  let currentCategory = "";
+  if (upcomingIsVisible) {
+    categoryLink = "/category/upcoming";
+    currentCategory = "Upcoming";
+  }
+  if (popularIsVisible) {
+    categoryLink = "/category/popular";
+    currentCategory = "Popular";
+  }
+  if (nowplayingIsVisible) {
+    categoryLink = "/category/nowplaying";
+    currentCategory = "Now Playing";
+  }
 
   /**
-   * custom link to category changed by the 3rd section
+   * Scroll to the top of a Ref
+   * @param {ref} scrollToRef Name of the Ref
    */
-  let categoryLink = `/category`;
-  if (suggestion1IsVisible) categoryLink = `/category/upcoming`;
-  if (suggestion2IsVisible) categoryLink = `/category/popular`;
-  if (suggestion3IsVisible) categoryLink = `/category/now-playing`;
-  /* Fetch La data des films */
-  /* State de la catégorie upcoming */
-  const [upcoming, setUpcoming] = React.useState([]);
-  const [popular, setPopular] = React.useState([]);
-  const [nowPlaying, setNowPlaying] = React.useState([]);
+  const scrollToReference = (scrollToRef) =>
+    scrollToRef.current.scrollIntoView();
 
-  React.useEffect(() => {
-    const run = async () => {
-      /* Récupère la data à partir de la function suggestionFetch movie */
-      const data = await suggestionFetch();
+  const { sug } = useParams();
+  const history = useHistory();
 
-      /* console.log(data); */
-      /* Récupère la data de la catégorie upcoming */
-      const mapUpcomming = data.upcoming.map((dataupcoming) => (
-        <Suggestion key={dataupcoming.id} data={dataupcoming} />
-      ));
-      /* Récupère la data de la catégorie popular */
-      const mapPopular = data.popular.map((datapopular) => (
-        <Suggestion key={datapopular.id} data={datapopular} />
-      ));
-
-      /* Récupère la data de la catégorie nowplaying */
-      const mapNowPlaying = data.nowplaying.map((datanowplaying) => (
-        <Suggestion key={datanowplaying.id} data={datanowplaying} />
-      ));
-      setUpcoming(mapUpcomming[0]);
-      setPopular(mapPopular[0]);
-      setNowPlaying(mapNowPlaying[0]);
-    };
-    run();
+  useEffect(() => {
+    if (sug != null) {
+      if (sug.toLowerCase() === "upcoming") scrollToReference(upcomingRef);
+      else if (sug.toLowerCase() === "popular") scrollToReference(popularRef);
+      else if (sug.toLowerCase() === "nowplaying")
+        scrollToReference(nowplayingRef);
+      else history.push("/error404");
+    }
   }, []);
 
-  const handleSlideUp = () => {
-    setUpcoming(!upcoming);
-  };
+  /**
+   * States of fetch
+   */
+  const [suggestionLoaded, setSuggestionLoaded] = useState(false);
+  const [suggestionDatas, setSuggestionDatas] = useState([]);
+  const [suggestionUserMyList, setSuggestionUserMyList] = useState([]);
+  const [upcomingTop, setUpcomingTop] = useState(null);
+  /**
+   * Fetch Part
+   */
+  useEffect(() => {
+    (async () => {
+      try {
+        /**
+         * Fetch Suggestions
+         */
+        const data = await suggestionFetch();
+        // Change loaded false to true
+        setSuggestionLoaded(true);
+        // Fill array with data
+        setSuggestionDatas([data.upcoming, data.popular, data.nowplaying]);
+        // Fetch User MyList
+        if (authContext.isLogged) {
+          const userMyList = await getListofMyList(authContext.userID);
+          setSuggestionUserMyList(userMyList);
+        }
+        setUpcomingTop(upcomingRef.current.offsetTop);
+        return true;
+      } catch (error) {
+        return false;
+      }
+    })();
+  }, []);
+
   return (
     <main className="Containerhome">
-      {/* Top Menu */}
+      {/* Fixed Header */}
       <header className="navBar">
         <div className="navFixe">
-          <Logo scrollTo={() => executeScroll(prehomeref)} />
-          <LogoMobile scrollTo={() => executeScroll(prehomeref)} />
+          <Logo scrollTo={() => scrollToReference(prehomeRef)} />
+          <LogoMobile scrollTo={() => scrollToReference(prehomeRef)} />
           <SearchBar />
         </div>
         <div className="navunfixe">
           <div className="contbuttonmylist">
-            {/* IF logged redirect to mylist, else show login with no redirect */}
             <Link
               to={authContext.isLogged ? "/mylist" : "/"}
               className="buttonmylist"
               onClick={
                 authContext.isLogged
                   ? burgerContext.displayBurger
-                  : signinContext.showSignIn
+                  : () => signinContext.showSignIn("/mylist")
               }
             >
               MY LIST
@@ -158,82 +162,99 @@ const Home = () => {
               </button>
             )}
           </div>
-          {(suggestion1IsVisible ||
-            suggestion2IsVisible ||
-            suggestion3IsVisible) && (
+          {(upcomingIsVisible || popularIsVisible || nowplayingIsVisible) && (
             <div className="goto-category">
               <Link onClick={burgerContext.displayBurger} to={categoryLink}>
                 <span>
-                  {suggestion1IsVisible && `More Upcoming →`}
-                  {suggestion2IsVisible && `More Popular →`}
-                  {suggestion3IsVisible && `More Now PLaying →`}
+                  {upcomingIsVisible && `More Upcoming →`}
+                  {popularIsVisible && `More Popular →`}
+                  {nowplayingIsVisible && `More Now PLaying →`}
                 </span>
               </Link>
             </div>
           )}
         </div>
-        <div className="fakeBurger">
-          <Hamburger />
-        </div>
       </header>
-      {/* Switch Button */}
-      <div className="switchHome">
-        <Switch />
-      </div>
-      {/* Right Menu */}
+
+      {/* Right Fixed NavBar */}
       <div className="home-navigation">
+        <Link to="/upcoming">
+          <button
+            className="btn-navigation"
+            type="button"
+            onClick={() => scrollToReference(upcomingRef)}
+          >
+            <p>Upcoming</p>
+          </button>
+        </Link>
+        <Link to="/popular">
+          <button
+            className="btn-navigation"
+            type="button"
+            onClick={() => scrollToReference(popularRef)}
+          >
+            <p>Popular</p>
+          </button>
+        </Link>
+        <Link to="/nowplaying">
+          <button
+            className="btn-navigation"
+            type="button"
+            onClick={() => scrollToReference(nowplayingRef)}
+          >
+            <p>Now Playing</p>
+          </button>
+        </Link>
         <button
           className="btn-navigation"
           type="button"
-          onClick={() => executeScroll(suggestion1ref)}
-        >
-          <p>Upcoming</p>
-        </button>
-        <button
-          className="btn-navigation"
-          type="button"
-          onClick={() => executeScroll(suggestion2ref)}
-        >
-          <p>Popular</p>
-        </button>
-        <button
-          className="btn-navigation"
-          type="button"
-          onClick={() => executeScroll(suggestion3ref)}
-        >
-          <p>Now Playing</p>
-        </button>
-        <button
-          className="btn-navigation"
-          type="button"
-          onClick={() => executeScroll(footerref)}
+          onClick={() => scrollToReference(footerRef)}
         >
           <p>Menu</p>
         </button>
       </div>
-      {/* Pre-Home */}
-      <section className="pre-home" ref={prehomeref}>
-        <ImageItemPreviews source={tempImage} />
-      </section>
-      {/* 3 Suggestion page */}
-      <section className="upcoming" ref={suggestion1ref}>
-        {upcoming}
-        <button type="button" onClick={handleSlideUp}>
-          😃
-        </button>
-      </section>
-      <section className="popular" ref={suggestion2ref}>
-        {popular}
-      </section>
-      <section className="nowplaying" ref={suggestion3ref}>
-        {nowPlaying}
-      </section>
-      {/* <Suggestion refValue={suggestion1ref} /> */}
-      {/* <Suggestion refValue={suggestion2ref} /> */}
-      {/* <Suggestion refValue={suggestion3ref} /> */}
 
-      {/* Footer */}
-      <section className="footer" ref={footerref}>
+      {/* Bottom Left Switch */}
+      <div className="switchHome">
+        <h2>{currentCategory}</h2>
+      </div>
+
+      {/* Pre-Home: Sized Image */}
+      <section className="pre-home" ref={prehomeRef} />
+
+      {/* Suggestion: Upcoming */}
+      <section className="suggestion" ref={upcomingRef}>
+        <Suggestion
+          userMyList={suggestionUserMyList}
+          data={suggestionDatas[0]}
+          loaded={suggestionLoaded}
+          type="upcoming"
+          top={upcomingTop}
+        />
+      </section>
+
+      {/* Suggestion: Popular */}
+      <section className="suggestion" ref={popularRef}>
+        <Suggestion
+          userMyList={suggestionUserMyList}
+          data={suggestionDatas[1]}
+          loaded={suggestionLoaded}
+          type="popular"
+        />
+      </section>
+
+      {/* Suggestion: Now-Playing */}
+      <section className="suggestion" ref={nowplayingRef}>
+        <Suggestion
+          userMyList={suggestionUserMyList}
+          data={suggestionDatas[2]}
+          loaded={suggestionLoaded}
+          type="nowplaying"
+        />
+      </section>
+
+      {/* Footer: Menu */}
+      <section className="footer" ref={footerRef}>
         <ul className="footercategory">
           <Link onClick={burgerContext.displayBurger} to="/category/upcoming">
             <li className="footeritem">UPCOMING</li>
@@ -248,13 +269,13 @@ const Home = () => {
             <li className="footeritem">NOW PLAYING</li>
           </Link>
           <Link
-            to={authContext.isLogged ? "/mylist" : "/"}
-            className="buttonmylist"
             onClick={
               authContext.isLogged
                 ? burgerContext.displayBurger
                 : signinContext.showSignIn
             }
+            to={authContext.isLogged ? "/mylist" : "/"}
+            className="buttonmylist"
           >
             <li className="footeritem">MY LIST</li>
           </Link>

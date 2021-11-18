@@ -15,6 +15,8 @@ export default function AboutUs() {
   const burgerContext = useContext(BurgerContext);
   burgerContext.displayBurger();
 
+  document.title = "aboutus-Focus";
+
   return (
     <div className="aboutUs">
       <header className="navBar">
@@ -79,7 +81,7 @@ export default function AboutUs() {
                 <img src={avatarV} alt="avatar" />
               </a>
               <p>ESLint premium member </p>
-              <p className="quote-text">« Failed to compile tagline. »</p>
+              <p className="quote-text">« As long as it s works... »</p>
             </div>
           </div>
         </div>

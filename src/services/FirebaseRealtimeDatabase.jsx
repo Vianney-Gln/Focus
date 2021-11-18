@@ -34,15 +34,28 @@ export const getMovieList = async () => {
 };
 
 /**
+ * GET Movie List
+ * @returns Data | null
+ */
+export const getMovieListByID = async (movieID) => {
+  try {
+    const snapshot = await get(child(ref(Database), `movies/${movieID}`));
+    if (snapshot.exists()) {
+      return true;
+    }
+    return null;
+  } catch (err) {
+    return err;
+  }
+};
+
+/**
  * Update Movies
  * @param {number} movieid Movie ID
  * @returns boolean
  */
-export const updateMovie = async (movieid) => {
+export const updateMovie = async (movieid, post) => {
   try {
-    const post = {
-      title: "That was Edited bruda",
-    };
     await update(ref(Database, `movies/${movieid}`), post);
     return console.log("Normaly Updated ?");
   } catch (err) {
@@ -97,6 +110,8 @@ export const getMovieofMyList = async (userID, movieID) => {
       const val = snapshot.val();
       if (Object.prototype.hasOwnProperty.call(val, userID)) {
         val.id = movieID;
+        // Rename USERID to "user" as a key (short anwser)
+        delete Object.assign(val, { user: val[userID] })[userID];
         return val;
       }
     }
@@ -106,11 +121,11 @@ export const getMovieofMyList = async (userID, movieID) => {
   }
 };
 
-export const addMovieToMyList = async (userID, movieID) => {
+export const addMovieToMyList = async (userID, movieID, rating = null) => {
   try {
     await set(ref(Database, `movies/${movieID}/${userID}`), {
       watch: false,
-      rating: null,
+      rating,
     });
     return console.log("Normaly Added ?");
   } catch (err) {

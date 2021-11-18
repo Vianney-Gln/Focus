@@ -9,6 +9,7 @@ import LogoMobile from "./LogoMobile";
 import NavHome from "./NavHome";
 import SearchBar from "./SearchBar";
 import Switch from "./Switch";
+import Suggestion from "./Suggestion";
 
 export {
   BackgroundImage,
@@ -22,4 +23,5 @@ export {
   NavHome,
   SearchBar,
   Switch,
+  Suggestion,
 };

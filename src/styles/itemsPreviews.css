@@ -1,6 +1,6 @@
 .preview-items {
   /* style de chaques vignettes de films */
-  height: 180px;
+  height: 190px;
   width: 236px;
   display: flex;
   align-items: center;
@@ -22,6 +22,9 @@
   width: 100%;
   text-align: left;
   font-family: "Lato";
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .preview-items:hover .title {

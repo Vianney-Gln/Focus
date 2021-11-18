@@ -8,7 +8,7 @@ function BackgroundImage() {
     backgroundContext.background && (
       <img
         className="background-image"
-        src={backgroundContext.background}
+        src={backgroundContext.background.replace("original", "w1280")}
         alt="background"
       />
     )
