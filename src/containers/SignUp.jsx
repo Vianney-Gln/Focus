@@ -25,7 +25,9 @@ const SignUp = () => {
   const [verifSymbols, setVerifSymbols] = useState("pass");
   const [verifLength, setVerifLength] = useState(false);
   const [verifIdentical, setVerifIdentical] = useState(false);
+  const [termOfUse, setTermOfUse] = useState(false);
   const [colorBar, setColorBar] = useState("#e64141");
+  const [error, setError] = useState(true);
   useEffect(() => {
     setSecurePassword(0);
     // Verif Length
@@ -96,10 +98,11 @@ const SignUp = () => {
       verifSymbols,
       verifLength ? "valid" : "error",
       verifIdentical ? "valid" : "error",
+      termOfUse,
     ];
     try {
-      if (verif.includes("error")) {
-        throw new Error("Your password does not meet the criteria");
+      if (verif.includes("error") || verif.includes(false)) {
+        setError(false);
       } else {
         const userCredential = await createUser(email, password);
         authContext.setUserID(userCredential.user.uid);
@@ -115,8 +118,8 @@ const SignUp = () => {
           signContext.setRedirect(null);
         }
       }
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      console.log(err);
     }
   };
 
@@ -133,6 +136,10 @@ const SignUp = () => {
   const handleShowLoginPage = () => {
     signContext.hideSignUp();
     signContext.showSignIn();
+  };
+
+  const handleTermOfUse = (e) => {
+    setTermOfUse(e.target.checked);
   };
 
   return (
@@ -230,8 +237,21 @@ const SignUp = () => {
           </div>
           <div className="cgu">
             <label htmlFor="cguCheckbox">
-              <input type="checkbox" id="cguCheckbox" />
-              I&apos;m accepting the Terms of use.
+              <input
+                type="checkbox"
+                id="cguCheckbox"
+                onClick={handleTermOfUse}
+              />
+              <a
+                href="/term-of-use"
+                target="_blank"
+                onClick={() => {
+                  window.open("/term-of-use", "popup", "width=600,height=600");
+                  return false;
+                }}
+              >
+                I&apos;m accepting the Terms of use.
+              </a>
             </label>
           </div>
           <div className="container-button">
@@ -242,7 +262,10 @@ const SignUp = () => {
             >
               Already have an account ? Sign in here
             </button>
-            <button type="submit" className="signUpButton">
+            <button
+              type="submit"
+              className={`signUpButton ${!error ? "error" : ""}`}
+            >
               Register
             </button>
           </div>

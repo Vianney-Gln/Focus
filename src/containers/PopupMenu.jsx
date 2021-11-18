@@ -10,7 +10,7 @@ const PopupMenu = () => {
   return (
     <div className="popup-menu-elements">
       <ul className="popup-menu-elements-top">
-        <Link to="/category/upcomming">
+        <Link to="/category/upcoming">
           <li
             role="presentation"
             onClick={() => {
@@ -21,19 +21,6 @@ const PopupMenu = () => {
             }}
           >
             UPCOMING
-          </li>
-        </Link>
-        <Link to="/category/now-playing">
-          <li
-            role="presentation"
-            onClick={() => {
-              burgerContext.setDisplayPopupMenu(
-                !burgerContext.displayPopupMenu
-              );
-              burgerContext.setOpen(false);
-            }}
-          >
-            NOW PLAYING
           </li>
         </Link>
         <Link to="/category/popular">
@@ -47,6 +34,19 @@ const PopupMenu = () => {
             }}
           >
             POPULAR
+          </li>
+        </Link>
+        <Link to="/category/now-playing">
+          <li
+            role="presentation"
+            onClick={() => {
+              burgerContext.setDisplayPopupMenu(
+                !burgerContext.displayPopupMenu
+              );
+              burgerContext.setOpen(false);
+            }}
+          >
+            NOW PLAYING
           </li>
         </Link>
       </ul>
