@@ -63,7 +63,7 @@
       h1 {
         width: 100%;
         font-size: 60px;
-        letter-spacing: 5;
+        letter-spacing: 0;
         text-overflow: Ellipsis;
         overflow: hidden;
         max-height: 2em;
@@ -191,9 +191,6 @@
           align-items: center;
           position: relative;
           .icon-play {
-            display: none;
-          }
-          &:hover .icon-play {
             display: flex;
             font-size: 50px;
             position: absolute;
@@ -255,7 +252,7 @@
         h1 {
           width: 100%;
           font-size: 40px;
-          letter-spacing: 5;
+          letter-spacing: 0;
           text-overflow: Ellipsis;
           overflow: hidden;
           max-height: 2em;
@@ -375,14 +372,7 @@
             justify-content: center;
             align-items: center;
             position: relative;
-            .icon-play {
-              display: flex;
-              font-size: 30px;
-              position: absolute;
-              top: 40%;
-              left: 40%;
-            }
-            &:hover .icon-play {
+           .icon-play {
               display: flex;
               display: flex;
               font-size: 30px;
@@ -448,7 +438,7 @@
         h1 {
           width: 100%;
           font-size: 40px;
-          letter-spacing: 5;
+          letter-spacing: 0;
           text-overflow: Ellipsis;
           overflow: hidden;
           max-height: 2em;
@@ -570,20 +560,8 @@
             justify-content: center;
             align-items: center;
             position: relative;
+          
             .icon-play {
-             
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              font-size: 30px;
-              position: relative;
-              padding: 0;
-              margin: 0;
-              
-             
-              
-            }
-            &:hover .icon-play {
               display: flex;
               justify-content: center;
               align-items: center;

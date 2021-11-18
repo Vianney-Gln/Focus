@@ -3,6 +3,8 @@
   z-index: 1;
   bottom: 50px;
   left: 50px;
+  text-transform: uppercase;
+
 
   .btn-switch {
     background: none;
@@ -15,6 +17,7 @@
       font-family: inherit;
       font-size: 32px;
       transition: 0.2s;
+
     }
 
     &:hover h2 {
