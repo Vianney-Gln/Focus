@@ -223,7 +223,16 @@ const SignUp = () => {
           <div className="cgu">
             <label htmlFor="cguCheckbox">
               <input type="checkbox" id="cguCheckbox" />
-              I&apos;m accepting the Terms of use.
+              <a
+                href="/term-of-use"
+                target="_blank"
+                onClick={() => {
+                  window.open("/term-of-use", "popup", "width=600,height=600");
+                  return false;
+                }}
+              >
+                I&apos;m accepting the Terms of use.
+              </a>
             </label>
           </div>
           <div className="container-button">
