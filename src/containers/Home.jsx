@@ -72,7 +72,7 @@ const Home = () => {
     currentCategory = "Popular";
   }
   if (nowplayingIsVisible) {
-    categoryLink = "/category/nowplaying";
+    categoryLink = "/category/now-playing";
     currentCategory = "Now Playing";
   }
 

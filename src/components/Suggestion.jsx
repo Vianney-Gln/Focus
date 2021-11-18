@@ -145,7 +145,7 @@ const Suggestion = ({ data, loaded = false, userMyList = null, type, top }) => {
         signinContext.showSignIn();
       }
     } catch (error) {
-      console.log(error);
+      return false;
     }
   };
 
@@ -164,7 +164,7 @@ const Suggestion = ({ data, loaded = false, userMyList = null, type, top }) => {
         signinContext.showSignIn();
       }
     } catch (error) {
-      console.log(error);
+      return false;
     }
   };
 

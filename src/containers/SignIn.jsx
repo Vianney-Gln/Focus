@@ -45,7 +45,7 @@ const SignIn = () => {
         // Message pas cool
       }
     } catch (error) {
-      console.log(error);
+      return false;
     }
   };
 

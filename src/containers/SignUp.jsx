@@ -125,7 +125,7 @@ const SignUp = () => {
         }
       }
     } catch (err) {
-      console.log(err);
+      return false;
     }
   };
 
