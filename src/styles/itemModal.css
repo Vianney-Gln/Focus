@@ -63,6 +63,7 @@
   height: 100%;
 }
 .itemModal .top-thumbnail h1 {
+  padding-top: 5px;
   font-size: 40px;
   letter-spacing: 0;
   position: relative;
@@ -308,6 +309,28 @@
     padding-left: 8px;
     grid-gap: 0px;
   }
+  .itemModal .showModal {
+    top: -75%;
+    left: 35%;
+  }
+  .itemModal .modalOverlay {
+    height: 100vh;
+    min-width: auto;
+    width: auto;
+  }
+  .itemModal > div > div {
+    height: 100%;
+  }
+  .itemModal > div > div > main {
+    height: 100%;
+  }
+  .itemModal > div > div > main .top-thumbnail::after {
+    margin-top: -190px;
+  }
+  .itemModal > div > div > main .bottom-infos {
+    height: 100%;
+  }
+
 }
 
 /*/////////////////////////////////////////   itemModal CSS ends  ///////////////////////////////////////////////*/
