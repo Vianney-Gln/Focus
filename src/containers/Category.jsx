@@ -9,7 +9,7 @@ import {
 } from "../components";
 import "../styles/category.css";
 import "../styles/backgroundImage.css";
-import BurgerContext from "../contexts/BurgerContext";
+import { BurgerContext } from "../contexts/BurgerContext";
 // import BackgroundContext from "../contexts/BackgroundContext";
 import {
   tmdbMovieUpcoming,

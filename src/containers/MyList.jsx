@@ -10,7 +10,7 @@ import { Logo, ElementList, LogoMobile, SearchBar } from "../components";
 import { getListofMyList } from "../services/FirebaseRealtimeDatabase";
 // Contexts
 import { AuthContext } from "../contexts/AuthContext";
-import BurgerContext from "../contexts/BurgerContext";
+import { BurgerContext } from "../contexts/BurgerContext";
 // Styles Css
 import "../styles/myList.css";
 

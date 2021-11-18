@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Logo, LogoMobile } from "../components";
-import BurgerContext from "../contexts/BurgerContext";
+import { BurgerContext } from "../contexts/BurgerContext";
 import avatarK from "../assets/images/avatarK.png";
 import avatarG from "../assets/images/avatarG.png";
 import avatarL from "../assets/images/avatarL.png";

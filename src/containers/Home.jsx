@@ -4,7 +4,7 @@ import { Logo, LogoMobile, SearchBar, Suggestion } from "../components";
 import "../styles/home.scss";
 import { suggestionFetch } from "../services/TheMovieDbFunctions";
 import { getListofMyList } from "../services/FirebaseRealtimeDatabase";
-import BurgerContext from "../contexts/BurgerContext";
+import { BurgerContext } from "../contexts/BurgerContext";
 import { AuthContext } from "../contexts/AuthContext";
 import { SignContext } from "../contexts/SignContext";
 import UseOnScreen from "../hooks/UseOnScreen";

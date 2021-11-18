@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import BurgerContext from "../contexts/BurgerContext";
+import { BurgerContext } from "../contexts/BurgerContext";
 import "../styles/popupMenu.css";
 
 const PopupMenu = () => {
