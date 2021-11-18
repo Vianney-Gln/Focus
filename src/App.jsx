@@ -9,6 +9,7 @@ import AboutUs from "./containers/AboutUs";
 import MyList from "./containers/MyList";
 import Error404 from "./containers/Error404";
 import ItemModal from "./containers/ItemModal";
+import TermOfUse from "./containers/TermOfUse";
 import BurgerContext from "./contexts/BurgerContext";
 /* Temporary Import for test */
 import SignIn from "./containers/SignIn";
@@ -62,6 +63,8 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/aboutus" component={AboutUs} />
         <Route exact path="/mylist" component={MyList} />
+        <Route exact path="/error404" component={Error404} />
+        <Route exact path="/term-of-use" component={TermOfUse} />
         <Route exact path="/:sug" component={Home} />
         <Route exact path="/category/:cat" component={Category} />
         <Route component={Error404} />
