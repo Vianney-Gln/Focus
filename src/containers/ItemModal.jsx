@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import Modal from "react-modal";
 import { Rating } from "react-simple-star-rating";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { SignContext } from "../contexts/SignContext";
 import { AuthContext } from "../contexts/AuthContext";
 import {
@@ -14,10 +16,7 @@ import {
   updateMovie,
 } from "../services/FirebaseRealtimeDatabase";
 import { ModalContext } from "../contexts/ModalContext";
-// import { ItemsPreviews } from "../components";
-// import westworlded from "../assets/images/westworlded.jpg";
-// import imgNet from "../assets/images/netflix.png";
-// import imgCanal from "../assets/images/canal.png";
+import Player from "./Player";
 import "../styles/itemModal.css";
 import defaultImg from "../assets/images/imgDefault.png";
 
@@ -202,12 +201,20 @@ const ItemModal = () => {
       }
     }
   }, [currentMovie]);
+  // gestion player
+  const [player, setPlayer] = useState(false);
+  const handlePlayer = () => {
+    setPlayer(!player);
+  };
 
+  const [showPlayer, setShowPlayer] = useState(false);
+
+  useEffect(() => {
+    if (!modalContext.infosMovie) return;
+    setShowPlayer(true);
+  }, [modalContext.infosMovie]);
   return (
     <div className="itemModal">
-      {/* <button type="button" onClick={setModalIsOpenToTrue}>
-        Open Modal
-      </button> */}
       <Modal
         portalClassName="itemModal"
         className="itemModal"
@@ -219,7 +226,7 @@ const ItemModal = () => {
       >
         <main className="modalContent">
           <div className="top-thumbnail">
-            <img
+                        <img
               src={
                 modalContext.infosMovie.background
                   ? modalContext.infosMovie.background
@@ -227,15 +234,28 @@ const ItemModal = () => {
               }
               alt={modalContext.infosMovie.title}
             />
+            <button
+              className="showModal"
+              type="button"
+              onClick={() => handlePlayer()}
+            >
+              <i className="icon-play" />
+            </button>
+            {showPlayer && modalContext.infosMovie && (
+              <Player
+                player={player}
+                data={modalContext.infosMovie}
+                handlePlayer={handlePlayer}
+              />
+            )}
             <h1>{modalContext.infosMovie.title}</h1>
-            <a
-              href="#close"
-              title="Close"
+            <button
+              type="button"
               className="close"
               onClick={modalContext.setModalIsOpenToFalse}
             >
-              X
-            </a>
+              <FontAwesomeIcon icon={faTimes} />
+            </button>
           </div>
           <div className="bottom-infos">
             <div className="bottom-infos-grid">
