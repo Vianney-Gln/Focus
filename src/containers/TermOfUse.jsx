@@ -1,4 +1,6 @@
+// react
 import React from "react";
+// styles
 import "../styles/termofuse.scss";
 
 const TermOfUse = () => (

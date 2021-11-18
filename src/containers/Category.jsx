@@ -1,5 +1,8 @@
+// React
 import React, { useEffect, useState, useContext } from "react";
+// Reacr router dom
 import { useParams, useHistory } from "react-router-dom";
+// componenents
 import {
   BackgroundImage,
   ItemsPreviews,
@@ -7,15 +10,16 @@ import {
   LogoMobile,
   SearchBar,
 } from "../components";
-import "../styles/category.css";
-import "../styles/backgroundImage.css";
-import BurgerContext from "../contexts/BurgerContext";
-// import BackgroundContext from "../contexts/BackgroundContext";
+// Contexts
+import { BurgerContext } from "../contexts/BurgerContext";
 import {
   tmdbMovieUpcoming,
   tmdbMoviePopular,
   tmdbMovieNowPlaying,
 } from "../services/TheMovieDbFunctions";
+// styles
+import "../styles/category.css";
+import "../styles/backgroundImage.css";
 
 const Category = () => {
   const [movies, setMovies] = useState([]);

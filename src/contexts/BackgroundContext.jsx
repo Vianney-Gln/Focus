@@ -1,5 +1,14 @@
-import { createContext } from "react";
+// react
+import React, { createContext, useState } from "react";
 
-const BackgroundContext = createContext(null);
+export const BackgroundContext = createContext(null);
 
-export default BackgroundContext;
+export default function BackgroundProvider({ children }) {
+  const [background, setBackground] = useState("");
+
+  return (
+    <BackgroundContext.Provider value={{ background, setBackground }}>
+      {children}
+    </BackgroundContext.Provider>
+  );
+}

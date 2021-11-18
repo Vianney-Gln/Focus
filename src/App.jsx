@@ -10,7 +10,7 @@ import MyList from "./containers/MyList";
 import Error404 from "./containers/Error404";
 import ItemModal from "./containers/ItemModal";
 import TermOfUse from "./containers/TermOfUse";
-import BurgerContext from "./contexts/BurgerContext";
+import { BurgerContext } from "./contexts/BurgerContext";
 /* Temporary Import for test */
 import SignIn from "./containers/SignIn";
 import SignUp from "./containers/SignUp";

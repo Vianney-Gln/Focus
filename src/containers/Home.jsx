@@ -1,13 +1,21 @@
+// React
 import React, { useEffect, useRef, useState, useContext } from "react";
+// React router dom
 import { Link, useParams, useHistory } from "react-router-dom";
+// components
 import { Logo, LogoMobile, SearchBar, Suggestion } from "../components";
-import "../styles/home.scss";
+// services
 import { suggestionFetch } from "../services/TheMovieDbFunctions";
 import { getListofMyList } from "../services/FirebaseRealtimeDatabase";
-import BurgerContext from "../contexts/BurgerContext";
+// contexts
+import { BurgerContext } from "../contexts/BurgerContext";
 import { AuthContext } from "../contexts/AuthContext";
 import { SignContext } from "../contexts/SignContext";
+// hooks
 import UseOnScreen from "../hooks/UseOnScreen";
+// styles
+import "../styles/home.scss";
+import "../styles/switch.scss";
 
 const Home = () => {
   // gestion du titre du document

@@ -1,8 +1,12 @@
+// React
 import React, { useContext } from "react";
+// react router dom
 import { Link } from "react-router-dom";
-import BurgerContext from "../contexts/BurgerContext";
+// Contexts
+import { BurgerContext } from "../contexts/BurgerContext";
+// images
 import logo from "../assets/images/focus_big.png";
-// import "../styles/logo.css";
+// styles
 import "../styles/logo.scss";
 
 const Logo = ({ scrollTo }) => {

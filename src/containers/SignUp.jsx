@@ -1,13 +1,19 @@
+// react
 import React, { useEffect, useState, useContext } from "react";
+// react router dom
 import { useHistory } from "react-router-dom";
+// images
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+// module
 import { Line } from "rc-progress";
-import "../styles/SignUp.scss";
-
+// services
 import { createUser } from "../services/FirebaseUserFunctions";
+// contexts
 import { SignContext } from "../contexts/SignContext";
 import { AuthContext } from "../contexts/AuthContext";
+// styles
+import "../styles/SignUp.scss";
 
 const SignUp = () => {
   const history = useHistory();
