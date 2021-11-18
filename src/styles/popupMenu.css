@@ -1,0 +1,80 @@
+.popup-menu-elements {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 10;
+  transition: all 0.5s ease;
+}
+
+.popup-menu-elements .popup-menu-elements-top {
+  /* les 3 premiers li */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  margin-right: 40px;
+  height: 50vh;
+  margin-top: 100px;
+}
+
+.popup-menu-elements .popup-menu-elements-top li {
+  font-size: 72px;
+  cursor: pointer;
+  font-family: "Grotesk";
+}
+
+.popup-menu-elements .popup-menu-elements-bottom {
+  /* les deux derniers li */
+  height: 35vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: column;
+  margin-right: 40px;
+}
+
+.popup-menu-elements .popup-menu-elements-bottom > li{
+  font-size: 72px;
+  font-family: "Grotesk";
+}
+.popup-menu-elements .popup-menu-elements-bottom .about-us,
+.popup-menu-elements .popup-menu-elements-bottom .my-list {
+  font-size: 72px;
+  font-family: "Grotesk";
+}
+
+.popup-menu-elements .popup-menu-elements-bottom li:hover {
+  text-decoration: underline;
+}
+.popup-menu-elements .popup-menu-elements-top li:hover {
+  text-decoration: underline;
+}
+.popup-menu-elements .cross-close {
+  /* burger */
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 30px;
+  margin-top: 30px;
+  height: 10vh;
+}
+
+/* adapatation style pour version mobile */
+@media screen and (max-width: 700px) {
+  .popup-menu-elements .popup-menu-elements-top,
+  .popup-menu-elements .popup-menu-elements-bottom {
+    align-items: center;
+    margin: 0;
+  }
+
+  .popup-menu-elements .popup-menu-elements-top li,
+  .popup-menu-elements .popup-menu-elements-bottom .my-list,
+  .popup-menu-elements .popup-menu-elements-bottom .about-us {
+    font-size: 32px;
+  }
+
+  .popup-menu-elements .cross-close {
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+}

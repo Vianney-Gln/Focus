@@ -1,0 +1,78 @@
+.preview-items {
+  /* style de chaques vignettes de films */
+  height: 190px;
+  width: 236px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.preview-items .container-image img {
+  height: 158px;
+  width: 236px;
+  cursor: pointer;
+  object-fit: cover;
+  transition: 0.8s;
+}
+
+.preview-items .title {
+  /* les titres de films n'apparaissent pas */
+  margin-top: 10px;
+  display: none;
+  width: 100%;
+  text-align: left;
+  font-family: "Lato";
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.preview-items:hover .title {
+  /* les titres de films apparaissent au passage de la souris */
+  display: block;
+}
+
+.preview-items:hover img {
+  /* effet de floutage au passage de la souris */
+  filter: blur(2px);
+}
+.preview-items .container-image {
+  height: 159px;
+  border: 1px solid transparent;
+}
+
+.preview-items .container-image:hover {
+  border-color: white;
+}
+
+/* adaptation du style pour mobile */
+@media screen and (max-width: 768px) {
+  .preview-items {
+    height: 106px;
+    width: 120px;
+  }
+  .preview-items .container-image img {
+    width: 120px;
+    height: 80px;
+  }
+
+  .preview-items .title {
+    /* les titres apparaissent en fixe */
+    display: block;
+  }
+
+  .preview-items .container-image {
+    height: 80px;
+  }
+
+  .container-image:hover {
+    border: none;
+  }
+
+  .preview-items .container-image img {
+    border: 1px solid white;
+  }
+  .preview-items img:hover {
+    filter: none;
+  }
+}

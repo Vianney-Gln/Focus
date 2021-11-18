@@ -1,0 +1,250 @@
+/*/////////////////////////////////////////   aboutUS CSS begins   ///////////////////////////////////////////////*/
+#root .hamburger-displayed {
+  position: fixed;
+}
+.aboutUs .navFixe {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px;
+  padding: 0 0 0 0;
+  width: 100%;
+}
+.aboutUs .below-header {
+  padding-top: 75px;
+  font-weight: 200;
+}
+.aboutUs h1 {
+  padding: 20px 0 20px 0;
+  letter-spacing: 0em;
+  text-align: center;
+}
+.aboutUs .concept p {
+  width: 40%;
+  margin: 0 auto;
+  font-size: 20px;
+  text-align: left;
+}
+.aboutUs .concept .tagline {
+  padding-top: 1em;
+  padding-bottom: 0.5em;
+  font-style: italic;
+  font-size: 20px;
+}
+/*////////// display group members, using Grid for responsiveness ///////*/
+.aboutUs .flex-teamMembers {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.aboutUs .teamMembers {
+  width: 50%;
+  display: grid;
+  grid-template-columns: 180px 180px;
+  grid-template-rows: 50% 50%;
+  grid-gap: 10px;
+  justify-content: center;
+}
+.aboutUs .teamMembers-step1 {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+.aboutUs .teamMembers-step2 {
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+.aboutUs .teamMembers-step3 {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
+.aboutUs .teamMembers-step4 {
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
+.aboutUs .teamMembers .member-name {
+  font-size: 22px;
+  text-align: center;
+  padding-bottom: 5px;
+  background-color: #000;
+}
+.aboutUs .teamMembers a:hover {
+  text-decoration: none;
+}
+.aboutUs .teamMembers-step1 img,
+.aboutUs .teamMembers-step2 img,
+.aboutUs .teamMembers-step3 img,
+.aboutUs .teamMembers-step4 img {
+  border-radius: 4px;
+  object-fit: cover;
+  width: 180px;
+  height: 180px;
+  filter: grayscale(100%);
+  transition: all 0.3s ease-in-out;
+}
+.aboutUs .teamMembers-step1 img:hover,
+.aboutUs .teamMembers-step2 img:hover,
+.aboutUs .teamMembers-step3 img:hover,
+.aboutUs .teamMembers-step4 img:hover {
+  filter: grayscale(0%);
+  transform: rotate(-0.5rad) translateX(-30px) translateY(20px);
+}
+.aboutUs .teamMembers p {
+  font-size: 16px;
+  text-align: center;
+  padding-bottom: 5px;
+}
+.aboutUs .teamMembers .quote-text {
+  font-variant: normal;
+  color: #7e7e7e;
+  font-size: 14px;
+}
+/*////////// pseudofooter ///////*/
+.aboutUs .minitext {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2em;
+  padding-bottom: 30px;
+}
+.aboutUs .minitext p {
+  color: #333;
+  font-size: 14px;
+}
+/*////////// pseudofooter easter egg & its cosmetics ///////*/
+.aboutUs .icon-react-cute {
+  opacity: 0.25;
+  display: block;
+  margin: 0 auto;
+  width: 48px;
+  height: 48px;
+  filter: grayscale(100%);
+  -webkit-animation: spin 2s linear infinite;
+  -moz-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.aboutUs .icon-react-cute:hover {
+  opacity: 0.75;
+  filter: grayscale(0%);
+  -webkit-animation: spin 0.5s linear infinite;
+  -moz-animation: spin 0.5s linear infinite;
+  animation: spin 0.5s linear infinite;
+}
+.aboutUs .icon-react-cute:active {
+  opacity: 1;
+  filter: grayscale(0%);
+  -webkit-animation: spin 0.25s linear infinite;
+  -moz-animation: spin 0.25s linear infinite;
+  animation: spin 0.25s linear infinite;
+}
+/*/////////////////////////////////////////         TABLET      ///////////////////////////////////////////////*/
+@media screen and (max-width: 800px) {
+  .aboutUs .below-header {
+    padding-top: 10%;
+  }
+  .aboutUs .logonav {
+    display: none;
+  }
+  .aboutUs .logonav-mobile {
+    display: inherit;
+  }
+  .aboutUs h1 {
+    font-size: 48px;
+  }
+  .aboutUs .concept p {
+    width: 80%;
+    font-size: 19px;
+    text-align: left;
+  }
+  .aboutUs .concept .tagline {
+    font-size: 19px;
+    text-align: center;
+  }
+  .aboutUs .teamMembers .member-name {
+    font-size: 18px;
+  }
+  .aboutUs .teamMembers p {
+    font-size: 16px;
+  }
+  .aboutUs .teamMembers .quote-text {
+    font-size: 14px;
+  }
+}
+/*/////////////////////////////////////////         MOBILE     ///////////////////////////////////////////////*/
+@media screen and (max-width: 500px) {
+  #root .hamburger-displayed {
+    position: absolute;
+  }
+  .aboutUs .navBar {
+    position: static;
+  }
+  .aboutUs .logonav-mobile img {
+    margin: 10px;
+  }
+  .aboutUs .below-header {
+    padding-top: 0;
+  }
+  .aboutUs .teamMembers {
+    grid-template-columns: 180px;
+    grid-template-rows: 260px 260px 260px 260px;
+  }
+
+  .aboutUs .teamMembers-step1 {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+  .aboutUs .teamMembers-step2 {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+  }
+  .aboutUs .teamMembers-step3 {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 3;
+    grid-row-end: 3;
+  }
+  .aboutUs .teamMembers-step4 {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 4;
+    grid-row-end: 4;
+  }
+  .aboutUs .teamMembers .member-name {
+    font-size: 18px;
+  }
+  .aboutUs .teamMembers p {
+    font-size: 16px;
+  }
+  .aboutUs .teamMembers .quote-text {
+    font-size: 14px;
+  }
+}
+/*/////////////////////////////////////////   aboutUS CSS end   ///////////////////////////////////////////////*/

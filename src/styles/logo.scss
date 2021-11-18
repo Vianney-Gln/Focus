@@ -1,0 +1,25 @@
+/**
+ * Css Logo - Desktop
+ */
+.logonav {
+  height: 48px;
+
+  a {
+    display: inline-block;
+    height: 100%;
+
+    .logo {
+      height: 100%;
+      width: auto;
+      object-fit: cover;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .logonav-mobile {
+    img {
+      height: 40px;
+    }
+  }
+}
