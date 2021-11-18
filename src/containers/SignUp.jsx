@@ -23,7 +23,9 @@ const SignUp = () => {
   const [verifSymbols, setVerifSymbols] = useState("pass");
   const [verifLength, setVerifLength] = useState(false);
   const [verifIdentical, setVerifIdentical] = useState(false);
+  const [termOfUse, setTermOfUse] = useState(false);
   const [colorBar, setColorBar] = useState("#e64141");
+  const [error, setError] = useState(true);
   useEffect(() => {
     setSecurePassword(0);
     // Verif Length
@@ -94,11 +96,13 @@ const SignUp = () => {
       verifSymbols,
       verifLength ? "valid" : "error",
       verifIdentical ? "valid" : "error",
+      termOfUse,
     ];
     try {
-      if (verif.includes("error")) {
-        throw new Error("Your password does not meet the criteria");
+      if (verif.includes("error") || verif.includes(false)) {
+        setError(false);
       } else {
+        setError(true);
         const user = await createUser(email, password);
         authContext.setUserID(user.uid);
         authContext.setIsLogged(true);
@@ -107,8 +111,8 @@ const SignUp = () => {
         setPasswordConfirm("");
         signContext.hideSignUp();
       }
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      console.log(err);
     }
   };
 
@@ -125,6 +129,10 @@ const SignUp = () => {
   const handleShowLoginPage = () => {
     signContext.hideSignUp();
     signContext.showSignIn();
+  };
+
+  const handleTermOfUse = (e) => {
+    setTermOfUse(e.target.checked);
   };
 
   return (
@@ -222,7 +230,11 @@ const SignUp = () => {
           </div>
           <div className="cgu">
             <label htmlFor="cguCheckbox">
-              <input type="checkbox" id="cguCheckbox" />
+              <input
+                type="checkbox"
+                id="cguCheckbox"
+                onClick={handleTermOfUse}
+              />
               <a
                 href="/term-of-use"
                 target="_blank"
@@ -243,7 +255,10 @@ const SignUp = () => {
             >
               Already have an account ? Sign in here
             </button>
-            <button type="submit" className="signUpButton">
+            <button
+              type="submit"
+              className={`signUpButton ${!error ? "error" : ""}`}
+            >
               Register
             </button>
           </div>
