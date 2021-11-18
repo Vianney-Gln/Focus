@@ -18,6 +18,9 @@ import "../styles/home.scss";
 import "../styles/switch.scss";
 
 const Home = () => {
+  // gestion du titre du document
+  document.title = "Focus | Suggestions";
+
   /**
    * Contexts
    */

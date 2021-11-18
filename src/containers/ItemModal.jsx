@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import Modal from "react-modal";
 import { Rating } from "react-simple-star-rating";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { SignContext } from "../contexts/SignContext";
 import { AuthContext } from "../contexts/AuthContext";
 import {
@@ -14,11 +16,9 @@ import {
   updateMovie,
 } from "../services/FirebaseRealtimeDatabase";
 import { ModalContext } from "../contexts/ModalContext";
-// import { ItemsPreviews } from "../components";
-// import westworlded from "../assets/images/westworlded.jpg";
-// import imgNet from "../assets/images/netflix.png";
-// import imgCanal from "../assets/images/canal.png";
+import Player from "./Player";
 import "../styles/itemModal.css";
+import defaultImg from "../assets/images/imgDefault.png";
 
 const ItemModal = () => {
   const signinContext = useContext(SignContext);
@@ -55,12 +55,14 @@ const ItemModal = () => {
     (async () => {
       if (!authContext.isLogged) return;
       const userMoviesMyList = await getListofMyList(authContext.userID);
-      setUserMovieMyListID(userMoviesMyList.map((movie) => movie.id));
-      setCurrentMovie(
-        userMoviesMyList.find(
-          (movie) => movie.id === modalContext.infosMovie.id
-        )
-      );
+      if (userMoviesMyList) {
+        setUserMovieMyListID(userMoviesMyList.map((movie) => movie.id));
+        setCurrentMovie(
+          userMoviesMyList.find(
+            (movie) => movie.id === modalContext.infosMovie.id
+          )
+        );
+      }
     })();
   }, [modalContext.infosMovie]);
 
@@ -108,7 +110,7 @@ const ItemModal = () => {
           // try to add this movie to the database
           const movieData = {
             title: modalContext.infosMovie.title || "Not documented",
-            poster: modalContext.infosMovie.background || "Not documented",
+            poster: modalContext.infosMovie.background || defaultImg,
             author: modalContext.infosMovie.author || "Not documented",
             date: modalContext.infosMovie.date.base || "Not documented",
             duration: modalContext.infosMovie.duration.base || "Not documented",
@@ -120,7 +122,7 @@ const ItemModal = () => {
           // try to update this movie to the database
           const movieData = {
             title: modalContext.infosMovie.title || "Not documented",
-            poster: modalContext.infosMovie.background || "Not documented",
+            poster: modalContext.infosMovie.background || defaultImg,
             author: modalContext.infosMovie.author || "Not documented",
             date: modalContext.infosMovie.date.base || "Not documented",
             duration: modalContext.infosMovie.duration.base || "Not documented",
@@ -132,11 +134,14 @@ const ItemModal = () => {
           authContext.userID,
           modalContext.infosMovie.id
         );
+        let ratingDefault = null;
+        if (movieInfo && movieInfo.user && movieInfo.user.rating)
+          ratingDefault = movieInfo.user.rating;
         // update to add user on movie
         await addMovieToMyList(
           authContext.userID,
           modalContext.infosMovie.id,
-          movieInfo.user.rating || null
+          ratingDefault
         );
         // Change button to "Remove from my list"
         buttonMyList(false);
@@ -201,12 +206,20 @@ const ItemModal = () => {
       }
     }
   }, [currentMovie]);
+  // gestion player
+  const [player, setPlayer] = useState(false);
+  const handlePlayer = () => {
+    setPlayer(!player);
+  };
 
+  const [showPlayer, setShowPlayer] = useState(false);
+
+  useEffect(() => {
+    if (!modalContext.infosMovie) return;
+    setShowPlayer(true);
+  }, [modalContext.infosMovie]);
   return (
     <div className="itemModal">
-      {/* <button type="button" onClick={setModalIsOpenToTrue}>
-        Open Modal
-      </button> */}
       <Modal
         portalClassName="itemModal"
         className="itemModal"
@@ -218,16 +231,36 @@ const ItemModal = () => {
       >
         <main className="modalContent">
           <div className="top-thumbnail">
-            <img src={modalContext.infosMovie.background} alt="" />
+            <img
+              src={
+                modalContext.infosMovie.background
+                  ? modalContext.infosMovie.background
+                  : defaultImg
+              }
+              alt={modalContext.infosMovie.title}
+            />
+            <button
+              className="showModal"
+              type="button"
+              onClick={() => handlePlayer()}
+            >
+              <i className="icon-play" />
+            </button>
+            {showPlayer && modalContext.infosMovie && (
+              <Player
+                player={player}
+                data={modalContext.infosMovie}
+                handlePlayer={handlePlayer}
+              />
+            )}
             <h1>{modalContext.infosMovie.title}</h1>
-            <a
-              href="#close"
-              title="Close"
+            <button
+              type="button"
               className="close"
               onClick={modalContext.setModalIsOpenToFalse}
             >
-              X
-            </a>
+              <FontAwesomeIcon icon={faTimes} />
+            </button>
           </div>
           <div className="bottom-infos">
             <div className="bottom-infos-grid">

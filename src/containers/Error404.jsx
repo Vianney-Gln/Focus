@@ -5,7 +5,7 @@ import "../styles/error404.css";
 
 const Error404 = () => {
   // gestion du titre du document
-  document.title = "erreur404-Focus";
+  document.title = "Error 404 | Focus";
   const [redirectTimer, setRedirectTimer] = useState(5);
 
   useEffect(() => {

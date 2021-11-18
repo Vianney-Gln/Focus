@@ -34,6 +34,10 @@
   margin-right: 40px;
 }
 
+.popup-menu-elements .popup-menu-elements-bottom > li{
+  font-size: 72px;
+  font-family: "Grotesk";
+}
 .popup-menu-elements .popup-menu-elements-bottom .about-us,
 .popup-menu-elements .popup-menu-elements-bottom .my-list {
   font-size: 72px;

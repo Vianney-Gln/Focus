@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Rating } from "react-simple-star-rating";
-import tempImg from "../assets/images/westworlded.jpg";
 import "../styles/suggestion.scss";
 import Player from "../containers/Player";
 import ImageItemPreviews from "./ImageItemPreviews";
@@ -15,6 +14,7 @@ import {
   getMovieListByID,
   getMovieofMyList,
 } from "../services/FirebaseRealtimeDatabase";
+import defaultImg from "../assets/images/imgDefault.png";
 
 const Suggestion = ({ data, loaded = false, userMyList = null, type, top }) => {
   /**
@@ -40,7 +40,7 @@ const Suggestion = ({ data, loaded = false, userMyList = null, type, top }) => {
     userMyList !== null ? userMyList.map((movie) => movie.id) : [];
 
   useEffect(() => {
-    if (loaded && suggestionData && authContext.isLogged) {
+    if (loaded && suggestionData && authContext.isLogged && userMyList) {
       const checkthisMovie = userMyList.find(
         (movie) => movie.id === suggestionData.id
       );
@@ -90,7 +90,7 @@ const Suggestion = ({ data, loaded = false, userMyList = null, type, top }) => {
           // try to add this movie to the database
           const movieData = {
             title: suggestionData.title || "Not documented",
-            poster: suggestionData.background || "Not documented",
+            poster: suggestionData.background || defaultImg,
             author: suggestionData.author || "Not documented",
             date: suggestionData.date.base || "Not documented",
             duration: suggestionData.duration.base || "Not documented",
@@ -102,7 +102,7 @@ const Suggestion = ({ data, loaded = false, userMyList = null, type, top }) => {
           // try to update this movie to the database
           const movieData = {
             title: suggestionData.title || "Not documented",
-            poster: suggestionData.background || "Not documented",
+            poster: suggestionData.background || defaultImg,
             author: suggestionData.author || "Not documented",
             date: suggestionData.date.base || "Not documented",
             duration: suggestionData.duration.base || "Not documented",
@@ -114,11 +114,14 @@ const Suggestion = ({ data, loaded = false, userMyList = null, type, top }) => {
           authContext.userID,
           suggestionData.id
         );
+        let ratingDefault = null;
+        if (movieInfo && movieInfo.user && movieInfo.user.rating)
+          ratingDefault = movieInfo.user.rating;
         // update to add user on movie
         await addMovieToMyList(
           authContext.userID,
           suggestionData.id,
-          movieInfo.user.rating || null
+          ratingDefault
         );
         // Change button to "Remove from my list"
         buttonMyList(false);
@@ -127,7 +130,7 @@ const Suggestion = ({ data, loaded = false, userMyList = null, type, top }) => {
         // try to add this movie to the database
         const movieData = {
           title: suggestionData.title || "Not documented",
-          poster: suggestionData.background || "Not documented",
+          poster: suggestionData.background || defaultImg,
           author: suggestionData.author || "Not documented",
           date: suggestionData.date.base || "Not documented",
           duration: suggestionData.duration.base || "Not documented",
@@ -247,13 +250,21 @@ const Suggestion = ({ data, loaded = false, userMyList = null, type, top }) => {
       )}
       {["popular", "nowplaying"].includes(type) && loaded && suggestionData && (
         <ImageItemPreviews
-          source={suggestionData.background.replace("original", "w1280")}
+          source={
+            suggestionData.background.replace("original", "w1280")
+              ? suggestionData.background.replace("original", "w1280")
+              : defaultImg
+          }
         />
       )}
       {["upcoming"].includes(type) && loaded && suggestionData && (
         <div className="sizedImage">
           <ImageItemPreviews
-            source={suggestionData.background.replace("original", "w1280")}
+            source={
+              suggestionData.background.replace("original", "w1280")
+                ? suggestionData.background.replace("original", "w1280")
+                : defaultImg
+            }
           />
         </div>
       )}
@@ -274,7 +285,7 @@ const Suggestion = ({ data, loaded = false, userMyList = null, type, top }) => {
                 src={
                   loaded && suggestionData
                     ? suggestionData.background.replace("original", "w500")
-                    : tempImg
+                    : defaultImg
                 }
                 alt="slideimg"
                 onLoad={() => setFullLoaded(true)}
