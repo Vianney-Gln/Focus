@@ -1,5 +1,6 @@
 import "../styles/itemsPreviews.css";
 import React, { useContext } from "react";
+import defaultImg from "../assets/images/imgDefault.png";
 import ImageItemPreviews from "./ImageItemPreviews";
 import { ModalContext } from "../contexts/ModalContext";
 
@@ -16,7 +17,7 @@ function ItemsPreviews({ data, id }) {
       className="preview-items"
     >
       <div className="container-image">
-        <ImageItemPreviews source={data.image} />
+        <ImageItemPreviews source={data.image ? data.image : defaultImg} />
       </div>
       <span className="title">
         {/* {data.title.length > 18
