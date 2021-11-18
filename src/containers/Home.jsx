@@ -17,14 +17,14 @@ const Home = () => {
   const authContext = useContext(AuthContext);
   const signinContext = useContext(SignContext);
 
-  // fonction qui affiche le burger ou non en fonction de la taille de la fenêtre dès le chargement de la page
-  window.onload = () => {
-    if (window.matchMedia("(max-width:800px)").matches) {
-      burgerContext.displayBurger();
-    } else {
-      burgerContext.hiddenBurger();
-    }
-  };
+  // affiche le burger ou non en fonction de la taille de la fenêtre dès le chargement de la page
+
+  if (window.matchMedia("(max-width:800px)").matches) {
+    burgerContext.displayBurger();
+  } else {
+    burgerContext.hiddenBurger();
+  }
+
   // fonction qui capte le redimensionnement de la fenetre et qui affiche ou non le burger
   window.onresize = () => {
     if (window.matchMedia("(max-width:800px)").matches) {
