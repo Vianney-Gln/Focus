@@ -1,6 +1,8 @@
+// React
 import React, { useContext, useState } from "react";
 // Packages
 import { Rating } from "react-simple-star-rating";
+// images
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 // Contexts
@@ -10,7 +12,7 @@ import {
   removeFromMyList,
   updateUserMyList,
 } from "../services/FirebaseRealtimeDatabase";
-// Css
+// Styles
 import "../styles/elementListe.scss";
 
 const ElementList = ({ data }) => {

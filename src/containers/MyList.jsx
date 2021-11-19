@@ -1,17 +1,18 @@
 // React
 import React, { useContext, useEffect, useState } from "react";
+// React router dom
 import { useHistory } from "react-router-dom";
-// Package
+// images
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 // Components
 import { Logo, ElementList, LogoMobile, SearchBar } from "../components";
-// Firebase Functions
+// services
 import { getListofMyList } from "../services/FirebaseRealtimeDatabase";
 // Contexts
 import { AuthContext } from "../contexts/AuthContext";
 import { BurgerContext } from "../contexts/BurgerContext";
-// Styles Css
+// Styles
 import "../styles/myList.css";
 
 /* structure du composant myList */

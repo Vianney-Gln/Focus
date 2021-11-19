@@ -1,4 +1,6 @@
+// React
 import React, { useContext } from "react";
+// contexts
 import { BackgroundContext } from "../contexts/BackgroundContext";
 
 function ImageItemPreviews({ source }) {

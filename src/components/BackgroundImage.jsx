@@ -1,5 +1,8 @@
+// React
 import React, { useContext } from "react";
+// contexts
 import { BackgroundContext } from "../contexts/BackgroundContext";
+// styles
 import "../styles/backgroundImage.css";
 
 function BackgroundImage() {

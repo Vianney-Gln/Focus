@@ -1,3 +1,4 @@
+// components
 import BackgroundImage from "./BackgroundImage";
 import ButtonSignIn from "./ButtonSignIn";
 import ElementList from "./ElementList";
