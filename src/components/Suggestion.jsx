@@ -195,7 +195,10 @@ const Suggestion = ({ data, loaded = false, userMyList = null, type, top }) => {
     setCurrentData(newCurrent);
   };
 
+  // État du player initialisé a false pour qu'il soit fermé
   const [player, setPlayer] = useState(false);
+
+  // Fonction qui change l'état du player appelé au clic
   const handlePlayer = () => {
     setPlayer(!player);
   };
