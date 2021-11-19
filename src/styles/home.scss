@@ -30,7 +30,6 @@
     .btn-aperture {
       background-color: transparent;
     }
-
     .contbuttonmylist {
       display: flex;
       flex-wrap: nowrap;
@@ -72,6 +71,7 @@
   gap: 50px;
   font-family: "Grotesk";
   box-shadow: 0px 0px 50px 20px #000;
+  
   .footercategory {
     display: flex;
     flex-direction: column;
@@ -92,7 +92,6 @@
     }
   }
 }
-
 .upcoming {
   grid-row: 1 / 2;
   height: 100vh;
@@ -105,7 +104,6 @@
   grid-row: 3 / 4;
   height: 100vh;
 }
-
 .home-navigation {
   position: fixed;
   z-index: 4;
@@ -113,7 +111,7 @@
   right: 50px;
   transform: translateY(-50%);
   display: grid;
-  gap: 30px;
+  gap: 10px;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(4, 1fr);
 
@@ -220,7 +218,6 @@
     }
   }
 }
-
 @media screen and (max-width: 500px) {
   .home {
     .mainHome {
@@ -236,7 +233,6 @@
       }
     }
   }
-
   .navBar {
     padding: 1%;
     gap: 0px;

@@ -254,7 +254,11 @@ const ItemModal = () => {
                 handlePlayer={handlePlayer}
               />
             )}
-            <h1>{modalContext.infosMovie.title}</h1>
+            <h1>
+              {modalContext.infosMovie.title
+                ? modalContext.infosMovie.title
+                : "Not Documented"}
+            </h1>
             <button
               type="button"
               className="close"
@@ -266,15 +270,19 @@ const ItemModal = () => {
           <div className="bottom-infos">
             <div className="bottom-infos-grid">
               <div className="bottom-infos-grid-creators">
-                {modalContext.infosMovie.author}
+                {modalContext.infosMovie.author
+                  ? modalContext.infosMovie.author
+                  : "Not Documented"}
               </div>
               <div className="bottom-infos-grid-date">
-                {modalContext.infosMovie.date &&
-                  `${modalContext.infosMovie.date.year}`}
+                {modalContext.infosMovie.date
+                  ? modalContext.infosMovie.date.year
+                  : "Not Documented"}
               </div>
               <div className="bottom-infos-grid-length">
-                {modalContext.infosMovie.duration &&
-                  `${modalContext.infosMovie.duration.hours}h ${modalContext.infosMovie.duration.minutes} min`}
+                {modalContext.infosMovie.duration
+                  ? `${modalContext.infosMovie.duration.hours}h${modalContext.infosMovie.duration.minutes}min`
+                  : "Not Documented"}
               </div>
               <div className="bottom-infos-grid-starRater">
                 <Rating
@@ -336,7 +344,9 @@ const ItemModal = () => {
               </div>
               <div className="bottom-infos-grid-platforms">{icones}</div>
               <div className="bottom-infos-grid-synopsis">
-                {modalContext.infosMovie.synopsis}
+                {modalContext.infosMovie.synopsis
+                  ? modalContext.infosMovie.synopsis
+                  : "Not Documented"}
               </div>
             </div>
           </div>

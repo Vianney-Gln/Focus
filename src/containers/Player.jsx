@@ -28,7 +28,7 @@ const Player = ({ data, player, handlePlayer }) => (
         )}
       {data &&
         Object.prototype.hasOwnProperty.call(data, "trailer") &&
-        !data.trailer && <p>Not documented</p>}
+        !data.trailer && <p>Not available</p>}
     </div>
   </div>
 );
