@@ -1,10 +1,17 @@
+// React
 import React, { useContext, useEffect, useState } from "react";
 import Modal from "react-modal";
+// Packages
 import { Rating } from "react-simple-star-rating";
+// images
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import defaultImg from "../assets/images/imgDefault.png";
+// contexts
 import { SignContext } from "../contexts/SignContext";
 import { AuthContext } from "../contexts/AuthContext";
+import { ModalContext } from "../contexts/ModalContext";
+// services
 import {
   addMovie,
   addMovieToMyList,
@@ -15,10 +22,10 @@ import {
   getMovieListByID,
   updateMovie,
 } from "../services/FirebaseRealtimeDatabase";
-import { ModalContext } from "../contexts/ModalContext";
+// components
 import Player from "./Player";
+// styles
 import "../styles/itemModal.css";
-import defaultImg from "../assets/images/imgDefault.png";
 
 const ItemModal = () => {
   const signinContext = useContext(SignContext);
@@ -254,7 +261,11 @@ const ItemModal = () => {
                 handlePlayer={handlePlayer}
               />
             )}
-            <h1>{modalContext.infosMovie.title}</h1>
+            <h1>
+              {modalContext.infosMovie.title
+                ? modalContext.infosMovie.title
+                : "Not Documented"}
+            </h1>
             <button
               type="button"
               className="close"
@@ -266,15 +277,19 @@ const ItemModal = () => {
           <div className="bottom-infos">
             <div className="bottom-infos-grid">
               <div className="bottom-infos-grid-creators">
-                {modalContext.infosMovie.author}
+                {modalContext.infosMovie.author
+                  ? modalContext.infosMovie.author
+                  : "Not Documented"}
               </div>
               <div className="bottom-infos-grid-date">
-                {modalContext.infosMovie.date &&
-                  `${modalContext.infosMovie.date.year}`}
+                {modalContext.infosMovie.date
+                  ? modalContext.infosMovie.date.year
+                  : "Not Documented"}
               </div>
               <div className="bottom-infos-grid-length">
-                {modalContext.infosMovie.duration &&
-                  `${modalContext.infosMovie.duration.hours}h ${modalContext.infosMovie.duration.minutes} min`}
+                {modalContext.infosMovie.duration
+                  ? `${modalContext.infosMovie.duration.hours}h${modalContext.infosMovie.duration.minutes}min`
+                  : "Not Documented"}
               </div>
               <div className="bottom-infos-grid-starRater">
                 <Rating
@@ -336,7 +351,9 @@ const ItemModal = () => {
               </div>
               <div className="bottom-infos-grid-platforms">{icones}</div>
               <div className="bottom-infos-grid-synopsis">
-                {modalContext.infosMovie.synopsis}
+                {modalContext.infosMovie.synopsis
+                  ? modalContext.infosMovie.synopsis
+                  : "Not Documented"}
               </div>
             </div>
           </div>

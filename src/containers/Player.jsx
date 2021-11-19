@@ -1,8 +1,10 @@
+// React
 import React from "react";
-
+// styles
 import "../styles/index.css";
 import "../styles/player.css";
 import "../styles/itemsPreviews.css";
+// images
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -28,7 +30,7 @@ const Player = ({ data, player, handlePlayer }) => (
         )}
       {data &&
         Object.prototype.hasOwnProperty.call(data, "trailer") &&
-        !data.trailer && <p>Not documented</p>}
+        !data.trailer && <p>Not available</p>}
     </div>
   </div>
 );

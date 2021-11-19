@@ -1,7 +1,7 @@
 // react
 import React, { useContext } from "react";
 // react router dom
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 // contexts
 import { BurgerContext } from "../contexts/BurgerContext";
 import { AuthContext } from "../contexts/AuthContext";
@@ -13,6 +13,15 @@ const PopupMenu = () => {
   const burgerContext = useContext(BurgerContext);
   const authContext = useContext(AuthContext);
   const signContext = useContext(SignContext);
+  const history = useHistory();
+
+  const mylistNotConnected = () => {
+    signContext.showSignIn("/mylist");
+  };
+  const mylistConnected = () => {
+    burgerContext.setDisplayPopupMenu(!burgerContext.displayPopupMenu);
+    burgerContext.setOpen(false);
+  };
 
   /* A chaque clique sur un link le popupMenu se ferme et le burger retrouve son état initial */
   return (
@@ -59,21 +68,28 @@ const PopupMenu = () => {
         </Link>
       </ul>
       <ul className="popup-menu-elements-bottom">
-        <Link to="/mylist">
+        {authContext.isLogged && (
+          <Link to="/mylist">
+            <li
+              role="presentation"
+              onClick={mylistConnected}
+              className="my-list"
+              type="button"
+            >
+              MYLIST
+            </li>
+          </Link>
+        )}
+        {!authContext.isLogged && (
           <li
             role="presentation"
-            onClick={() => {
-              burgerContext.setDisplayPopupMenu(
-                !burgerContext.displayPopupMenu
-              );
-              burgerContext.setOpen(false);
-            }}
+            onClick={mylistNotConnected}
             className="my-list"
             type="button"
           >
             MYLIST
           </li>
-        </Link>
+        )}
         <Link to="/aboutus">
           <li
             role="presentation"
@@ -92,7 +108,7 @@ const PopupMenu = () => {
         {!authContext.isLogged && (
           <li
             type="button"
-            onClick={signContext.showSignIn}
+            onClick={() => signContext.showSignIn()}
             role="presentation"
           >
             SIGN IN
@@ -101,7 +117,10 @@ const PopupMenu = () => {
         {authContext.isLogged && (
           <li
             type="button"
-            onClick={authContext.userLogout}
+            onClick={() => {
+              authContext.userLogout();
+              history("/");
+            }}
             role="presentation"
           >
             LOGOUT
