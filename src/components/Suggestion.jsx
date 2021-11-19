@@ -37,7 +37,6 @@ const Suggestion = ({ data, loaded = false, userMyList = null, type, top }) => {
   const [currentData, setCurrentData] = useState(1);
   const [rating, setRating] = useState(0);
   const [buttonType, setButtonType] = useState(null);
-  const [thisMovie, setThisMovie] = useState(null);
   const suggestionData = data ? data[currentData] : null;
 
   /**
@@ -51,7 +50,6 @@ const Suggestion = ({ data, loaded = false, userMyList = null, type, top }) => {
       const checkthisMovie = userMyList.find(
         (movie) => movie.id === suggestionData.id
       );
-      setThisMovie(checkthisMovie);
       if (checkthisMovie && checkthisMovie.user && checkthisMovie.user.rating) {
         setRating(checkthisMovie.user.rating);
       } else {
@@ -130,21 +128,6 @@ const Suggestion = ({ data, loaded = false, userMyList = null, type, top }) => {
           suggestionData.id,
           ratingDefault
         );
-        // Change button to "Remove from my list"
-        buttonMyList(false);
-      }
-      if (authContext.isLogged) {
-        // try to add this movie to the database
-        const movieData = {
-          title: suggestionData.title || "Not documented",
-          poster: suggestionData.background || defaultImg,
-          author: suggestionData.author || "Not documented",
-          date: suggestionData.date.base || "Not documented",
-          duration: suggestionData.duration.base || "Not documented",
-        };
-        await addMovie(suggestionData.id, movieData);
-        // update to add user on movie
-        await addMovieToMyList(authContext.userID, suggestionData.id);
         // Change button to "Remove from my list"
         buttonMyList(false);
       } else {
@@ -367,29 +350,13 @@ const Suggestion = ({ data, loaded = false, userMyList = null, type, top }) => {
                   type="button"
                   onClick={handleRemoveOfMyList}
                 >
-                  {buttonType !== null && buttonType}
-                  {buttonType === null &&
-                    thisMovie &&
-                    Object.prototype.hasOwnProperty.call(
-                      thisMovie.user,
-                      "watch"
-                    ) && (
-                      <>
-                        <i className="icon-cancel" /> Remove
-                        <br />
-                        from my list
-                      </>
-                    )}
-                  {buttonType === null &&
-                    thisMovie &&
-                    !Object.prototype.hasOwnProperty.call(
-                      thisMovie.user,
-                      "watch"
-                    ) && (
-                      <>
-                        <i className="icon-plus" /> Add to my list
-                      </>
-                    )}
+                  {buttonType || (
+                    <>
+                      <i className="icon-cancel" /> Remove
+                      <br />
+                      from my list
+                    </>
+                  )}
                 </button>
               )}
             {loaded &&
@@ -400,8 +367,7 @@ const Suggestion = ({ data, loaded = false, userMyList = null, type, top }) => {
                   type="button"
                   onClick={handleAddToMyList}
                 >
-                  {buttonType !== null && buttonType}
-                  {buttonType === null && (
+                  {buttonType || (
                     <>
                       <i className="icon-plus" /> Add to my list
                     </>

@@ -212,7 +212,7 @@ export const tmdbSearchMovies = async (query) => {
     const { data } = await apiBaseUrl.get(`/search/movie`, {
       params: {
         region: "US",
-        query: encodeURI(query),
+        query,
       },
     });
     const { results } = data;
