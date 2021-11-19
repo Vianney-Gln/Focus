@@ -1,4 +1,6 @@
+// React
 import React from "react";
+// styles
 import "../styles/listSearch.scss";
 
 function ListSearch({ listTitle, search, setSearch }) {

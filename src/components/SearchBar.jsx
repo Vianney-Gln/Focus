@@ -1,8 +1,12 @@
+// React
 import React, { useState, useEffect, useContext } from "react";
-// import "../styles/SearchBar.css";
+// styles
 import "../styles/SearchBar.scss";
+// services
 import { tmdbSearchMovies } from "../services/TheMovieDbFunctions";
+// components
 import ListSearch from "./ListSearch";
+// contexts
 import { ModalContext } from "../contexts/ModalContext";
 
 const SearchBar = () => {

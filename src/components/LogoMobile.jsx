@@ -1,6 +1,10 @@
+// React
 import React, { useContext } from "react";
+// React router dom
 import { Link } from "react-router-dom";
+// images
 import logoMobile from "../assets/images/Focus_logo_short.png";
+// contexts
 import { BurgerContext } from "../contexts/BurgerContext";
 
 function LogoMobile() {

@@ -1,10 +1,17 @@
+// React
 import React, { useContext, useEffect, useState } from "react";
 import Modal from "react-modal";
+// Packages
 import { Rating } from "react-simple-star-rating";
+// images
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import defaultImg from "../assets/images/imgDefault.png";
+// contexts
 import { SignContext } from "../contexts/SignContext";
 import { AuthContext } from "../contexts/AuthContext";
+import { ModalContext } from "../contexts/ModalContext";
+// services
 import {
   addMovie,
   addMovieToMyList,
@@ -15,10 +22,10 @@ import {
   getMovieListByID,
   updateMovie,
 } from "../services/FirebaseRealtimeDatabase";
-import { ModalContext } from "../contexts/ModalContext";
+// components
 import Player from "./Player";
+// styles
 import "../styles/itemModal.css";
-import defaultImg from "../assets/images/imgDefault.png";
 
 const ItemModal = () => {
   const signinContext = useContext(SignContext);
