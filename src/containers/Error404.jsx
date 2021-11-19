@@ -1,6 +1,10 @@
+// React
 import React, { useEffect, useState } from "react";
+// React router dom
 import { Redirect, Link } from "react-router-dom";
+// images
 import gif from "../assets/images/compteur.gif";
+// styles
 import "../styles/error404.css";
 
 const Error404 = () => {

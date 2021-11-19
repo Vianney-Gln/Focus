@@ -1,8 +1,13 @@
-import "../styles/itemsPreviews.css";
+// React
 import React, { useContext } from "react";
+// images
 import defaultImg from "../assets/images/imgDefault.png";
+// components
 import ImageItemPreviews from "./ImageItemPreviews";
+// contexts
 import { ModalContext } from "../contexts/ModalContext";
+// styles
+import "../styles/itemsPreviews.css";
 
 function ItemsPreviews({ data, id }) {
   const modalContext = useContext(ModalContext);

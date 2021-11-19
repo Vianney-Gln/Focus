@@ -1,10 +1,16 @@
+// React
 import React, { useState, useContext, useEffect } from "react";
+// Packages
 import { Rating } from "react-simple-star-rating";
+// styles
 import "../styles/suggestion.scss";
+// components
 import Player from "../containers/Player";
 import ImageItemPreviews from "./ImageItemPreviews";
+// contexts
 import { SignContext } from "../contexts/SignContext";
 import { AuthContext } from "../contexts/AuthContext";
+// services
 import {
   addMovie,
   updateMovie,
@@ -14,6 +20,7 @@ import {
   getMovieListByID,
   getMovieofMyList,
 } from "../services/FirebaseRealtimeDatabase";
+// images
 import defaultImg from "../assets/images/imgDefault.png";
 
 const Suggestion = ({ data, loaded = false, userMyList = null, type, top }) => {

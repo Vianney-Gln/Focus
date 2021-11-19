@@ -1,8 +1,10 @@
+// React
 import React from "react";
-
+// styles
 import "../styles/index.css";
 import "../styles/player.css";
 import "../styles/itemsPreviews.css";
+// images
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
