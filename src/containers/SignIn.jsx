@@ -106,7 +106,7 @@ const SignIn = () => {
               className="redirectToRegister"
               onClick={handleShowRegisterPage}
             >
-              Not register ? Sign up for free here
+              Not registered ? Sign up for free here
             </button>
           </div>
         </form>
