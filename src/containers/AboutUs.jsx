@@ -65,6 +65,7 @@ export default function AboutUs() {
               <a href="https://github.com/anarkhya">
                 <img src={avatarG} alt="avatar" />
               </a>
+              <p>console.log(philosophy) </p>
               <p className="quote-text">« !maybe && maybe !not. »</p>
             </div>
             <div className="teamMembers-step3">
@@ -85,7 +86,7 @@ export default function AboutUs() {
                 <img src={avatarV} alt="avatar" />
               </a>
               <p>ESLint premium member </p>
-              <p className="quote-text">« As long as it s works... »</p>
+              <p className="quote-text">« As long as it works... »</p>
             </div>
           </div>
         </div>
