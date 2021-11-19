@@ -27,6 +27,7 @@ const SearchBar = () => {
               onClick={() => {
                 modalContext.setModalIsOpenToTrue();
                 modalContext.getInfosMovie(res.id);
+                setSearch("");
               }}
               role="presentation"
             >
